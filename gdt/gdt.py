@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 
 from dataclasses import dataclass, field
+import re
 from typing import Optional
 from pathlib import Path
 from .gff3_utils import *
@@ -44,10 +45,11 @@ def _get_gene_dict_info(gene_dict: dict) -> str:
     info.append(f"GeneDbxref: {GeneDbxref_count}")
     return info
 
-def create_gene_dict(gdt_file: str) -> dict:
+def create_gene_dict(gdt_file: str, max_an_sources:int = 20) -> dict:
     """ Create a gene dictionary from a GDT file.
     Args:
         gdt_file (str): Path to the GDT file.
+        max_an_sources (int): Maximum number of AN sources to include in GeneGeneric. If set to 0, all sources will be included. Default is 20.
     Returns:
         dict: A dictionary containing gene information.
     """
@@ -108,10 +110,12 @@ def create_gene_dict(gdt_file: str) -> dict:
         elif '#gn' in line: # GeneND type
             an_sources = [s.strip() for s in line.split('#gn', 1)[1].strip().split()]
             an_sources = an_sources if an_sources else []
-            if len(an_sources) >= 20:
-                an_sources = an_sources[:20]
+            
+            if len(an_sources) >= max_an_sources and max_an_sources > 0:
+                an_sources = an_sources[:max_an_sources]
                 comment = comment if comment else ''
-                comment += ' |More than 20 sources, adding only the first 20|'
+                comment += f' |More than {max_an_sources} sources, adding only the first {max_an_sources}|'
+            
             result[tag] = GeneGeneric(
                 label=current_section,
                 an_sources=an_sources,
@@ -128,6 +132,54 @@ def create_gene_dict(gdt_file: str) -> dict:
     result['info'] = _get_gene_dict_info(result)
     result['header'] = header
     return result
+
+def natural_sort(iterable):
+    def natural_sort_key(s):
+        return [int(c) if c.isdigit() else c.lower() for c in re.split(r'(\d+)', s)]
+    return sorted(iterable, key=natural_sort_key)
+
+def write_gdt_file(gene_dict: dict, gdt_file: str, overwrite: bool = False) -> None:
+    """ Write a gene dictionary to a GDT file.
+    Args:
+        gene_dict (dict): A dictionary containing gene information.
+        gdt_file (str): Path to the GDT file.
+    """
+    gdt_file = Path(gdt_file).resolve()
+    if gdt_file.exists() and not overwrite:
+        raise FileExistsError(f"GDT file already exists: {gdt_file}. Use overwrite=True to overwrite.")
+    
+    if gene_dict['header'][0] != 'version 0.0.2':
+        raise ValueError(f"GDT not on version 0.0.2. GDT version: {gene_dict['header'][0]}")
+
+    # drop header and value keys from gene_dict
+    header = gene_dict.pop('header')
+    gene_dict.pop('info')
+    all_labels = natural_sort({gene.label for gene in gene_dict.values()})
+    print(all_labels)
+
+    with open(gdt_file, 'w') as f:
+        for line in header:
+            f.write(f'#! {line}\n')
+        
+        for tag in all_labels:
+            f.write(f'\n[{tag}]\n')
+            for key in gene_dict:
+                if gene_dict[key].label == tag:
+                    if isinstance(gene_dict[key], GeneDbxref):
+                        f.write(f'{key} #dx {gene_dict[key].an_source}:{gene_dict[key].dbxref}'
+                                f'{" #c " + gene_dict[key].c if gene_dict[key].c else ""}\n')
+                    elif isinstance(gene_dict[key], GeneGeneric):
+                        if gene_dict[key].an_sources:
+                            f.write(f'{key} #gn {" ".join(gene_dict[key].an_sources)}'
+                                    f'{" #c " + gene_dict[key].c if gene_dict[key].c else ""}\n')
+                        else:
+                            f.write(f'{key} #gn'
+                                    f'{" #c " + gene_dict[key].c if gene_dict[key].c else ""}\n')
+                    elif isinstance(gene_dict[key], GeneDescription):
+                        f.write(f'{key} #gd {gene_dict[key].source}'
+                                f'{" #c " + gene_dict[key].c if gene_dict[key].c else ""}\n')
+                    else:
+                        print(f"[INFO] Unknown type for key {key}: {type(gene_dict[key])}")
 
 
 if __name__ == "__main__":

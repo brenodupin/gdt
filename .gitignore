@@ -24,3 +24,4 @@ env/
 htmlcov/
 .pytest_cache/
 gdt/logs/*
+test/

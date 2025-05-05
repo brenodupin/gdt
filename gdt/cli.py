@@ -1,7 +1,8 @@
 # -*- coding: utf-8 -*-
 
-from gdt.logger_setup import logger_setup
-from gdt.tsv_filter import filter_whole_tsv
+import gdt.logger_setup
+import gdt.gdt
+
 from pathlib import Path
 import argparse
 
@@ -20,29 +21,41 @@ def cli_run():
     filter_parser.add_argument("--orfs",  required=False, default=False, action="store_true", help="Dont discard ORFs. Default: False")
     filter_parser.add_argument("--debug", required=False, default=False, action="store_true", help="Enable TRACE level in file log. Default: False (DEBUG level)")
     filter_parser.add_argument("--workers", required=False, default=0, type=int, help="Number of workers to use. Default: max_workers in ProcessPoolExecutor")
+    
+    write_parser = subparsers.add_parser('write', help='Write GDT to file')
+    write_parser.add_argument('--gdt', required=True, help='GDT file to write')
+    write_parser.add_argument('--out', required=True, help='Output file to write')
+    write_parser.add_argument("--debug", required=False, default=False, action="store_true", help="Enable TRACE level in file log. Default: False (DEBUG level)")
+
+    
     args = parser.parse_args()
     
+    console_level = 'DEBUG'
+    if args.debug:
+        log_path, logger = gdt.logger_setup.logger_setup(console_level=console_level, file_level='TRACE')
+        logger.trace("TRACE level enabled in file log.")
+    else:
+        log_path, logger = gdt.logger_setup.logger_setup(console_level=console_level, file_level='DEBUG')
+
+    logger.info(f"Logging to console and file. Check logfile for more details. ({log_path})")
+    logger.debug('CLI run called.')
+    logger.debug(f'exec path: {Path().resolve()}')
+    logger.debug(f'cli  path: {Path(__file__)}')
+    logger.debug(f'args: {args}')
 
     if args.command == 'filter':
-        console_level = 'DEBUG'
-        if args.debug:
-            log_path, logger = logger_setup(console_level=console_level, file_level='TRACE')
-            logger.trace("TRACE level enabled in file log.")
-        else:
-            log_path, logger = logger_setup(console_level=console_level, file_level='DEBUG')
-
-        logger.info(f"Logging to console and file. Check logfile for more details. ({log_path})")
-        logger.debug('CLI run called.')
-        logger.debug(f'exec path: {Path().resolve()}')
-        logger.debug(f'cli  path: {Path(__file__)}')
-        
         args.tsv = Path(args.tsv).resolve()
+        
         if args.gdt:
             args.gdt = Path(args.gdt).resolve()
         
-        logger.debug(f'args: {args}')
         logger.debug('Filter command called.')
-        a = filter_whole_tsv(logger, args.tsv, args.gdt, args.orfs, args.workers, args.AN_column)
+        a = gdt.gdt.filter_whole_tsv(logger, args.tsv, args.gdt, args.orfs, args.workers, args.AN_column)
+    
+    elif args.command == 'write':
+        logger.debug("Write command")
+        gd = gdt.gdt.create_gene_dict(args.gdt, max_an_sources=0)
+        a = gdt.gdt.write_gdt_file(gd, args.out, overwrite=True)
 
         
 

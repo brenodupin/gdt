@@ -5,26 +5,22 @@ from typing import Optional
 from pathlib import Path
 from .gff3_utils import *
 
-@dataclass
+@dataclass(slots=True)
 class Gene:
-    __slots__ = ("label", "c")
     label: str
     c: Optional[str]
 
-@dataclass
+@dataclass(slots=True)
 class GeneDbxref(Gene):
-    __slots__ = ("an_source", "dbxref")
     an_source: str
     dbxref: int
 
-@dataclass
+@dataclass(slots=True)
 class GeneGeneric(Gene):
-    __slots__ = ("an_sources",)
     an_sources: list = field(default_factory=list)
 
-@dataclass
+@dataclass(slots=True)
 class GeneDescription(Gene):
-    __slots__ = ("source",)
     source: str
 
 def _get_gene_dict_info(gene_dict: dict) -> str:

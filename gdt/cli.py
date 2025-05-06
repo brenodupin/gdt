@@ -1,7 +1,9 @@
 # -*- coding: utf-8 -*-
 
 import gdt.logger_setup
-import gdt.gdt
+import gdt.gene_dict
+import gdt.gff3_utils
+import gdt.tsv_filter
 
 from pathlib import Path
 import argparse
@@ -32,10 +34,10 @@ def cli_run():
     
     console_level = 'DEBUG'
     if args.debug:
-        log_path, logger = gdt.logger_setup.logger_setup(console_level=console_level, file_level='TRACE')
+        log_path, logger = gdt.logger_setup.logger_creater(console_level=console_level, file_level='TRACE')
         logger.trace("TRACE level enabled in file log.")
     else:
-        log_path, logger = gdt.logger_setup.logger_setup(console_level=console_level, file_level='DEBUG')
+        log_path, logger = gdt.logger_setup.logger_creater(console_level=console_level, file_level='DEBUG')
 
     logger.info(f"Logging to console and file. Check logfile for more details. ({log_path})")
     logger.debug('CLI run called.')
@@ -50,15 +52,9 @@ def cli_run():
             args.gdt = Path(args.gdt).resolve()
         
         logger.debug('Filter command called.')
-        a = gdt.gdt.filter_whole_tsv(logger, args.tsv, args.gdt, args.orfs, args.workers, args.AN_column)
+        a = gdt.tsv_filter.filter_whole_tsv(logger, args.tsv, args.gdt, args.orfs, args.workers, args.AN_column)
     
     elif args.command == 'write':
         logger.debug("Write command")
-        gd = gdt.gdt.create_gene_dict(args.gdt, max_an_sources=0)
-        a = gdt.gdt.write_gdt_file(gd, args.out, overwrite=True)
-
-        
-
-        
-        
-
+        gd = gdt.gene_dict.create_gene_dict(args.gdt, max_an_sources=0)
+        a = gdt.gene_dict.write_gdt_file(gd, args.out, overwrite=True)

@@ -31,7 +31,7 @@ def cleanup_logs(log_dir: Path, max_files: int = 10):
             print(f"Error removing old log file {old_file}: {e}")
             raise
 
-def logger_setup(console_level: Optional[str] = None, file_level: Optional[str] = None, log_file: Path = None) -> tuple[str, logging.Logger]:
+def logger_creater(console_level: Optional[str] = None, file_level: Optional[str] = None, log_file: Path = None) -> tuple[str, logging.Logger]:
     """Set up the logger for the GDT package.
     Args:
         console_level (Optional[str]): Logging level for console output. Defaults to INFO.
@@ -66,7 +66,7 @@ def logger_setup(console_level: Optional[str] = None, file_level: Optional[str] 
     for handler in logger.handlers[:]:
         logger.removeHandler(handler)
     
-    # Create console handler
+    # Create console handler (StreamHandler defaults to sys.stderr, can be changed to sys.stdout)
     console_handler = logging.StreamHandler()
     console_handler.setLevel(console_level)
     console_formatter = logging.Formatter('%(asctime)s - %(levelname)s - %(message)s')

@@ -21,7 +21,7 @@ def cli_run():
     filter_parser.add_argument('--AN-column', required=False, default='AN', type=str, help='Column name for NCBI Accession Number. Default: AN')
     filter_parser.add_argument('--gdt',   required=False, default=False, help='GDT filed that will be used as base')
     filter_parser.add_argument("--orfs",  required=False, default=False, action="store_true", help="Dont discard ORFs. Default: False")
-    filter_parser.add_argument("--debug", required=False, default=False, action="store_true", help="Enable TRACE level in file log. Default: False (DEBUG level)")
+    filter_parser.add_argument("--debug", required=False, default=False, action="store_true", help="Enable TRACE level in file log, and DEBUG on StreamHandler. Default: False (DEBUG level on file and INFO on console)")
     filter_parser.add_argument("--workers", required=False, default=0, type=int, help="Number of workers to use. Default: max_workers in ProcessPoolExecutor")
     
     write_parser = subparsers.add_parser('write', help='Write GDT to file')
@@ -32,12 +32,11 @@ def cli_run():
     
     args = parser.parse_args()
     
-    console_level = 'DEBUG'
     if args.debug:
-        log_path, logger = gdt.logger_setup.logger_creater(console_level=console_level, file_level='TRACE')
+        log_path, logger = gdt.logger_setup.logger_creater(console_level='DEBUG', file_level='TRACE')
         logger.trace("TRACE level enabled in file log.")
     else:
-        log_path, logger = gdt.logger_setup.logger_creater(console_level=console_level, file_level='DEBUG')
+        log_path, logger = gdt.logger_setup.logger_creater(console_level='INFO', file_level='DEBUG')
 
     logger.info(f"Logging to console and file. Check logfile for more details. ({log_path})")
     logger.debug('CLI run called.')

@@ -83,7 +83,7 @@ def filter_whole_tsv(logger: logging.Logger, tsv_path: Path, gdt_path: Optional[
         raise ValueError(f'AN column "{AN_column}" not found in {tsv_path}')
 
     # start processing    
-    logger.debug(f'Processing {len(tsv)} ANs with {workers} workers')
+    logger.info(f'Processing {len(tsv)} ANs with {workers} workers')
     with concurrent.futures.ProcessPoolExecutor(max_workers=workers) as executor:
         futures = [executor.submit(process_single_an, base_folder / f'{an}.gff3', gene_dict, keep_orfs) for an in tsv[AN_column]]
     concurrent.futures.wait(futures)
@@ -120,16 +120,24 @@ def filter_whole_tsv(logger: logging.Logger, tsv_path: Path, gdt_path: Optional[
     logger.trace(f'ANs missing gene_dict: {AN_missing_gene_dict}')
     logger.debug(f'ANs good to go: {len(AN_good_to_go)}')
     logger.trace(f'ANs good to go: {AN_good_to_go}')
-    logger.debug('Processing finished, creating output files')
+    logger.info('Processing finished, creating output files')
 
     if AN_missing_dbxref:
         with open(base_folder / 'AN_missing_dbxref', 'w') as f:
             f.write('\n'.join(AN_missing_dbxref))
     else:
         logger.debug('No ANs missing dbxref, skipping file creation')
+        # check if file exists and remove it
+        if (base_folder / 'AN_missing_dbxref').exists():
+            logger.debug(f'Removing file: {base_folder / "AN_missing_dbxref"}')
+            (base_folder / 'AN_missing_dbxref').unlink()
+
     
     if AN_missing_gene_dict:
         with open(base_folder / 'AN_missing_gene_dict', 'w') as f:
             f.write('\n'.join(AN_missing_gene_dict))
     else:
         logger.debug('No ANs missing gene_dict, skipping file creation')
+        if (base_folder / 'AN_missing_gene_dict').exists():
+            logger.debug(f'Removing file: {base_folder / "AN_missing_gene_dict"}')
+            (base_folder / 'AN_missing_gene_dict').unlink()

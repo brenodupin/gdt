@@ -24,7 +24,7 @@ class GeneGeneric(Gene):
 class GeneDescription(Gene):
     source: str
 
-def _get_gene_dict_info(gene_dict: dict) -> str:
+def get_gene_dict_info(gene_dict: dict) -> str:
     """ Get information about the gene dictionary.
     Args:
         gene_dict (dict): A dictionary containing gene information.
@@ -135,7 +135,7 @@ def create_gene_dict(gdt_file: str, max_an_sources:int = 20) -> dict:
                 source=source,
                 c=comment)
     
-    result['info'] = _get_gene_dict_info(result)
+    result['info'] = get_gene_dict_info(result)
     result['header'] = header
     return result
 
@@ -165,9 +165,8 @@ def write_gdt_file(gene_dict: dict, gdt_file: str, overwrite: bool = False) -> N
 
     # drop header and value keys from gene_dict
     header = gene_dict.pop('header')
-    gene_dict.pop('info')
+    info = gene_dict.pop('info')
     all_labels = natural_sort({gene.label for gene in gene_dict.values()})
-    print(all_labels)
 
     with open(gdt_file, 'w') as f:
         for line in header:
@@ -191,7 +190,10 @@ def write_gdt_file(gene_dict: dict, gdt_file: str, overwrite: bool = False) -> N
                         f.write(f'{key} #gd {gene_dict[key].source}'
                                 f'{" #c " + gene_dict[key].c if gene_dict[key].c else ""}\n')
                     else:
-                        print(f"[INFO] Unknown type for key {key}: {type(gene_dict[key])}")
+                        raise TypeError(f"Unknown type {type(gene_dict[key])} for |{key}|:|{gene_dict[key]}|")
+    
+    gene_dict['header'] = header
+    gene_dict['info'] = info
 
 
 if __name__ == "__main__":

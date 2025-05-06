@@ -1,0 +1,768 @@
+2025-05-06 19:32:00,032 - DEBUG - Logger setup complete. Logging to /home/brenodupin/matheus/gdt/notebooks/test.log
+2025-05-06 19:32:00,036 - INFO - Running from notebook AN_missing_gene_dict
+2025-05-06 19:32:00,124 - INFO - Starting TEMP process
+2025-05-06 19:32:00,125 - DEBUG - -- [Processing: NC_001329.3] --
+2025-05-06 19:32:00,674 - DEBUG - 	m: 43 | r: 43 | m/r check: True
+2025-05-06 19:32:00,679 - DEBUG - gene_id: gene-PoanfMt57 | dbxref: 802418 | s: 600 | att: ID=gene-PoanfMt57;Dbxref=GeneID:802418;Name=trnI(gau);gbkey=Gene;gene=trnI(gau);gene_biotype=tRNA;locus_tag=PoanfMt57
+2025-05-06 19:32:00,679 - DEBUG - 	name: PoanfMt57 | desc: tRNA-Ile | gene_symbol: trnI(gau)
+2025-05-06 19:32:00,679 - DEBUG - 	[1st F]Label not found gene_dict | checking temp_gene_dict | Label: tRNA-Ile
+2025-05-06 19:32:00,680 - DEBUG - 	[2nd F]Label not in temp_gene_dict, creating new label | Label: tRNA-Ile
+2025-05-06 19:32:00,681 - DEBUG - 	New Label MT-TEMP-1 to tRNA-Ile # NC_001329.3:802418
+2025-05-06 19:32:00,682 - DEBUG - gene_id: gene-PoanfMt58 | dbxref: 802426 | s: 832 | att: ID=gene-PoanfMt58;Dbxref=GeneID:802426;Name=trnS(uga);gbkey=Gene;gene=trnS(uga);gene_biotype=tRNA;locus_tag=PoanfMt58
+2025-05-06 19:32:00,682 - DEBUG - 	name: PoanfMt58 | desc: tRNA-Ser | gene_symbol: trnS(uga)
+2025-05-06 19:32:00,683 - DEBUG - 	[1st F]Label not found gene_dict | checking temp_gene_dict | Label: tRNA-Ser
+2025-05-06 19:32:00,684 - DEBUG - 	[2nd F]Label not in temp_gene_dict, creating new label | Label: tRNA-Ser
+2025-05-06 19:32:00,684 - DEBUG - 	New Label MT-TEMP-2 to tRNA-Ser # NC_001329.3:802426
+2025-05-06 19:32:00,685 - DEBUG - gene_id: gene-PoanfMt59 | dbxref: 802431 | s: 1204 | att: ID=gene-PoanfMt59;Dbxref=GeneID:802431;Name=trnP(ugg);gbkey=Gene;gene=trnP(ugg);gene_biotype=tRNA;locus_tag=PoanfMt59
+2025-05-06 19:32:00,685 - DEBUG - 	name: PoanfMt59 | desc: tRNA-Pro | gene_symbol: trnP(ugg)
+2025-05-06 19:32:00,686 - DEBUG - 	[1st F]Label not found gene_dict | checking temp_gene_dict | Label: tRNA-Pro
+2025-05-06 19:32:00,686 - DEBUG - 	[2nd F]Label not in temp_gene_dict, creating new label | Label: tRNA-Pro
+2025-05-06 19:32:00,687 - DEBUG - 	New Label MT-TEMP-3 to tRNA-Pro # NC_001329.3:802431
+2025-05-06 19:32:00,687 - DEBUG - gene_id: gene-PoanfMr55 | dbxref: 802432 | s: 1437 | att: ID=gene-PoanfMr55;Dbxref=GeneID:802432;Name=rnl;gbkey=Gene;gene=rnl;gene_biotype=rRNA;locus_tag=PoanfMr55
+2025-05-06 19:32:00,688 - DEBUG - 	name: PoanfMr55 | desc: large subunit ribosomal RNA | gene_symbol: rnl
+2025-05-06 19:32:00,689 - DEBUG - 	[1st F]Label not found gene_dict | checking temp_gene_dict | Label: large subunit ribosomal RNA
+2025-05-06 19:32:00,689 - DEBUG - 	[2nd F]Label not in temp_gene_dict, creating new label | Label: large subunit ribosomal RNA
+2025-05-06 19:32:00,689 - DEBUG - 	New Label MT-TEMP-4 to large subunit ribosomal RNA # NC_001329.3:802432
+2025-05-06 19:32:00,690 - DEBUG - gene_id: gene-PoanfMp03 | dbxref: 802476 | s: 6538 | att: ID=gene-PoanfMp03;Dbxref=GeneID:802476;Name=rps3;gbkey=Gene;gene=rps3;gene_biotype=protein_coding;locus_tag=PoanfMp03
+2025-05-06 19:32:00,690 - DEBUG - 	name: PoanfMp03 | desc: ribosomal protein S3 | gene_symbol: rps3
+2025-05-06 19:32:00,691 - DEBUG - 	[1st F]Label not found gene_dict | checking temp_gene_dict | Label: ribosomal protein S3
+2025-05-06 19:32:00,691 - DEBUG - 	[2nd F]Label not in temp_gene_dict, creating new label | Label: ribosomal protein S3
+2025-05-06 19:32:00,692 - DEBUG - 	New Label MT-TEMP-5 to ribosomal protein S3 # NC_001329.3:802476
+2025-05-06 19:32:00,693 - DEBUG - gene_id: gene-PoanfMt60 | dbxref: 802421 | s: 9114 | att: ID=gene-PoanfMt60;Dbxref=GeneID:802421;Name=trnT(ugu);gbkey=Gene;gene=trnT(ugu);gene_biotype=tRNA;locus_tag=PoanfMt60
+2025-05-06 19:32:00,693 - DEBUG - 	name: PoanfMt60 | desc: tRNA-Thr | gene_symbol: trnT(ugu)
+2025-05-06 19:32:00,694 - DEBUG - 	[1st F]Label not found gene_dict | checking temp_gene_dict | Label: tRNA-Thr
+2025-05-06 19:32:00,694 - DEBUG - 	[2nd F]Label not in temp_gene_dict, creating new label | Label: tRNA-Thr
+2025-05-06 19:32:00,694 - DEBUG - 	New Label MT-TEMP-6 to tRNA-Thr # NC_001329.3:802421
+2025-05-06 19:32:00,695 - DEBUG - gene_id: gene-PoanfMt61 | dbxref: 802482 | s: 9196 | att: ID=gene-PoanfMt61;Dbxref=GeneID:802482;Name=trnE(uuc);gbkey=Gene;gene=trnE(uuc);gene_biotype=tRNA;locus_tag=PoanfMt61
+2025-05-06 19:32:00,695 - DEBUG - 	name: PoanfMt61 | desc: tRNA-Glu | gene_symbol: trnE(uuc)
+2025-05-06 19:32:00,695 - DEBUG - 	[1st F]Label not found gene_dict | checking temp_gene_dict | Label: tRNA-Glu
+2025-05-06 19:32:00,696 - DEBUG - 	[2nd F]Label not in temp_gene_dict, creating new label | Label: tRNA-Glu
+2025-05-06 19:32:00,696 - DEBUG - 	New Label MT-TEMP-7 to tRNA-Glu # NC_001329.3:802482
+2025-05-06 19:32:00,696 - DEBUG - gene_id: gene-PoanfMt62 | dbxref: 802460 | s: 9437 | att: ID=gene-PoanfMt62;Dbxref=GeneID:802460;Name=trnI(cau);gbkey=Gene;gene=trnI(cau);gene_biotype=tRNA;locus_tag=PoanfMt62
+2025-05-06 19:32:00,697 - DEBUG - 	name: PoanfMt62 | desc: tRNA-Ile | gene_symbol: trnI(cau)
+2025-05-06 19:32:00,697 - DEBUG - 	[1st F]Label not found gene_dict | checking temp_gene_dict | Label: tRNA-Ile
+2025-05-06 19:32:00,698 - DEBUG - 	[2nd T]Label in temp_gene_dict, adding: gene-PoanfMt62 # NC_001329.3:802460 | Label: MT-TEMP-1
+2025-05-06 19:32:00,698 - DEBUG - gene_id: gene-PoanfMt63 | dbxref: 802441 | s: 9600 | att: ID=gene-PoanfMt63;Dbxref=GeneID:802441;Name=trnM(cau)f;gbkey=Gene;gene=trnM(cau)f;gene_biotype=tRNA;locus_tag=PoanfMt63
+2025-05-06 19:32:00,699 - DEBUG - 	name: PoanfMt63 | desc: tRNA-Met | gene_symbol: trnM(cau)f
+2025-05-06 19:32:00,700 - DEBUG - 	[1st F]Label not found gene_dict | checking temp_gene_dict | Label: tRNA-Met
+2025-05-06 19:32:00,700 - DEBUG - 	[2nd F]Label not in temp_gene_dict, creating new label | Label: tRNA-Met
+2025-05-06 19:32:00,701 - DEBUG - 	New Label MT-TEMP-8 to tRNA-Met # NC_001329.3:802441
+2025-05-06 19:32:00,701 - DEBUG - gene_id: gene-PoanfMt64 | dbxref: 802473 | s: 9914 | att: ID=gene-PoanfMt64;Dbxref=GeneID:802473;Name=trnL(uaa);gbkey=Gene;gene=trnL(uaa);gene_biotype=tRNA;locus_tag=PoanfMt64
+2025-05-06 19:32:00,702 - DEBUG - 	name: PoanfMt64 | desc: tRNA-Leu | gene_symbol: trnL(uaa)
+2025-05-06 19:32:00,703 - DEBUG - 	[1st F]Label not found gene_dict | checking temp_gene_dict | Label: tRNA-Leu
+2025-05-06 19:32:00,703 - DEBUG - 	[2nd F]Label not in temp_gene_dict, creating new label | Label: tRNA-Leu
+2025-05-06 19:32:00,703 - DEBUG - 	New Label MT-TEMP-9 to tRNA-Leu # NC_001329.3:802473
+2025-05-06 19:32:00,704 - DEBUG - gene_id: gene-PoanfMt65 | dbxref: 802417 | s: 10108 | att: ID=gene-PoanfMt65;Dbxref=GeneID:802417;Name=trnA(ugc);gbkey=Gene;gene=trnA(ugc);gene_biotype=tRNA;locus_tag=PoanfMt65
+2025-05-06 19:32:00,704 - DEBUG - 	name: PoanfMt65 | desc: tRNA-Ala | gene_symbol: trnA(ugc)
+2025-05-06 19:32:00,704 - DEBUG - 	[1st F]Label not found gene_dict | checking temp_gene_dict | Label: tRNA-Ala
+2025-05-06 19:32:00,705 - DEBUG - 	[2nd F]Label not in temp_gene_dict, creating new label | Label: tRNA-Ala
+2025-05-06 19:32:00,706 - DEBUG - 	New Label MT-TEMP-10 to tRNA-Ala # NC_001329.3:802417
+2025-05-06 19:32:00,706 - DEBUG - gene_id: gene-PoanfMt66 | dbxref: 802424 | s: 10184 | att: ID=gene-PoanfMt66;Dbxref=GeneID:802424;Name=trnF(gaa);gbkey=Gene;gene=trnF(gaa);gene_biotype=tRNA;locus_tag=PoanfMt66
+2025-05-06 19:32:00,706 - DEBUG - 	name: PoanfMt66 | desc: tRNA-Phe | gene_symbol: trnF(gaa)
+2025-05-06 19:32:00,707 - DEBUG - 	[1st F]Label not found gene_dict | checking temp_gene_dict | Label: tRNA-Phe
+2025-05-06 19:32:00,707 - DEBUG - 	[2nd F]Label not in temp_gene_dict, creating new label | Label: tRNA-Phe
+2025-05-06 19:32:00,707 - DEBUG - 	New Label MT-TEMP-11 to tRNA-Phe # NC_001329.3:802424
+2025-05-06 19:32:00,709 - DEBUG - gene_id: gene-PoanfMt67 | dbxref: 802430 | s: 10266 | att: ID=gene-PoanfMt67;Dbxref=GeneID:802430;Name=trnL(uag);gbkey=Gene;gene=trnL(uag);gene_biotype=tRNA;locus_tag=PoanfMt67
+2025-05-06 19:32:00,709 - DEBUG - 	name: PoanfMt67 | desc: tRNA-Leu | gene_symbol: trnL(uag)
+2025-05-06 19:32:00,709 - DEBUG - 	[1st F]Label not found gene_dict | checking temp_gene_dict | Label: tRNA-Leu
+2025-05-06 19:32:00,710 - DEBUG - 	[2nd T]Label in temp_gene_dict, adding: gene-PoanfMt67 # NC_001329.3:802430 | Label: MT-TEMP-9
+2025-05-06 19:32:00,710 - DEBUG - gene_id: gene-PoanfMt68 | dbxref: 802438 | s: 10408 | att: ID=gene-PoanfMt68;Dbxref=GeneID:802438;Name=trnQ(uug);gbkey=Gene;gene=trnQ(uug);gene_biotype=tRNA;locus_tag=PoanfMt68
+2025-05-06 19:32:00,710 - DEBUG - 	name: PoanfMt68 | desc: tRNA-Gln | gene_symbol: trnQ(uug)
+2025-05-06 19:32:00,711 - DEBUG - 	[1st F]Label not found gene_dict | checking temp_gene_dict | Label: tRNA-Gln
+2025-05-06 19:32:00,711 - DEBUG - 	[2nd F]Label not in temp_gene_dict, creating new label | Label: tRNA-Gln
+2025-05-06 19:32:00,711 - DEBUG - 	New Label MT-TEMP-12 to tRNA-Gln # NC_001329.3:802438
+2025-05-06 19:32:00,712 - DEBUG - gene_id: gene-PoanfMt69 | dbxref: 802444 | s: 10883 | att: ID=gene-PoanfMt69;Dbxref=GeneID:802444;Name=trnH(gug);gbkey=Gene;gene=trnH(gug);gene_biotype=tRNA;locus_tag=PoanfMt69
+2025-05-06 19:32:00,712 - DEBUG - 	name: PoanfMt69 | desc: tRNA-His | gene_symbol: trnH(gug)
+2025-05-06 19:32:00,712 - DEBUG - 	[1st F]Label not found gene_dict | checking temp_gene_dict | Label: tRNA-His
+2025-05-06 19:32:00,713 - DEBUG - 	[2nd F]Label not in temp_gene_dict, creating new label | Label: tRNA-His
+2025-05-06 19:32:00,713 - DEBUG - 	New Label MT-TEMP-13 to tRNA-His # NC_001329.3:802444
+2025-05-06 19:32:00,714 - DEBUG - gene_id: gene-PoanfMt70 | dbxref: 802445 | s: 11266 | att: ID=gene-PoanfMt70;Dbxref=GeneID:802445;Name=trnM(cau)e;gbkey=Gene;gene=trnM(cau)e;gene_biotype=tRNA;locus_tag=PoanfMt70
+2025-05-06 19:32:00,714 - DEBUG - 	name: PoanfMt70 | desc: tRNA-Met | gene_symbol: trnM(cau)e
+2025-05-06 19:32:00,714 - DEBUG - 	[1st F]Label not found gene_dict | checking temp_gene_dict | Label: tRNA-Met
+2025-05-06 19:32:00,715 - DEBUG - 	[2nd T]Label in temp_gene_dict, adding: gene-PoanfMt70 # NC_001329.3:802445 | Label: MT-TEMP-8
+2025-05-06 19:32:00,715 - DEBUG - gene_id: gene-PoanfMp04 | dbxref: 802484 | s: 11606 | att: ID=gene-PoanfMp04;Dbxref=GeneID:802484;Name=nad2;gbkey=Gene;gene=nad2;gene_biotype=protein_coding;locus_tag=PoanfMp04
+2025-05-06 19:32:00,716 - DEBUG - 	name: PoanfMp04 | desc: NADH dehydrogenase subunit 2 | gene_symbol: nad2
+2025-05-06 19:32:00,716 - DEBUG - 	[1st F]Label not found gene_dict | checking temp_gene_dict | Label: NADH dehydrogenase subunit 2
+2025-05-06 19:32:00,716 - DEBUG - 	[2nd F]Label not in temp_gene_dict, creating new label | Label: NADH dehydrogenase subunit 2
+2025-05-06 19:32:00,717 - DEBUG - 	New Label MT-TEMP-14 to NADH dehydrogenase subunit 2 # NC_001329.3:802484
+2025-05-06 19:32:00,717 - DEBUG - gene_id: gene-PoanfMp05 | dbxref: 802411 | s: 13277 | att: ID=gene-PoanfMp05;Dbxref=GeneID:802411;Name=nad3;gbkey=Gene;gene=nad3;gene_biotype=protein_coding;locus_tag=PoanfMp05
+2025-05-06 19:32:00,717 - DEBUG - 	name: PoanfMp05 | desc: NADH dehydrogenase subunit 3 | gene_symbol: nad3
+2025-05-06 19:32:00,717 - DEBUG - 	[1st F]Label not found gene_dict | checking temp_gene_dict | Label: NADH dehydrogenase subunit 3
+2025-05-06 19:32:00,718 - DEBUG - 	[2nd F]Label not in temp_gene_dict, creating new label | Label: NADH dehydrogenase subunit 3
+2025-05-06 19:32:00,718 - DEBUG - 	New Label MT-TEMP-15 to NADH dehydrogenase subunit 3 # NC_001329.3:802411
+2025-05-06 19:32:00,718 - DEBUG - gene_id: gene-PoanfMt71 | dbxref: 802449 | s: 15217 | att: ID=gene-PoanfMt71;Dbxref=GeneID:802449;Name=trnR(ucu);gbkey=Gene;gene=trnR(ucu);gene_biotype=tRNA;locus_tag=PoanfMt71
+2025-05-06 19:32:00,719 - DEBUG - 	name: PoanfMt71 | desc: tRNA-Arg | gene_symbol: trnR(ucu)
+2025-05-06 19:32:00,719 - DEBUG - 	[1st F]Label not found gene_dict | checking temp_gene_dict | Label: tRNA-Arg
+2025-05-06 19:32:00,720 - DEBUG - 	[2nd F]Label not in temp_gene_dict, creating new label | Label: tRNA-Arg
+2025-05-06 19:32:00,720 - DEBUG - 	New Label MT-TEMP-16 to tRNA-Arg # NC_001329.3:802449
+2025-05-06 19:32:00,721 - DEBUG - gene_id: gene-PoanfMr56 | dbxref: 802448 | s: 15616 | att: ID=gene-PoanfMr56;Dbxref=GeneID:802448;Name=rns;gbkey=Gene;gene=rns;gene_biotype=rRNA;locus_tag=PoanfMr56
+2025-05-06 19:32:00,722 - DEBUG - 	name: PoanfMr56 | desc: small subunit ribosomal RNA | gene_symbol: rns
+2025-05-06 19:32:00,723 - DEBUG - 	[1st F]Label not found gene_dict | checking temp_gene_dict | Label: small subunit ribosomal RNA
+2025-05-06 19:32:00,724 - DEBUG - 	[2nd F]Label not in temp_gene_dict, creating new label | Label: small subunit ribosomal RNA
+2025-05-06 19:32:00,724 - DEBUG - 	New Label MT-TEMP-17 to small subunit ribosomal RNA # NC_001329.3:802448
+2025-05-06 19:32:00,725 - DEBUG - gene_id: gene-PoanfMt72 | dbxref: 802435 | s: 17598 | att: ID=gene-PoanfMt72;Dbxref=GeneID:802435;Name=trnY(gua);gbkey=Gene;gene=trnY(gua);gene_biotype=tRNA;locus_tag=PoanfMt72
+2025-05-06 19:32:00,726 - DEBUG - 	name: PoanfMt72 | desc: tRNA-Tyr | gene_symbol: trnY(gua)
+2025-05-06 19:32:00,726 - DEBUG - 	[1st F]Label not found gene_dict | checking temp_gene_dict | Label: tRNA-Tyr
+2025-05-06 19:32:00,726 - DEBUG - 	[2nd F]Label not in temp_gene_dict, creating new label | Label: tRNA-Tyr
+2025-05-06 19:32:00,727 - DEBUG - 	New Label MT-TEMP-18 to tRNA-Tyr # NC_001329.3:802435
+2025-05-06 19:32:00,727 - DEBUG - gene_id: gene-PoanfMp07 | dbxref: 802433 | s: 17916 | att: ID=gene-PoanfMp07;Dbxref=GeneID:802433;Name=cox3;gbkey=Gene;gene=cox3;gene_biotype=protein_coding;locus_tag=PoanfMp07
+2025-05-06 19:32:00,728 - DEBUG - 	name: PoanfMp07 | desc: cytochrome c oxidase subunit 3 | gene_symbol: cox3
+2025-05-06 19:32:00,728 - DEBUG - 	[1st F]Label not found gene_dict | checking temp_gene_dict | Label: cytochrome c oxidase subunit 3
+2025-05-06 19:32:00,728 - DEBUG - 	[2nd F]Label not in temp_gene_dict, creating new label | Label: cytochrome c oxidase subunit 3
+2025-05-06 19:32:00,729 - DEBUG - 	New Label MT-TEMP-19 to cytochrome c oxidase subunit 3 # NC_001329.3:802433
+2025-05-06 19:32:00,729 - DEBUG - gene_id: gene-PoanfMt73 | dbxref: 802425 | s: 18766 | att: ID=gene-PoanfMt73;Dbxref=GeneID:802425;Name=trnK(uuu);gbkey=Gene;gene=trnK(uuu);gene_biotype=tRNA;locus_tag=PoanfMt73
+2025-05-06 19:32:00,729 - DEBUG - 	name: PoanfMt73 | desc: tRNA-Lys | gene_symbol: trnK(uuu)
+2025-05-06 19:32:00,730 - DEBUG - 	[1st F]Label not found gene_dict | checking temp_gene_dict | Label: tRNA-Lys
+2025-05-06 19:32:00,730 - DEBUG - 	[2nd F]Label not in temp_gene_dict, creating new label | Label: tRNA-Lys
+2025-05-06 19:32:00,731 - DEBUG - 	New Label MT-TEMP-20 to tRNA-Lys # NC_001329.3:802425
+2025-05-06 19:32:00,731 - DEBUG - gene_id: gene-PoanfMt74 | dbxref: 802447 | s: 18971 | att: ID=gene-PoanfMt74;Dbxref=GeneID:802447;Name=trnG(ucc);gbkey=Gene;gene=trnG(ucc);gene_biotype=tRNA;locus_tag=PoanfMt74
+2025-05-06 19:32:00,731 - DEBUG - 	name: PoanfMt74 | desc: tRNA-Gly | gene_symbol: trnG(ucc)
+2025-05-06 19:32:00,732 - DEBUG - 	[1st F]Label not found gene_dict | checking temp_gene_dict | Label: tRNA-Gly
+2025-05-06 19:32:00,733 - DEBUG - 	[2nd F]Label not in temp_gene_dict, creating new label | Label: tRNA-Gly
+2025-05-06 19:32:00,733 - DEBUG - 	New Label MT-TEMP-21 to tRNA-Gly # NC_001329.3:802447
+2025-05-06 19:32:00,733 - DEBUG - gene_id: gene-PoanfMt75 | dbxref: 802452 | s: 19272 | att: ID=gene-PoanfMt75;Dbxref=GeneID:802452;Name=trnD(guc);gbkey=Gene;gene=trnD(guc);gene_biotype=tRNA;locus_tag=PoanfMt75
+2025-05-06 19:32:00,734 - DEBUG - 	name: PoanfMt75 | desc: tRNA-Asp | gene_symbol: trnD(guc)
+2025-05-06 19:32:00,734 - DEBUG - 	[1st F]Label not found gene_dict | checking temp_gene_dict | Label: tRNA-Asp
+2025-05-06 19:32:00,734 - DEBUG - 	[2nd F]Label not in temp_gene_dict, creating new label | Label: tRNA-Asp
+2025-05-06 19:32:00,735 - DEBUG - 	New Label MT-TEMP-22 to tRNA-Asp # NC_001329.3:802452
+2025-05-06 19:32:00,735 - DEBUG - gene_id: gene-PoanfMt76 | dbxref: 802468 | s: 19354 | att: ID=gene-PoanfMt76;Dbxref=GeneID:802468;Name=trnS(gcu);gbkey=Gene;gene=trnS(gcu);gene_biotype=tRNA;locus_tag=PoanfMt76
+2025-05-06 19:32:00,736 - DEBUG - 	name: PoanfMt76 | desc: tRNA-Ser | gene_symbol: trnS(gcu)
+2025-05-06 19:32:00,737 - DEBUG - 	[1st F]Label not found gene_dict | checking temp_gene_dict | Label: tRNA-Ser
+2025-05-06 19:32:00,737 - DEBUG - 	[2nd T]Label in temp_gene_dict, adding: gene-PoanfMt76 # NC_001329.3:802468 | Label: MT-TEMP-2
+2025-05-06 19:32:00,738 - DEBUG - gene_id: gene-PoanfMt77 | dbxref: 802474 | s: 19474 | att: ID=gene-PoanfMt77;Dbxref=GeneID:802474;Name=trnW(uca);gbkey=Gene;gene=trnW(uca);gene_biotype=tRNA;locus_tag=PoanfMt77
+2025-05-06 19:32:00,738 - DEBUG - 	name: PoanfMt77 | desc: tRNA-Trp | gene_symbol: trnW(uca)
+2025-05-06 19:32:00,738 - DEBUG - 	[1st F]Label not found gene_dict | checking temp_gene_dict | Label: tRNA-Trp
+2025-05-06 19:32:00,739 - DEBUG - 	[2nd F]Label not in temp_gene_dict, creating new label | Label: tRNA-Trp
+2025-05-06 19:32:00,739 - DEBUG - 	New Label MT-TEMP-23 to tRNA-Trp # NC_001329.3:802474
+2025-05-06 19:32:00,739 - DEBUG - gene_id: gene-PoanfMp08 | dbxref: 802475 | s: 19737 | att: ID=gene-PoanfMp08;Dbxref=GeneID:802475;Name=nad6;gbkey=Gene;gene=nad6;gene_biotype=protein_coding;locus_tag=PoanfMp08
+2025-05-06 19:32:00,740 - DEBUG - 	name: PoanfMp08 | desc: NADH dehydrogenase subunit 6 | gene_symbol: nad6
+2025-05-06 19:32:00,740 - DEBUG - 	[1st F]Label not found gene_dict | checking temp_gene_dict | Label: NADH dehydrogenase subunit 6
+2025-05-06 19:32:00,740 - DEBUG - 	[2nd F]Label not in temp_gene_dict, creating new label | Label: NADH dehydrogenase subunit 6
+2025-05-06 19:32:00,740 - DEBUG - 	New Label MT-TEMP-24 to NADH dehydrogenase subunit 6 # NC_001329.3:802475
+2025-05-06 19:32:00,742 - DEBUG - gene_id: gene-PoanfMt78 | dbxref: 802477 | s: 20537 | att: ID=gene-PoanfMt78;Dbxref=GeneID:802477;Name=trnV(uac);gbkey=Gene;gene=trnV(uac);gene_biotype=tRNA;locus_tag=PoanfMt78
+2025-05-06 19:32:00,742 - DEBUG - 	name: PoanfMt78 | desc: tRNA-Val | gene_symbol: trnV(uac)
+2025-05-06 19:32:00,742 - DEBUG - 	[1st F]Label not found gene_dict | checking temp_gene_dict | Label: tRNA-Val
+2025-05-06 19:32:00,743 - DEBUG - 	[2nd F]Label not in temp_gene_dict, creating new label | Label: tRNA-Val
+2025-05-06 19:32:00,743 - DEBUG - 	New Label MT-TEMP-25 to tRNA-Val # NC_001329.3:802477
+2025-05-06 19:32:00,744 - DEBUG - gene_id: gene-PoanfMt79 | dbxref: 802478 | s: 20871 | att: ID=gene-PoanfMt79;Dbxref=GeneID:802478;Name=trnN(guu);gbkey=Gene;gene=trnN(guu);gene_biotype=tRNA;locus_tag=PoanfMt79
+2025-05-06 19:32:00,744 - DEBUG - 	name: PoanfMt79 | desc: tRNA-Asn | gene_symbol: trnN(guu)
+2025-05-06 19:32:00,744 - DEBUG - 	[1st F]Label not found gene_dict | checking temp_gene_dict | Label: tRNA-Asn
+2025-05-06 19:32:00,745 - DEBUG - 	[2nd F]Label not in temp_gene_dict, creating new label | Label: tRNA-Asn
+2025-05-06 19:32:00,745 - DEBUG - 	New Label MT-TEMP-26 to tRNA-Asn # NC_001329.3:802478
+2025-05-06 19:32:00,746 - DEBUG - gene_id: gene-PoanfMp10 | dbxref: 802471 | s: 23135 | att: ID=gene-PoanfMp10;Dbxref=GeneID:802471;Name=atp6;gbkey=Gene;gene=atp6;gene_biotype=protein_coding;locus_tag=PoanfMp10
+2025-05-06 19:32:00,746 - DEBUG - 	name: PoanfMp10 | desc: ATP synthase F0 subunit 6 | gene_symbol: atp6
+2025-05-06 19:32:00,746 - DEBUG - 	[1st F]Label not found gene_dict | checking temp_gene_dict | Label: ATP synthase F0 subunit 6
+2025-05-06 19:32:00,746 - DEBUG - 	[2nd F]Label not in temp_gene_dict, creating new label | Label: ATP synthase F0 subunit 6
+2025-05-06 19:32:00,747 - DEBUG - 	New Label MT-TEMP-27 to ATP synthase F0 subunit 6 # NC_001329.3:802471
+2025-05-06 19:32:00,747 - DEBUG - gene_id: gene-PoanfMt80 | dbxref: 802453 | s: 26071 | att: ID=gene-PoanfMt80;Dbxref=GeneID:802453;Name=trnM(cau)e;gbkey=Gene;gene=trnM(cau)e;gene_biotype=tRNA;locus_tag=PoanfMt80
+2025-05-06 19:32:00,748 - DEBUG - 	name: PoanfMt80 | desc: tRNA-Met | gene_symbol: trnM(cau)e
+2025-05-06 19:32:00,748 - DEBUG - 	[1st F]Label not found gene_dict | checking temp_gene_dict | Label: tRNA-Met
+2025-05-06 19:32:00,749 - DEBUG - 	[2nd T]Label in temp_gene_dict, adding: gene-PoanfMt80 # NC_001329.3:802453 | Label: MT-TEMP-8
+2025-05-06 19:32:00,749 - DEBUG - gene_id: gene-PoanfMt81 | dbxref: 802456 | s: 29624 | att: ID=gene-PoanfMt81;Dbxref=GeneID:802456;Name=trnV(uac);gbkey=Gene;gene=trnV(uac);gene_biotype=tRNA;locus_tag=PoanfMt81
+2025-05-06 19:32:00,749 - DEBUG - 	name: PoanfMt81 | desc: tRNA-Val | gene_symbol: trnV(uac)
+2025-05-06 19:32:00,750 - DEBUG - 	[1st F]Label not found gene_dict | checking temp_gene_dict | Label: tRNA-Val
+2025-05-06 19:32:00,750 - DEBUG - 	[2nd T]Label in temp_gene_dict, adding: gene-PoanfMt81 # NC_001329.3:802456 | Label: MT-TEMP-25
+2025-05-06 19:32:00,750 - DEBUG - gene_id: gene-PoanfMp13 | dbxref: 802461 | s: 29878 | att: ID=gene-PoanfMp13;Dbxref=GeneID:802461;Name=cob;gbkey=Gene;gene=cob;gene_biotype=protein_coding;locus_tag=PoanfMp13
+2025-05-06 19:32:00,751 - DEBUG - 	name: PoanfMp13 | desc: apocytochrome b | gene_symbol: cob
+2025-05-06 19:32:00,751 - DEBUG - 	[1st F]Label not found gene_dict | checking temp_gene_dict | Label: apocytochrome b
+2025-05-06 19:32:00,753 - DEBUG - 	[2nd F]Label not in temp_gene_dict, creating new label | Label: apocytochrome b
+2025-05-06 19:32:00,753 - DEBUG - 	New Label MT-TEMP-28 to apocytochrome b # NC_001329.3:802461
+2025-05-06 19:32:00,754 - DEBUG - gene_id: gene-PoanfMt82 | dbxref: 802485 | s: 38044 | att: ID=gene-PoanfMt82;Dbxref=GeneID:802485;Name=trnC(gca);gbkey=Gene;gene=trnC(gca);gene_biotype=tRNA;locus_tag=PoanfMt82
+2025-05-06 19:32:00,755 - DEBUG - 	name: PoanfMt82 | desc: tRNA-Cys | gene_symbol: trnC(gca)
+2025-05-06 19:32:00,755 - DEBUG - 	[1st F]Label not found gene_dict | checking temp_gene_dict | Label: tRNA-Cys
+2025-05-06 19:32:00,756 - DEBUG - 	[2nd F]Label not in temp_gene_dict, creating new label | Label: tRNA-Cys
+2025-05-06 19:32:00,757 - DEBUG - 	New Label MT-TEMP-29 to tRNA-Cys # NC_001329.3:802485
+2025-05-06 19:32:00,757 - DEBUG - gene_id: gene-PoanfMp17 | dbxref: 802462 | s: 38501 | att: ID=gene-PoanfMp17;Dbxref=GeneID:802462;Name=cox1;gbkey=Gene;gene=cox1;gene_biotype=protein_coding;locus_tag=PoanfMp17
+2025-05-06 19:32:00,757 - DEBUG - 	name: PoanfMp17 | desc: cytochrome c oxidase subunit 1 | gene_symbol: cox1
+2025-05-06 19:32:00,758 - DEBUG - 	[1st F]Label not found gene_dict | checking temp_gene_dict | Label: cytochrome c oxidase subunit 1
+2025-05-06 19:32:00,759 - DEBUG - 	[2nd F]Label not in temp_gene_dict, creating new label | Label: cytochrome c oxidase subunit 1
+2025-05-06 19:32:00,759 - DEBUG - 	New Label MT-TEMP-30 to cytochrome c oxidase subunit 1 # NC_001329.3:802462
+2025-05-06 19:32:00,760 - DEBUG - gene_id: gene-PoanfMt83 | dbxref: 802428 | s: 64487 | att: ID=gene-PoanfMt83;Dbxref=GeneID:802428;Name=trnR(acg);gbkey=Gene;gene=trnR(acg);gene_biotype=tRNA;locus_tag=PoanfMt83
+2025-05-06 19:32:00,760 - DEBUG - 	name: PoanfMt83 | desc: tRNA-Arg | gene_symbol: trnR(acg)
+2025-05-06 19:32:00,761 - DEBUG - 	[1st F]Label not found gene_dict | checking temp_gene_dict | Label: tRNA-Arg
+2025-05-06 19:32:00,761 - DEBUG - 	[2nd T]Label in temp_gene_dict, adding: gene-PoanfMt83 # NC_001329.3:802428 | Label: MT-TEMP-16
+2025-05-06 19:32:00,761 - DEBUG - gene_id: gene-PoanfMp34 | dbxref: 802429 | s: 64906 | att: ID=gene-PoanfMp34;Dbxref=GeneID:802429;Name=nad4L;gbkey=Gene;gene=nad4L;gene_biotype=protein_coding;locus_tag=PoanfMp34
+2025-05-06 19:32:00,762 - DEBUG - 	name: PoanfMp34 | desc: NADH dehydrogenase subunit 4L | gene_symbol: nad4L
+2025-05-06 19:32:00,764 - DEBUG - 	[1st F]Label not found gene_dict | checking temp_gene_dict | Label: NADH dehydrogenase subunit 4L
+2025-05-06 19:32:00,764 - DEBUG - 	[2nd F]Label not in temp_gene_dict, creating new label | Label: NADH dehydrogenase subunit 4L
+2025-05-06 19:32:00,765 - DEBUG - 	New Label MT-TEMP-31 to NADH dehydrogenase subunit 4L # NC_001329.3:802429
+2025-05-06 19:32:00,765 - DEBUG - gene_id: gene-PoanfMp36 | dbxref: 802446 | s: 69221 | att: ID=gene-PoanfMp36;Dbxref=GeneID:802446;Name=nad5;gbkey=Gene;gene=nad5;gene_biotype=protein_coding;locus_tag=PoanfMp36
+2025-05-06 19:32:00,766 - DEBUG - 	name: PoanfMp36 | desc: NADH dehydrogenase subunit 5 | gene_symbol: nad5
+2025-05-06 19:32:00,766 - DEBUG - 	[1st F]Label not found gene_dict | checking temp_gene_dict | Label: NADH dehydrogenase subunit 5
+2025-05-06 19:32:00,766 - DEBUG - 	[2nd F]Label not in temp_gene_dict, creating new label | Label: NADH dehydrogenase subunit 5
+2025-05-06 19:32:00,768 - DEBUG - 	New Label MT-TEMP-32 to NADH dehydrogenase subunit 5 # NC_001329.3:802446
+2025-05-06 19:32:00,769 - DEBUG - gene_id: gene-PoanfMp43 | dbxref: 802467 | s: 80511 | att: ID=gene-PoanfMp43;Dbxref=GeneID:802467;Name=cox2;gbkey=Gene;gene=cox2;gene_biotype=protein_coding;locus_tag=PoanfMp43
+2025-05-06 19:32:00,770 - DEBUG - 	name: PoanfMp43 | desc: cytochrome c oxidase subunit 2 | gene_symbol: cox2
+2025-05-06 19:32:00,770 - DEBUG - 	[1st F]Label not found gene_dict | checking temp_gene_dict | Label: cytochrome c oxidase subunit 2
+2025-05-06 19:32:00,771 - DEBUG - 	[2nd F]Label not in temp_gene_dict, creating new label | Label: cytochrome c oxidase subunit 2
+2025-05-06 19:32:00,771 - DEBUG - 	New Label MT-TEMP-33 to cytochrome c oxidase subunit 2 # NC_001329.3:802467
+2025-05-06 19:32:00,772 - DEBUG - gene_id: gene-PoanfMp46 | dbxref: 802423 | s: 85118 | att: ID=gene-PoanfMp46;Dbxref=GeneID:802423;Name=nad4;gbkey=Gene;gene=nad4;gene_biotype=protein_coding;locus_tag=PoanfMp46
+2025-05-06 19:32:00,773 - DEBUG - 	name: PoanfMp46 | desc: NADH dehydrogenase subunit 4 | gene_symbol: nad4
+2025-05-06 19:32:00,773 - DEBUG - 	[1st F]Label not found gene_dict | checking temp_gene_dict | Label: NADH dehydrogenase subunit 4
+2025-05-06 19:32:00,773 - DEBUG - 	[2nd F]Label not in temp_gene_dict, creating new label | Label: NADH dehydrogenase subunit 4
+2025-05-06 19:32:00,774 - DEBUG - 	New Label MT-TEMP-34 to NADH dehydrogenase subunit 4 # NC_001329.3:802423
+2025-05-06 19:32:00,774 - DEBUG - gene_id: gene-PoanfMp48 | dbxref: 802492 | s: 89351 | att: ID=gene-PoanfMp48;Dbxref=GeneID:802492;Name=atp8;gbkey=Gene;gene=atp8;gene_biotype=protein_coding;locus_tag=PoanfMp48
+2025-05-06 19:32:00,776 - DEBUG - 	name: PoanfMp48 | desc: ATP synthase F0 subunit 8 | gene_symbol: atp8
+2025-05-06 19:32:00,776 - DEBUG - 	[1st F]Label not found gene_dict | checking temp_gene_dict | Label: ATP synthase F0 subunit 8
+2025-05-06 19:32:00,776 - DEBUG - 	[2nd F]Label not in temp_gene_dict, creating new label | Label: ATP synthase F0 subunit 8
+2025-05-06 19:32:00,777 - DEBUG - 	New Label MT-TEMP-35 to ATP synthase F0 subunit 8 # NC_001329.3:802492
+2025-05-06 19:32:00,777 - DEBUG - gene_id: gene-PoanfMp49 | dbxref: 802490 | s: 89833 | att: ID=gene-PoanfMp49;Dbxref=GeneID:802490;Name=nad1;gbkey=Gene;gene=nad1;gene_biotype=protein_coding;locus_tag=PoanfMp49
+2025-05-06 19:32:00,777 - DEBUG - 	name: PoanfMp49 | desc: NADH dehydrogenase subunit 1 | gene_symbol: nad1
+2025-05-06 19:32:00,778 - DEBUG - 	[1st F]Label not found gene_dict | checking temp_gene_dict | Label: NADH dehydrogenase subunit 1
+2025-05-06 19:32:00,778 - DEBUG - 	[2nd F]Label not in temp_gene_dict, creating new label | Label: NADH dehydrogenase subunit 1
+2025-05-06 19:32:00,779 - DEBUG - 	New Label MT-TEMP-36 to NADH dehydrogenase subunit 1 # NC_001329.3:802490
+2025-05-06 19:32:00,779 - DEBUG - -- [Processing: NC_001715.1] --
+2025-05-06 19:32:01,318 - DEBUG - 	m: 42 | r: 42 | m/r check: True
+2025-05-06 19:32:01,322 - DEBUG - gene_id: gene-AlmafMr31 | dbxref: 801894 | s: 75 | att: ID=gene-AlmafMr31;Dbxref=GeneID:801894;Name=rnl;gbkey=Gene;gene=rnl;gene_biotype=rRNA;locus_tag=AlmafMr31
+2025-05-06 19:32:01,322 - DEBUG - 	name: AlmafMr31 | desc: large subunit ribosomal RNA | gene_symbol: rnl
+2025-05-06 19:32:01,323 - DEBUG - 	[1st F]Label not found gene_dict | checking temp_gene_dict | Label: large subunit ribosomal RNA
+2025-05-06 19:32:01,326 - DEBUG - 	[2nd T]Label in temp_gene_dict, adding: gene-AlmafMr31 # NC_001715.1:801894 | Label: MT-TEMP-4
+2025-05-06 19:32:01,326 - DEBUG - gene_id: gene-AlmafMp01 | dbxref: 801884 | s: 5764 | att: ID=gene-AlmafMp01;Dbxref=GeneID:801884;Name=cob;gbkey=Gene;gene=cob;gene_biotype=protein_coding;locus_tag=AlmafMp01
+2025-05-06 19:32:01,327 - DEBUG - 	name: AlmafMp01 | desc: apocytochrome b | gene_symbol: cob
+2025-05-06 19:32:01,327 - DEBUG - 	[1st F]Label not found gene_dict | checking temp_gene_dict | Label: apocytochrome b
+2025-05-06 19:32:01,328 - DEBUG - 	[2nd T]Label in temp_gene_dict, adding: gene-AlmafMp01 # NC_001715.1:801884 | Label: MT-TEMP-28
+2025-05-06 19:32:01,328 - DEBUG - gene_id: gene-AlmafMp06 | dbxref: 801893 | s: 12205 | att: ID=gene-AlmafMp06;Dbxref=GeneID:801893;Name=cox3;gbkey=Gene;gene=cox3;gene_biotype=protein_coding;locus_tag=AlmafMp06
+2025-05-06 19:32:01,329 - DEBUG - 	name: AlmafMp06 | desc: cytochrome oxidase subunit 3 | gene_symbol: cox3
+2025-05-06 19:32:01,329 - DEBUG - 	[1st F]Label not found gene_dict | checking temp_gene_dict | Label: cytochrome oxidase subunit 3
+2025-05-06 19:32:01,329 - DEBUG - 	[2nd F]Label not in temp_gene_dict, creating new label | Label: cytochrome oxidase subunit 3
+2025-05-06 19:32:01,329 - DEBUG - 	New Label MT-TEMP-37 to cytochrome oxidase subunit 3 # NC_001715.1:801893
+2025-05-06 19:32:01,330 - DEBUG - gene_id: gene-AlmafMp07 | dbxref: 801887 | s: 13298 | att: ID=gene-AlmafMp07;Dbxref=GeneID:801887;Name=cox2;gbkey=Gene;gene=cox2;gene_biotype=protein_coding;locus_tag=AlmafMp07
+2025-05-06 19:32:01,330 - DEBUG - 	name: AlmafMp07 | desc: cytochrome oxidase subunit 2 | gene_symbol: cox2
+2025-05-06 19:32:01,331 - DEBUG - 	[1st F]Label not found gene_dict | checking temp_gene_dict | Label: cytochrome oxidase subunit 2
+2025-05-06 19:32:01,332 - DEBUG - 	[2nd F]Label not in temp_gene_dict, creating new label | Label: cytochrome oxidase subunit 2
+2025-05-06 19:32:01,332 - DEBUG - 	New Label MT-TEMP-38 to cytochrome oxidase subunit 2 # NC_001715.1:801887
+2025-05-06 19:32:01,332 - DEBUG - gene_id: gene-AlmafMp08 | dbxref: 801885 | s: 15012 | att: ID=gene-AlmafMp08;Dbxref=GeneID:801885;Name=nad5;gbkey=Gene;gene=nad5;gene_biotype=protein_coding;locus_tag=AlmafMp08
+2025-05-06 19:32:01,333 - DEBUG - 	name: AlmafMp08 | desc: NADH dehydrogenase, subunit 5 | gene_symbol: nad5
+2025-05-06 19:32:01,333 - DEBUG - 	[1st F]Label not found gene_dict | checking temp_gene_dict | Label: NADH dehydrogenase, subunit 5
+2025-05-06 19:32:01,333 - DEBUG - 	[2nd F]Label not in temp_gene_dict, creating new label | Label: NADH dehydrogenase, subunit 5
+2025-05-06 19:32:01,334 - DEBUG - 	New Label MT-TEMP-39 to NADH dehydrogenase, subunit 5 # NC_001715.1:801885
+2025-05-06 19:32:01,334 - DEBUG - gene_id: gene-AlmafMp11 | dbxref: 801875 | s: 20384 | att: ID=gene-AlmafMp11;Dbxref=GeneID:801875;Name=atp6;gbkey=Gene;gene=atp6;gene_biotype=protein_coding;locus_tag=AlmafMp11
+2025-05-06 19:32:01,334 - DEBUG - 	name: AlmafMp11 | desc: H(+)-transporting ATPase, F0 subunit 6 | gene_symbol: atp6
+2025-05-06 19:32:01,335 - DEBUG - 	[1st F]Label not found gene_dict | checking temp_gene_dict | Label: H(+)-transporting ATPase, F0 subunit 6
+2025-05-06 19:32:01,335 - DEBUG - 	[2nd F]Label not in temp_gene_dict, creating new label | Label: H(+)-transporting ATPase, F0 subunit 6
+2025-05-06 19:32:01,337 - DEBUG - 	New Label MT-TEMP-40 to H(+)-transporting ATPase, F0 subunit 6 # NC_001715.1:801875
+2025-05-06 19:32:01,337 - DEBUG - gene_id: gene-AlmafMp14 | dbxref: 801856 | s: 23191 | att: ID=gene-AlmafMp14;Dbxref=GeneID:801856;Name=cox1;gbkey=Gene;gene=cox1;gene_biotype=protein_coding;locus_tag=AlmafMp14
+2025-05-06 19:32:01,338 - DEBUG - 	name: AlmafMp14 | desc: cytochrome oxidase subunit 1 | gene_symbol: cox1
+2025-05-06 19:32:01,338 - DEBUG - 	[1st F]Label not found gene_dict | checking temp_gene_dict | Label: cytochrome oxidase subunit 1
+2025-05-06 19:32:01,339 - DEBUG - 	[2nd F]Label not in temp_gene_dict, creating new label | Label: cytochrome oxidase subunit 1
+2025-05-06 19:32:01,339 - DEBUG - 	New Label MT-TEMP-41 to cytochrome oxidase subunit 1 # NC_001715.1:801856
+2025-05-06 19:32:01,340 - DEBUG - gene_id: gene-AlmafMt33 | dbxref: 801871 | s: 34640 | att: ID=gene-AlmafMt33;Dbxref=GeneID:801871;Name=trnY(gua);gbkey=Gene;gene=trnY(gua);gene_biotype=tRNA;locus_tag=AlmafMt33
+2025-05-06 19:32:01,340 - DEBUG - 	name: AlmafMt33 | desc: tRNA-Tyr | gene_symbol: trnY(gua)
+2025-05-06 19:32:01,340 - DEBUG - 	[1st F]Label not found gene_dict | checking temp_gene_dict | Label: tRNA-Tyr
+2025-05-06 19:32:01,341 - DEBUG - 	[2nd T]Label in temp_gene_dict, adding: gene-AlmafMt33 # NC_001715.1:801871 | Label: MT-TEMP-18
+2025-05-06 19:32:01,341 - DEBUG - gene_id: gene-AlmafMt34 | dbxref: 801878 | s: 34929 | att: ID=gene-AlmafMt34;Dbxref=GeneID:801878;Name=trnE(uuc);gbkey=Gene;gene=trnE(uuc);gene_biotype=tRNA;locus_tag=AlmafMt34
+2025-05-06 19:32:01,342 - DEBUG - 	name: AlmafMt34 | desc: tRNA-Glu | gene_symbol: trnE(uuc)
+2025-05-06 19:32:01,343 - DEBUG - 	[1st F]Label not found gene_dict | checking temp_gene_dict | Label: tRNA-Glu
+2025-05-06 19:32:01,344 - DEBUG - 	[2nd T]Label in temp_gene_dict, adding: gene-AlmafMt34 # NC_001715.1:801878 | Label: MT-TEMP-7
+2025-05-06 19:32:01,344 - DEBUG - gene_id: gene-AlmafMt35 | dbxref: 801880 | s: 35119 | att: ID=gene-AlmafMt35;Dbxref=GeneID:801880;Name=trnG(ucc);gbkey=Gene;gene=trnG(ucc);gene_biotype=tRNA;locus_tag=AlmafMt35
+2025-05-06 19:32:01,345 - DEBUG - 	name: AlmafMt35 | desc: tRNA-Gly | gene_symbol: trnG(ucc)
+2025-05-06 19:32:01,345 - DEBUG - 	[1st F]Label not found gene_dict | checking temp_gene_dict | Label: tRNA-Gly
+2025-05-06 19:32:01,346 - DEBUG - 	[2nd T]Label in temp_gene_dict, adding: gene-AlmafMt35 # NC_001715.1:801880 | Label: MT-TEMP-21
+2025-05-06 19:32:01,346 - DEBUG - gene_id: gene-AlmafMt36 | dbxref: 801853 | s: 35455 | att: ID=gene-AlmafMt36;Dbxref=GeneID:801853;Name=trnR1(ucu);gbkey=Gene;gene=trnR1(ucu);gene_biotype=tRNA;locus_tag=AlmafMt36
+2025-05-06 19:32:01,346 - DEBUG - 	name: AlmafMt36 | desc: tRNA-Arg | gene_symbol: trnR1(ucu)
+2025-05-06 19:32:01,348 - DEBUG - 	[1st F]Label not found gene_dict | checking temp_gene_dict | Label: tRNA-Arg
+2025-05-06 19:32:01,348 - DEBUG - 	[2nd T]Label in temp_gene_dict, adding: gene-AlmafMt36 # NC_001715.1:801853 | Label: MT-TEMP-16
+2025-05-06 19:32:01,349 - DEBUG - gene_id: gene-AlmafMt37 | dbxref: 801852 | s: 35770 | att: ID=gene-AlmafMt37;Dbxref=GeneID:801852;Name=trnA(ugc);gbkey=Gene;gene=trnA(ugc);gene_biotype=tRNA;locus_tag=AlmafMt37
+2025-05-06 19:32:01,349 - DEBUG - 	name: AlmafMt37 | desc: tRNA-Ala | gene_symbol: trnA(ugc)
+2025-05-06 19:32:01,350 - DEBUG - 	[1st F]Label not found gene_dict | checking temp_gene_dict | Label: tRNA-Ala
+2025-05-06 19:32:01,350 - DEBUG - 	[2nd T]Label in temp_gene_dict, adding: gene-AlmafMt37 # NC_001715.1:801852 | Label: MT-TEMP-10
+2025-05-06 19:32:01,350 - DEBUG - gene_id: gene-AlmafMp18 | dbxref: 801848 | s: 36206 | att: ID=gene-AlmafMp18;Dbxref=GeneID:801848;Name=nad6;gbkey=Gene;gene=nad6;gene_biotype=protein_coding;locus_tag=AlmafMp18
+2025-05-06 19:32:01,351 - DEBUG - 	name: AlmafMp18 | desc: NADH dehydrogenase, subunit 6 | gene_symbol: nad6
+2025-05-06 19:32:01,352 - DEBUG - 	[1st F]Label not found gene_dict | checking temp_gene_dict | Label: NADH dehydrogenase, subunit 6
+2025-05-06 19:32:01,354 - DEBUG - 	[2nd F]Label not in temp_gene_dict, creating new label | Label: NADH dehydrogenase, subunit 6
+2025-05-06 19:32:01,356 - DEBUG - 	New Label MT-TEMP-42 to NADH dehydrogenase, subunit 6 # NC_001715.1:801848
+2025-05-06 19:32:01,359 - DEBUG - gene_id: gene-AlmafMt38 | dbxref: 801844 | s: 37152 | att: ID=gene-AlmafMt38;Dbxref=GeneID:801844;Name=trnC(gca);gbkey=Gene;gene=trnC(gca);gene_biotype=tRNA;locus_tag=AlmafMt38
+2025-05-06 19:32:01,359 - DEBUG - 	name: AlmafMt38 | desc: tRNA-Cys | gene_symbol: trnC(gca)
+2025-05-06 19:32:01,360 - DEBUG - 	[1st F]Label not found gene_dict | checking temp_gene_dict | Label: tRNA-Cys
+2025-05-06 19:32:01,361 - DEBUG - 	[2nd T]Label in temp_gene_dict, adding: gene-AlmafMt38 # NC_001715.1:801844 | Label: MT-TEMP-29
+2025-05-06 19:32:01,361 - DEBUG - gene_id: gene-AlmafMt39 | dbxref: 801857 | s: 37344 | att: ID=gene-AlmafMt39;Dbxref=GeneID:801857;Name=trnS1(uga);gbkey=Gene;gene=trnS1(uga);gene_biotype=tRNA;locus_tag=AlmafMt39
+2025-05-06 19:32:01,362 - DEBUG - 	name: AlmafMt39 | desc: tRNA-Ser | gene_symbol: trnS1(uga)
+2025-05-06 19:32:01,364 - DEBUG - 	[1st F]Label not found gene_dict | checking temp_gene_dict | Label: tRNA-Ser
+2025-05-06 19:32:01,364 - DEBUG - 	[2nd T]Label in temp_gene_dict, adding: gene-AlmafMt39 # NC_001715.1:801857 | Label: MT-TEMP-2
+2025-05-06 19:32:01,365 - DEBUG - gene_id: gene-AlmafMt40 | dbxref: 801862 | s: 37751 | att: ID=gene-AlmafMt40;Dbxref=GeneID:801862;Name=trnN(guu);gbkey=Gene;gene=trnN(guu);gene_biotype=tRNA;locus_tag=AlmafMt40
+2025-05-06 19:32:01,365 - DEBUG - 	name: AlmafMt40 | desc: tRNA-Asn | gene_symbol: trnN(guu)
+2025-05-06 19:32:01,366 - DEBUG - 	[1st F]Label not found gene_dict | checking temp_gene_dict | Label: tRNA-Asn
+2025-05-06 19:32:01,366 - DEBUG - 	[2nd T]Label in temp_gene_dict, adding: gene-AlmafMt40 # NC_001715.1:801862 | Label: MT-TEMP-26
+2025-05-06 19:32:01,367 - DEBUG - gene_id: gene-AlmafMt41 | dbxref: 801881 | s: 37954 | att: ID=gene-AlmafMt41;Dbxref=GeneID:801881;Name=trnH(gug);gbkey=Gene;gene=trnH(gug);gene_biotype=tRNA;locus_tag=AlmafMt41
+2025-05-06 19:32:01,367 - DEBUG - 	name: AlmafMt41 | desc: tRNA-His | gene_symbol: trnH(gug)
+2025-05-06 19:32:01,368 - DEBUG - 	[1st F]Label not found gene_dict | checking temp_gene_dict | Label: tRNA-His
+2025-05-06 19:32:01,368 - DEBUG - 	[2nd T]Label in temp_gene_dict, adding: gene-AlmafMt41 # NC_001715.1:801881 | Label: MT-TEMP-13
+2025-05-06 19:32:01,371 - DEBUG - gene_id: gene-AlmafMt42 | dbxref: 801864 | s: 38168 | att: ID=gene-AlmafMt42;Dbxref=GeneID:801864;Name=trnI1(gau);gbkey=Gene;gene=trnI1(gau);gene_biotype=tRNA;locus_tag=AlmafMt42
+2025-05-06 19:32:01,373 - DEBUG - 	name: AlmafMt42 | desc: tRNA-Ile | gene_symbol: trnI1(gau)
+2025-05-06 19:32:01,374 - DEBUG - 	[1st F]Label not found gene_dict | checking temp_gene_dict | Label: tRNA-Ile
+2025-05-06 19:32:01,375 - DEBUG - 	[2nd T]Label in temp_gene_dict, adding: gene-AlmafMt42 # NC_001715.1:801864 | Label: MT-TEMP-1
+2025-05-06 19:32:01,376 - DEBUG - gene_id: gene-AlmafMr32 | dbxref: 801863 | s: 38388 | att: ID=gene-AlmafMr32;Dbxref=GeneID:801863;Name=rns;gbkey=Gene;gene=rns;gene_biotype=rRNA;locus_tag=AlmafMr32
+2025-05-06 19:32:01,376 - DEBUG - 	name: AlmafMr32 | desc: small subunit ribosomal RNA | gene_symbol: rns
+2025-05-06 19:32:01,377 - DEBUG - 	[1st F]Label not found gene_dict | checking temp_gene_dict | Label: small subunit ribosomal RNA
+2025-05-06 19:32:01,377 - DEBUG - 	[2nd T]Label in temp_gene_dict, adding: gene-AlmafMr32 # NC_001715.1:801863 | Label: MT-TEMP-17
+2025-05-06 19:32:01,378 - DEBUG - gene_id: gene-AlmafMp19 | dbxref: 801865 | s: 40325 | att: ID=gene-AlmafMp19;Dbxref=GeneID:801865;Name=atp8;gbkey=Gene;gene=atp8;gene_biotype=protein_coding;locus_tag=AlmafMp19
+2025-05-06 19:32:01,378 - DEBUG - 	name: AlmafMp19 | desc: H(+)-transporting ATPase, F0 subunit 8 | gene_symbol: atp8
+2025-05-06 19:32:01,378 - DEBUG - 	[1st F]Label not found gene_dict | checking temp_gene_dict | Label: H(+)-transporting ATPase, F0 subunit 8
+2025-05-06 19:32:01,379 - DEBUG - 	[2nd F]Label not in temp_gene_dict, creating new label | Label: H(+)-transporting ATPase, F0 subunit 8
+2025-05-06 19:32:01,379 - DEBUG - 	New Label MT-TEMP-43 to H(+)-transporting ATPase, F0 subunit 8 # NC_001715.1:801865
+2025-05-06 19:32:01,379 - DEBUG - gene_id: gene-AlmafMt43 | dbxref: 801872 | s: 40691 | att: ID=gene-AlmafMt43;Dbxref=GeneID:801872;Name=trnL1(aag);gbkey=Gene;gene=trnL1(aag);gene_biotype=tRNA;locus_tag=AlmafMt43
+2025-05-06 19:32:01,380 - DEBUG - 	name: AlmafMt43 | desc: tRNA-Leu | gene_symbol: trnL1(aag)
+2025-05-06 19:32:01,380 - DEBUG - 	[1st F]Label not found gene_dict | checking temp_gene_dict | Label: tRNA-Leu
+2025-05-06 19:32:01,381 - DEBUG - 	[2nd T]Label in temp_gene_dict, adding: gene-AlmafMt43 # NC_001715.1:801872 | Label: MT-TEMP-9
+2025-05-06 19:32:01,381 - DEBUG - gene_id: gene-AlmafMt44 | dbxref: 801892 | s: 40960 | att: ID=gene-AlmafMt44;Dbxref=GeneID:801892;Name=trnT(ugu);gbkey=Gene;gene=trnT(ugu);gene_biotype=tRNA;locus_tag=AlmafMt44
+2025-05-06 19:32:01,382 - DEBUG - 	name: AlmafMt44 | desc: tRNA-Thr | gene_symbol: trnT(ugu)
+2025-05-06 19:32:01,382 - DEBUG - 	[1st F]Label not found gene_dict | checking temp_gene_dict | Label: tRNA-Thr
+2025-05-06 19:32:01,382 - DEBUG - 	[2nd T]Label in temp_gene_dict, adding: gene-AlmafMt44 # NC_001715.1:801892 | Label: MT-TEMP-6
+2025-05-06 19:32:01,383 - DEBUG - gene_id: gene-AlmafMp20 | dbxref: 801838 | s: 41602 | att: ID=gene-AlmafMp20;Dbxref=GeneID:801838;Name=nad3;gbkey=Gene;gene=nad3;gene_biotype=protein_coding;locus_tag=AlmafMp20
+2025-05-06 19:32:01,383 - DEBUG - 	name: AlmafMp20 | desc: NADH dehydrogenase, subunit 3 | gene_symbol: nad3
+2025-05-06 19:32:01,383 - DEBUG - 	[1st F]Label not found gene_dict | checking temp_gene_dict | Label: NADH dehydrogenase, subunit 3
+2025-05-06 19:32:01,384 - DEBUG - 	[2nd F]Label not in temp_gene_dict, creating new label | Label: NADH dehydrogenase, subunit 3
+2025-05-06 19:32:01,384 - DEBUG - 	New Label MT-TEMP-44 to NADH dehydrogenase, subunit 3 # NC_001715.1:801838
+2025-05-06 19:32:01,385 - DEBUG - gene_id: gene-AlmafMt45 | dbxref: 801860 | s: 42129 | att: ID=gene-AlmafMt45;Dbxref=GeneID:801860;Name=trnM1(cau);gbkey=Gene;gene=trnM1(cau);gene_biotype=tRNA;locus_tag=AlmafMt45
+2025-05-06 19:32:01,385 - DEBUG - 	name: AlmafMt45 | desc: tRNA-Met | gene_symbol: trnM1(cau)
+2025-05-06 19:32:01,386 - DEBUG - 	[1st F]Label not found gene_dict | checking temp_gene_dict | Label: tRNA-Met
+2025-05-06 19:32:01,387 - DEBUG - 	[2nd T]Label in temp_gene_dict, adding: gene-AlmafMt45 # NC_001715.1:801860 | Label: MT-TEMP-8
+2025-05-06 19:32:01,387 - DEBUG - gene_id: gene-AlmafMp21 | dbxref: 801866 | s: 42630 | att: ID=gene-AlmafMp21;Dbxref=GeneID:801866;Name=nad2;gbkey=Gene;gene=nad2;gene_biotype=protein_coding;locus_tag=AlmafMp21
+2025-05-06 19:32:01,388 - DEBUG - 	name: AlmafMp21 | desc: NADH dehydrogenase, subunit 2 | gene_symbol: nad2
+2025-05-06 19:32:01,388 - DEBUG - 	[1st F]Label not found gene_dict | checking temp_gene_dict | Label: NADH dehydrogenase, subunit 2
+2025-05-06 19:32:01,389 - DEBUG - 	[2nd F]Label not in temp_gene_dict, creating new label | Label: NADH dehydrogenase, subunit 2
+2025-05-06 19:32:01,389 - DEBUG - 	New Label MT-TEMP-45 to NADH dehydrogenase, subunit 2 # NC_001715.1:801866
+2025-05-06 19:32:01,389 - DEBUG - gene_id: gene-AlmafMt46 | dbxref: 801874 | s: 44168 | att: ID=gene-AlmafMt46;Dbxref=GeneID:801874;Name=trnI2(cau);gbkey=Gene;gene=trnI2(cau);gene_biotype=tRNA;locus_tag=AlmafMt46
+2025-05-06 19:32:01,390 - DEBUG - 	name: AlmafMt46 | desc: tRNA-Ile | gene_symbol: trnI2(cau)
+2025-05-06 19:32:01,390 - DEBUG - 	[1st F]Label not found gene_dict | checking temp_gene_dict | Label: tRNA-Ile
+2025-05-06 19:32:01,391 - DEBUG - 	[2nd T]Label in temp_gene_dict, adding: gene-AlmafMt46 # NC_001715.1:801874 | Label: MT-TEMP-1
+2025-05-06 19:32:01,391 - DEBUG - gene_id: gene-AlmafMt47 | dbxref: 801868 | s: 44291 | att: ID=gene-AlmafMt47;Dbxref=GeneID:801868;Name=trnR2(ucg);gbkey=Gene;gene=trnR2(ucg);gene_biotype=tRNA;locus_tag=AlmafMt47
+2025-05-06 19:32:01,393 - DEBUG - 	name: AlmafMt47 | desc: tRNA-Arg | gene_symbol: trnR2(ucg)
+2025-05-06 19:32:01,393 - DEBUG - 	[1st F]Label not found gene_dict | checking temp_gene_dict | Label: tRNA-Arg
+2025-05-06 19:32:01,394 - DEBUG - 	[2nd T]Label in temp_gene_dict, adding: gene-AlmafMt47 # NC_001715.1:801868 | Label: MT-TEMP-16
+2025-05-06 19:32:01,394 - DEBUG - gene_id: gene-AlmafMt48 | dbxref: 801869 | s: 44443 | att: ID=gene-AlmafMt48;Dbxref=GeneID:801869;Name=trnS2(gcu);gbkey=Gene;gene=trnS2(gcu);gene_biotype=tRNA;locus_tag=AlmafMt48
+2025-05-06 19:32:01,396 - DEBUG - 	name: AlmafMt48 | desc: tRNA-Ser | gene_symbol: trnS2(gcu)
+2025-05-06 19:32:01,396 - DEBUG - 	[1st F]Label not found gene_dict | checking temp_gene_dict | Label: tRNA-Ser
+2025-05-06 19:32:01,396 - DEBUG - 	[2nd T]Label in temp_gene_dict, adding: gene-AlmafMt48 # NC_001715.1:801869 | Label: MT-TEMP-2
+2025-05-06 19:32:01,396 - DEBUG - gene_id: gene-AlmafMt49 | dbxref: 801861 | s: 44869 | att: ID=gene-AlmafMt49;Dbxref=GeneID:801861;Name=trnV(uac);gbkey=Gene;gene=trnV(uac);gene_biotype=tRNA;locus_tag=AlmafMt49
+2025-05-06 19:32:01,398 - DEBUG - 	name: AlmafMt49 | desc: tRNA-Val | gene_symbol: trnV(uac)
+2025-05-06 19:32:01,399 - DEBUG - 	[1st F]Label not found gene_dict | checking temp_gene_dict | Label: tRNA-Val
+2025-05-06 19:32:01,399 - DEBUG - 	[2nd T]Label in temp_gene_dict, adding: gene-AlmafMt49 # NC_001715.1:801861 | Label: MT-TEMP-25
+2025-05-06 19:32:01,405 - DEBUG - gene_id: gene-AlmafMt50 | dbxref: 801867 | s: 45168 | att: ID=gene-AlmafMt50;Dbxref=GeneID:801867;Name=trnW(cca);gbkey=Gene;gene=trnW(cca);gene_biotype=tRNA;locus_tag=AlmafMt50
+2025-05-06 19:32:01,406 - DEBUG - 	name: AlmafMt50 | desc: tRNA-Trp | gene_symbol: trnW(cca)
+2025-05-06 19:32:01,406 - DEBUG - 	[1st F]Label not found gene_dict | checking temp_gene_dict | Label: tRNA-Trp
+2025-05-06 19:32:01,406 - DEBUG - 	[2nd T]Label in temp_gene_dict, adding: gene-AlmafMt50 # NC_001715.1:801867 | Label: MT-TEMP-23
+2025-05-06 19:32:01,407 - DEBUG - gene_id: gene-AlmafMt51 | dbxref: 801888 | s: 45345 | att: ID=gene-AlmafMt51;Dbxref=GeneID:801888;Name=trnP(ugg);gbkey=Gene;gene=trnP(ugg);gene_biotype=tRNA;locus_tag=AlmafMt51
+2025-05-06 19:32:01,407 - DEBUG - 	name: AlmafMt51 | desc: tRNA-Pro | gene_symbol: trnP(ugg)
+2025-05-06 19:32:01,409 - DEBUG - 	[1st F]Label not found gene_dict | checking temp_gene_dict | Label: tRNA-Pro
+2025-05-06 19:32:01,409 - DEBUG - 	[2nd T]Label in temp_gene_dict, adding: gene-AlmafMt51 # NC_001715.1:801888 | Label: MT-TEMP-3
+2025-05-06 19:32:01,410 - DEBUG - gene_id: gene-AlmafMt52 | dbxref: 801843 | s: 45659 | att: ID=gene-AlmafMt52;Dbxref=GeneID:801843;Name=trnK(uuu);gbkey=Gene;gene=trnK(uuu);gene_biotype=tRNA;locus_tag=AlmafMt52
+2025-05-06 19:32:01,410 - DEBUG - 	name: AlmafMt52 | desc: tRNA-Lys | gene_symbol: trnK(uuu)
+2025-05-06 19:32:01,411 - DEBUG - 	[1st F]Label not found gene_dict | checking temp_gene_dict | Label: tRNA-Lys
+2025-05-06 19:32:01,412 - DEBUG - 	[2nd T]Label in temp_gene_dict, adding: gene-AlmafMt52 # NC_001715.1:801843 | Label: MT-TEMP-20
+2025-05-06 19:32:01,412 - DEBUG - gene_id: gene-AlmafMp22 | dbxref: 801841 | s: 46025 | att: ID=gene-AlmafMp22;Dbxref=GeneID:801841;Name=nad4;gbkey=Gene;gene=nad4;gene_biotype=protein_coding;locus_tag=AlmafMp22
+2025-05-06 19:32:01,413 - DEBUG - 	name: AlmafMp22 | desc: NADH dehydrogenase, subunit 4 | gene_symbol: nad4
+2025-05-06 19:32:01,413 - DEBUG - 	[1st F]Label not found gene_dict | checking temp_gene_dict | Label: NADH dehydrogenase, subunit 4
+2025-05-06 19:32:01,413 - DEBUG - 	[2nd F]Label not in temp_gene_dict, creating new label | Label: NADH dehydrogenase, subunit 4
+2025-05-06 19:32:01,414 - DEBUG - 	New Label MT-TEMP-46 to NADH dehydrogenase, subunit 4 # NC_001715.1:801841
+2025-05-06 19:32:01,415 - DEBUG - gene_id: gene-AlmafMt53 | dbxref: 801877 | s: 47535 | att: ID=gene-AlmafMt53;Dbxref=GeneID:801877;Name=trnM2(cau);gbkey=Gene;gene=trnM2(cau);gene_biotype=tRNA;locus_tag=AlmafMt53
+2025-05-06 19:32:01,415 - DEBUG - 	name: AlmafMt53 | desc: tRNA-Met | gene_symbol: trnM2(cau)
+2025-05-06 19:32:01,415 - DEBUG - 	[1st F]Label not found gene_dict | checking temp_gene_dict | Label: tRNA-Met
+2025-05-06 19:32:01,415 - DEBUG - 	[2nd T]Label in temp_gene_dict, adding: gene-AlmafMt53 # NC_001715.1:801877 | Label: MT-TEMP-8
+2025-05-06 19:32:01,416 - DEBUG - gene_id: gene-AlmafMp23 | dbxref: 801891 | s: 48077 | att: ID=gene-AlmafMp23;Dbxref=GeneID:801891;Name=nad1;gbkey=Gene;gene=nad1;gene_biotype=protein_coding;locus_tag=AlmafMp23
+2025-05-06 19:32:01,416 - DEBUG - 	name: AlmafMp23 | desc: NADH dehydrogenase, subunit 1 | gene_symbol: nad1
+2025-05-06 19:32:01,417 - DEBUG - 	[1st F]Label not found gene_dict | checking temp_gene_dict | Label: NADH dehydrogenase, subunit 1
+2025-05-06 19:32:01,417 - DEBUG - 	[2nd F]Label not in temp_gene_dict, creating new label | Label: NADH dehydrogenase, subunit 1
+2025-05-06 19:32:01,417 - DEBUG - 	New Label MT-TEMP-47 to NADH dehydrogenase, subunit 1 # NC_001715.1:801891
+2025-05-06 19:32:01,418 - DEBUG - gene_id: gene-AlmafMt54 | dbxref: 801854 | s: 50927 | att: ID=gene-AlmafMt54;Dbxref=GeneID:801854;Name=trnD(guc);gbkey=Gene;gene=trnD(guc);gene_biotype=tRNA;locus_tag=AlmafMt54
+2025-05-06 19:32:01,418 - DEBUG - 	name: AlmafMt54 | desc: tRNA-Asp | gene_symbol: trnD(guc)
+2025-05-06 19:32:01,418 - DEBUG - 	[1st F]Label not found gene_dict | checking temp_gene_dict | Label: tRNA-Asp
+2025-05-06 19:32:01,419 - DEBUG - 	[2nd T]Label in temp_gene_dict, adding: gene-AlmafMt54 # NC_001715.1:801854 | Label: MT-TEMP-22
+2025-05-06 19:32:01,419 - DEBUG - gene_id: gene-AlmafMp25 | dbxref: 801851 | s: 51369 | att: ID=gene-AlmafMp25;Dbxref=GeneID:801851;Name=nad4L;gbkey=Gene;gene=nad4L;gene_biotype=protein_coding;locus_tag=AlmafMp25
+2025-05-06 19:32:01,419 - DEBUG - 	name: AlmafMp25 | desc: NADH dehydrogenase, subunit 4L | gene_symbol: nad4L
+2025-05-06 19:32:01,420 - DEBUG - 	[1st F]Label not found gene_dict | checking temp_gene_dict | Label: NADH dehydrogenase, subunit 4L
+2025-05-06 19:32:01,421 - DEBUG - 	[2nd F]Label not in temp_gene_dict, creating new label | Label: NADH dehydrogenase, subunit 4L
+2025-05-06 19:32:01,421 - DEBUG - 	New Label MT-TEMP-48 to NADH dehydrogenase, subunit 4L # NC_001715.1:801851
+2025-05-06 19:32:01,421 - DEBUG - gene_id: gene-AlmafMp26 | dbxref: 801850 | s: 52239 | att: ID=gene-AlmafMp26;Dbxref=GeneID:801850;Name=atp9;gbkey=Gene;gene=atp9;gene_biotype=protein_coding;locus_tag=AlmafMp26
+2025-05-06 19:32:01,422 - DEBUG - 	name: AlmafMp26 | desc: H(+)-transporting ATPase, F0 subunit 9 | gene_symbol: atp9
+2025-05-06 19:32:01,422 - DEBUG - 	[1st F]Label not found gene_dict | checking temp_gene_dict | Label: H(+)-transporting ATPase, F0 subunit 9
+2025-05-06 19:32:01,422 - DEBUG - 	[2nd F]Label not in temp_gene_dict, creating new label | Label: H(+)-transporting ATPase, F0 subunit 9
+2025-05-06 19:32:01,423 - DEBUG - 	New Label MT-TEMP-49 to H(+)-transporting ATPase, F0 subunit 9 # NC_001715.1:801850
+2025-05-06 19:32:01,423 - DEBUG - gene_id: gene-AlmafMt55 | dbxref: 801846 | s: 54944 | att: ID=gene-AlmafMt55;Dbxref=GeneID:801846;Name=trnL(uaa);gbkey=Gene;gene=trnL(uaa);gene_biotype=tRNA;locus_tag=AlmafMt55
+2025-05-06 19:32:01,424 - DEBUG - 	name: AlmafMt55 | desc: tRNA-Leu | gene_symbol: trnL(uaa)
+2025-05-06 19:32:01,424 - DEBUG - 	[1st F]Label not found gene_dict | checking temp_gene_dict | Label: tRNA-Leu
+2025-05-06 19:32:01,425 - DEBUG - 	[2nd T]Label in temp_gene_dict, adding: gene-AlmafMt55 # NC_001715.1:801846 | Label: MT-TEMP-9
+2025-05-06 19:32:01,426 - DEBUG - gene_id: gene-AlmafMt56 | dbxref: 801845 | s: 55182 | att: ID=gene-AlmafMt56;Dbxref=GeneID:801845;Name=trnQ(uug);gbkey=Gene;gene=trnQ(uug);gene_biotype=tRNA;locus_tag=AlmafMt56
+2025-05-06 19:32:01,426 - DEBUG - 	name: AlmafMt56 | desc: tRNA-Gln | gene_symbol: trnQ(uug)
+2025-05-06 19:32:01,426 - DEBUG - 	[1st F]Label not found gene_dict | checking temp_gene_dict | Label: tRNA-Gln
+2025-05-06 19:32:01,427 - DEBUG - 	[2nd T]Label in temp_gene_dict, adding: gene-AlmafMt56 # NC_001715.1:801845 | Label: MT-TEMP-12
+2025-05-06 19:32:01,427 - DEBUG - gene_id: gene-AlmafMt57 | dbxref: 801842 | s: 55652 | att: ID=gene-AlmafMt57;Dbxref=GeneID:801842;Name=trnF(gaa);gbkey=Gene;gene=trnF(gaa);gene_biotype=tRNA;locus_tag=AlmafMt57
+2025-05-06 19:32:01,428 - DEBUG - 	name: AlmafMt57 | desc: tRNA-Phe | gene_symbol: trnF(gaa)
+2025-05-06 19:32:01,428 - DEBUG - 	[1st F]Label not found gene_dict | checking temp_gene_dict | Label: tRNA-Phe
+2025-05-06 19:32:01,429 - DEBUG - 	[2nd T]Label in temp_gene_dict, adding: gene-AlmafMt57 # NC_001715.1:801842 | Label: MT-TEMP-11
+2025-05-06 19:32:01,429 - DEBUG - gene_id: gene-AlmafMp30 | dbxref: 801858 | s: 56075 | att: ID=gene-AlmafMp30;Dbxref=GeneID:801858;Name=rps3;gbkey=Gene;gene=rps3;gene_biotype=protein_coding;locus_tag=AlmafMp30
+2025-05-06 19:32:01,430 - DEBUG - 	name: AlmafMp30 | desc: ribosomal protein S3 | gene_symbol: rps3
+2025-05-06 19:32:01,431 - DEBUG - 	[1st F]Label not found gene_dict | checking temp_gene_dict | Label: ribosomal protein S3
+2025-05-06 19:32:01,431 - DEBUG - 	[2nd T]Label in temp_gene_dict, adding: gene-AlmafMp30 # NC_001715.1:801858 | Label: MT-TEMP-5
+2025-05-06 19:32:01,432 - DEBUG - -- [Processing: NC_003048.1] --
+2025-05-06 19:32:01,973 - DEBUG - 	m: 24 | r: 24 | m/r check: True
+2025-05-06 19:32:01,976 - DEBUG - gene_id: gene-HycufMp02 | dbxref: 803624 | s: 4336 | att: ID=gene-HycufMp02;Dbxref=GeneID:803624;Name=nad1;gbkey=Gene;gene=nad1;gene_biotype=protein_coding;locus_tag=HycufMp02
+2025-05-06 19:32:01,976 - DEBUG - 	name: HycufMp02 | desc: NADH dehydrogenase subunit 1 | gene_symbol: nad1
+2025-05-06 19:32:01,976 - DEBUG - 	[1st F]Label not found gene_dict | checking temp_gene_dict | Label: NADH dehydrogenase subunit 1
+2025-05-06 19:32:01,977 - DEBUG - 	[2nd T]Label in temp_gene_dict, adding: gene-HycufMp02 # NC_003048.1:803624 | Label: MT-TEMP-36
+2025-05-06 19:32:01,977 - DEBUG - gene_id: gene-HycufMp03 | dbxref: 803640 | s: 5244 | att: ID=gene-HycufMp03;Dbxref=GeneID:803640;Name=atp8;gbkey=Gene;gene=atp8;gene_biotype=protein_coding;locus_tag=HycufMp03
+2025-05-06 19:32:01,977 - DEBUG - 	name: HycufMp03 | desc: ATP synthase F0 subunit 8 | gene_symbol: atp8
+2025-05-06 19:32:01,978 - DEBUG - 	[1st F]Label not found gene_dict | checking temp_gene_dict | Label: ATP synthase F0 subunit 8
+2025-05-06 19:32:01,978 - DEBUG - 	[2nd T]Label in temp_gene_dict, adding: gene-HycufMp03 # NC_003048.1:803640 | Label: MT-TEMP-35
+2025-05-06 19:32:01,979 - DEBUG - gene_id: gene-HycufMp04 | dbxref: 803643 | s: 5522 | att: ID=gene-HycufMp04;Dbxref=GeneID:803643;Name=nad2;gbkey=Gene;gene=nad2;gene_biotype=protein_coding;locus_tag=HycufMp04
+2025-05-06 19:32:01,979 - DEBUG - 	name: HycufMp04 | desc: NADH dehydrogenase subunit 2 | gene_symbol: nad2
+2025-05-06 19:32:01,979 - DEBUG - 	[1st F]Label not found gene_dict | checking temp_gene_dict | Label: NADH dehydrogenase subunit 2
+2025-05-06 19:32:01,979 - DEBUG - 	[2nd T]Label in temp_gene_dict, adding: gene-HycufMp04 # NC_003048.1:803643 | Label: MT-TEMP-14
+2025-05-06 19:32:01,979 - DEBUG - gene_id: gene-HycufMp05 | dbxref: 803644 | s: 6819 | att: ID=gene-HycufMp05;Dbxref=GeneID:803644;Name=cob;gbkey=Gene;gene=cob;gene_biotype=protein_coding;locus_tag=HycufMp05
+2025-05-06 19:32:01,980 - DEBUG - 	name: HycufMp05 | desc: apocytochrome b | gene_symbol: cob
+2025-05-06 19:32:01,980 - DEBUG - 	[1st F]Label not found gene_dict | checking temp_gene_dict | Label: apocytochrome b
+2025-05-06 19:32:01,981 - DEBUG - 	[2nd T]Label in temp_gene_dict, adding: gene-HycufMp05 # NC_003048.1:803644 | Label: MT-TEMP-28
+2025-05-06 19:32:01,981 - DEBUG - gene_id: gene-HycufMp08 | dbxref: 803617 | s: 10167 | att: ID=gene-HycufMp08;Dbxref=GeneID:803617;Name=cox2;gbkey=Gene;gene=cox2;gene_biotype=protein_coding;locus_tag=HycufMp08
+2025-05-06 19:32:01,981 - DEBUG - 	name: HycufMp08 | desc: cytochrome c oxidase subunit 2 | gene_symbol: cox2
+2025-05-06 19:32:01,981 - DEBUG - 	[1st F]Label not found gene_dict | checking temp_gene_dict | Label: cytochrome c oxidase subunit 2
+2025-05-06 19:32:01,982 - DEBUG - 	[2nd T]Label in temp_gene_dict, adding: gene-HycufMp08 # NC_003048.1:803617 | Label: MT-TEMP-33
+2025-05-06 19:32:01,982 - DEBUG - gene_id: gene-HycufMp09 | dbxref: 803629 | s: 11011 | att: ID=gene-HycufMp09;Dbxref=GeneID:803629;Name=cox1;gbkey=Gene;gene=cox1;gene_biotype=protein_coding;locus_tag=HycufMp09
+2025-05-06 19:32:01,982 - DEBUG - 	name: HycufMp09 | desc: cytochrome c oxidase subunit 1 | gene_symbol: cox1
+2025-05-06 19:32:01,983 - DEBUG - 	[1st F]Label not found gene_dict | checking temp_gene_dict | Label: cytochrome c oxidase subunit 1
+2025-05-06 19:32:01,983 - DEBUG - 	[2nd T]Label in temp_gene_dict, adding: gene-HycufMp09 # NC_003048.1:803629 | Label: MT-TEMP-30
+2025-05-06 19:32:01,983 - DEBUG - gene_id: gene-HycufMp10 | dbxref: 803630 | s: 13333 | att: ID=gene-HycufMp10;Dbxref=GeneID:803630;Name=cox3;gbkey=Gene;gene=cox3;gene_biotype=protein_coding;locus_tag=HycufMp10
+2025-05-06 19:32:01,984 - DEBUG - 	name: HycufMp10 | desc: cytochrome c oxidase subunit 3 | gene_symbol: cox3
+2025-05-06 19:32:01,984 - DEBUG - 	[1st F]Label not found gene_dict | checking temp_gene_dict | Label: cytochrome c oxidase subunit 3
+2025-05-06 19:32:01,984 - DEBUG - 	[2nd T]Label in temp_gene_dict, adding: gene-HycufMp10 # NC_003048.1:803630 | Label: MT-TEMP-19
+2025-05-06 19:32:01,984 - DEBUG - gene_id: gene-HycufMp12 | dbxref: 803633 | s: 15612 | att: ID=gene-HycufMp12;Dbxref=GeneID:803633;Name=atp9;gbkey=Gene;gene=atp9;gene_biotype=protein_coding;locus_tag=HycufMp12
+2025-05-06 19:32:01,985 - DEBUG - 	name: HycufMp12 | desc: ATP synthase F0 subunit 9 | gene_symbol: atp9
+2025-05-06 19:32:01,985 - DEBUG - 	[1st F]Label not found gene_dict | checking temp_gene_dict | Label: ATP synthase F0 subunit 9
+2025-05-06 19:32:01,985 - DEBUG - 	[2nd F]Label not in temp_gene_dict, creating new label | Label: ATP synthase F0 subunit 9
+2025-05-06 19:32:01,986 - DEBUG - 	New Label MT-TEMP-50 to ATP synthase F0 subunit 9 # NC_003048.1:803633
+2025-05-06 19:32:01,986 - DEBUG - gene_id: gene-HycufMt22 | dbxref: 803634 | s: 16084 | att: ID=gene-HycufMt22;Dbxref=GeneID:803634;Name=trnP(ugg);gbkey=Gene;gene=trnP(ugg);gene_biotype=tRNA;locus_tag=HycufMt22
+2025-05-06 19:32:01,986 - DEBUG - 	name: HycufMt22 | desc: tRNA-Pro | gene_symbol: trnP(ugg)
+2025-05-06 19:32:01,987 - DEBUG - 	[1st F]Label not found gene_dict | checking temp_gene_dict | Label: tRNA-Pro
+2025-05-06 19:32:01,987 - DEBUG - 	[2nd T]Label in temp_gene_dict, adding: gene-HycufMt22 # NC_003048.1:803634 | Label: MT-TEMP-3
+2025-05-06 19:32:01,987 - DEBUG - gene_id: gene-HycufMt23 | dbxref: 803641 | s: 16193 | att: ID=gene-HycufMt23;Dbxref=GeneID:803641;Name=trnD(guc);gbkey=Gene;gene=trnD(guc);gene_biotype=tRNA;locus_tag=HycufMt23
+2025-05-06 19:32:01,988 - DEBUG - 	name: HycufMt23 | desc: tRNA-Asp | gene_symbol: trnD(guc)
+2025-05-06 19:32:01,988 - DEBUG - 	[1st F]Label not found gene_dict | checking temp_gene_dict | Label: tRNA-Asp
+2025-05-06 19:32:01,988 - DEBUG - 	[2nd T]Label in temp_gene_dict, adding: gene-HycufMt23 # NC_003048.1:803641 | Label: MT-TEMP-22
+2025-05-06 19:32:01,988 - DEBUG - gene_id: gene-HycufMt24 | dbxref: 803638 | s: 16319 | att: ID=gene-HycufMt24;Dbxref=GeneID:803638;Name=trnQ(uug);gbkey=Gene;gene=trnQ(uug);gene_biotype=tRNA;locus_tag=HycufMt24
+2025-05-06 19:32:01,989 - DEBUG - 	name: HycufMt24 | desc: tRNA-Gln | gene_symbol: trnQ(uug)
+2025-05-06 19:32:01,989 - DEBUG - 	[1st F]Label not found gene_dict | checking temp_gene_dict | Label: tRNA-Gln
+2025-05-06 19:32:01,989 - DEBUG - 	[2nd T]Label in temp_gene_dict, adding: gene-HycufMt24 # NC_003048.1:803638 | Label: MT-TEMP-12
+2025-05-06 19:32:01,989 - DEBUG - gene_id: gene-HycufMr19 | dbxref: 803636 | s: 16655 | att: ID=gene-HycufMr19;Dbxref=GeneID:803636;Name=rns_b;gbkey=Gene;gene=rns_b;gene_biotype=rRNA;locus_tag=HycufMr19
+2025-05-06 19:32:01,990 - DEBUG - 	name: HycufMr19 | desc: small subunit ribosomal RNA | gene_symbol: rns_b
+2025-05-06 19:32:01,990 - DEBUG - 	[1st F]Label not found gene_dict | checking temp_gene_dict | Label: small subunit ribosomal RNA
+2025-05-06 19:32:01,990 - DEBUG - 	[2nd T]Label in temp_gene_dict, adding: gene-HycufMr19 # NC_003048.1:803636 | Label: MT-TEMP-17
+2025-05-06 19:32:01,991 - DEBUG - gene_id: gene-HycufMr20 | dbxref: 803635 | s: 17738 | att: ID=gene-HycufMr20;Dbxref=GeneID:803635;Name=rnl;gbkey=Gene;gene=rnl;gene_biotype=rRNA;locus_tag=HycufMr20
+2025-05-06 19:32:01,991 - DEBUG - 	name: HycufMr20 | desc: large subunit ribosomal RNA | gene_symbol: rnl
+2025-05-06 19:32:01,992 - DEBUG - 	[1st F]Label not found gene_dict | checking temp_gene_dict | Label: large subunit ribosomal RNA
+2025-05-06 19:32:01,992 - DEBUG - 	[2nd T]Label in temp_gene_dict, adding: gene-HycufMr20 # NC_003048.1:803635 | Label: MT-TEMP-4
+2025-05-06 19:32:01,993 - DEBUG - gene_id: gene-HycufMt25 | dbxref: 803632 | s: 20638 | att: ID=gene-HycufMt25;Dbxref=GeneID:803632;Name=trnE(uuc);gbkey=Gene;gene=trnE(uuc);gene_biotype=tRNA;locus_tag=HycufMt25
+2025-05-06 19:32:01,993 - DEBUG - 	name: HycufMt25 | desc: tRNA-Glu | gene_symbol: trnE(uuc)
+2025-05-06 19:32:01,993 - DEBUG - 	[1st F]Label not found gene_dict | checking temp_gene_dict | Label: tRNA-Glu
+2025-05-06 19:32:01,994 - DEBUG - 	[2nd T]Label in temp_gene_dict, adding: gene-HycufMt25 # NC_003048.1:803632 | Label: MT-TEMP-7
+2025-05-06 19:32:01,994 - DEBUG - gene_id: gene-HycufMt26 | dbxref: 803631 | s: 20710 | att: ID=gene-HycufMt26;Dbxref=GeneID:803631;Name=trnM(cau)f;gbkey=Gene;gene=trnM(cau)f;gene_biotype=tRNA;locus_tag=HycufMt26
+2025-05-06 19:32:01,995 - DEBUG - 	name: HycufMt26 | desc: tRNA-Met | gene_symbol: trnM(cau)f
+2025-05-06 19:32:01,995 - DEBUG - 	[1st F]Label not found gene_dict | checking temp_gene_dict | Label: tRNA-Met
+2025-05-06 19:32:01,996 - DEBUG - 	[2nd T]Label in temp_gene_dict, adding: gene-HycufMt26 # NC_003048.1:803631 | Label: MT-TEMP-8
+2025-05-06 19:32:01,996 - DEBUG - gene_id: gene-HycufMr21 | dbxref: 803618 | s: 20831 | att: ID=gene-HycufMr21;Dbxref=GeneID:803618;Name=rns_a;gbkey=Gene;gene=rns_a;gene_biotype=rRNA;locus_tag=HycufMr21
+2025-05-06 19:32:01,997 - DEBUG - 	name: HycufMr21 | desc: small subunit ribosomal RNA | gene_symbol: rns_a
+2025-05-06 19:32:01,997 - DEBUG - 	[1st F]Label not found gene_dict | checking temp_gene_dict | Label: small subunit ribosomal RNA
+2025-05-06 19:32:01,997 - DEBUG - 	[2nd T]Label in temp_gene_dict, adding: gene-HycufMr21 # NC_003048.1:803618 | Label: MT-TEMP-17
+2025-05-06 19:32:01,998 - DEBUG - gene_id: gene-HycufMp13 | dbxref: 803627 | s: 21595 | att: ID=gene-HycufMp13;Dbxref=GeneID:803627;Name=nad4;gbkey=Gene;gene=nad4;gene_biotype=protein_coding;locus_tag=HycufMp13
+2025-05-06 19:32:01,998 - DEBUG - 	name: HycufMp13 | desc: NADH dehydrogenase subunit 4 | gene_symbol: nad4
+2025-05-06 19:32:01,998 - DEBUG - 	[1st F]Label not found gene_dict | checking temp_gene_dict | Label: NADH dehydrogenase subunit 4
+2025-05-06 19:32:01,998 - DEBUG - 	[2nd T]Label in temp_gene_dict, adding: gene-HycufMp13 # NC_003048.1:803627 | Label: MT-TEMP-34
+2025-05-06 19:32:01,999 - DEBUG - gene_id: gene-HycufMp14 | dbxref: 803619 | s: 23343 | att: ID=gene-HycufMp14;Dbxref=GeneID:803619;Name=atp6;gbkey=Gene;gene=atp6;gene_biotype=protein_coding;locus_tag=HycufMp14
+2025-05-06 19:32:01,999 - DEBUG - 	name: HycufMp14 | desc: ATP synthase F0 subunit 6 | gene_symbol: atp6
+2025-05-06 19:32:01,999 - DEBUG - 	[1st F]Label not found gene_dict | checking temp_gene_dict | Label: ATP synthase F0 subunit 6
+2025-05-06 19:32:02,000 - DEBUG - 	[2nd T]Label in temp_gene_dict, adding: gene-HycufMp14 # NC_003048.1:803619 | Label: MT-TEMP-27
+2025-05-06 19:32:02,000 - DEBUG - gene_id: gene-HycufMp15 | dbxref: 803620 | s: 24323 | att: ID=gene-HycufMp15;Dbxref=GeneID:803620;Name=nad4L;gbkey=Gene;gene=nad4L;gene_biotype=protein_coding;locus_tag=HycufMp15
+2025-05-06 19:32:02,000 - DEBUG - 	name: HycufMp15 | desc: NADH dehydrogenase subunit 4L | gene_symbol: nad4L
+2025-05-06 19:32:02,001 - DEBUG - 	[1st F]Label not found gene_dict | checking temp_gene_dict | Label: NADH dehydrogenase subunit 4L
+2025-05-06 19:32:02,001 - DEBUG - 	[2nd T]Label in temp_gene_dict, adding: gene-HycufMp15 # NC_003048.1:803620 | Label: MT-TEMP-31
+2025-05-06 19:32:02,001 - DEBUG - gene_id: gene-HycufMp16 | dbxref: 803621 | s: 25080 | att: ID=gene-HycufMp16;Dbxref=GeneID:803621;Name=nad3;gbkey=Gene;gene=nad3;gene_biotype=protein_coding;locus_tag=HycufMp16
+2025-05-06 19:32:02,002 - DEBUG - 	name: HycufMp16 | desc: NADH dehydrogenase subunit 3 | gene_symbol: nad3
+2025-05-06 19:32:02,002 - DEBUG - 	[1st F]Label not found gene_dict | checking temp_gene_dict | Label: NADH dehydrogenase subunit 3
+2025-05-06 19:32:02,002 - DEBUG - 	[2nd T]Label in temp_gene_dict, adding: gene-HycufMp16 # NC_003048.1:803621 | Label: MT-TEMP-15
+2025-05-06 19:32:02,002 - DEBUG - gene_id: gene-HycufMp17 | dbxref: 803622 | s: 25517 | att: ID=gene-HycufMp17;Dbxref=GeneID:803622;Name=nad6;gbkey=Gene;gene=nad6;gene_biotype=protein_coding;locus_tag=HycufMp17
+2025-05-06 19:32:02,003 - DEBUG - 	name: HycufMp17 | desc: NADH dehydrogenase subunit 6 | gene_symbol: nad6
+2025-05-06 19:32:02,003 - DEBUG - 	[1st F]Label not found gene_dict | checking temp_gene_dict | Label: NADH dehydrogenase subunit 6
+2025-05-06 19:32:02,003 - DEBUG - 	[2nd T]Label in temp_gene_dict, adding: gene-HycufMp17 # NC_003048.1:803622 | Label: MT-TEMP-24
+2025-05-06 19:32:02,004 - DEBUG - gene_id: gene-HycufMp18 | dbxref: 803623 | s: 26022 | att: ID=gene-HycufMp18;Dbxref=GeneID:803623;Name=nad5;gbkey=Gene;gene=nad5;gene_biotype=protein_coding;locus_tag=HycufMp18
+2025-05-06 19:32:02,004 - DEBUG - 	name: HycufMp18 | desc: NADH dehydrogenase subunit 5 | gene_symbol: nad5
+2025-05-06 19:32:02,004 - DEBUG - 	[1st F]Label not found gene_dict | checking temp_gene_dict | Label: NADH dehydrogenase subunit 5
+2025-05-06 19:32:02,005 - DEBUG - 	[2nd T]Label in temp_gene_dict, adding: gene-HycufMp18 # NC_003048.1:803623 | Label: MT-TEMP-32
+2025-05-06 19:32:02,005 - DEBUG - gene_id: gene-HycufMt27 | dbxref: 803625 | s: 27835 | att: ID=gene-HycufMt27;Dbxref=GeneID:803625;Name=trnW(cca);gbkey=Gene;gene=trnW(cca);gene_biotype=tRNA;locus_tag=HycufMt27
+2025-05-06 19:32:02,005 - DEBUG - 	name: HycufMt27 | desc: tRNA-Trp | gene_symbol: trnW(cca)
+2025-05-06 19:32:02,006 - DEBUG - 	[1st F]Label not found gene_dict | checking temp_gene_dict | Label: tRNA-Trp
+2025-05-06 19:32:02,006 - DEBUG - 	[2nd T]Label in temp_gene_dict, adding: gene-HycufMt27 # NC_003048.1:803625 | Label: MT-TEMP-23
+2025-05-06 19:32:02,006 - DEBUG - gene_id: gene-HycufMt28 | dbxref: 803626 | s: 28143 | att: ID=gene-HycufMt28;Dbxref=GeneID:803626;Name=trnY(gua);gbkey=Gene;gene=trnY(gua);gene_biotype=tRNA;locus_tag=HycufMt28
+2025-05-06 19:32:02,007 - DEBUG - 	name: HycufMt28 | desc: tRNA-Tyr | gene_symbol: trnY(gua)
+2025-05-06 19:32:02,007 - DEBUG - 	[1st F]Label not found gene_dict | checking temp_gene_dict | Label: tRNA-Tyr
+2025-05-06 19:32:02,007 - DEBUG - 	[2nd T]Label in temp_gene_dict, adding: gene-HycufMt28 # NC_003048.1:803626 | Label: MT-TEMP-18
+2025-05-06 19:32:02,008 - DEBUG - -- [Processing: NC_003049.1] --
+2025-05-06 19:32:04,043 - DEBUG - 	m: 44 | r: 44 | m/r check: True
+2025-05-06 19:32:04,046 - DEBUG - gene_id: gene-SccofMr21 | dbxref: 803570 | s: 90 | att: ID=gene-SccofMr21;Dbxref=GeneID:803570;Name=rnl;gbkey=Gene;gene=rnl;gene_biotype=rRNA;locus_tag=SccofMr21
+2025-05-06 19:32:04,047 - DEBUG - 	name: SccofMr21 | desc: large subunit ribosomal RNA | gene_symbol: rnl
+2025-05-06 19:32:04,047 - DEBUG - 	[1st F]Label not found gene_dict | checking temp_gene_dict | Label: large subunit ribosomal RNA
+2025-05-06 19:32:04,047 - DEBUG - 	[2nd T]Label in temp_gene_dict, adding: gene-SccofMr21 # NC_003049.1:803570 | Label: MT-TEMP-4
+2025-05-06 19:32:04,048 - DEBUG - gene_id: gene-SccofMt23 | dbxref: 803578 | s: 3981 | att: ID=gene-SccofMt23;Dbxref=GeneID:803578;Name=trnW(cca);gbkey=Gene;gene=trnW(cca);gene_biotype=tRNA;locus_tag=SccofMt23
+2025-05-06 19:32:04,048 - DEBUG - 	name: SccofMt23 | desc: tRNA-Trp | gene_symbol: trnW(cca)
+2025-05-06 19:32:04,048 - DEBUG - 	[1st F]Label not found gene_dict | checking temp_gene_dict | Label: tRNA-Trp
+2025-05-06 19:32:04,049 - DEBUG - 	[2nd T]Label in temp_gene_dict, adding: gene-SccofMt23 # NC_003049.1:803578 | Label: MT-TEMP-23
+2025-05-06 19:32:04,049 - DEBUG - gene_id: gene-SccofMt24 | dbxref: 803589 | s: 4203 | att: ID=gene-SccofMt24;Dbxref=GeneID:803589;Name=trnD(guc);gbkey=Gene;gene=trnD(guc);gene_biotype=tRNA;locus_tag=SccofMt24
+2025-05-06 19:32:04,049 - DEBUG - 	name: SccofMt24 | desc: tRNA-Asp | gene_symbol: trnD(guc)
+2025-05-06 19:32:04,050 - DEBUG - 	[1st F]Label not found gene_dict | checking temp_gene_dict | Label: tRNA-Asp
+2025-05-06 19:32:04,051 - DEBUG - 	[2nd T]Label in temp_gene_dict, adding: gene-SccofMt24 # NC_003049.1:803589 | Label: MT-TEMP-22
+2025-05-06 19:32:04,051 - DEBUG - gene_id: gene-SccofMt25 | dbxref: 803591 | s: 4688 | att: ID=gene-SccofMt25;Dbxref=GeneID:803591;Name=trnG(ucc);gbkey=Gene;gene=trnG(ucc);gene_biotype=tRNA;locus_tag=SccofMt25
+2025-05-06 19:32:04,052 - DEBUG - 	name: SccofMt25 | desc: tRNA-Gly | gene_symbol: trnG(ucc)
+2025-05-06 19:32:04,052 - DEBUG - 	[1st F]Label not found gene_dict | checking temp_gene_dict | Label: tRNA-Gly
+2025-05-06 19:32:04,052 - DEBUG - 	[2nd T]Label in temp_gene_dict, adding: gene-SccofMt25 # NC_003049.1:803591 | Label: MT-TEMP-21
+2025-05-06 19:32:04,053 - DEBUG - gene_id: gene-SccofMt26 | dbxref: 803596 | s: 4965 | att: ID=gene-SccofMt26;Dbxref=GeneID:803596;Name=trnR(ucu);gbkey=Gene;gene=trnR(ucu);gene_biotype=tRNA;locus_tag=SccofMt26
+2025-05-06 19:32:04,053 - DEBUG - 	name: SccofMt26 | desc: tRNA-Arg | gene_symbol: trnR(ucu)
+2025-05-06 19:32:04,054 - DEBUG - 	[1st F]Label not found gene_dict | checking temp_gene_dict | Label: tRNA-Arg
+2025-05-06 19:32:04,054 - DEBUG - 	[2nd T]Label in temp_gene_dict, adding: gene-SccofMt26 # NC_003049.1:803596 | Label: MT-TEMP-16
+2025-05-06 19:32:04,054 - DEBUG - gene_id: gene-SccofMt27 | dbxref: 803599 | s: 5127 | att: ID=gene-SccofMt27;Dbxref=GeneID:803599;Name=trnG(ucc);gbkey=Gene;gene=trnG(ucc);gene_biotype=tRNA;locus_tag=SccofMt27
+2025-05-06 19:32:04,056 - DEBUG - 	name: SccofMt27 | desc: tRNA-Gly | gene_symbol: trnG(ucc)
+2025-05-06 19:32:04,057 - DEBUG - 	[1st F]Label not found gene_dict | checking temp_gene_dict | Label: tRNA-Gly
+2025-05-06 19:32:04,057 - DEBUG - 	[2nd T]Label in temp_gene_dict, adding: gene-SccofMt27 # NC_003049.1:803599 | Label: MT-TEMP-21
+2025-05-06 19:32:04,058 - DEBUG - gene_id: gene-SccofMr22 | dbxref: 803601 | s: 6090 | att: ID=gene-SccofMr22;Dbxref=GeneID:803601;Name=rns;gbkey=Gene;gene=rns;gene_biotype=rRNA;locus_tag=SccofMr22
+2025-05-06 19:32:04,059 - DEBUG - 	name: SccofMr22 | desc: small subunit ribosomal RNA | gene_symbol: rns
+2025-05-06 19:32:04,059 - DEBUG - 	[1st F]Label not found gene_dict | checking temp_gene_dict | Label: small subunit ribosomal RNA
+2025-05-06 19:32:04,059 - DEBUG - 	[2nd T]Label in temp_gene_dict, adding: gene-SccofMr22 # NC_003049.1:803601 | Label: MT-TEMP-17
+2025-05-06 19:32:04,060 - DEBUG - gene_id: gene-SccofMt28 | dbxref: 803567 | s: 8226 | att: ID=gene-SccofMt28;Dbxref=GeneID:803567;Name=trnV(uac);gbkey=Gene;gene=trnV(uac);gene_biotype=tRNA;locus_tag=SccofMt28
+2025-05-06 19:32:04,060 - DEBUG - 	name: SccofMt28 | desc: tRNA-Val | gene_symbol: trnV(uac)
+2025-05-06 19:32:04,060 - DEBUG - 	[1st F]Label not found gene_dict | checking temp_gene_dict | Label: tRNA-Val
+2025-05-06 19:32:04,061 - DEBUG - 	[2nd T]Label in temp_gene_dict, adding: gene-SccofMt28 # NC_003049.1:803567 | Label: MT-TEMP-25
+2025-05-06 19:32:04,061 - DEBUG - gene_id: gene-SccofMt29 | dbxref: 803592 | s: 8463 | att: ID=gene-SccofMt29;Dbxref=GeneID:803592;Name=trnL(uag);gbkey=Gene;gene=trnL(uag);gene_biotype=tRNA;locus_tag=SccofMt29
+2025-05-06 19:32:04,063 - DEBUG - 	name: SccofMt29 | desc: tRNA-Leu | gene_symbol: trnL(uag)
+2025-05-06 19:32:04,063 - DEBUG - 	[1st F]Label not found gene_dict | checking temp_gene_dict | Label: tRNA-Leu
+2025-05-06 19:32:04,064 - DEBUG - 	[2nd T]Label in temp_gene_dict, adding: gene-SccofMt29 # NC_003049.1:803592 | Label: MT-TEMP-9
+2025-05-06 19:32:04,065 - DEBUG - gene_id: gene-SccofMt30 | dbxref: 803585 | s: 8956 | att: ID=gene-SccofMt30;Dbxref=GeneID:803585;Name=trnR(ucg);gbkey=Gene;gene=trnR(ucg);gene_biotype=tRNA;locus_tag=SccofMt30
+2025-05-06 19:32:04,065 - DEBUG - 	name: SccofMt30 | desc: tRNA-Arg | gene_symbol: trnR(ucg)
+2025-05-06 19:32:04,065 - DEBUG - 	[1st F]Label not found gene_dict | checking temp_gene_dict | Label: tRNA-Arg
+2025-05-06 19:32:04,065 - DEBUG - 	[2nd T]Label in temp_gene_dict, adding: gene-SccofMt30 # NC_003049.1:803585 | Label: MT-TEMP-16
+2025-05-06 19:32:04,066 - DEBUG - gene_id: gene-SccofMp01 | dbxref: 803593 | s: 9374 | att: ID=gene-SccofMp01;Dbxref=GeneID:803593;Name=atp6;gbkey=Gene;gene=atp6;gene_biotype=protein_coding;locus_tag=SccofMp01
+2025-05-06 19:32:04,066 - DEBUG - 	name: SccofMp01 | desc: ATP synthase F0 subunit 6 | gene_symbol: atp6
+2025-05-06 19:32:04,070 - DEBUG - 	[1st F]Label not found gene_dict | checking temp_gene_dict | Label: ATP synthase F0 subunit 6
+2025-05-06 19:32:04,070 - DEBUG - 	[2nd T]Label in temp_gene_dict, adding: gene-SccofMp01 # NC_003049.1:803593 | Label: MT-TEMP-27
+2025-05-06 19:32:04,071 - DEBUG - gene_id: gene-SccofMp02 | dbxref: 803611 | s: 11104 | att: ID=gene-SccofMp02;Dbxref=GeneID:803611;Name=rps3;gbkey=Gene;gene=rps3;gene_biotype=protein_coding;locus_tag=SccofMp02
+2025-05-06 19:32:04,071 - DEBUG - 	name: SccofMp02 | desc: ribosomal protein S3 | gene_symbol: rps3
+2025-05-06 19:32:04,071 - DEBUG - 	[1st F]Label not found gene_dict | checking temp_gene_dict | Label: ribosomal protein S3
+2025-05-06 19:32:04,076 - DEBUG - 	[2nd T]Label in temp_gene_dict, adding: gene-SccofMp02 # NC_003049.1:803611 | Label: MT-TEMP-5
+2025-05-06 19:32:04,076 - DEBUG - gene_id: gene-SccofMt31 | dbxref: 803607 | s: 15991 | att: ID=gene-SccofMt31;Dbxref=GeneID:803607;Name=trnH(gug);gbkey=Gene;gene=trnH(gug);gene_biotype=tRNA;locus_tag=SccofMt31
+2025-05-06 19:32:04,077 - DEBUG - 	name: SccofMt31 | desc: tRNA-His | gene_symbol: trnH(gug)
+2025-05-06 19:32:04,077 - DEBUG - 	[1st F]Label not found gene_dict | checking temp_gene_dict | Label: tRNA-His
+2025-05-06 19:32:04,077 - DEBUG - 	[2nd T]Label in temp_gene_dict, adding: gene-SccofMt31 # NC_003049.1:803607 | Label: MT-TEMP-13
+2025-05-06 19:32:04,078 - DEBUG - gene_id: gene-SccofMt32 | dbxref: 803614 | s: 16251 | att: ID=gene-SccofMt32;Dbxref=GeneID:803614;Name=trnM(cau)e;gbkey=Gene;gene=trnM(cau)e;gene_biotype=tRNA;locus_tag=SccofMt32
+2025-05-06 19:32:04,078 - DEBUG - 	name: SccofMt32 | desc: tRNA-Met | gene_symbol: trnM(cau)e
+2025-05-06 19:32:04,079 - DEBUG - 	[1st F]Label not found gene_dict | checking temp_gene_dict | Label: tRNA-Met
+2025-05-06 19:32:04,080 - DEBUG - 	[2nd T]Label in temp_gene_dict, adding: gene-SccofMt32 # NC_003049.1:803614 | Label: MT-TEMP-8
+2025-05-06 19:32:04,081 - DEBUG - gene_id: gene-SccofMp03 | dbxref: 803595 | s: 16569 | att: ID=gene-SccofMp03;Dbxref=GeneID:803595;Name=cox1;gbkey=Gene;gene=cox1;gene_biotype=protein_coding;locus_tag=SccofMp03
+2025-05-06 19:32:04,081 - DEBUG - 	name: SccofMp03 | desc: cytochrome c oxidase subunit 1 | gene_symbol: cox1
+2025-05-06 19:32:04,082 - DEBUG - 	[1st F]Label not found gene_dict | checking temp_gene_dict | Label: cytochrome c oxidase subunit 1
+2025-05-06 19:32:04,082 - DEBUG - 	[2nd T]Label in temp_gene_dict, adding: gene-SccofMp03 # NC_003049.1:803595 | Label: MT-TEMP-30
+2025-05-06 19:32:04,082 - DEBUG - gene_id: gene-SccofMt33 | dbxref: 803575 | s: 18412 | att: ID=gene-SccofMt33;Dbxref=GeneID:803575;Name=trnS(gcu);gbkey=Gene;gene=trnS(gcu);gene_biotype=tRNA;locus_tag=SccofMt33
+2025-05-06 19:32:04,083 - DEBUG - 	name: SccofMt33 | desc: tRNA-Ser | gene_symbol: trnS(gcu)
+2025-05-06 19:32:04,083 - DEBUG - 	[1st F]Label not found gene_dict | checking temp_gene_dict | Label: tRNA-Ser
+2025-05-06 19:32:04,085 - DEBUG - 	[2nd T]Label in temp_gene_dict, adding: gene-SccofMt33 # NC_003049.1:803575 | Label: MT-TEMP-2
+2025-05-06 19:32:04,085 - DEBUG - gene_id: gene-SccofMt34 | dbxref: 803572 | s: 18609 | att: ID=gene-SccofMt34;Dbxref=GeneID:803572;Name=trnE(uuc);gbkey=Gene;gene=trnE(uuc);gene_biotype=tRNA;locus_tag=SccofMt34
+2025-05-06 19:32:04,086 - DEBUG - 	name: SccofMt34 | desc: tRNA-Glu | gene_symbol: trnE(uuc)
+2025-05-06 19:32:04,088 - DEBUG - 	[1st F]Label not found gene_dict | checking temp_gene_dict | Label: tRNA-Glu
+2025-05-06 19:32:04,090 - DEBUG - 	[2nd T]Label in temp_gene_dict, adding: gene-SccofMt34 # NC_003049.1:803572 | Label: MT-TEMP-7
+2025-05-06 19:32:04,090 - DEBUG - gene_id: gene-SccofMt35 | dbxref: 803573 | s: 18809 | att: ID=gene-SccofMt35;Dbxref=GeneID:803573;Name=trnM(cau)f;gbkey=Gene;gene=trnM(cau)f;gene_biotype=tRNA;locus_tag=SccofMt35
+2025-05-06 19:32:04,093 - DEBUG - 	name: SccofMt35 | desc: tRNA-Met | gene_symbol: trnM(cau)f
+2025-05-06 19:32:04,093 - DEBUG - 	[1st F]Label not found gene_dict | checking temp_gene_dict | Label: tRNA-Met
+2025-05-06 19:32:04,094 - DEBUG - 	[2nd T]Label in temp_gene_dict, adding: gene-SccofMt35 # NC_003049.1:803573 | Label: MT-TEMP-8
+2025-05-06 19:32:04,095 - DEBUG - gene_id: gene-SccofMt36 | dbxref: 803587 | s: 19100 | att: ID=gene-SccofMt36;Dbxref=GeneID:803587;Name=trnL(uaa);gbkey=Gene;gene=trnL(uaa);gene_biotype=tRNA;locus_tag=SccofMt36
+2025-05-06 19:32:04,099 - DEBUG - 	name: SccofMt36 | desc: tRNA-Leu | gene_symbol: trnL(uaa)
+2025-05-06 19:32:04,099 - DEBUG - 	[1st F]Label not found gene_dict | checking temp_gene_dict | Label: tRNA-Leu
+2025-05-06 19:32:04,100 - DEBUG - 	[2nd T]Label in temp_gene_dict, adding: gene-SccofMt36 # NC_003049.1:803587 | Label: MT-TEMP-9
+2025-05-06 19:32:04,101 - DEBUG - gene_id: gene-SccofMp04 | dbxref: 803580 | s: 19551 | att: ID=gene-SccofMp04;Dbxref=GeneID:803580;Name=atp8;gbkey=Gene;gene=atp8;gene_biotype=protein_coding;locus_tag=SccofMp04
+2025-05-06 19:32:04,101 - DEBUG - 	name: SccofMp04 | desc: ATP synthase F0 subunit 8 | gene_symbol: atp8
+2025-05-06 19:32:04,102 - DEBUG - 	[1st F]Label not found gene_dict | checking temp_gene_dict | Label: ATP synthase F0 subunit 8
+2025-05-06 19:32:04,102 - DEBUG - 	[2nd T]Label in temp_gene_dict, adding: gene-SccofMp04 # NC_003049.1:803580 | Label: MT-TEMP-35
+2025-05-06 19:32:04,104 - DEBUG - gene_id: gene-SccofMp06 | dbxref: 803605 | s: 22047 | att: ID=gene-SccofMp06;Dbxref=GeneID:803605;Name=atp9;gbkey=Gene;gene=atp9;gene_biotype=protein_coding;locus_tag=SccofMp06
+2025-05-06 19:32:04,106 - DEBUG - 	name: SccofMp06 | desc: ATP synthase F0 subunit 9 | gene_symbol: atp9
+2025-05-06 19:32:04,107 - DEBUG - 	[1st F]Label not found gene_dict | checking temp_gene_dict | Label: ATP synthase F0 subunit 9
+2025-05-06 19:32:04,108 - DEBUG - 	[2nd T]Label in temp_gene_dict, adding: gene-SccofMp06 # NC_003049.1:803605 | Label: MT-TEMP-50
+2025-05-06 19:32:04,108 - DEBUG - gene_id: gene-SccofMt37 | dbxref: 803612 | s: 22477 | att: ID=gene-SccofMt37;Dbxref=GeneID:803612;Name=trnC(gca);gbkey=Gene;gene=trnC(gca);gene_biotype=tRNA;locus_tag=SccofMt37
+2025-05-06 19:32:04,109 - DEBUG - 	name: SccofMt37 | desc: tRNA-Cys | gene_symbol: trnC(gca)
+2025-05-06 19:32:04,110 - DEBUG - 	[1st F]Label not found gene_dict | checking temp_gene_dict | Label: tRNA-Cys
+2025-05-06 19:32:04,110 - DEBUG - 	[2nd T]Label in temp_gene_dict, adding: gene-SccofMt37 # NC_003049.1:803612 | Label: MT-TEMP-29
+2025-05-06 19:32:04,110 - DEBUG - gene_id: gene-SccofMt38 | dbxref: 803588 | s: 22734 | att: ID=gene-SccofMt38;Dbxref=GeneID:803588;Name=trnN(guu);gbkey=Gene;gene=trnN(guu);gene_biotype=tRNA;locus_tag=SccofMt38
+2025-05-06 19:32:04,111 - DEBUG - 	name: SccofMt38 | desc: tRNA-Asn | gene_symbol: trnN(guu)
+2025-05-06 19:32:04,111 - DEBUG - 	[1st F]Label not found gene_dict | checking temp_gene_dict | Label: tRNA-Asn
+2025-05-06 19:32:04,111 - DEBUG - 	[2nd T]Label in temp_gene_dict, adding: gene-SccofMt38 # NC_003049.1:803588 | Label: MT-TEMP-26
+2025-05-06 19:32:04,113 - DEBUG - gene_id: gene-SccofMt39 | dbxref: 803613 | s: 22926 | att: ID=gene-SccofMt39;Dbxref=GeneID:803613;Name=trnP(ugg);gbkey=Gene;gene=trnP(ugg);gene_biotype=tRNA;locus_tag=SccofMt39
+2025-05-06 19:32:04,114 - DEBUG - 	name: SccofMt39 | desc: tRNA-Pro | gene_symbol: trnP(ugg)
+2025-05-06 19:32:04,115 - DEBUG - 	[1st F]Label not found gene_dict | checking temp_gene_dict | Label: tRNA-Pro
+2025-05-06 19:32:04,115 - DEBUG - 	[2nd T]Label in temp_gene_dict, adding: gene-SccofMt39 # NC_003049.1:803613 | Label: MT-TEMP-3
+2025-05-06 19:32:04,116 - DEBUG - gene_id: gene-SccofMt40 | dbxref: 803603 | s: 23175 | att: ID=gene-SccofMt40;Dbxref=GeneID:803603;Name=trnS(uga);gbkey=Gene;gene=trnS(uga);gene_biotype=tRNA;locus_tag=SccofMt40
+2025-05-06 19:32:04,117 - DEBUG - 	name: SccofMt40 | desc: tRNA-Ser | gene_symbol: trnS(uga)
+2025-05-06 19:32:04,118 - DEBUG - 	[1st F]Label not found gene_dict | checking temp_gene_dict | Label: tRNA-Ser
+2025-05-06 19:32:04,118 - DEBUG - 	[2nd T]Label in temp_gene_dict, adding: gene-SccofMt40 # NC_003049.1:803603 | Label: MT-TEMP-2
+2025-05-06 19:32:04,119 - DEBUG - gene_id: gene-SccofMt41 | dbxref: 803583 | s: 23325 | att: ID=gene-SccofMt41;Dbxref=GeneID:803583;Name=trnI(cau);gbkey=Gene;gene=trnI(cau);gene_biotype=tRNA;locus_tag=SccofMt41
+2025-05-06 19:32:04,119 - DEBUG - 	name: SccofMt41 | desc: tRNA-Ile | gene_symbol: trnI(cau)
+2025-05-06 19:32:04,120 - DEBUG - 	[1st F]Label not found gene_dict | checking temp_gene_dict | Label: tRNA-Ile
+2025-05-06 19:32:04,120 - DEBUG - 	[2nd T]Label in temp_gene_dict, adding: gene-SccofMt41 # NC_003049.1:803583 | Label: MT-TEMP-1
+2025-05-06 19:32:04,121 - DEBUG - gene_id: gene-SccofMp07 | dbxref: 803577 | s: 24066 | att: ID=gene-SccofMp07;Dbxref=GeneID:803577;Name=cox2;gbkey=Gene;gene=cox2;gene_biotype=protein_coding;locus_tag=SccofMp07
+2025-05-06 19:32:04,121 - DEBUG - 	name: SccofMp07 | desc: cytochrome c oxidase subunit 2 | gene_symbol: cox2
+2025-05-06 19:32:04,122 - DEBUG - 	[1st F]Label not found gene_dict | checking temp_gene_dict | Label: cytochrome c oxidase subunit 2
+2025-05-06 19:32:04,122 - DEBUG - 	[2nd T]Label in temp_gene_dict, adding: gene-SccofMp07 # NC_003049.1:803577 | Label: MT-TEMP-33
+2025-05-06 19:32:04,123 - DEBUG - gene_id: gene-SccofMt42 | dbxref: 803576 | s: 26137 | att: ID=gene-SccofMt42;Dbxref=GeneID:803576;Name=trnA(ugc);gbkey=Gene;gene=trnA(ugc);gene_biotype=tRNA;locus_tag=SccofMt42
+2025-05-06 19:32:04,124 - DEBUG - 	name: SccofMt42 | desc: tRNA-Ala | gene_symbol: trnA(ugc)
+2025-05-06 19:32:04,124 - DEBUG - 	[1st F]Label not found gene_dict | checking temp_gene_dict | Label: tRNA-Ala
+2025-05-06 19:32:04,125 - DEBUG - 	[2nd T]Label in temp_gene_dict, adding: gene-SccofMt42 # NC_003049.1:803576 | Label: MT-TEMP-10
+2025-05-06 19:32:04,125 - DEBUG - gene_id: gene-SccofMt43 | dbxref: 803574 | s: 26250 | att: ID=gene-SccofMt43;Dbxref=GeneID:803574;Name=trnF(gaa);gbkey=Gene;gene=trnF(gaa);gene_biotype=tRNA;locus_tag=SccofMt43
+2025-05-06 19:32:04,125 - DEBUG - 	name: SccofMt43 | desc: tRNA-Phe | gene_symbol: trnF(gaa)
+2025-05-06 19:32:04,126 - DEBUG - 	[1st F]Label not found gene_dict | checking temp_gene_dict | Label: tRNA-Phe
+2025-05-06 19:32:04,126 - DEBUG - 	[2nd T]Label in temp_gene_dict, adding: gene-SccofMt43 # NC_003049.1:803574 | Label: MT-TEMP-11
+2025-05-06 19:32:04,127 - DEBUG - gene_id: gene-SccofMt44 | dbxref: 803571 | s: 26415 | att: ID=gene-SccofMt44;Dbxref=GeneID:803571;Name=trnT(ugu);gbkey=Gene;gene=trnT(ugu);gene_biotype=tRNA;locus_tag=SccofMt44
+2025-05-06 19:32:04,127 - DEBUG - 	name: SccofMt44 | desc: tRNA-Thr | gene_symbol: trnT(ugu)
+2025-05-06 19:32:04,127 - DEBUG - 	[1st F]Label not found gene_dict | checking temp_gene_dict | Label: tRNA-Thr
+2025-05-06 19:32:04,128 - DEBUG - 	[2nd T]Label in temp_gene_dict, adding: gene-SccofMt44 # NC_003049.1:803571 | Label: MT-TEMP-6
+2025-05-06 19:32:04,129 - DEBUG - gene_id: gene-SccofMt45 | dbxref: 803569 | s: 26568 | att: ID=gene-SccofMt45;Dbxref=GeneID:803569;Name=trnQ(uug);gbkey=Gene;gene=trnQ(uug);gene_biotype=tRNA;locus_tag=SccofMt45
+2025-05-06 19:32:04,129 - DEBUG - 	name: SccofMt45 | desc: tRNA-Gln | gene_symbol: trnQ(uug)
+2025-05-06 19:32:04,130 - DEBUG - 	[1st F]Label not found gene_dict | checking temp_gene_dict | Label: tRNA-Gln
+2025-05-06 19:32:04,131 - DEBUG - 	[2nd T]Label in temp_gene_dict, adding: gene-SccofMt45 # NC_003049.1:803569 | Label: MT-TEMP-12
+2025-05-06 19:32:04,131 - DEBUG - gene_id: gene-SccofMt46 | dbxref: 803568 | s: 26861 | att: ID=gene-SccofMt46;Dbxref=GeneID:803568;Name=trnK(uuu);gbkey=Gene;gene=trnK(uuu);gene_biotype=tRNA;locus_tag=SccofMt46
+2025-05-06 19:32:04,132 - DEBUG - 	name: SccofMt46 | desc: tRNA-Lys | gene_symbol: trnK(uuu)
+2025-05-06 19:32:04,132 - DEBUG - 	[1st F]Label not found gene_dict | checking temp_gene_dict | Label: tRNA-Lys
+2025-05-06 19:32:04,133 - DEBUG - 	[2nd T]Label in temp_gene_dict, adding: gene-SccofMt46 # NC_003049.1:803568 | Label: MT-TEMP-20
+2025-05-06 19:32:04,133 - DEBUG - gene_id: gene-SccofMt47 | dbxref: 803590 | s: 27240 | att: ID=gene-SccofMt47;Dbxref=GeneID:803590;Name=trnY(gua);gbkey=Gene;gene=trnY(gua);gene_biotype=tRNA;locus_tag=SccofMt47
+2025-05-06 19:32:04,137 - DEBUG - 	name: SccofMt47 | desc: tRNA-Tyr | gene_symbol: trnY(gua)
+2025-05-06 19:32:04,138 - DEBUG - 	[1st F]Label not found gene_dict | checking temp_gene_dict | Label: tRNA-Tyr
+2025-05-06 19:32:04,138 - DEBUG - 	[2nd T]Label in temp_gene_dict, adding: gene-SccofMt47 # NC_003049.1:803590 | Label: MT-TEMP-18
+2025-05-06 19:32:04,139 - DEBUG - gene_id: gene-SccofMt48 | dbxref: 803597 | s: 27408 | att: ID=gene-SccofMt48;Dbxref=GeneID:803597;Name=trnI(gau);gbkey=Gene;gene=trnI(gau);gene_biotype=tRNA;locus_tag=SccofMt48
+2025-05-06 19:32:04,140 - DEBUG - 	name: SccofMt48 | desc: tRNA-Ile | gene_symbol: trnI(gau)
+2025-05-06 19:32:04,140 - DEBUG - 	[1st F]Label not found gene_dict | checking temp_gene_dict | Label: tRNA-Ile
+2025-05-06 19:32:04,141 - DEBUG - 	[2nd T]Label in temp_gene_dict, adding: gene-SccofMt48 # NC_003049.1:803597 | Label: MT-TEMP-1
+2025-05-06 19:32:04,141 - DEBUG - gene_id: gene-SccofMp08 | dbxref: 803600 | s: 28257 | att: ID=gene-SccofMp08;Dbxref=GeneID:803600;Name=nad1;gbkey=Gene;gene=nad1;gene_biotype=protein_coding;locus_tag=SccofMp08
+2025-05-06 19:32:04,142 - DEBUG - 	name: SccofMp08 | desc: NADH dehydrogenase subunit 1 | gene_symbol: nad1
+2025-05-06 19:32:04,142 - DEBUG - 	[1st F]Label not found gene_dict | checking temp_gene_dict | Label: NADH dehydrogenase subunit 1
+2025-05-06 19:32:04,142 - DEBUG - 	[2nd T]Label in temp_gene_dict, adding: gene-SccofMp08 # NC_003049.1:803600 | Label: MT-TEMP-36
+2025-05-06 19:32:04,143 - DEBUG - gene_id: gene-SccofMt49 | dbxref: 803604 | s: 29478 | att: ID=gene-SccofMt49;Dbxref=GeneID:803604;Name=trnI(gau);gbkey=Gene;gene=trnI(gau);gene_biotype=tRNA;locus_tag=SccofMt49
+2025-05-06 19:32:04,143 - DEBUG - 	name: SccofMt49 | desc: tRNA-Ile | gene_symbol: trnI(gau)
+2025-05-06 19:32:04,144 - DEBUG - 	[1st F]Label not found gene_dict | checking temp_gene_dict | Label: tRNA-Ile
+2025-05-06 19:32:04,144 - DEBUG - 	[2nd T]Label in temp_gene_dict, adding: gene-SccofMt49 # NC_003049.1:803604 | Label: MT-TEMP-1
+2025-05-06 19:32:04,145 - DEBUG - gene_id: gene-SccofMp09 | dbxref: 803606 | s: 30331 | att: ID=gene-SccofMp09;Dbxref=GeneID:803606;Name=cob;gbkey=Gene;gene=cob;gene_biotype=protein_coding;locus_tag=SccofMp09
+2025-05-06 19:32:04,145 - DEBUG - 	name: SccofMp09 | desc: apocytochrome b | gene_symbol: cob
+2025-05-06 19:32:04,146 - DEBUG - 	[1st F]Label not found gene_dict | checking temp_gene_dict | Label: apocytochrome b
+2025-05-06 19:32:04,146 - DEBUG - 	[2nd T]Label in temp_gene_dict, adding: gene-SccofMp09 # NC_003049.1:803606 | Label: MT-TEMP-28
+2025-05-06 19:32:04,146 - DEBUG - gene_id: gene-SccofMp12 | dbxref: 803598 | s: 34159 | att: ID=gene-SccofMp12;Dbxref=GeneID:803598;Name=nad4;gbkey=Gene;gene=nad4;gene_biotype=protein_coding;locus_tag=SccofMp12
+2025-05-06 19:32:04,147 - DEBUG - 	name: SccofMp12 | desc: NADH dehydrogenase subunit 4 | gene_symbol: nad4
+2025-05-06 19:32:04,148 - DEBUG - 	[1st F]Label not found gene_dict | checking temp_gene_dict | Label: NADH dehydrogenase subunit 4
+2025-05-06 19:32:04,148 - DEBUG - 	[2nd T]Label in temp_gene_dict, adding: gene-SccofMp12 # NC_003049.1:803598 | Label: MT-TEMP-34
+2025-05-06 19:32:04,149 - DEBUG - gene_id: gene-SccofMp13 | dbxref: 803602 | s: 36587 | att: ID=gene-SccofMp13;Dbxref=GeneID:803602;Name=nad6;gbkey=Gene;gene=nad6;gene_biotype=protein_coding;locus_tag=SccofMp13
+2025-05-06 19:32:04,149 - DEBUG - 	name: SccofMp13 | desc: NADH dehydrogenase subunit 6 | gene_symbol: nad6
+2025-05-06 19:32:04,149 - DEBUG - 	[1st F]Label not found gene_dict | checking temp_gene_dict | Label: NADH dehydrogenase subunit 6
+2025-05-06 19:32:04,151 - DEBUG - 	[2nd T]Label in temp_gene_dict, adding: gene-SccofMp13 # NC_003049.1:803602 | Label: MT-TEMP-24
+2025-05-06 19:32:04,154 - DEBUG - gene_id: gene-SccofMp14 | dbxref: 803594 | s: 37790 | att: ID=gene-SccofMp14;Dbxref=GeneID:803594;Name=nad2;gbkey=Gene;gene=nad2;gene_biotype=protein_coding;locus_tag=SccofMp14
+2025-05-06 19:32:04,154 - DEBUG - 	name: SccofMp14 | desc: NADH dehydrogenase subunit 2 | gene_symbol: nad2
+2025-05-06 19:32:04,154 - DEBUG - 	[1st F]Label not found gene_dict | checking temp_gene_dict | Label: NADH dehydrogenase subunit 2
+2025-05-06 19:32:04,155 - DEBUG - 	[2nd T]Label in temp_gene_dict, adding: gene-SccofMp14 # NC_003049.1:803594 | Label: MT-TEMP-14
+2025-05-06 19:32:04,155 - DEBUG - gene_id: gene-SccofMp15 | dbxref: 803582 | s: 39590 | att: ID=gene-SccofMp15;Dbxref=GeneID:803582;Name=nad3;gbkey=Gene;gene=nad3;gene_biotype=protein_coding;locus_tag=SccofMp15
+2025-05-06 19:32:04,155 - DEBUG - 	name: SccofMp15 | desc: NADH dehydrogenase subunit 3 | gene_symbol: nad3
+2025-05-06 19:32:04,156 - DEBUG - 	[1st F]Label not found gene_dict | checking temp_gene_dict | Label: NADH dehydrogenase subunit 3
+2025-05-06 19:32:04,157 - DEBUG - 	[2nd T]Label in temp_gene_dict, adding: gene-SccofMp15 # NC_003049.1:803582 | Label: MT-TEMP-15
+2025-05-06 19:32:04,158 - DEBUG - gene_id: gene-SccofMp17 | dbxref: 803584 | s: 43468 | att: ID=gene-SccofMp17;Dbxref=GeneID:803584;Name=cox3;gbkey=Gene;gene=cox3;gene_biotype=protein_coding;locus_tag=SccofMp17
+2025-05-06 19:32:04,159 - DEBUG - 	name: SccofMp17 | desc: cytochrome c oxidase subunit 3 | gene_symbol: cox3
+2025-05-06 19:32:04,159 - DEBUG - 	[1st F]Label not found gene_dict | checking temp_gene_dict | Label: cytochrome c oxidase subunit 3
+2025-05-06 19:32:04,160 - DEBUG - 	[2nd T]Label in temp_gene_dict, adding: gene-SccofMp17 # NC_003049.1:803584 | Label: MT-TEMP-19
+2025-05-06 19:32:04,160 - DEBUG - gene_id: gene-SccofMp19 | dbxref: 803579 | s: 46672 | att: ID=gene-SccofMp19;Dbxref=GeneID:803579;Name=nad4L;gbkey=Gene;gene=nad4L;gene_biotype=protein_coding;locus_tag=SccofMp19
+2025-05-06 19:32:04,161 - DEBUG - 	name: SccofMp19 | desc: NADH dehydrogenase subunit 4L | gene_symbol: nad4L
+2025-05-06 19:32:04,161 - DEBUG - 	[1st F]Label not found gene_dict | checking temp_gene_dict | Label: NADH dehydrogenase subunit 4L
+2025-05-06 19:32:04,162 - DEBUG - 	[2nd T]Label in temp_gene_dict, adding: gene-SccofMp19 # NC_003049.1:803579 | Label: MT-TEMP-31
+2025-05-06 19:32:04,162 - DEBUG - gene_id: gene-SccofMp20 | dbxref: 803581 | s: 46941 | att: ID=gene-SccofMp20;Dbxref=GeneID:803581;Name=nad5;gbkey=Gene;gene=nad5;gene_biotype=protein_coding;locus_tag=SccofMp20
+2025-05-06 19:32:04,163 - DEBUG - 	name: SccofMp20 | desc: NADH dehydrogenase subunit 5 | gene_symbol: nad5
+2025-05-06 19:32:04,163 - DEBUG - 	[1st F]Label not found gene_dict | checking temp_gene_dict | Label: NADH dehydrogenase subunit 5
+2025-05-06 19:32:04,165 - DEBUG - 	[2nd T]Label in temp_gene_dict, adding: gene-SccofMp20 # NC_003049.1:803581 | Label: MT-TEMP-32
+2025-05-06 19:32:04,165 - DEBUG - -- [Processing: NC_003052.1] --
+2025-05-06 19:32:04,724 - DEBUG - 	m: 23 | r: 23 | m/r check: True
+2025-05-06 19:32:04,726 - DEBUG - gene_id: gene-Sppu1fMr32 | dbxref: 809610 | s: 155 | att: ID=gene-Sppu1fMr32;Dbxref=GeneID:809610;Name=rnl;gbkey=Gene;gene=rnl;gene_biotype=rRNA;locus_tag=Sppu1fMr32
+2025-05-06 19:32:04,728 - DEBUG - 	name: Sppu1fMr32 | desc: large subunit ribosomal RNA | gene_symbol: rnl
+2025-05-06 19:32:04,728 - DEBUG - 	[1st F]Label not found gene_dict | checking temp_gene_dict | Label: large subunit ribosomal RNA
+2025-05-06 19:32:04,729 - DEBUG - 	[2nd T]Label in temp_gene_dict, adding: gene-Sppu1fMr32 # NC_003052.1:809610 | Label: MT-TEMP-4
+2025-05-06 19:32:04,730 - DEBUG - gene_id: gene-Sppu1fMr33 | dbxref: 809611 | s: 4464 | att: ID=gene-Sppu1fMr33;Dbxref=GeneID:809611;Name=rns;gbkey=Gene;gene=rns;gene_biotype=rRNA;locus_tag=Sppu1fMr33
+2025-05-06 19:32:04,730 - DEBUG - 	name: Sppu1fMr33 | desc: small subunit ribosomal RNA | gene_symbol: rns
+2025-05-06 19:32:04,731 - DEBUG - 	[1st F]Label not found gene_dict | checking temp_gene_dict | Label: small subunit ribosomal RNA
+2025-05-06 19:32:04,731 - DEBUG - 	[2nd T]Label in temp_gene_dict, adding: gene-Sppu1fMr33 # NC_003052.1:809611 | Label: MT-TEMP-17
+2025-05-06 19:32:04,732 - DEBUG - gene_id: gene-Sppu1fMt34 | dbxref: 809614 | s: 8899 | att: ID=gene-Sppu1fMt34;Dbxref=GeneID:809614;Name=trnD(guc);gbkey=Gene;gene=trnD(guc);gene_biotype=tRNA;locus_tag=Sppu1fMt34
+2025-05-06 19:32:04,732 - DEBUG - 	name: Sppu1fMt34 | desc: tRNA-Asp | gene_symbol: trnD(guc)
+2025-05-06 19:32:04,733 - DEBUG - 	[1st F]Label not found gene_dict | checking temp_gene_dict | Label: tRNA-Asp
+2025-05-06 19:32:04,733 - DEBUG - 	[2nd T]Label in temp_gene_dict, adding: gene-Sppu1fMt34 # NC_003052.1:809614 | Label: MT-TEMP-22
+2025-05-06 19:32:04,734 - DEBUG - gene_id: gene-Sppu1fMt35 | dbxref: 809615 | s: 9046 | att: ID=gene-Sppu1fMt35;Dbxref=GeneID:809615;Name=trnY(gua);gbkey=Gene;gene=trnY(gua);gene_biotype=tRNA;locus_tag=Sppu1fMt35
+2025-05-06 19:32:04,734 - DEBUG - 	name: Sppu1fMt35 | desc: tRNA-Tyr | gene_symbol: trnY(gua)
+2025-05-06 19:32:04,735 - DEBUG - 	[1st F]Label not found gene_dict | checking temp_gene_dict | Label: tRNA-Tyr
+2025-05-06 19:32:04,735 - DEBUG - 	[2nd T]Label in temp_gene_dict, adding: gene-Sppu1fMt35 # NC_003052.1:809615 | Label: MT-TEMP-18
+2025-05-06 19:32:04,736 - DEBUG - gene_id: gene-Sppu1fMp07 | dbxref: 809620 | s: 12482 | att: ID=gene-Sppu1fMp07;Dbxref=GeneID:809620;Name=cox2;gbkey=Gene;gene=cox2;gene_biotype=protein_coding;locus_tag=Sppu1fMp07
+2025-05-06 19:32:04,736 - DEBUG - 	name: Sppu1fMp07 | desc: cytochrome c oxidase subunit 2 | gene_symbol: cox2
+2025-05-06 19:32:04,737 - DEBUG - 	[1st F]Label not found gene_dict | checking temp_gene_dict | Label: cytochrome c oxidase subunit 2
+2025-05-06 19:32:04,737 - DEBUG - 	[2nd T]Label in temp_gene_dict, adding: gene-Sppu1fMp07 # NC_003052.1:809620 | Label: MT-TEMP-33
+2025-05-06 19:32:04,737 - DEBUG - gene_id: gene-Sppu1fMp09 | dbxref: 809622 | s: 14774 | att: ID=gene-Sppu1fMp09;Dbxref=GeneID:809622;Name=cob;gbkey=Gene;gene=cob;gene_biotype=protein_coding;locus_tag=Sppu1fMp09
+2025-05-06 19:32:04,738 - DEBUG - 	name: Sppu1fMp09 | desc: apocytochrome b | gene_symbol: cob
+2025-05-06 19:32:04,738 - DEBUG - 	[1st F]Label not found gene_dict | checking temp_gene_dict | Label: apocytochrome b
+2025-05-06 19:32:04,739 - DEBUG - 	[2nd T]Label in temp_gene_dict, adding: gene-Sppu1fMp09 # NC_003052.1:809622 | Label: MT-TEMP-28
+2025-05-06 19:32:04,740 - DEBUG - gene_id: gene-Sppu1fMp10 | dbxref: 809623 | s: 18470 | att: ID=gene-Sppu1fMp10;Dbxref=GeneID:809623;Name=nad4L;gbkey=Gene;gene=nad4L;gene_biotype=protein_coding;locus_tag=Sppu1fMp10
+2025-05-06 19:32:04,740 - DEBUG - 	name: Sppu1fMp10 | desc: NADH dehydrogenase subunit 4L | gene_symbol: nad4L
+2025-05-06 19:32:04,741 - DEBUG - 	[1st F]Label not found gene_dict | checking temp_gene_dict | Label: NADH dehydrogenase subunit 4L
+2025-05-06 19:32:04,741 - DEBUG - 	[2nd T]Label in temp_gene_dict, adding: gene-Sppu1fMp10 # NC_003052.1:809623 | Label: MT-TEMP-31
+2025-05-06 19:32:04,742 - DEBUG - gene_id: gene-Sppu1fMp11 | dbxref: 809624 | s: 18822 | att: ID=gene-Sppu1fMp11;Dbxref=GeneID:809624;Name=nad6;gbkey=Gene;gene=nad6;gene_biotype=protein_coding;locus_tag=Sppu1fMp11
+2025-05-06 19:32:04,742 - DEBUG - 	name: Sppu1fMp11 | desc: NADH dehydrogenase subunit 6 | gene_symbol: nad6
+2025-05-06 19:32:04,743 - DEBUG - 	[1st F]Label not found gene_dict | checking temp_gene_dict | Label: NADH dehydrogenase subunit 6
+2025-05-06 19:32:04,743 - DEBUG - 	[2nd T]Label in temp_gene_dict, adding: gene-Sppu1fMp11 # NC_003052.1:809624 | Label: MT-TEMP-24
+2025-05-06 19:32:04,744 - DEBUG - gene_id: gene-Sppu1fMp12 | dbxref: 809625 | s: 20817 | att: ID=gene-Sppu1fMp12;Dbxref=GeneID:809625;Name=cox1;gbkey=Gene;gene=cox1;gene_biotype=protein_coding;locus_tag=Sppu1fMp12
+2025-05-06 19:32:04,746 - DEBUG - 	name: Sppu1fMp12 | desc: cytochrome c oxidase subunit 1 | gene_symbol: cox1
+2025-05-06 19:32:04,746 - DEBUG - 	[1st F]Label not found gene_dict | checking temp_gene_dict | Label: cytochrome c oxidase subunit 1
+2025-05-06 19:32:04,747 - DEBUG - 	[2nd T]Label in temp_gene_dict, adding: gene-Sppu1fMp12 # NC_003052.1:809625 | Label: MT-TEMP-30
+2025-05-06 19:32:04,748 - DEBUG - gene_id: gene-Sppu1fMt36 | dbxref: 809628 | s: 25207 | att: ID=gene-Sppu1fMt36;Dbxref=GeneID:809628;Name=trnW(cca);gbkey=Gene;gene=trnW(cca);gene_biotype=tRNA;locus_tag=Sppu1fMt36
+2025-05-06 19:32:04,749 - DEBUG - 	name: Sppu1fMt36 | desc: tRNA-Trp | gene_symbol: trnW(cca)
+2025-05-06 19:32:04,752 - DEBUG - 	[1st F]Label not found gene_dict | checking temp_gene_dict | Label: tRNA-Trp
+2025-05-06 19:32:04,755 - DEBUG - 	[2nd T]Label in temp_gene_dict, adding: gene-Sppu1fMt36 # NC_003052.1:809628 | Label: MT-TEMP-23
+2025-05-06 19:32:04,758 - DEBUG - gene_id: gene-Sppu1fMp17 | dbxref: 809631 | s: 27962 | att: ID=gene-Sppu1fMp17;Dbxref=GeneID:809631;Name=nad2;gbkey=Gene;gene=nad2;gene_biotype=protein_coding;locus_tag=Sppu1fMp17
+2025-05-06 19:32:04,762 - DEBUG - 	name: Sppu1fMp17 | desc: NADH dehydrogenase subunit 2 | gene_symbol: nad2
+2025-05-06 19:32:04,762 - DEBUG - 	[1st F]Label not found gene_dict | checking temp_gene_dict | Label: NADH dehydrogenase subunit 2
+2025-05-06 19:32:04,763 - DEBUG - 	[2nd T]Label in temp_gene_dict, adding: gene-Sppu1fMp17 # NC_003052.1:809631 | Label: MT-TEMP-14
+2025-05-06 19:32:04,763 - DEBUG - gene_id: gene-Sppu1fMp18 | dbxref: 809632 | s: 29940 | att: ID=gene-Sppu1fMp18;Dbxref=GeneID:809632;Name=nad4;gbkey=Gene;gene=nad4;gene_biotype=protein_coding;locus_tag=Sppu1fMp18
+2025-05-06 19:32:04,764 - DEBUG - 	name: Sppu1fMp18 | desc: NADH dehydrogenase subunit 4 | gene_symbol: nad4
+2025-05-06 19:32:04,764 - DEBUG - 	[1st F]Label not found gene_dict | checking temp_gene_dict | Label: NADH dehydrogenase subunit 4
+2025-05-06 19:32:04,765 - DEBUG - 	[2nd T]Label in temp_gene_dict, adding: gene-Sppu1fMp18 # NC_003052.1:809632 | Label: MT-TEMP-34
+2025-05-06 19:32:04,766 - DEBUG - gene_id: gene-Sppu1fMp19 | dbxref: 809633 | s: 31594 | att: ID=gene-Sppu1fMp19;Dbxref=GeneID:809633;Name=atp6;gbkey=Gene;gene=atp6;gene_biotype=protein_coding;locus_tag=Sppu1fMp19
+2025-05-06 19:32:04,767 - DEBUG - 	name: Sppu1fMp19 | desc: ATP synthase F0 subunit 6 | gene_symbol: atp6
+2025-05-06 19:32:04,767 - DEBUG - 	[1st F]Label not found gene_dict | checking temp_gene_dict | Label: ATP synthase F0 subunit 6
+2025-05-06 19:32:04,769 - DEBUG - 	[2nd T]Label in temp_gene_dict, adding: gene-Sppu1fMp19 # NC_003052.1:809633 | Label: MT-TEMP-27
+2025-05-06 19:32:04,770 - DEBUG - gene_id: gene-Sppu1fMt37 | dbxref: 809634 | s: 32955 | att: ID=gene-Sppu1fMt37;Dbxref=GeneID:809634;Name=trnK(uuu);gbkey=Gene;gene=trnK(uuu);gene_biotype=tRNA;locus_tag=Sppu1fMt37
+2025-05-06 19:32:04,771 - DEBUG - 	name: Sppu1fMt37 | desc: tRNA-Lys | gene_symbol: trnK(uuu)
+2025-05-06 19:32:04,771 - DEBUG - 	[1st F]Label not found gene_dict | checking temp_gene_dict | Label: tRNA-Lys
+2025-05-06 19:32:04,772 - DEBUG - 	[2nd T]Label in temp_gene_dict, adding: gene-Sppu1fMt37 # NC_003052.1:809634 | Label: MT-TEMP-20
+2025-05-06 19:32:04,773 - DEBUG - gene_id: gene-Sppu1fMp20 | dbxref: 809635 | s: 35927 | att: ID=gene-Sppu1fMp20;Dbxref=GeneID:809635;Name=cox3;gbkey=Gene;gene=cox3;gene_biotype=protein_coding;locus_tag=Sppu1fMp20
+2025-05-06 19:32:04,773 - DEBUG - 	name: Sppu1fMp20 | desc: cytochrome c oxidase subunit 3 | gene_symbol: cox3
+2025-05-06 19:32:04,774 - DEBUG - 	[1st F]Label not found gene_dict | checking temp_gene_dict | Label: cytochrome c oxidase subunit 3
+2025-05-06 19:32:04,775 - DEBUG - 	[2nd T]Label in temp_gene_dict, adding: gene-Sppu1fMp20 # NC_003052.1:809635 | Label: MT-TEMP-19
+2025-05-06 19:32:04,775 - DEBUG - gene_id: gene-Sppu1fMt38 | dbxref: 809637 | s: 39674 | att: ID=gene-Sppu1fMt38;Dbxref=GeneID:809637;Name=trnP(ugg);gbkey=Gene;gene=trnP(ugg);gene_biotype=tRNA;locus_tag=Sppu1fMt38
+2025-05-06 19:32:04,778 - DEBUG - 	name: Sppu1fMt38 | desc: tRNA-Pro | gene_symbol: trnP(ugg)
+2025-05-06 19:32:04,778 - DEBUG - 	[1st F]Label not found gene_dict | checking temp_gene_dict | Label: tRNA-Pro
+2025-05-06 19:32:04,779 - DEBUG - 	[2nd T]Label in temp_gene_dict, adding: gene-Sppu1fMt38 # NC_003052.1:809637 | Label: MT-TEMP-3
+2025-05-06 19:32:04,779 - DEBUG - gene_id: gene-Sppu1fMt39 | dbxref: 809638 | s: 40095 | att: ID=gene-Sppu1fMt39;Dbxref=GeneID:809638;Name=trnQ(uug);gbkey=Gene;gene=trnQ(uug);gene_biotype=tRNA;locus_tag=Sppu1fMt39
+2025-05-06 19:32:04,779 - DEBUG - 	name: Sppu1fMt39 | desc: tRNA-Gln | gene_symbol: trnQ(uug)
+2025-05-06 19:32:04,781 - DEBUG - 	[1st F]Label not found gene_dict | checking temp_gene_dict | Label: tRNA-Gln
+2025-05-06 19:32:04,783 - DEBUG - 	[2nd T]Label in temp_gene_dict, adding: gene-Sppu1fMt39 # NC_003052.1:809638 | Label: MT-TEMP-12
+2025-05-06 19:32:04,784 - DEBUG - gene_id: gene-Sppu1fMt40 | dbxref: 809639 | s: 41318 | att: ID=gene-Sppu1fMt40;Dbxref=GeneID:809639;Name=trnL(cua);gbkey=Gene;gene=trnL(cua);gene_biotype=tRNA;locus_tag=Sppu1fMt40
+2025-05-06 19:32:04,785 - DEBUG - 	name: Sppu1fMt40 | desc: tRNA-Leu | gene_symbol: trnL(cua)
+2025-05-06 19:32:04,786 - DEBUG - 	[1st F]Label not found gene_dict | checking temp_gene_dict | Label: tRNA-Leu
+2025-05-06 19:32:04,787 - DEBUG - 	[2nd T]Label in temp_gene_dict, adding: gene-Sppu1fMt40 # NC_003052.1:809639 | Label: MT-TEMP-9
+2025-05-06 19:32:04,788 - DEBUG - gene_id: gene-Sppu1fMp22 | dbxref: 809640 | s: 42263 | att: ID=gene-Sppu1fMp22;Dbxref=GeneID:809640;Name=atp8;gbkey=Gene;gene=atp8;gene_biotype=protein_coding;locus_tag=Sppu1fMp22
+2025-05-06 19:32:04,788 - DEBUG - 	name: Sppu1fMp22 | desc: ATP synthase F0 subunit 8 | gene_symbol: atp8
+2025-05-06 19:32:04,789 - DEBUG - 	[1st F]Label not found gene_dict | checking temp_gene_dict | Label: ATP synthase F0 subunit 8
+2025-05-06 19:32:04,790 - DEBUG - 	[2nd T]Label in temp_gene_dict, adding: gene-Sppu1fMp22 # NC_003052.1:809640 | Label: MT-TEMP-35
+2025-05-06 19:32:04,791 - DEBUG - gene_id: gene-Sppu1fMt41 | dbxref: 809643 | s: 45222 | att: ID=gene-Sppu1fMt41;Dbxref=GeneID:809643;Name=trnM(cau)f;gbkey=Gene;gene=trnM(cau)f;gene_biotype=tRNA;locus_tag=Sppu1fMt41
+2025-05-06 19:32:04,791 - DEBUG - 	name: Sppu1fMt41 | desc: tRNA-Met | gene_symbol: trnM(cau)f
+2025-05-06 19:32:04,792 - DEBUG - 	[1st F]Label not found gene_dict | checking temp_gene_dict | Label: tRNA-Met
+2025-05-06 19:32:04,792 - DEBUG - 	[2nd T]Label in temp_gene_dict, adding: gene-Sppu1fMt41 # NC_003052.1:809643 | Label: MT-TEMP-8
+2025-05-06 19:32:04,793 - DEBUG - gene_id: gene-Sppu1fMp25 | dbxref: 809644 | s: 46211 | att: ID=gene-Sppu1fMp25;Dbxref=GeneID:809644;Name=nad3;gbkey=Gene;gene=nad3;gene_biotype=protein_coding;locus_tag=Sppu1fMp25
+2025-05-06 19:32:04,793 - DEBUG - 	name: Sppu1fMp25 | desc: NADH dehydrogenase subunit 3 | gene_symbol: nad3
+2025-05-06 19:32:04,794 - DEBUG - 	[1st F]Label not found gene_dict | checking temp_gene_dict | Label: NADH dehydrogenase subunit 3
+2025-05-06 19:32:04,795 - DEBUG - 	[2nd T]Label in temp_gene_dict, adding: gene-Sppu1fMp25 # NC_003052.1:809644 | Label: MT-TEMP-15
+2025-05-06 19:32:04,795 - DEBUG - gene_id: gene-Sppu1fMp26 | dbxref: 809645 | s: 46918 | att: ID=gene-Sppu1fMp26;Dbxref=GeneID:809645;Name=nad1;gbkey=Gene;gene=nad1;gene_biotype=protein_coding;locus_tag=Sppu1fMp26
+2025-05-06 19:32:04,796 - DEBUG - 	name: Sppu1fMp26 | desc: NADH dehydrogenase subunit 1 | gene_symbol: nad1
+2025-05-06 19:32:04,796 - DEBUG - 	[1st F]Label not found gene_dict | checking temp_gene_dict | Label: NADH dehydrogenase subunit 1
+2025-05-06 19:32:04,797 - DEBUG - 	[2nd T]Label in temp_gene_dict, adding: gene-Sppu1fMp26 # NC_003052.1:809645 | Label: MT-TEMP-36
+2025-05-06 19:32:04,797 - DEBUG - gene_id: gene-Sppu1fMp27 | dbxref: 809646 | s: 49342 | att: ID=gene-Sppu1fMp27;Dbxref=GeneID:809646;Name=nad5;gbkey=Gene;gene=nad5;gene_biotype=protein_coding;locus_tag=Sppu1fMp27
+2025-05-06 19:32:04,798 - DEBUG - 	name: Sppu1fMp27 | desc: NADH dehydrogenase subunit 5 | gene_symbol: nad5
+2025-05-06 19:32:04,798 - DEBUG - 	[1st F]Label not found gene_dict | checking temp_gene_dict | Label: NADH dehydrogenase subunit 5
+2025-05-06 19:32:04,799 - DEBUG - 	[2nd T]Label in temp_gene_dict, adding: gene-Sppu1fMp27 # NC_003052.1:809646 | Label: MT-TEMP-32
+2025-05-06 19:32:04,799 - INFO -  -- [Finished] --

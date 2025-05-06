@@ -31,7 +31,7 @@ def cleanup_logs(log_dir: Path, max_files: int = 10):
             print(f"Error removing old log file {old_file}: {e}")
             raise
 
-def logger_setup(console_level: Optional[str] = None, file_level: Optional[str] = None) -> tuple[str, logging.Logger]:
+def logger_setup(console_level: Optional[str] = None, file_level: Optional[str] = None, log_file: Path = None) -> tuple[str, logging.Logger]:
     """Set up the logger for the GDT package.
     Args:
         console_level (Optional[str]): Logging level for console output. Defaults to INFO.
@@ -43,17 +43,20 @@ def logger_setup(console_level: Optional[str] = None, file_level: Optional[str] 
     console_level = _logging_levels.get(console_level, logging.INFO)
     file_level = _logging_levels.get(file_level, logging.DEBUG)
 
-    package_dir = Path(__file__).parent
-    log_dir = package_dir / 'logs'
+    if log_file:
+        log_file_path = Path(log_file).resolve()
+        log_file_path.touch(exist_ok=True)
     
-    log_dir.mkdir(exist_ok=True)
-    
-    # Create a timestamp-based log filename
-    timestamp = datetime.datetime.now().strftime("%Y%m%d_%H_%M_%S")
-    log_file_path = log_dir / f"gdt_{timestamp}.log"
-    
-    # Clean up old log files (keep only the 5 most recent)
-    cleanup_logs(log_dir)
+    else:
+        package_dir = Path(__file__).parent
+        log_dir = package_dir / 'logs'
+        
+        log_dir.mkdir(exist_ok=True)
+        
+        # Create a timestamp-based log filename
+        timestamp = datetime.datetime.now().strftime("%Y%m%d_%H_%M_%S")
+        log_file_path = log_dir / f"gdt_{timestamp}.log"
+        cleanup_logs(log_dir)
 
     # Create and configure logger
     logger = logging.getLogger('gdt')

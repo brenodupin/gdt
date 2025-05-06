@@ -25,6 +25,12 @@ class GeneDescription(Gene):
     source: str
 
 def _get_gene_dict_info(gene_dict: dict) -> str:
+    """ Get information about the gene dictionary.
+    Args:
+        gene_dict (dict): A dictionary containing gene information.
+    Returns:
+        info (str): A string containing information about the gene dictionary.
+    """
     labels, GeneGeneric_count, GeneDescription_count, GeneDbxref_count = set(), 0, 0, 0
     for key in gene_dict:
         labels.add(gene_dict[key].label)
@@ -51,7 +57,7 @@ def create_gene_dict(gdt_file: str, max_an_sources:int = 20) -> dict:
         gdt_file (str): Path to the GDT file.
         max_an_sources (int): Maximum number of AN sources to include in GeneGeneric. If set to 0, all sources will be included. Default is 20.
     Returns:
-        dict: A dictionary containing gene information.
+        gene_dict (dict): A dictionary containing gene information.
     """
     gdt_file = Path(gdt_file).resolve()
     
@@ -134,6 +140,12 @@ def create_gene_dict(gdt_file: str, max_an_sources:int = 20) -> dict:
     return result
 
 def natural_sort(iterable):
+    """ Sort a list of strings in natural order.
+    Args:
+        iterable (list): A list of strings to sort.
+    Returns:
+        list: A sorted list of strings in natural order.
+    """
     def natural_sort_key(s):
         return [int(c) if c.isdigit() else c.lower() for c in re.split(r'(\d+)', s)]
     return sorted(iterable, key=natural_sort_key)

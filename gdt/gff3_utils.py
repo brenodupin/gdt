@@ -3,6 +3,8 @@
 import pandas as pd # type: ignore
 
 GFF3_COLUMNS = ('seqid', 'source', 'type', 'start', 'end', 'score', 'strand', 'phase', 'attributes')
+QS_GENE = 'type == "gene"'
+QS_GENE_TRNA_RRNA = 'type == ["gene", "tRNA", "rRNA"]'
 
 def load_gff3_old(filename,
               sep='\t',

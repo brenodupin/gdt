@@ -8,10 +8,10 @@ import concurrent.futures
 import logging
 from pathlib import Path
 
-def process_single_an(AN_path: Path, gene_dict: dict, keep_orfs=False):
+def process_single_an(AN_path: Path, gene_dict: dict, keep_orfs=False, query_string=gdt.gff3_utils.QS_GENE_TRNA_RRNA):
     try:
         AN = AN_path.stem
-        df = gdt.gff3_utils.load_gff3(AN_path, query_string='type == "gene"')
+        df = gdt.gff3_utils.load_gff3(AN_path, query_string=query_string)
         
         if not keep_orfs: # removing ORFs
             df = gdt.gff3_utils.filter_orfs(df)

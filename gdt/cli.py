@@ -23,6 +23,7 @@ def cli_run():
     filter_parser.add_argument("--orfs",  required=False, default=False, action="store_true", help="Dont discard ORFs. Default: False")
     filter_parser.add_argument("--debug", required=False, default=False, action="store_true", help="Enable TRACE level in file log, and DEBUG on StreamHandler. Default: False (DEBUG level on file and INFO on console)")
     filter_parser.add_argument("--workers", required=False, default=0, type=int, help="Number of workers to use. Default: max_workers in ProcessPoolExecutor")
+    # TODO create a query string for filtering
     
     write_parser = subparsers.add_parser('write', help='Write GDT to file')
     write_parser.add_argument('--gdt', required=True, help='GDT file to write')

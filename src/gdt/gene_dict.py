@@ -4,7 +4,7 @@ from dataclasses import dataclass, field
 import re
 from typing import Optional
 from pathlib import Path
-import gdt.gff3_utils
+from . import gff3_utils
 
 @dataclass(slots=True)
 class Gene:
@@ -204,11 +204,11 @@ if __name__ == "__main__":
     for an in ans:
         an = an.strip() + '.gff3'
         print(f'Doing {an}')
-        a_1 = gdt.gff3_utils.load_gff3(test_dir / an, query_string='type == "gene"')
-        a_1_norfs = gdt.gff3_utils.filter_orfs(a_1)
+        a_1 = gff3_utils.load_gff3(test_dir / an, query_string='type == "gene"')
+        a_1_norfs = gff3_utils.filter_orfs(a_1)
 
-        a_2 = gdt.gff3_utils.load_gff3(test_dir / an, query_string='type == "gene"')
-        a_2_norfs = gdt.gff3_utils.filter_orfs(a_2)
+        a_2 = gff3_utils.load_gff3(test_dir / an, query_string='type == "gene"')
+        a_2_norfs = gff3_utils.filter_orfs(a_2)
     
         print(f'load normal: {a_1.equals(a_2)}')
         print(f'filter orfs: {a_1_norfs.equals(a_2_norfs)}')

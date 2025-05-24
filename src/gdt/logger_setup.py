@@ -48,8 +48,8 @@ def logger_creater(console_level: Optional[str] = None, file_level: Optional[str
         log_file_path.touch(exist_ok=True)
     
     else:
-        package_dir = Path(__file__).parent
-        log_dir = package_dir / 'logs'
+        project_root = Path(__file__).parent.parent.parent
+        log_dir = project_root / 'logs'
         
         log_dir.mkdir(exist_ok=True)
         

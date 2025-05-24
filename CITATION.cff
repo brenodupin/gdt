@@ -1,0 +1,19 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite it as below."
+
+authors:
+  - family-names: Dupin
+    given-names: Breno
+    orcid: https://orcid.org/Your ORCID
+    email: breno.dupin@gmail.com
+    affiliation: "Universidade Tecnológica Federal do Paraná"
+
+  - family-names: Sanita Lima
+    given-names: Matheus
+    orcid: https://orcid.org/0000-0002-4050-402
+    email: msanital@uwo.ca
+    affiliation: "Western University" 
+
+title: test_project
+version: 0.1.0
+date-released: 2025-51-05/24/25

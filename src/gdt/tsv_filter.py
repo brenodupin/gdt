@@ -1,20 +1,20 @@
 # -*- coding: utf-8 -*-
 
 from typing import Optional
-import gdt.gff3_utils
-import gdt.gene_dict
+from . import gff3_utils
+from . import gene_dict
 import pandas as pd
 import concurrent.futures
 import logging
 from pathlib import Path
 
-def process_single_an(AN_path: Path, gene_dict: dict, keep_orfs=False, query_string=gdt.gff3_utils.QS_GENE_TRNA_RRNA):
+def process_single_an(AN_path: Path, gene_dict: dict, keep_orfs=False, query_string=gff3_utils.QS_GENE_TRNA_RRNA):
     try:
         AN = AN_path.stem
-        df = gdt.gff3_utils.load_gff3(AN_path, query_string=query_string)
+        df = gff3_utils.load_gff3(AN_path, query_string=query_string)
         
         if not keep_orfs: # removing ORFs
-            df = gdt.gff3_utils.filter_orfs(df)
+            df = gff3_utils.filter_orfs(df)
        
         df['gene_id'] = df['attributes'].str.extract(r'ID=([^;]+)', expand=False)
         gene_ids = df['gene_id'].values
@@ -67,7 +67,7 @@ def filter_whole_tsv(logger: logging.Logger, tsv_path: Path, gdt_path: Optional[
         if not gdt_path.exists():
             logger.error(f'gdt file not found: {gdt_path}')
             raise FileNotFoundError(f'gdt file not found: {gdt_path}')
-        gene_dict = gdt.gene_dict.create_gene_dict(gdt_path)
+        gene_dict = gene_dict.create_gene_dict(gdt_path)
         logger.debug(f'Gene dictionary loaded from {gdt_path}')
         logger.trace(f'gene_dict[header]: {gene_dict["header"]}')
         logger.trace(f'gene_dict[info]  : {gene_dict["info"]}')

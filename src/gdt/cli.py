@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
 
-import gdt.logger_setup
-import gdt.gene_dict
-import gdt.gff3_utils
-import gdt.tsv_filter
+from . import logger_setup
+from . import gene_dict
+from . import gff3_utils
+from . import tsv_filter
 
 from pathlib import Path
 import argparse
@@ -30,14 +30,16 @@ def cli_run():
     write_parser.add_argument('--out', required=True, help='Output file to write')
     write_parser.add_argument("--debug", required=False, default=False, action="store_true", help="Enable TRACE level in file log. Default: False (DEBUG level)")
 
-    
+    test_parser = subparsers.add_parser('test', help='Test command')
+    test_parser.add_argument("--debug", required=False, default=False, action="store_true", help="Enable TRACE level in file log. Default: False (DEBUG level)")
+
     args = parser.parse_args()
     
     if args.debug:
-        log_path, logger = gdt.logger_setup.logger_creater(console_level='DEBUG', file_level='TRACE')
+        log_path, logger = logger_setup.logger_creater(console_level='DEBUG', file_level='TRACE')
         logger.trace("TRACE level enabled in file log.")
     else:
-        log_path, logger = gdt.logger_setup.logger_creater(console_level='INFO', file_level='DEBUG')
+        log_path, logger = logger_setup.logger_creater(console_level='INFO', file_level='DEBUG')
 
     logger.info(f"Logging to console and file. Check logfile for more details. ({log_path})")
     logger.debug('CLI run called.')
@@ -52,9 +54,13 @@ def cli_run():
             args.gdt = Path(args.gdt).resolve()
         
         logger.debug('Filter command called.')
-        a = gdt.tsv_filter.filter_whole_tsv(logger, args.tsv, args.gdt, args.orfs, args.workers, args.AN_column)
+        a = tsv_filter.filter_whole_tsv(logger, args.tsv, args.gdt, args.orfs, args.workers, args.AN_column)
     
     elif args.command == 'write':
         logger.debug("Write command")
-        gd = gdt.gene_dict.create_gene_dict(args.gdt, max_an_sources=0)
-        a = gdt.gene_dict.write_gdt_file(gd, args.out, overwrite=True)
+        gd = gene_dict.create_gene_dict(args.gdt, max_an_sources=0)
+        a = gene_dict.write_gdt_file(gd, args.out, overwrite=True)
+    
+    elif args.command == 'test':
+        logger.debug("Test command")
+        pass

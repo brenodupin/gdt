@@ -34,7 +34,8 @@ def get_gene_dict_info(gene_dict: dict) -> str:
     """
     labels, GeneGeneric_count, GeneDescription_count, GeneDbxref_count = set(), 0, 0, 0
     for key in gene_dict:
-        labels.add(gene_dict[key].label)
+        if key is not ['gdt_info', 'gdt_header']:
+            labels.add(gene_dict[key].label)
         if isinstance(gene_dict[key], GeneDbxref):
             GeneDbxref_count += 1
         elif isinstance(gene_dict[key], GeneGeneric):

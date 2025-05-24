@@ -135,8 +135,8 @@ def create_gene_dict(gdt_file: str, max_an_sources:int = 20) -> dict:
                 source=source,
                 c=comment)
     
-    result['info'] = get_gene_dict_info(result)
-    result['header'] = header
+    result['gdt_info'] = get_gene_dict_info(result)
+    result['gdt_header'] = header
     return result
 
 def natural_sort(iterable):
@@ -160,12 +160,12 @@ def write_gdt_file(gene_dict: dict, gdt_file: str, overwrite: bool = False) -> N
     if gdt_file.exists() and not overwrite:
         raise FileExistsError(f"GDT file already exists: {gdt_file}. Use overwrite=True to overwrite.")
     
-    if gene_dict['header'][0] != 'version 0.0.2':
-        raise ValueError(f"GDT not on version 0.0.2. GDT version: {gene_dict['header'][0]}")
+    if gene_dict['gdt_header'][0] != 'version 0.0.2':
+        raise ValueError(f"GDT not on version 0.0.2. GDT version: {gene_dict['gdt_header'][0]}")
 
     # drop header and value keys from gene_dict
-    header = gene_dict.pop('header')
-    info = gene_dict.pop('info')
+    header = gene_dict.pop('gdt_header')
+    info = gene_dict.pop('gdt_info')
     all_labels = natural_sort({gene.label for gene in gene_dict.values()})
 
     with open(gdt_file, 'w') as f:
@@ -192,27 +192,5 @@ def write_gdt_file(gene_dict: dict, gdt_file: str, overwrite: bool = False) -> N
                     else:
                         raise TypeError(f"Unknown type {type(gene_dict[key])} for |{key}|:|{gene_dict[key]}|")
     
-    gene_dict['header'] = header
-    gene_dict['info'] = info
-
-
-if __name__ == "__main__":
-    exit(0)
-
-    ans = ['NC_007982.1', 'NC_007886.1', 'NC_006581.1', 'NC_002511.2', 'NC_001660.1']
-    test_dir = Path('test_stuff').resolve()
-    for an in ans:
-        an = an.strip() + '.gff3'
-        print(f'Doing {an}')
-        a_1 = gff3_utils.load_gff3(test_dir / an, query_string='type == "gene"')
-        a_1_norfs = gff3_utils.filter_orfs(a_1)
-
-        a_2 = gff3_utils.load_gff3(test_dir / an, query_string='type == "gene"')
-        a_2_norfs = gff3_utils.filter_orfs(a_2)
-    
-        print(f'load normal: {a_1.equals(a_2)}')
-        print(f'filter orfs: {a_1_norfs.equals(a_2_norfs)}')
-
-        print(a_1_norfs.info())
-        print(a_2_norfs.info())
-        raise
+    gene_dict['gdt_header'] = header
+    gene_dict['gdt_info'] = info

@@ -30,6 +30,12 @@ def cli_run():
     write_parser.add_argument('--out', required=True, help='Output file to write')
     write_parser.add_argument("--debug", required=False, default=False, action="store_true", help="Enable TRACE level in file log. Default: False (DEBUG level)")
 
+    stripped_parser = subparsers.add_parser('stripped', help='Create a stripped GDT version of a GDT file')
+    stripped_parser.add_argument('--gdt_in', '-gin', required=True, help='Input GDT file to strip')
+    stripped_parser.add_argument('--gdt_out', '-gout', required=True, help='Output GDT file to write')
+    stripped_parser.add_argument('--overwrite', required=False, default=False, action="store_true", help='Overwrite output file if it exists. Default: False')
+    stripped_parser.add_argument('--debug', required=False, default=False, action="store_true", help="Enable TRACE level in file log. Default: False (DEBUG level)")
+
     test_parser = subparsers.add_parser('test', help='Test command')
     test_parser.add_argument("--debug", required=False, default=False, action="store_true", help="Enable TRACE level in file log. Default: False (DEBUG level)")
 
@@ -64,3 +70,16 @@ def cli_run():
     elif args.command == 'test':
         logger.debug("Test command")
         pass
+
+    elif args.command == 'stripped':
+        logger.debug("Stripped command")
+        args.gdt_in = Path(args.gdt_in).resolve()
+        args.gdt_out = Path(args.gdt_out).resolve()
+        
+        if args.gdt_in.exists():
+            logger.debug(f"Input GDT file: {args.gdt_in}")
+            logger.debug(f"Output GDT file: {args.gdt_out}")
+            gene_dict.create_stripped_gdt(args.gdt_in, args.gdt_out, overwrite=args.overwrite)
+        else:
+            logger.error(f"Input GDT file does not exist: {args.gdt_in}")
+            raise FileNotFoundError(f"GDT file not found: {args.gdt_in}")

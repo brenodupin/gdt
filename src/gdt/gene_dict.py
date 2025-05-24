@@ -194,3 +194,29 @@ def write_gdt_file(gene_dict: dict, gdt_file: str, overwrite: bool = False) -> N
     
     gene_dict['gdt_header'] = header
     gene_dict['gdt_info'] = info
+
+def create_stripped_gdt(gdt_file: str, gdt_file_out: str, overwrite: bool = True) -> None:
+    """ Create a stripped GDT file from a GDT file.
+    Args:
+        gdt_file (str): Path to the GDT file.
+        gdt_file_out (str): Path to the output GDT file.
+    """
+    gdt_file = Path(gdt_file).resolve()
+    gdt_file_out = Path(gdt_file_out).resolve()
+    
+    if not gdt_file.exists():
+        raise FileNotFoundError(f"GDT file not found: {gdt_file}")
+    
+    if gdt_file_out.exists() and not overwrite:
+        raise FileExistsError(f"GDT file already exists: {gdt_file_out}. Use overwrite=True to overwrite.")
+    
+    gene_dict = create_gene_dict(gdt_file)
+    header = gene_dict['gdt_header']
+    header.append(f'Stripped GDT version from original GDT file {gdt_file.name}')
+    
+    # keep only GeneDescription
+    gene_dict = {key: value for key, value in gene_dict.items() if isinstance(value, GeneDescription)}
+    
+    gene_dict['gdt_info'] = get_gene_dict_info(gene_dict)
+    gene_dict['gdt_header'] = header
+    write_gdt_file(gene_dict, gdt_file_out, overwrite=overwrite)

@@ -4,8 +4,7 @@ __WIP__
 A short description of the project.
 
 Project Organization
-------------
-
+```
 ├── CITATION.cff       <- Contains metadata on how the project might eventually be published. 
 ├── LICENSE
 ├── Makefile           <- Makefile with commands like `make data` or `make train`
@@ -54,8 +53,7 @@ Project Organization
 │   ├── Snakefile      <- Contains the main entrypoint to the pipeline.
 │ 
 ├── workspace          <- Space for intermediate results in the pipeline. By default excluded from the git repository.  
-
---------
+```
 
 <p><small>Project inspired by the <a target="_blank" href="https://drivendata.github.io/cookiecutter-data-science/">cookiecutter data science project template</a> and
 the <a target="_blank" href="https://snakemake.readthedocs.io/en/stable/snakefiles/deployment.html">Snakemake workflow template</a>. </small></p>

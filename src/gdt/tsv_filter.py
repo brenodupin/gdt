@@ -69,8 +69,8 @@ def filter_whole_tsv(logger: logging.Logger, tsv_path: Path, gdt_path: Optional[
             raise FileNotFoundError(f'gdt file not found: {gdt_path}')
         gene_dict = gene_dict_impl.create_gene_dict(gdt_path)
         logger.debug(f'Gene dictionary loaded from {gdt_path}')
-        logger.trace(f'gene_dict[header]: {gene_dict["header"]}')
-        logger.trace(f'gene_dict[info]  : {gene_dict["info"]}')
+        logger.trace(f'gene_dict[gdt_header]: {gene_dict["gdt_header"]}')
+        logger.trace(f'gene_dict[gdt_info]  : {gene_dict["gdt_info"]}')
 
     else:
         gene_dict = {}

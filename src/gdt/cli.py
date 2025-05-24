@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 from . import logger_setup
-from . import gene_dict
+from . import gene_dict_impl
 from . import gff3_utils
 from . import tsv_filter
 
@@ -64,8 +64,8 @@ def cli_run():
     
     elif args.command == 'write':
         logger.debug("Write command")
-        gd = gene_dict.create_gene_dict(args.gdt, max_an_sources=0)
-        a = gene_dict.write_gdt_file(gd, args.out, overwrite=True)
+        gd = gene_dict_impl.create_gene_dict(args.gdt, max_an_sources=0)
+        a = gene_dict_impl.write_gdt_file(gd, args.out, overwrite=True)
     
     elif args.command == 'test':
         logger.debug("Test command")
@@ -79,7 +79,7 @@ def cli_run():
         if args.gdt_in.exists():
             logger.debug(f"Input GDT file: {args.gdt_in}")
             logger.debug(f"Output GDT file: {args.gdt_out}")
-            gene_dict.create_stripped_gdt(args.gdt_in, args.gdt_out, overwrite=args.overwrite)
+            gene_dict_impl.create_stripped_gdt(args.gdt_in, args.gdt_out, overwrite=args.overwrite)
         else:
             logger.error(f"Input GDT file does not exist: {args.gdt_in}")
             raise FileNotFoundError(f"GDT file not found: {args.gdt_in}")

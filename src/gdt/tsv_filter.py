@@ -2,7 +2,7 @@
 
 from typing import Optional
 from . import gff3_utils
-from . import gene_dict
+from . import gene_dict_impl
 import pandas as pd
 import concurrent.futures
 import logging
@@ -67,7 +67,7 @@ def filter_whole_tsv(logger: logging.Logger, tsv_path: Path, gdt_path: Optional[
         if not gdt_path.exists():
             logger.error(f'gdt file not found: {gdt_path}')
             raise FileNotFoundError(f'gdt file not found: {gdt_path}')
-        gene_dict = gene_dict.create_gene_dict(gdt_path)
+        gene_dict = gene_dict_impl.create_gene_dict(gdt_path)
         logger.debug(f'Gene dictionary loaded from {gdt_path}')
         logger.trace(f'gene_dict[header]: {gene_dict["header"]}')
         logger.trace(f'gene_dict[info]  : {gene_dict["info"]}')

@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 
 from dataclasses import dataclass, field
+from datetime import datetime
 import re
 from typing import Optional
 from pathlib import Path
@@ -212,7 +213,7 @@ def create_stripped_gdt(gdt_file: str, gdt_file_out: str, overwrite: bool = True
     
     gene_dict = create_gene_dict(gdt_file)
     header = gene_dict['gdt_header']
-    header.append(f'Stripped GDT version from original GDT file {gdt_file.name}')
+    header.append(f"{datetime.now().strftime('%Y-%m-%d %H:%M')} - Stripped GDT version from original GDT file {gdt_file.name}")
     
     # keep only GeneDescription
     gene_dict = {key: value for key, value in gene_dict.items() if isinstance(value, GeneDescription)}

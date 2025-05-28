@@ -33,9 +33,11 @@ def get_gene_dict_info(gene_dict: dict) -> str:
         info (str): A string containing information about the gene dictionary.
     """
     labels, GeneGeneric_count, GeneDescription_count, GeneDbxref_count = set(), 0, 0, 0
+    info = gene_dict.pop('gdt_info', None)
+    header = gene_dict.pop('gdt_header', None)
+    
     for key in gene_dict:
-        if key is not ['gdt_info', 'gdt_header']:
-            labels.add(gene_dict[key].label)
+        labels.add(gene_dict[key].label)
         if isinstance(gene_dict[key], GeneDbxref):
             GeneDbxref_count += 1
         elif isinstance(gene_dict[key], GeneGeneric):
@@ -51,6 +53,10 @@ def get_gene_dict_info(gene_dict: dict) -> str:
     info.append(f"GeneDescription: {GeneDescription_count}")
     info.append(f"GeneGenerics: {GeneGeneric_count}")
     info.append(f"GeneDbxref: {GeneDbxref_count}")
+
+    if header:
+        gene_dict['gdt_header'] = header
+
     return info
 
 def create_gene_dict(gdt_file: str, max_an_sources:int = 20) -> dict:

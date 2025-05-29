@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 
+import re
 from typing import Optional
 from . import gff3_utils
 from . import gene_dict_impl
@@ -7,6 +8,8 @@ import pandas as pd
 import concurrent.futures
 import logging
 from pathlib import Path
+
+RE_ID = re.compile(r'ID=([^;]+)')
 
 def process_single_an(AN_path: Path, gene_dict: dict, keep_orfs=False, query_string=gff3_utils.QS_GENE_TRNA_RRNA):
     try:
@@ -16,7 +19,7 @@ def process_single_an(AN_path: Path, gene_dict: dict, keep_orfs=False, query_str
         if not keep_orfs: # removing ORFs
             df = gff3_utils.filter_orfs(df)
        
-        df['gene_id'] = df['attributes'].str.extract(r'ID=([^;]+)', expand=False)
+        df['gene_id'] = df['attributes'].str.extract(RE_ID, expand=False)
         gene_ids = df['gene_id'].values
        
         in_gene_dict_mask = [g in gene_dict for g in gene_ids]

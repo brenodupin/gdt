@@ -208,6 +208,67 @@ def write_gdt_file(gene_dict: dict, gdt_file: str, overwrite: bool = False) -> N
     gene_dict['gdt_header'] = header
     gene_dict['gdt_info'] = info
 
+def write_gdt_file_sorted(gene_dict: dict, gdt_file: str, overwrite: bool = False) -> None:
+    """ Write a gene dictionary to a GDT file, sorted by label.
+    Args:
+        gene_dict (dict): A dictionary containing gene information.
+        gdt_file (str): Path to the GDT file.
+    """
+    gdt_file = Path(gdt_file).resolve()
+    if gdt_file.exists() and not overwrite:
+        raise FileExistsError(f"GDT file already exists: {gdt_file}. Use overwrite=True to overwrite.")
+
+    if gene_dict['gdt_header'][0] != 'version 0.0.2':
+        raise ValueError(f"GDT not on version 0.0.2. GDT version: {gene_dict['gdt_header'][0]}")
+
+    # drop header and value keys from gene_dict
+    header = gene_dict.pop('gdt_header')
+    info = gene_dict.pop('gdt_info')
+    all_labels = natural_sort({gene.label for gene in gene_dict.values()})
+
+    label_as_key = {}
+    for key, value in gene_dict.items():
+        if value.label not in label_as_key:
+            label_as_key[value.label] = [(key, value)]
+        else:
+            label_as_key[value.label].append((key, value))
+
+    all_sorted = {}
+    for label, values in label_as_key.items():
+        gd = [v for v in values if isinstance(v[1], GeneDescription)]
+        gn = [v for v in values if isinstance(v[1], GeneGeneric)]
+        dx = [v for v in values if isinstance(v[1], GeneDbxref)]
+        all_sorted[label] = [natural_sort(gd, key=lambda x: x[0]),
+                             natural_sort(gn, key=lambda x: x[0]),
+                             natural_sort(dx, key=lambda x: x[0])]
+
+    with open(gdt_file, 'w') as f:
+        for line in header:
+            f.write(f'#! {line}\n')
+        
+        for label in all_labels:
+            f.write(f'\n[{label}]\n')
+            gd, gn, dx = all_sorted[label]
+            if gd:
+                for key, value in gd:
+                    f.write(f'{key} #gd {value.source}'
+                            f'{" #c " + value.c if value.c else ""}\n')
+            if gn:
+                for key, value in gn:
+                    if value.an_sources:
+                        f.write(f'{key} #gn {" ".join(value.an_sources)}'
+                                f'{" #c " + value.c if value.c else ""}\n')
+                    else:
+                        f.write(f'{key} #gn'
+                                f'{" #c " + value.c if value.c else ""}\n')
+            if dx:
+                for key, value in dx:
+                    f.write(f'{key} #dx {value.an_source}:{value.dbxref}'
+                            f'{" #c " + value.c if value.c else ""}\n')
+            
+    gene_dict['gdt_info'] = info
+    gene_dict['gdt_header'] = header
+
 def create_stripped_gdt(gdt_file: str, gdt_file_out: str, overwrite: bool = True) -> None:
     """ Create a stripped GDT file from a GDT file.
     Args:

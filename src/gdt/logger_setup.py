@@ -3,7 +3,8 @@
 import logging
 import datetime
 from pathlib import Path
-import os, glob
+import os
+import glob
 from typing import Optional
 
 

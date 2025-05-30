@@ -130,14 +130,14 @@ def cli_run():
             args.gdt = Path(args.gdt).resolve()
 
         logger.debug("Filter command called.")
-        a = tsv_filter.filter_whole_tsv(
+        tsv_filter.filter_whole_tsv(
             logger, args.tsv, args.gdt, args.orfs, args.workers, args.AN_column
         )
 
     elif args.command == "write":
         logger.debug("Write command")
         gd = gene_dict_impl.create_gene_dict(args.gdt, max_an_sources=0)
-        a = gene_dict_impl.write_gdt_file(gd, args.out, overwrite=True)
+        gene_dict_impl.write_gdt_file(gd, args.out, overwrite=True)
 
     elif args.command == "test":
         logger.debug("Test command")

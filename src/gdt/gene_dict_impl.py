@@ -284,27 +284,27 @@ def write_gdt_file_sorted(
         for label in all_labels:
             f.write(f"\n[{label}]\n")
             gd, gn, dx = all_sorted[label]
-            if gd:
-                for key, value in gd:
+
+            for key, value in gd:
+                f.write(
+                    f"{key} #gd {value.source}"
+                    f"{' #c ' + value.c if value.c else ''}\n"
+                )
+
+            for key, value in gn:
+                if value.an_sources:
                     f.write(
-                        f"{key} #gd {value.source}"
+                        f"{key} #gn {' '.join(value.an_sources)}"
                         f"{' #c ' + value.c if value.c else ''}\n"
                     )
-            if gn:
-                for key, value in gn:
-                    if value.an_sources:
-                        f.write(
-                            f"{key} #gn {' '.join(value.an_sources)}"
-                            f"{' #c ' + value.c if value.c else ''}\n"
-                        )
-                    else:
-                        f.write(f"{key} #gn{' #c ' + value.c if value.c else ''}\n")
-            if dx:
-                for key, value in dx:
-                    f.write(
-                        f"{key} #dx {value.an_source}:{value.dbxref}"
-                        f"{' #c ' + value.c if value.c else ''}\n"
-                    )
+                else:
+                    f.write(f"{key} #gn{' #c ' + value.c if value.c else ''}\n")
+
+            for key, value in dx:
+                f.write(
+                    f"{key} #dx {value.an_source}:{value.dbxref}"
+                    f"{' #c ' + value.c if value.c else ''}\n"
+                )
 
 
 def create_stripped_gdt(

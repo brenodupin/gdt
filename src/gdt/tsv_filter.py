@@ -71,7 +71,7 @@ def filter_whole_tsv(
     keep_orfs=False,
     workers=0,
     AN_column="AN",
-):
+) -> None:
     max_workers = concurrent.futures.ProcessPoolExecutor()._max_workers
     workers = workers if (workers > 0 and workers <= max_workers) else max_workers
     logger.trace(

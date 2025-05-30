@@ -42,7 +42,7 @@ exclude =
     .Rproj.user
 
 # Maximum complexity for functions - bioinformatics can have complex algorithms
-max-complexity = 12
+max-complexity = 15
 
 # Enable additional checks
 select = E,W,F,C
@@ -50,7 +50,7 @@ select = E,W,F,C
 # Per-file ignores for specific patterns common in bioinformatics
 per-file-ignores = 
     # __init__.py files often have unused imports for convenience
-    __init__.py:F401,
+    __init__.py:F401, F403
     # Test files may have longer lines and unused imports
     test_*.py:E501,F401,
     tests/*.py:E501,F401,

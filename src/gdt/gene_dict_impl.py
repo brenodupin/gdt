@@ -158,7 +158,7 @@ def _natural_sort_key(s):
     return [int(c) if c.isdigit() else c.lower() for c in re.split(r"(\d+)", s)]
 
 
-def natural_sort(iterable, key=None):
+def natural_sort(iterable, key=None, reverse=False):
     """Sort a list in natural order.
     Args:
         iterable (list): A list to sort.
@@ -167,9 +167,9 @@ def natural_sort(iterable, key=None):
         list: A sorted list in natural order.
     """
     if not key:  # Original behavior for simple strings
-        return sorted(iterable, key=_natural_sort_key)
+        return sorted(iterable, key=_natural_sort_key, reverse=reverse)
 
-    return sorted(iterable, key=lambda x: _natural_sort_key(key(x)))
+    return sorted(iterable, key=lambda x: _natural_sort_key(key(x)), reverse=reverse)
 
 
 def write_gdt_file(gd_source: dict, gdt_file: str, overwrite: bool = False) -> None:

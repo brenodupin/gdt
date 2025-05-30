@@ -39,7 +39,7 @@ line-length = 88
 target-version = ['py310', 'py311']
 
 # Include and exclude patterns
-include = '\.pyi?'
+include = '\.(pyi?|ipynb)$'
 
 extend-exclude = '''
 # Exclude the same directories as flake8 config

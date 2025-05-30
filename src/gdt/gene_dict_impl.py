@@ -147,16 +147,21 @@ def create_gene_dict(gdt_file: str, max_an_sources:int = 20) -> dict:
     result['gdt_header'] = header
     return result
 
-def natural_sort(iterable):
-    """ Sort a list of strings in natural order.
+def _natural_sort_key(s):
+    return [int(c) if c.isdigit() else c.lower() for c in re.split(r'(\d+)', s)]
+
+def natural_sort(iterable, key=None):
+    """ Sort a list in natural order.
     Args:
-        iterable (list): A list of strings to sort.
+        iterable (list): A list to sort.
+        key (function, optional): Function to extract comparison key from each element.
     Returns:
-        list: A sorted list of strings in natural order.
+        list: A sorted list in natural order.
     """
-    def natural_sort_key(s):
-        return [int(c) if c.isdigit() else c.lower() for c in re.split(r'(\d+)', s)]
-    return sorted(iterable, key=natural_sort_key)
+    if not key: # Original behavior for simple strings
+        return sorted(iterable, key=_natural_sort_key)
+
+    return sorted(iterable, key=lambda x: _natural_sort_key(key(x)))
 
 def write_gdt_file(gene_dict: dict, gdt_file: str, overwrite: bool = False) -> None:
     """ Write a gene dictionary to a GDT file.

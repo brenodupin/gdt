@@ -30,3 +30,41 @@ include = ["*"]
 
 [tool.setuptools.package-dir]
 "" = "src"
+
+[tool.black]
+# Line length - matching the flake8 config
+line-length = 88
+
+# Target Python versions (adjust based on your project)
+target-version = ['py310', 'py311']
+
+# Include and exclude patterns
+include = '\.pyi?'
+
+extend-exclude = '''
+# Exclude the same directories as flake8 config
+/(
+    \.git
+    | __pycache__
+    | \.pytest_cache
+    | \.tox
+    | venv
+    | env
+    | \.venv
+    | \.env
+    | build
+    | dist
+    | \.egg-info
+    | img
+    | logs
+    | reports
+    | resources
+    | sandbox
+    | data
+    | results
+    | output
+    | references
+    | \.ipynb_checkpoints
+    | \.Rproj\.user
+)/
+'''

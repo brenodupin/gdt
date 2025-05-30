@@ -2,7 +2,6 @@
 
 from . import logger_setup
 from . import gene_dict_impl
-from . import gff3_utils
 from . import tsv_filter
 
 from pathlib import Path
@@ -48,7 +47,8 @@ def cli_run():
         required=False,
         default=False,
         action="store_true",
-        help="Enable TRACE level in file log, and DEBUG on StreamHandler. Default: False (DEBUG level on file and INFO on console)",
+        help="Enable TRACE level in file log, and DEBUG on StreamHandler."
+        "Default: False (DEBUG level on file and INFO on console)",
     )
     filter_parser.add_argument(
         "--workers",

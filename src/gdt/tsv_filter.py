@@ -75,7 +75,8 @@ def filter_whole_tsv(
     max_workers = concurrent.futures.ProcessPoolExecutor()._max_workers
     workers = workers if (workers > 0 and workers <= max_workers) else max_workers
     logger.trace(
-        f"filter_whole_tsv called | tsv_path: {tsv_path} | gdt_path: {gdt_path} | w: {workers} | keep_orfs: {keep_orfs}"
+        f"filter_whole_tsv called | tsv_path: {tsv_path} | gdt_path: {gdt_path}"
+        f" | w: {workers} | keep_orfs: {keep_orfs}"
     )
 
     AN_missing_dbxref = []
@@ -129,8 +130,8 @@ def filter_whole_tsv(
         AN = result["AN"]
         logger.trace(f"-- [Processing: {AN}] --")
         logger.trace(
-            f"\tgenes: {result['gene_count']} | have dbxref: {result['dbxref_count']} | "
-            f"genes in gene_dict: {result['gene_dict_count']}"
+            f"\tgenes: {result['gene_count']} | have dbxref: {result['dbxref_count']} |"
+            f" genes in gene_dict: {result['gene_dict_count']}"
         )
         logger.trace(f"\tgenes: {result['genes']}")
         logger.trace(f"\tgenes without dbxref: {result['genes_without_dbxref']}")

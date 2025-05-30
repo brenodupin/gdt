@@ -45,10 +45,10 @@ def logger_creater(
 ) -> tuple[str, logging.Logger]:
     """Set up the logger for the GDT package.
     Args:
-        console_level (Optional[str]): Logging level for console output. Defaults to INFO.
-        file_level (Optional[str]): Logging level for file output. Defaults to DEBUG.
+        console_level (Optional[str]): Log level for console output. Defaults to INFO.
+        file_level (Optional[str]): Log level for file output. Defaults to DEBUG.
     Returns:
-        tuple[str, logging.Logger]: Tuple containing the log file path and the logger instance.
+        tuple[str, logging.Logger]: Tuple with log file path and the logger instance.
     """
 
     console_level = _logging_levels.get(console_level, logging.INFO)
@@ -77,7 +77,8 @@ def logger_creater(
     for handler in logger.handlers[:]:
         logger.removeHandler(handler)
 
-    # Create console handler (StreamHandler defaults to sys.stderr, can be changed to sys.stdout)
+    # Create console handler
+    # (StreamHandler defaults to sys.stderr, can be changed to sys.stdout)
     console_handler = logging.StreamHandler()
     console_handler.setLevel(console_level)
     console_formatter = logging.Formatter("%(asctime)s - %(levelname)s - %(message)s")

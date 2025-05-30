@@ -6,7 +6,6 @@ from datetime import datetime
 import re
 from typing import Optional
 from pathlib import Path
-from . import gff3_utils
 
 
 @dataclass(slots=True)
@@ -70,7 +69,8 @@ def create_gene_dict(gdt_file: str, max_an_sources: int = 20) -> dict:
     """Create a gene dictionary from a GDT file.
     Args:
         gdt_file (str): Path to the GDT file.
-        max_an_sources (int): Maximum number of AN sources to include in GeneGeneric. If set to 0, all sources will be included. Default is 20.
+        max_an_sources (int): Maximum number of AN sources to include in GeneGeneric.
+                            If set to 0, all sources will be included. Default is 20.
     Returns:
         gene_dict (dict): A dictionary containing gene information.
     """
@@ -135,7 +135,8 @@ def create_gene_dict(gdt_file: str, max_an_sources: int = 20) -> dict:
             if len(an_sources) >= max_an_sources and max_an_sources > 0:
                 an_sources = an_sources[:max_an_sources]
                 comment = comment if comment else ""
-                comment += f" |More than {max_an_sources} sources, adding only the first {max_an_sources}|"
+                comment += f" |More than {max_an_sources} sources,"
+                f"adding only the first {max_an_sources}|"
 
             result[tag] = GeneGeneric(
                 label=current_section, an_sources=an_sources, c=comment
@@ -171,69 +172,7 @@ def natural_sort(iterable, key=None):
     return sorted(iterable, key=lambda x: _natural_sort_key(key(x)))
 
 
-def write_gdt_file(gene_dict: dict, gdt_file: str, overwrite: bool = False) -> None:
-    """Write a gene dictionary to a GDT file.
-    Args:
-        gene_dict (dict): A dictionary containing gene information.
-        gdt_file (str): Path to the GDT file.
-    """
-    gdt_file = Path(gdt_file).resolve()
-    if gdt_file.exists() and not overwrite:
-        raise FileExistsError(
-            f"GDT file already exists: {gdt_file}. Use overwrite=True to overwrite."
-        )
-
-    if gene_dict["gdt_header"][0] != "version 0.0.2":
-        raise ValueError(
-            f"GDT not on version 0.0.2. GDT version: {gene_dict['gdt_header'][0]}"
-        )
-
-    # drop header and value keys from gene_dict
-    header = gene_dict.pop("gdt_header")
-    info = gene_dict.pop("gdt_info")
-    all_labels = natural_sort({gene.label for gene in gene_dict.values()})
-
-    with open(gdt_file, "w") as f:
-        for line in header:
-            f.write(f"#! {line}\n")
-
-        for tag in all_labels:
-            f.write(f"\n[{tag}]\n")
-            for key in gene_dict:
-                if gene_dict[key].label == tag:
-                    if isinstance(gene_dict[key], GeneDbxref):
-                        f.write(
-                            f"{key} #dx {gene_dict[key].an_source}:{gene_dict[key].dbxref}"
-                            f"{' #c ' + gene_dict[key].c if gene_dict[key].c else ''}\n"
-                        )
-                    elif isinstance(gene_dict[key], GeneGeneric):
-                        if gene_dict[key].an_sources:
-                            f.write(
-                                f"{key} #gn {' '.join(gene_dict[key].an_sources)}"
-                                f"{' #c ' + gene_dict[key].c if gene_dict[key].c else ''}\n"
-                            )
-                        else:
-                            f.write(
-                                f"{key} #gn"
-                                f"{' #c ' + gene_dict[key].c if gene_dict[key].c else ''}\n"
-                            )
-                    elif isinstance(gene_dict[key], GeneDescription):
-                        f.write(
-                            f"{key} #gd {gene_dict[key].source}"
-                            f"{' #c ' + gene_dict[key].c if gene_dict[key].c else ''}\n"
-                        )
-                    else:
-                        raise TypeError(
-                            f"Unknown type {type(gene_dict[key])} for |{key}|:|{gene_dict[key]}|"
-                        )
-
-    gene_dict["gdt_header"] = header
-    gene_dict["gdt_info"] = info
-
-
-def write_gdt_file_sorted(
-    gd_source: dict, gdt_file: str, overwrite: bool = False
-) -> None:
+def write_gdt_file(gd_source: dict, gdt_file: str, overwrite: bool = False) -> None:
     """Write a gene dictionary to a GDT file, sorted by label.
     Args:
         gene_dict (dict): A dictionary containing gene information.
@@ -329,7 +268,8 @@ def create_stripped_gdt(
     gene_dict = create_gene_dict(gdt_file)
     header = gene_dict["gdt_header"]
     header.append(
-        f"{datetime.now().strftime('%Y-%m-%d %H:%M')} - Stripped GDT version from original GDT file {gdt_file.name}"
+        f"{datetime.now().strftime('%Y-%m-%d %H:%M')}"
+        f" - Stripped GDT version from original GDT file {gdt_file.name}"
     )
 
     # keep only GeneDescription

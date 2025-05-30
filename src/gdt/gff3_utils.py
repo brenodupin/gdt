@@ -83,4 +83,8 @@ def load_gff3(
 
 
 def filter_orfs(gff3_df, orfs_strings=["Name=ORF", "Name=orf"]):
-    return gff3_df[~gff3_df["attributes"].str.contains("|".join(orfs_strings))].reset_index(drop=True)  # type: ignore
+    return gff3_df[
+        ~gff3_df["attributes"].str.contains("|".join(orfs_strings))
+    ].reset_index(
+        drop=True
+    )  # type: ignore

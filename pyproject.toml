@@ -71,6 +71,7 @@ extend-exclude = '''
 
 [dependency-groups]
 dev = [
+    "mypy>=1.16.0",
     "ruff>=0.11.12",
 ]
 

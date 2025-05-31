@@ -10,6 +10,16 @@ import logging
 from pathlib import Path
 
 RE_ID = re.compile(r"ID=([^;]+)")
+RE_PARENT = re.compile(r"Parent=([^;]+)")
+
+
+def map_dbxref_from_genes(df: pd.DataFrame) -> bool:
+    need_mapping = df[~df["have_dbxref"]]["attributes"].str.extract(
+        RE_PARENT, expand=False
+    )
+    gene_ids = df[df["type"] == "gene"]["gene_id"]
+
+    return need_mapping.isin(gene_ids).all(), len(need_mapping)
 
 
 def process_single_an(
@@ -17,7 +27,7 @@ def process_single_an(
     gene_dict: dict,
     keep_orfs=False,
     query_string=gff3_utils.QS_GENE_TRNA_RRNA,
-):
+) -> dict:
     try:
         AN = AN_path.stem
         df = gff3_utils.load_gff3(AN_path, query_string=query_string)
@@ -31,17 +41,21 @@ def process_single_an(
         in_gene_dict_mask = [g in gene_dict for g in gene_ids]
 
         # Get dbxref info
-        dbxref_mask = df["attributes"].str.contains("Dbxref=", na=False).values
+        dbxref_mask = df["attributes"].str.contains("Dbxref=", na=False)
 
-        # check homogeneity in the dbxref_mask
-        if len(set(dbxref_mask)) > 1:
-            print(f"Dbxref mask is not homogeneous for {AN}")
+        if all(in_gene_dict_mask):
+            status = "good_to_go"
 
-        status = "good_to_go"
-        if not all(in_gene_dict_mask):
+        elif all(dbxref_mask):
+            status = "missing_gene_dict_with_dbxref"
+
+        else:
+            # Try gene mapping fallback
+            df["have_dbxref"] = dbxref_mask
+            all_genes_have_dbxref = df[df["type"] == "gene"]["have_dbxref"].all()
             status = (
-                "missing_gene_dict_with_dbxref"
-                if all(dbxref_mask)
+                "needs_mapping"
+                if all_genes_have_dbxref and map_dbxref_from_genes(df)
                 else "missing_dbxref"
             )
 
@@ -71,6 +85,7 @@ def filter_whole_tsv(
     keep_orfs=False,
     workers=0,
     AN_column="AN",
+    gff3_suffix=".gff3",
 ) -> None:
     max_workers = concurrent.futures.ProcessPoolExecutor()._max_workers
     workers = workers if (workers > 0 and workers <= max_workers) else max_workers
@@ -82,6 +97,7 @@ def filter_whole_tsv(
     AN_missing_dbxref = []
     AN_missing_gene_dict = []
     AN_good_to_go = []
+    AN_needs_mapping = []
 
     # check if tsv_path exists
     if not tsv_path.exists():
@@ -115,7 +131,10 @@ def filter_whole_tsv(
     with concurrent.futures.ProcessPoolExecutor(max_workers=workers) as executor:
         futures = [
             executor.submit(
-                process_single_an, base_folder / f"{an}.gff3", gene_dict, keep_orfs
+                process_single_an,
+                base_folder / f"{an}{gff3_suffix}",
+                gene_dict,
+                keep_orfs,
             )
             for an in tsv[AN_column]
         ]
@@ -141,18 +160,27 @@ def filter_whole_tsv(
         if result["status"] == "missing_gene_dict_with_dbxref":
             logger.trace(f"\t{AN} is missing genes in gene_dict but have dbxref")
             AN_missing_gene_dict.append(AN)
+
         elif result["status"] == "missing_dbxref":
             logger.trace(
                 f"\t{AN} is missing genes in gene_dict and is also missing dbxref"
             )
             AN_missing_dbxref.append(AN)
+
+        elif result["status"] == "needs_mapping":
+            logger.trace(f"\t{AN} needs mapping of dbxref from genes")
+            AN_needs_mapping.append(AN)
+
         else:
             logger.trace(f"\t{AN} is good to go!")
             AN_good_to_go.append(AN)
+
         logger.trace(f"-- [End Processing: {AN}] --")
 
     logger.debug(f"ANs missing dbxref: {len(AN_missing_dbxref)}")
     logger.trace(f"ANs missing dbxref: {AN_missing_dbxref}")
+    logger.debug(f"ANs needs mapping: {len(AN_needs_mapping)}")
+    logger.trace(f"ANs needs mapping: {AN_needs_mapping}")
     logger.debug(f"ANs missing gene_dict: {len(AN_missing_gene_dict)}")
     logger.trace(f"ANs missing gene_dict: {AN_missing_gene_dict}")
     logger.debug(f"ANs good to go: {len(AN_good_to_go)}")
@@ -169,9 +197,12 @@ def filter_whole_tsv(
             logger.debug(f"Removing file: {base_folder / 'AN_missing_dbxref'}")
             (base_folder / "AN_missing_dbxref").unlink()
 
-    if AN_missing_gene_dict:
+    if AN_missing_gene_dict or AN_needs_mapping:
         with open(base_folder / "AN_missing_gene_dict", "w") as f:
             f.write("\n".join(AN_missing_gene_dict))
+            f.write("\n")
+            for an in AN_needs_mapping:
+                f.write(f"{an} #map\n")
     else:
         logger.debug("No ANs missing gene_dict, skipping file creation")
         if (base_folder / "AN_missing_gene_dict").exists():

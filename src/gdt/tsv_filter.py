@@ -10,16 +10,6 @@ import logging
 from pathlib import Path
 
 RE_ID = re.compile(r"ID=([^;]+)")
-RE_PARENT = re.compile(r"Parent=([^;]+)")
-
-
-def map_dbxref_from_genes(df: pd.DataFrame) -> bool:
-    need_mapping = df[~df["have_dbxref"]]["attributes"].str.extract(
-        RE_PARENT, expand=False
-    )
-    gene_ids = df[df["type"] == "gene"]["gene_id"]
-
-    return need_mapping.isin(gene_ids).all(), len(need_mapping)
 
 
 def process_single_an(
@@ -41,27 +31,25 @@ def process_single_an(
         in_gene_dict_mask = [g in gene_dict for g in gene_ids]
 
         # Get dbxref info
-        dbxref_mask = df["attributes"].str.contains("Dbxref=", na=False)
+        dbxref_mask = df["attributes"].str.contains("Dbxref=", na=False).values
 
-        if all(in_gene_dict_mask):
-            status = "good_to_go"
+        # check homogeneity in the dbxref_mask
+        msg = []
+        if len(set(dbxref_mask)) > 1:
+            msg.append(f"Dbxref mask is not homogeneous for {AN}")
 
-        elif all(dbxref_mask):
-            status = "missing_gene_dict_with_dbxref"
-
-        else:
-            # Try gene mapping fallback
-            df["have_dbxref"] = dbxref_mask
-            all_genes_have_dbxref = df[df["type"] == "gene"]["have_dbxref"].all()
+        status = "good_to_go"
+        if not all(in_gene_dict_mask):
             status = (
-                "needs_mapping"
-                if all_genes_have_dbxref and map_dbxref_from_genes(df)
+                "missing_gene_dict_with_dbxref"
+                if all(dbxref_mask)
                 else "missing_dbxref"
             )
 
         return {
             "AN": AN,
             "status": status,
+            "msg": msg,
             "gene_count": len(df),
             "dbxref_count": sum(dbxref_mask),
             "gene_dict_count": sum(in_gene_dict_mask),
@@ -72,7 +60,7 @@ def process_single_an(
             ],
             "genes_in_dict": [
                 g for g, in_dict in zip(gene_ids, in_gene_dict_mask) if in_dict
-            ],
+            ]
         }
     except Exception as e:
         return {"AN": AN, "status": "error", "error": str(e)}
@@ -97,7 +85,6 @@ def filter_whole_tsv(
     AN_missing_dbxref = []
     AN_missing_gene_dict = []
     AN_good_to_go = []
-    AN_needs_mapping = []
 
     # check if tsv_path exists
     if not tsv_path.exists():
@@ -160,27 +147,20 @@ def filter_whole_tsv(
         if result["status"] == "missing_gene_dict_with_dbxref":
             logger.trace(f"\t{AN} is missing genes in gene_dict but have dbxref")
             AN_missing_gene_dict.append(AN)
-
         elif result["status"] == "missing_dbxref":
             logger.trace(
                 f"\t{AN} is missing genes in gene_dict and is also missing dbxref"
             )
             AN_missing_dbxref.append(AN)
-
-        elif result["status"] == "needs_mapping":
-            logger.trace(f"\t{AN} needs mapping of dbxref from genes")
-            AN_needs_mapping.append(AN)
-
         else:
             logger.trace(f"\t{AN} is good to go!")
             AN_good_to_go.append(AN)
-
+        if result["msg"]:
+            logger.trace(f"\tMessages: {result['msg']}")
         logger.trace(f"-- [End Processing: {AN}] --")
 
     logger.debug(f"ANs missing dbxref: {len(AN_missing_dbxref)}")
     logger.trace(f"ANs missing dbxref: {AN_missing_dbxref}")
-    logger.debug(f"ANs needs mapping: {len(AN_needs_mapping)}")
-    logger.trace(f"ANs needs mapping: {AN_needs_mapping}")
     logger.debug(f"ANs missing gene_dict: {len(AN_missing_gene_dict)}")
     logger.trace(f"ANs missing gene_dict: {AN_missing_gene_dict}")
     logger.debug(f"ANs good to go: {len(AN_good_to_go)}")
@@ -197,12 +177,9 @@ def filter_whole_tsv(
             logger.debug(f"Removing file: {base_folder / 'AN_missing_dbxref'}")
             (base_folder / "AN_missing_dbxref").unlink()
 
-    if AN_missing_gene_dict or AN_needs_mapping:
+    if AN_missing_gene_dict:
         with open(base_folder / "AN_missing_gene_dict", "w") as f:
             f.write("\n".join(AN_missing_gene_dict))
-            f.write("\n")
-            for an in AN_needs_mapping:
-                f.write(f"{an} #map\n")
     else:
         logger.debug("No ANs missing gene_dict, skipping file creation")
         if (base_folder / "AN_missing_gene_dict").exists():

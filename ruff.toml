@@ -1,0 +1,70 @@
+# Maximum line length - bioinformatics often has longer lines due to file paths and complex expressions
+line-length = 88
+
+# Target Python version
+target-version = "py310"
+
+# Include and exclude patterns
+include = ["*.py", "*.pyi", "*.ipynb"]
+exclude = [
+    ".git",
+    "__pycache__",
+    ".pytest_cache", 
+    ".tox",
+    "venv",
+    "env",
+    ".venv",
+    ".env",
+    "build",
+    "dist",
+    "*.egg-info",
+    # Common bioinformatics data directories
+    "img",
+    "logs", 
+    "reports",
+    "resources",
+    "sandbox",
+    "data",
+    "results",
+    "output",
+    "references",
+    # Jupyter notebook checkpoints
+    ".ipynb_checkpoints",
+    # R related files if you have mixed projects
+    ".Rproj.user",
+]
+
+[lint]
+# Enable rules equivalent to flake8's E,W,F,C
+select = [
+    "E",   # pycodestyle errors
+    "W",   # pycodestyle warnings  
+    "F",   # pyflakes
+    "C90", # mccabe complexity
+]
+
+# Maximum complexity for functions - bioinformatics can have complex algorithms
+mccabe.max-complexity = 15
+
+# Per-file ignores for specific patterns common in bioinformatics
+[lint.per-file-ignores]
+# __init__.py files often have unused imports for convenience
+"__init__.py" = ["F401", "F403"]
+# Test files may have longer lines and unused imports
+"test_*.py" = ["E501", "F401"]
+"tests/*.py" = ["E501", "F401"]
+# Scripts may have unused imports and longer lines
+"scripts/*.py" = ["F401", "E501"]
+# Jupyter notebooks have specific patterns - more lenient rules
+"*.ipynb" = ["E501", "F401", "E402", "W292", "W291", "W293", "E302", "E305", "F821"]
+"notebooks/*.ipynb" = ["E501", "F401", "E402", "W292", "W291", "W293", "E302", "E305", "F821"]
+
+[format]
+# Use double quotes for strings
+quote-style = "double"
+
+# Indent with spaces
+indent-style = "space"
+
+# End files with a newline
+skip-magic-trailing-comma = false

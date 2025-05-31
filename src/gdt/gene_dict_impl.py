@@ -43,14 +43,15 @@ def get_gene_dict_info(gene_dict: dict) -> str:
 
     for key in gene_dict:
         labels.add(gene_dict[key].label)
-        if isinstance(gene_dict[key], GeneDbxref):
-            GeneDbxref_count += 1
-        elif isinstance(gene_dict[key], GeneGeneric):
-            GeneGeneric_count += 1
-        elif isinstance(gene_dict[key], GeneDescription):
-            GeneDescription_count += 1
-        else:
-            print(f"[INFO] Unknown type for key {key}: {type(gene_dict[key])}")
+        match gene_dict[key]:
+            case GeneDbxref():
+                GeneDbxref_count += 1
+            case GeneGeneric():
+                GeneGeneric_count += 1
+            case GeneDescription():
+                GeneDescription_count += 1
+            case _:
+                print(f"[INFO] Unknown type for key {key}: {type(gene_dict[key])}")
 
     info = []
     info.append(f"Gene dictionary length: {len(gene_dict)}")
@@ -202,12 +203,13 @@ def write_gdt_file(gd_source: dict, gdt_file: str, overwrite: bool = False) -> N
     for label, values in label_as_key.items():
         groups = {"gd": [], "gn": [], "dx": []}
         for key, value in values:
-            if isinstance(value, GeneDescription):
-                groups["gd"].append((key, value))
-            elif isinstance(value, GeneGeneric):
-                groups["gn"].append((key, value))
-            elif isinstance(value, GeneDbxref):
-                groups["dx"].append((key, value))
+            match value:
+                case GeneDescription():
+                    groups["gd"].append((key, value))
+                case GeneGeneric():
+                    groups["gn"].append((key, value))
+                case GeneDbxref():
+                    groups["dx"].append((key, value))
 
         # Sort each group once
         all_sorted[label] = [

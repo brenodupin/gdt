@@ -57,6 +57,13 @@ def cli_run():
         type=int,
         help="Number of workers to use. Default: max_workers in ProcessPoolExecutor",
     )
+    filter_parser.add_argument(
+        "--gff3-suffix",
+        required=False,
+        default=".gff3",
+        type=str,
+        help="Suffix for GFF3 files. Default: .gff3",
+    )
     # TODO create a query string for filtering
 
     write_parser = subparsers.add_parser("write", help="Write GDT to file")
@@ -131,7 +138,13 @@ def cli_run():
 
         logger.debug("Filter command called.")
         tsv_filter.filter_whole_tsv(
-            logger, args.tsv, args.gdt, args.orfs, args.workers, args.AN_column
+            logger,
+            args.tsv,
+            args.gdt,
+            args.orfs,
+            args.workers,
+            args.AN_column,
+            args.gff3_suffix,
         )
 
     elif args.command == "write":

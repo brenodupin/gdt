@@ -60,7 +60,7 @@ def process_single_an(
             ],
             "genes_in_dict": [
                 g for g, in_dict in zip(gene_ids, in_gene_dict_mask) if in_dict
-            ]
+            ],
         }
     except Exception as e:
         return {"AN": AN, "status": "error", "error": str(e)}

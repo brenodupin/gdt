@@ -16,7 +16,7 @@ class GDTLogger(logging.Logger):
 
 
 # Register TRACE level and custom logger class
-TRACE: int = 5  
+TRACE: int = 5
 logging.addLevelName(TRACE, "TRACE")
 logging.setLoggerClass(GDTLogger)
 

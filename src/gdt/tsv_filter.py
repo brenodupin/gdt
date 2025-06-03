@@ -7,7 +7,6 @@ from . import gene_dict_impl
 from . import logger_setup
 import pandas as pd
 import concurrent.futures
-import logging
 from pathlib import Path
 
 RE_ID = re.compile(r"ID=([^;]+)")

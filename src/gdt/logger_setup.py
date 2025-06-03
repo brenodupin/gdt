@@ -5,18 +5,20 @@ import datetime
 from pathlib import Path
 import os
 import glob
-from typing import Optional
+from typing import Optional, cast
 
 
-def trace(self, message, *args, **kwargs):
-    if self.isEnabledFor(logging.TRACE):
-        self._log(logging.TRACE, message, args, **kwargs)
+# Custom Logger subclass with trace method
+class GDTLogger(logging.Logger):
+    def trace(self, message, *args, **kwargs):
+        if self.isEnabledFor(TRACE):
+            self._log(TRACE, message, args, **kwargs)
 
 
-# Add the method to the Logger class
-logging.TRACE = 5
-logging.addLevelName(logging.TRACE, "TRACE")
-logging.Logger.trace = trace
+# Register TRACE level and custom logger class
+TRACE: int = 5  
+logging.addLevelName(TRACE, "TRACE")
+logging.setLoggerClass(GDTLogger)
 
 _logging_levels = {
     "CRITICAL": logging.CRITICAL,
@@ -24,7 +26,7 @@ _logging_levels = {
     "WARNING": logging.WARNING,
     "INFO": logging.INFO,
     "DEBUG": logging.DEBUG,
-    "TRACE": logging.TRACE,
+    "TRACE": TRACE,
 }
 
 
@@ -41,8 +43,8 @@ def cleanup_logs(log_dir: Path, max_files: int = 10):
 def logger_creater(
     console_level: Optional[str] = None,
     file_level: Optional[str] = None,
-    log_file: Path = None,
-) -> tuple[str, logging.Logger]:
+    log_file: Optional[Path] = None,
+) -> tuple[Path, GDTLogger]:
     """Set up the logger for the GDT package.
     Args:
         console_level (Optional[str]): Log level for console output. Defaults to INFO.
@@ -70,8 +72,8 @@ def logger_creater(
         cleanup_logs(log_dir)
 
     # Create and configure logger
-    logger = logging.getLogger("gdt")
-    logger.setLevel(logging.TRACE)
+    logger = cast(GDTLogger, logging.getLogger("gdt"))
+    logger.setLevel(TRACE)
 
     # Remove any existing handlers (in case logger was already configured)
     for handler in logger.handlers[:]:

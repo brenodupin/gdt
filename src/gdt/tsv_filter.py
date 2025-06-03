@@ -4,6 +4,7 @@ import re
 from typing import Optional
 from . import gff3_utils
 from . import gene_dict_impl
+from . import logger_setup
 import pandas as pd
 import concurrent.futures
 import logging
@@ -67,7 +68,7 @@ def process_single_an(
 
 
 def filter_whole_tsv(
-    logger: logging.Logger,
+    logger: logger_setup.GDTLogger,
     tsv_path: Path,
     gdt_path: Optional[Path] = None,
     keep_orfs=False,

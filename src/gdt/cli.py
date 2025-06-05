@@ -70,7 +70,8 @@ def cli_run():
         required=False,
         default=gff3_utils.QS_GENE_TRNA_RRNA,
         type=str,
-        help="""Pandas query string to filter GFF3 files. Default: 'type == ["gene", "tRNA", "rRNA"]'""",
+        help="Pandas query string to filter GFF3 files. "
+        """Default: 'type == ["gene", "tRNA", "rRNA"]'""",
     )
 
     # TODO create a query string for filtering
@@ -122,22 +123,22 @@ def cli_run():
     args = parser.parse_args()
 
     if args.debug:
-        log_path, logger = logger_setup.logger_creater(
+        log_path, log = logger_setup.logger_creater(
             console_level="DEBUG", file_level="TRACE"
         )
-        logger.trace("TRACE level enabled in file log.")
+        log.trace("TRACE level enabled in file log.")
     else:
-        log_path, logger = logger_setup.logger_creater(
+        log_path, log = logger_setup.logger_creater(
             console_level="INFO", file_level="DEBUG"
         )
 
-    logger.info(
+    log.info(
         f"Logging to console and file. Check logfile for more details. ({log_path})"
     )
-    logger.debug("CLI run called.")
-    logger.debug(f"exec path: {Path().resolve()}")
-    logger.debug(f"cli  path: {Path(__file__)}")
-    logger.debug(f"args: {args}")
+    log.debug("CLI run called.")
+    log.debug(f"exec path: {Path().resolve()}")
+    log.debug(f"cli  path: {Path(__file__)}")
+    log.debug(f"args: {args}")
 
     if args.command == "filter":
         args.tsv = Path(args.tsv).resolve()
@@ -145,9 +146,9 @@ def cli_run():
         if args.gdt:
             args.gdt = Path(args.gdt).resolve()
 
-        logger.debug("Filter command called.")
+        log.debug("Filter command called.")
         tsv_filter.filter_whole_tsv(
-            logger,
+            log,
             args.tsv,
             args.gdt,
             args.orfs,
@@ -158,25 +159,25 @@ def cli_run():
         )
 
     elif args.command == "write":
-        logger.debug("Write command")
+        log.debug("Write command")
         gd = gene_dict_impl.create_gene_dict(args.gdt, max_an_sources=0)
         gene_dict_impl.write_gdt_file(gd, args.out, overwrite=True)
 
     elif args.command == "test":
-        logger.debug("Test command")
+        log.debug("Test command")
         pass
 
     elif args.command == "stripped":
-        logger.debug("Stripped command")
+        log.debug("Stripped command")
         args.gdt_in = Path(args.gdt_in).resolve()
         args.gdt_out = Path(args.gdt_out).resolve()
 
         if args.gdt_in.exists():
-            logger.debug(f"Input GDT file: {args.gdt_in}")
-            logger.debug(f"Output GDT file: {args.gdt_out}")
+            log.debug(f"Input GDT file: {args.gdt_in}")
+            log.debug(f"Output GDT file: {args.gdt_out}")
             gene_dict_impl.create_stripped_gdt(
                 args.gdt_in, args.gdt_out, overwrite=args.overwrite
             )
         else:
-            logger.error(f"Input GDT file does not exist: {args.gdt_in}")
+            log.error(f"Input GDT file does not exist: {args.gdt_in}")
             raise FileNotFoundError(f"GDT file not found: {args.gdt_in}")

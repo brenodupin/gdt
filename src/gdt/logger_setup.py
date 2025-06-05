@@ -8,14 +8,12 @@ import glob
 from typing import Optional, cast
 
 
-# Custom Logger subclass with trace method
 class GDTLogger(logging.Logger):
     def trace(self, message, *args, **kwargs):
         if self.isEnabledFor(TRACE):
             self._log(TRACE, message, args, **kwargs)
 
 
-# Register TRACE level and custom logger class
 TRACE: int = 5
 logging.addLevelName(TRACE, "TRACE")
 logging.setLoggerClass(GDTLogger)
@@ -72,12 +70,12 @@ def logger_creater(
         cleanup_logs(log_dir)
 
     # Create and configure logger
-    logger = cast(GDTLogger, logging.getLogger("gdt"))
-    logger.setLevel(TRACE)
+    log = cast(GDTLogger, logging.getLogger("gdt"))
+    log.setLevel(TRACE)
 
     # Remove any existing handlers (in case logger was already configured)
-    for handler in logger.handlers[:]:
-        logger.removeHandler(handler)
+    for handler in log.handlers[:]:
+        log.removeHandler(handler)
 
     # Create console handler
     # (StreamHandler defaults to sys.stderr, can be changed to sys.stdout)
@@ -85,16 +83,16 @@ def logger_creater(
     console_handler.setLevel(console_level)
     console_formatter = logging.Formatter("%(asctime)s - %(levelname)s - %(message)s")
     console_handler.setFormatter(console_formatter)
-    logger.addHandler(console_handler)
+    log.addHandler(console_handler)
 
     # Create file handler
     file_handler = logging.FileHandler(log_file_path)
     file_handler.setLevel(file_level)
     file_formatter = logging.Formatter("%(asctime)s - %(levelname)s - %(message)s")
     file_handler.setFormatter(file_formatter)
-    logger.addHandler(file_handler)
+    log.addHandler(file_handler)
 
-    logger.propagate = False
+    log.propagate = False
 
-    logger.debug(f"Logger setup complete. Logging to {log_file_path}")
-    return log_file_path, logger
+    log.debug(f"Logger setup complete. Logging to {log_file_path}")
+    return log_file_path, log

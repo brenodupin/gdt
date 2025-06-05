@@ -8,6 +8,7 @@ from . import logger_setup
 import pandas as pd
 import concurrent.futures
 from pathlib import Path
+import shutil
 
 RE_ID = re.compile(r"ID=([^;]+)")
 
@@ -94,11 +95,23 @@ def filter_whole_tsv(
     base_folder = tsv_path.parent
     tsv = pd.read_csv(tsv_path, sep="\t", header=0, dtype=str)
 
+    MISC_DIR = base_folder / "misc"
+    GDT_DIR = MISC_DIR / "gdt"
+
     # check if gdt_path exists, if not, create empty gene_dict
     if gdt_path:
         if not gdt_path.exists():
             log.error(f"gdt file not found: {gdt_path}")
             raise FileNotFoundError(f"gdt file not found: {gdt_path}")
+        
+        MISC_DIR.mkdir(exist_ok=True)
+        GDT_DIR.mkdir(exist_ok=True)
+        
+        # check if gdt file is in GDT_DIR
+        if gdt_path.parent != GDT_DIR:
+            gdt_path = shutil.move(gdt_path, GDT_DIR / gdt_path.name)
+            log.info(f"Moving gdt file to {GDT_DIR / gdt_path.name}")
+
         gene_dict = gene_dict_impl.create_gene_dict(gdt_path)
         log.debug(f"Gene dictionary loaded from {gdt_path}")
         log.trace(f"gene_dict[gdt_header]: {gene_dict['gdt_header']}")
@@ -169,21 +182,24 @@ def filter_whole_tsv(
     log.trace(f"ANs good to go: {AN_good_to_go}")
     log.info("Processing finished, creating output files")
 
+    if AN_missing_dbxref or AN_missing_gene_dict:
+        MISC_DIR.mkdir(exist_ok=True)
+
     if AN_missing_dbxref:
-        with open(base_folder / "AN_missing_dbxref", "w") as f:
+        with open(MISC_DIR / "AN_missing_dbxref", "w") as f:
             f.write("\n".join(AN_missing_dbxref))
     else:
         log.debug("No ANs missing dbxref, skipping file creation")
         # check if file exists and remove it
-        if (base_folder / "AN_missing_dbxref").exists():
-            log.debug(f"Removing file: {base_folder / 'AN_missing_dbxref'}")
-            (base_folder / "AN_missing_dbxref").unlink()
+        if (MISC_DIR / "AN_missing_dbxref").exists():
+            log.debug(f"Removing file: {MISC_DIR / 'AN_missing_dbxref'}")
+            (MISC_DIR / "AN_missing_dbxref").unlink()
 
     if AN_missing_gene_dict:
-        with open(base_folder / "AN_missing_gene_dict", "w") as f:
+        with open(MISC_DIR / "AN_missing_gene_dict", "w") as f:
             f.write("\n".join(AN_missing_gene_dict))
     else:
         log.debug("No ANs missing gene_dict, skipping file creation")
-        if (base_folder / "AN_missing_gene_dict").exists():
-            log.debug(f"Removing file: {base_folder / 'AN_missing_gene_dict'}")
-            (base_folder / "AN_missing_gene_dict").unlink()
+        if (MISC_DIR / "AN_missing_gene_dict").exists():
+            log.debug(f"Removing file: {MISC_DIR / 'AN_missing_gene_dict'}")
+            (MISC_DIR / "AN_missing_gene_dict").unlink()

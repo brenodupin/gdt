@@ -185,21 +185,24 @@ def filter_whole_tsv(
     if AN_missing_dbxref or AN_missing_gene_dict:
         MISC_DIR.mkdir(exist_ok=True)
 
+    path_gene_dict = MISC_DIR / "AN_missing_gene_dict.txt"
+    path_dbxref = MISC_DIR / "AN_missing_dbxref.txt"
+    
     if AN_missing_dbxref:
-        with open(MISC_DIR / "AN_missing_dbxref", "w") as f:
+        with open(path_dbxref, "w") as f:
             f.write("\n".join(AN_missing_dbxref))
     else:
         log.debug("No ANs missing dbxref, skipping file creation")
         # check if file exists and remove it
-        if (MISC_DIR / "AN_missing_dbxref").exists():
-            log.debug(f"Removing file: {MISC_DIR / 'AN_missing_dbxref'}")
-            (MISC_DIR / "AN_missing_dbxref").unlink()
+        if path_dbxref.exists():
+            log.debug(f"Removing file: {path_dbxref}")
+            path_dbxref.unlink()
 
     if AN_missing_gene_dict:
-        with open(MISC_DIR / "AN_missing_gene_dict", "w") as f:
+        with open(path_gene_dict, "w") as f:
             f.write("\n".join(AN_missing_gene_dict))
     else:
         log.debug("No ANs missing gene_dict, skipping file creation")
-        if (MISC_DIR / "AN_missing_gene_dict").exists():
-            log.debug(f"Removing file: {MISC_DIR / 'AN_missing_gene_dict'}")
-            (MISC_DIR / "AN_missing_gene_dict").unlink()
+        if path_gene_dict.exists():
+            log.debug(f"Removing file: {path_gene_dict}")
+            path_gene_dict.unlink()

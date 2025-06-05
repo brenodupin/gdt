@@ -59,7 +59,7 @@ def cli_run():
         help="Number of workers to use. Default: max_workers in ProcessPoolExecutor",
     )
     filter_parser.add_argument(
-        "--gff3-suffix",
+        "--gff-suffix",
         required=False,
         default=".gff3",
         type=str,
@@ -153,7 +153,7 @@ def cli_run():
             args.orfs,
             args.workers,
             args.AN_column,
-            args.gff3_suffix,
+            args.gff_suffix,
             args.query_string,
         )
 

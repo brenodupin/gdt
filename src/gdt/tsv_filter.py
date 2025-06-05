@@ -73,7 +73,7 @@ def filter_whole_tsv(
     keep_orfs=False,
     workers=0,
     AN_column="AN",
-    gff3_suffix=".gff3",
+    gff_suffix=".gff3",
     query_string: str = gff3_utils.QS_GENE_TRNA_RRNA,
 ) -> None:
     max_workers = concurrent.futures.ProcessPoolExecutor()._max_workers
@@ -120,7 +120,7 @@ def filter_whole_tsv(
         futures = [
             executor.submit(
                 process_single_an,
-                base_folder / f"{an}{gff3_suffix}",
+                base_folder / f"{an}{gff_suffix}",
                 gene_dict,
                 keep_orfs,
                 query_string,

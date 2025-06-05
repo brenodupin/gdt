@@ -103,10 +103,10 @@ def filter_whole_tsv(
         if not gdt_path.exists():
             log.error(f"gdt file not found: {gdt_path}")
             raise FileNotFoundError(f"gdt file not found: {gdt_path}")
-        
+
         MISC_DIR.mkdir(exist_ok=True)
         GDT_DIR.mkdir(exist_ok=True)
-        
+
         # check if gdt file is in GDT_DIR
         if gdt_path.parent != GDT_DIR:
             gdt_path = shutil.move(gdt_path, GDT_DIR / gdt_path.name)
@@ -187,7 +187,7 @@ def filter_whole_tsv(
 
     path_gene_dict = MISC_DIR / "AN_missing_gene_dict.txt"
     path_dbxref = MISC_DIR / "AN_missing_dbxref.txt"
-    
+
     if AN_missing_dbxref:
         with open(path_dbxref, "w") as f:
             f.write("\n".join(AN_missing_dbxref))

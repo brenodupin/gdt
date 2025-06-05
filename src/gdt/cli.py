@@ -3,6 +3,7 @@
 from . import logger_setup
 from . import gene_dict_impl
 from . import tsv_filter
+from . import gff3_utils
 
 from pathlib import Path
 import argparse
@@ -62,8 +63,16 @@ def cli_run():
         required=False,
         default=".gff3",
         type=str,
-        help="Suffix for GFF3 files. Default: .gff3",
+        help="Suffix for GFF files. Default: .gff3",
     )
+    filter_parser.add_argument(
+        "--query-string",
+        required=False,
+        default=gff3_utils.QS_GENE_TRNA_RRNA,
+        type=str,
+        help="""Pandas query string to filter GFF3 files. Default: 'type == ["gene", "tRNA", "rRNA"]'""",
+    )
+
     # TODO create a query string for filtering
 
     write_parser = subparsers.add_parser("write", help="Write GDT to file")
@@ -145,6 +154,7 @@ def cli_run():
             args.workers,
             args.AN_column,
             args.gff3_suffix,
+            args.query_string,
         )
 
     elif args.command == "write":

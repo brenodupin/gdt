@@ -13,8 +13,8 @@ GFF3_COLUMNS = (
     "phase",
     "attributes",
 )
-QS_GENE = 'type == "gene"'
-QS_GENE_TRNA_RRNA = 'type == ["gene", "tRNA", "rRNA"]'
+QS_GENE = "type == 'gene'"
+QS_GENE_TRNA_RRNA = "type == ['gene', 'tRNA', 'rRNA']"
 
 
 def load_gff3_old(

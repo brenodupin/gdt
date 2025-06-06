@@ -9,28 +9,26 @@ resolution-markers = [
 
 [[package]]
 name = "gdt"
-version = "0.1.0"
+version = "0.1.2"
 source = { editable = "." }
 dependencies = [
     { name = "pandas" },
-    { name = "pandas-stubs" },
 ]
 
 [package.dev-dependencies]
 dev = [
     { name = "mypy" },
+    { name = "pandas-stubs" },
     { name = "ruff" },
 ]
 
 [package.metadata]
-requires-dist = [
-    { name = "pandas" },
-    { name = "pandas-stubs", specifier = ">=2.2.3.250527" },
-]
+requires-dist = [{ name = "pandas" }]
 
 [package.metadata.requires-dev]
 dev = [
     { name = "mypy", specifier = ">=1.16.0" },
+    { name = "pandas-stubs", specifier = ">=2.2.3.250527" },
     { name = "ruff", specifier = ">=0.11.12" },
 ]
 

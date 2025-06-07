@@ -34,11 +34,6 @@ def process_single_an(
         # Get dbxref info
         dbxref_mask = df["attributes"].str.contains("Dbxref=", na=False).values
 
-        # check homogeneity in the dbxref_mask
-        msg = []
-        if len(set(dbxref_mask)) > 1:
-            msg.append(f"Dbxref mask is not homogeneous for {AN}")
-
         status = "good_to_go"
         if not all(in_gene_dict_mask):
             status = (
@@ -50,7 +45,6 @@ def process_single_an(
         return {
             "AN": AN,
             "status": status,
-            "msg": msg,
             "gene_count": len(df),
             "dbxref_count": sum(dbxref_mask),
             "gene_dict_count": sum(in_gene_dict_mask),
@@ -92,11 +86,13 @@ def filter_whole_tsv(
     if not tsv_path.exists():
         log.error(f"tsv file not found: {gdt_path}")
         raise FileNotFoundError(f"tsv file not found: {gdt_path}")
+
     base_folder = tsv_path.parent
     tsv = pd.read_csv(tsv_path, sep="\t", header=0, dtype=str)
 
     MISC_DIR = base_folder / "misc"
     GDT_DIR = MISC_DIR / "gdt"
+    GDT_DIR.mkdir(511, True, True)  # 511 = 0o777
 
     # check if gdt_path exists, if not, create empty gene_dict
     if gdt_path:
@@ -104,13 +100,10 @@ def filter_whole_tsv(
             log.error(f"gdt file not found: {gdt_path}")
             raise FileNotFoundError(f"gdt file not found: {gdt_path}")
 
-        MISC_DIR.mkdir(exist_ok=True)
-        GDT_DIR.mkdir(exist_ok=True)
-
         # check if gdt file is in GDT_DIR
         if gdt_path.parent != GDT_DIR:
             gdt_path = shutil.move(gdt_path, GDT_DIR / gdt_path.name)
-            log.info(f"Moving gdt file to {GDT_DIR / gdt_path.name}")
+            log.info(f"Moving gdt file to {gdt_path}")
 
         gene_dict = gene_dict_impl.create_gene_dict(gdt_path)
         log.debug(f"Gene dictionary loaded from {gdt_path}")
@@ -162,16 +155,17 @@ def filter_whole_tsv(
         if result["status"] == "missing_gene_dict_with_dbxref":
             log.trace(f"\t{AN} is missing genes in gene_dict but have dbxref")
             AN_missing_gene_dict.append(AN)
+
         elif result["status"] == "missing_dbxref":
             log.trace(
                 f"\t{AN} is missing genes in gene_dict and is also missing dbxref"
             )
             AN_missing_dbxref.append(AN)
+
         else:
             log.trace(f"\t{AN} is good to go!")
             AN_good_to_go.append(AN)
-        if result["msg"]:
-            log.trace(f"\tMessages: {result['msg']}")
+
         log.trace(f"-- [End Processing: {AN}] --")
 
     log.debug(f"ANs missing dbxref: {len(AN_missing_dbxref)}")
@@ -182,15 +176,13 @@ def filter_whole_tsv(
     log.trace(f"ANs good to go: {AN_good_to_go}")
     log.info("Processing finished, creating output files")
 
-    if AN_missing_dbxref or AN_missing_gene_dict:
-        MISC_DIR.mkdir(exist_ok=True)
-
     path_gene_dict = MISC_DIR / "AN_missing_gene_dict.txt"
     path_dbxref = MISC_DIR / "AN_missing_dbxref.txt"
 
     if AN_missing_dbxref:
         with open(path_dbxref, "w") as f:
             f.write("\n".join(AN_missing_dbxref))
+
     else:
         log.debug("No ANs missing dbxref, skipping file creation")
         # check if file exists and remove it
@@ -201,6 +193,7 @@ def filter_whole_tsv(
     if AN_missing_gene_dict:
         with open(path_gene_dict, "w") as f:
             f.write("\n".join(AN_missing_gene_dict))
+
     else:
         log.debug("No ANs missing gene_dict, skipping file creation")
         if path_gene_dict.exists():

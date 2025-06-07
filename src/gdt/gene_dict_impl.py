@@ -284,3 +284,11 @@ def create_stripped_gdt(
     gene_dict["gdt_info"] = get_gene_dict_info(gene_dict)
     gene_dict["gdt_header"] = header
     write_gdt_file(gene_dict, gdt_file_out, overwrite=overwrite)
+
+    print("Info before stripping:")
+    [print(x) for x in gene_dict["gdt_info"]]
+
+    print("New Header:")
+    [print(x) for x in gene_dict["gdt_header"]]
+    print("New Info:")
+    [print(x) for x in gene_dict["gdt_info"]]

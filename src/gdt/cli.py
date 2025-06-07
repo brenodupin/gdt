@@ -37,7 +37,7 @@ def cli_run():
         help="GDT filed that will be used as base",
     )
     filter_parser.add_argument(
-        "--orfs",
+        "--keep-orfs",
         required=False,
         default=False,
         action="store_true",
@@ -151,7 +151,7 @@ def cli_run():
             log,
             args.tsv,
             args.gdt,
-            args.orfs,
+            args.keep_orfs,
             args.workers,
             args.AN_column,
             args.gff_suffix,

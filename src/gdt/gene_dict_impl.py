@@ -292,3 +292,15 @@ def create_stripped_gdt(
     [print(x) for x in gene_dict["gdt_header"]]
     print("New Info:")
     [print(x) for x in gene_dict["gdt_info"]]
+
+
+def create_empty_gdt(gdt_file: str) -> None:
+    """Create an empty GDT file.
+    Args:
+        gdt_file (str): Path to the GDT file.
+    """
+    gdt_file = Path(gdt_file).resolve()
+
+    with open(gdt_file, "w") as f:
+        f.write("#! version 0.0.2\n")
+        f.write(f"#! {datetime.now().strftime('%Y-%m-%d %H:%M')} - Empty gdt_file\n")

@@ -9,7 +9,7 @@ from pathlib import Path
 import argparse
 
 
-def cli_run():
+def cli_run() -> None:
     """Test function for CLI."""
     # TODO pick a better description
     parser = argparse.ArgumentParser(

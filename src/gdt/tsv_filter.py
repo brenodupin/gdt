@@ -1,7 +1,8 @@
 # -*- coding: utf-8 -*-
 
 import re
-from typing import Optional
+import os
+from typing import Optional, cast, Union
 from . import gff3_utils
 from . import gene_dict_impl
 from . import logger_setup
@@ -15,18 +16,18 @@ RE_ID = re.compile(r"ID=([^;]+)")
 
 def process_single_an(
     AN_path: Path,
-    gene_dict: dict,
-    keep_orfs=False,
-    query_string=gff3_utils.QS_GENE_TRNA_RRNA,
-) -> dict:
+    gene_dict: dict[str, gene_dict_impl.Gene],
+    keep_orfs: bool = False,
+    query_string: str = gff3_utils.QS_GENE_TRNA_RRNA,
+) -> dict[str, Union[str, int, list[str]]]:
     try:
-        AN = AN_path.stem
+        AN: str = AN_path.stem
         df = gff3_utils.load_gff3(AN_path, query_string=query_string)
 
         if not keep_orfs:  # removing ORFs
             df = gff3_utils.filter_orfs(df)
 
-        df["gene_id"] = df["attributes"].str.extract(RE_ID, expand=False)
+        df["gene_id"] = df["attributes"].str.extract(RE_ID, expand=False)  # type: ignore
         gene_ids = df["gene_id"].values
 
         in_gene_dict_mask = [g in gene_dict for g in gene_ids]
@@ -65,22 +66,22 @@ def filter_whole_tsv(
     log: logger_setup.GDTLogger,
     tsv_path: Path,
     gdt_path: Optional[Path] = None,
-    keep_orfs=False,
-    workers=0,
-    AN_column="AN",
-    gff_suffix=".gff3",
+    keep_orfs: bool = False,
+    workers: int = 0,
+    AN_column: str = "AN",
+    gff_suffix: str = ".gff3",
     query_string: str = gff3_utils.QS_GENE_TRNA_RRNA,
 ) -> None:
-    max_workers = concurrent.futures.ProcessPoolExecutor()._max_workers
+    max_workers = os.cpu_count() or 1
     workers = workers if (workers > 0 and workers <= max_workers) else max_workers
     log.trace(
         f"filter_whole_tsv called | tsv_path: {tsv_path} | gdt_path: {gdt_path}"
         f" | w: {workers} | keep_orfs: {keep_orfs}"
     )
 
-    AN_missing_dbxref = []
-    AN_missing_gene_dict = []
-    AN_good_to_go = []
+    AN_missing_dbxref: list[str] = []
+    AN_missing_gene_dict: list[str] = []
+    AN_good_to_go: list[str] = []
 
     # check if tsv_path exists
     if not tsv_path.exists():
@@ -141,7 +142,7 @@ def filter_whole_tsv(
             log.error(f"Error processing {result['AN']}: {result['error']}")
             continue
 
-        AN = result["AN"]
+        AN: str = cast(str, result["AN"])
         log.trace(f"-- [Processing: {AN}] --")
         log.trace(
             f"\tgenes: {result['gene_count']} | have dbxref: {result['dbxref_count']} |"

@@ -4,7 +4,7 @@ from typing import Optional, Union
 from pathlib import Path
 import pandas as pd
 
-GFF3_COLUMNS: tuple[str, str, str, str, str, str, str, str, str] = (
+GFF3_COLUMNS: tuple[str, ...] = (
     "seqid",
     "source",
     "type",
@@ -24,7 +24,7 @@ def load_gff3(
     sep: str = "\t",
     comment: str = "#",
     header: Optional[int] = None,
-    names: tuple[str, str, str, str, str, str, str, str, str] = GFF3_COLUMNS,
+    names: tuple[str, ...] = GFF3_COLUMNS,
     usecols: list[str] = ["type", "start", "end", "attributes"],
     query_string: str = "",
 ) -> pd.DataFrame:

@@ -16,7 +16,7 @@ GFF3_COLUMNS: tuple[str, ...] = (
     "attributes",
 )
 QS_GENE = "type == 'gene'"
-QS_GENE_TRNA_RRNA = "type == ['gene', 'tRNA', 'rRNA']"
+QS_GENE_TRNA_RRNA = "type in ('gene', 'tRNA', 'rRNA')"
 
 
 def load_gff3(
@@ -26,7 +26,7 @@ def load_gff3(
     header: Optional[int] = None,
     names: tuple[str, ...] = GFF3_COLUMNS,
     usecols: list[str] = ["type", "start", "end", "attributes"],
-    query_string: str = "",
+    query_string: Optional[str] = None,
 ) -> pd.DataFrame:
     """
     Load a GFF3 file into a pandas DataFrame, optionally filtering by a query string.

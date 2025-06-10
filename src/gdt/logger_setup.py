@@ -5,7 +5,7 @@ import datetime
 from pathlib import Path
 import os
 import glob
-from typing import Any, Optional, cast
+from typing import Any, Optional, Union, cast
 
 TRACE = 5
 
@@ -39,11 +39,11 @@ def cleanup_logs(log_dir: Path, max_files: int = 10) -> None:
             raise
 
 
-def logger_creater(
+def create_dev_logger(
     console_level: str = "INFO",
     file_level: str = "DEBUG",
     log_file: Optional[Path] = None,
-) -> tuple[Path, GDTLogger]:
+) -> GDTLogger:
     """Set up the logger for the GDT package.
     Args:
         console_level (Optional[str]): Log level for console output. Defaults to INFO.
@@ -96,4 +96,67 @@ def logger_creater(
     log.propagate = False
 
     log.debug(f"Logger setup complete. Logging to {log_file_path}")
-    return log_file_path, log
+    return log
+
+
+def create_simple_logger(
+    print_to_console: bool = True,
+    console_level: str = "INFO",
+    save_to_file: bool = True,
+    file_level: str = "DEBUG",
+    log_file: Union[Path, str, None] = None,
+) -> GDTLogger:
+    """Create a simple logger with optional console and file output.
+    Args:
+        print_to_console (bool): Whether to print logs to console. Defaults to True.
+        console_level (Optional[str]): Log level for console output.
+        save_to_file (bool): Whether to save logs to a file.
+        file_level (Optional[str]): Log level for file output.
+        log_file (Optional[Path]): Path to the log file.
+    Returns:
+        GDTLogger: Configured logger instance.
+    """
+    log = cast(GDTLogger, logging.getLogger("gdt"))
+    log.setLevel(TRACE)
+    # Remove any existing handlers
+    for handler in log.handlers[:]:
+        log.removeHandler(handler)
+
+    if print_to_console:
+        console_level_int = _logging_levels.get(console_level, logging.INFO)
+        console_handler = logging.StreamHandler()
+        console_handler.setLevel(console_level_int)
+        console_formatter = logging.Formatter(
+            "%(asctime)s - %(levelname)s - %(message)s"
+        )
+        console_handler.setFormatter(console_formatter)
+        log.addHandler(console_handler)
+
+    if save_to_file:
+        if log_file is None:
+            print(
+                "No log file specified, even though save_to_file is True. "
+                "This log file will be save in the current directory as 'gdt_default.log'."
+            )
+            log_file = "gdt_default.log"
+
+        log_file_path = Path(log_file).resolve()
+        log_file_path.touch(exist_ok=True)
+
+        file_level_int = _logging_levels.get(file_level, logging.DEBUG)
+        file_handler = logging.FileHandler(log_file_path)
+        file_handler.setLevel(file_level_int)
+        file_formatter = logging.Formatter("%(asctime)s - %(levelname)s - %(message)s")
+        file_handler.setFormatter(file_formatter)
+        log.addHandler(file_handler)
+
+    log.propagate = False
+    log.debug("Simple logger setup complete.")
+    log.debug(
+        f"Console logging enabled: {print_to_console} at level {console_level if print_to_console else 'None'}"
+    )
+    log.debug(
+        f"File logging enabled: {save_to_file} at level {file_level if save_to_file else 'None'}"
+    )
+
+    return log

@@ -109,8 +109,8 @@ def filter_whole_tsv(
 
         gene_dict = gene_dict_impl.create_gene_dict(gdt_path)
         log.debug(f"Gene dictionary loaded from {gdt_path}")
-        log.trace(f"gene_dict[gdt_header]: {gene_dict['gdt_header']}")
-        log.trace(f"gene_dict[gdt_info]  : {gene_dict['gdt_info']}")
+        log.trace(f"Header]: {gene_dict.header}")
+        log.trace(f"Info]  : {gene_dict.info}")
 
     else:
         gene_dict = gene_dict_impl.GeneDict()
@@ -171,11 +171,11 @@ def filter_whole_tsv(
 
         log.trace(f"-- [End Processing: {AN}] --")
 
-    log.debug(f"ANs missing dbxref: {len(AN_missing_dbxref)}")
+    log.info(f"ANs missing dbxref: {len(AN_missing_dbxref)}")
     log.trace(f"ANs missing dbxref: {AN_missing_dbxref}")
-    log.debug(f"ANs missing gene_dict: {len(AN_missing_gene_dict)}")
+    log.info(f"ANs missing gene_dict: {len(AN_missing_gene_dict)}")
     log.trace(f"ANs missing gene_dict: {AN_missing_gene_dict}")
-    log.debug(f"ANs good to go: {len(AN_good_to_go)}")
+    log.info(f"ANs good to go: {len(AN_good_to_go)}")
     log.trace(f"ANs good to go: {AN_good_to_go}")
     log.info("Processing finished, creating output files")
 

@@ -13,14 +13,15 @@ def cli_run() -> None:
     """Test function for CLI."""
     # TODO pick a better description
     parser = argparse.ArgumentParser(
-        description="Gene Dictionary Tool (GDT) command line interface"
+        description="Gene Dictionary Tool (gdt) command line interface"
     )
     subparsers = parser.add_subparsers(dest="command", help="Commands")
     subparsers.required = True
 
-    # TODO pick a better description
     filter_parser = subparsers.add_parser(
-        "filter", help="Filter tsv ans into AN_missing_dbxref or AN_missing_gene_dict"
+        "filter",
+        help="Filter GFF3 files index in a TSV file",  # Brief help for main command list
+        description="Filter GFF3 files that are indexed in a TSV file into AN_missing_dbxref or AN_missing_gene_dict categories",
     )
     filter_parser.add_argument("--tsv", required=True, help="TSV file to filter")
     filter_parser.add_argument(
@@ -34,14 +35,15 @@ def cli_run() -> None:
         "--gdt",
         required=False,
         default=False,
-        help="GDT filed that will be used as base",
+        help="GDT file to use for filtering. "
+        "If not provided, an empty gene_dict will be used.",
     )
     filter_parser.add_argument(
         "--keep-orfs",
         required=False,
         default=False,
         action="store_true",
-        help="Dont discard ORFs. Default: False",
+        help="Don't discard ORFs. Default: False (discard ORFs)",
     )
     filter_parser.add_argument(
         "--debug",
@@ -56,14 +58,14 @@ def cli_run() -> None:
         required=False,
         default=0,
         type=int,
-        help="Number of workers to use. Default: max_workers in ProcessPoolExecutor",
+        help="Number of workers to use. Default: 0 (use all available cores)",
     )
     filter_parser.add_argument(
         "--gff-suffix",
         required=False,
         default=".gff3",
         type=str,
-        help="Suffix for GFF files. Default: .gff3",
+        help="Suffix for GFF files. Default: '.gff3'",
     )
     filter_parser.add_argument(
         "--query-string",
@@ -71,20 +73,7 @@ def cli_run() -> None:
         default=gff3_utils.QS_GENE_TRNA_RRNA,
         type=str,
         help="Pandas query string to filter GFF3 files. "
-        """Default: 'type == ["gene", "tRNA", "rRNA"]'""",
-    )
-
-    # TODO create a query string for filtering
-
-    write_parser = subparsers.add_parser("write", help="Write GDT to file")
-    write_parser.add_argument("--gdt", required=True, help="GDT file to write")
-    write_parser.add_argument("--out", required=True, help="Output file to write")
-    write_parser.add_argument(
-        "--debug",
-        required=False,
-        default=False,
-        action="store_true",
-        help="Enable TRACE level in file log. Default: False (DEBUG level)",
+        f"Default: '{gff3_utils.QS_GENE_TRNA_RRNA}'",
     )
 
     stripped_parser = subparsers.add_parser(
@@ -123,18 +112,11 @@ def cli_run() -> None:
     args = parser.parse_args()
 
     if args.debug:
-        log_path, log = logger_setup.logger_creater(
-            console_level="DEBUG", file_level="TRACE"
-        )
+        log = logger_setup.create_dev_logger(console_level="DEBUG", file_level="TRACE")
         log.trace("TRACE level enabled in file log.")
     else:
-        log_path, log = logger_setup.logger_creater(
-            console_level="INFO", file_level="DEBUG"
-        )
+        log = logger_setup.create_dev_logger(console_level="INFO", file_level="DEBUG")
 
-    log.info(
-        f"Logging to console and file. Check logfile for more details. ({log_path})"
-    )
     log.debug("CLI run called.")
     log.debug(f"exec path: {Path().resolve()}")
     log.debug(f"cli  path: {Path(__file__)}")

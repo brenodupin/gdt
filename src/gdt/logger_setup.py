@@ -5,16 +5,17 @@ import datetime
 from pathlib import Path
 import os
 import glob
-from typing import Optional, cast
+from typing import Any, Optional, cast
+
+TRACE = 5
 
 
 class GDTLogger(logging.Logger):
-    def trace(self, message, *args, **kwargs) -> None:  # type: ignore
+    def trace(self, message: Any, *args: Any, **kwargs: Any) -> None:
         if self.isEnabledFor(TRACE):
             self._log(TRACE, message, args, **kwargs)
 
 
-TRACE: int = 5
 logging.addLevelName(TRACE, "TRACE")
 logging.setLoggerClass(GDTLogger)
 

@@ -16,7 +16,7 @@ RE_ID = re.compile(r"ID=([^;]+)")
 
 def process_single_an(
     AN_path: Path,
-    gene_dict: dict[str, gene_dict_impl.Gene],
+    gene_dict: gene_dict_impl.GeneDict,
     keep_orfs: bool = False,
     query_string: str = gff3_utils.QS_GENE_TRNA_RRNA,
 ) -> dict[str, Union[str, int, list[str]]]:
@@ -27,13 +27,13 @@ def process_single_an(
         if not keep_orfs:  # removing ORFs
             df = gff3_utils.filter_orfs(df)
 
-        df["gene_id"] = df["attributes"].str.extract(RE_ID, expand=False)  # type: ignore
+        df["gene_id"] = df["attributes"].str.extract(RE_ID, expand=False)  # type: ignore[call-overload]
         gene_ids = df["gene_id"].values
 
         in_gene_dict_mask = [g in gene_dict for g in gene_ids]
 
         # Get dbxref info
-        dbxref_mask = df["attributes"].str.contains("Dbxref=", na=False).values
+        dbxref_mask = df["attributes"].str.contains("Dbxref=", na=False)
 
         status = "good_to_go"
         if not all(in_gene_dict_mask):
@@ -50,7 +50,8 @@ def process_single_an(
             "dbxref_count": sum(dbxref_mask),
             "gene_dict_count": sum(in_gene_dict_mask),
             "genes": gene_ids.tolist(),
-            "genes_without_dbxref": gene_ids[~dbxref_mask].tolist(),  # type: ignore
+            "genes_without_dbxref": df[~dbxref_mask]["gene_id"].tolist(),
+            "genes_with_dbxref": df[dbxref_mask]["gene_id"].tolist(),
             "genes_not_in_dict": [
                 g for g, in_dict in zip(gene_ids, in_gene_dict_mask) if not in_dict
             ],
@@ -112,7 +113,7 @@ def filter_whole_tsv(
         log.trace(f"gene_dict[gdt_info]  : {gene_dict['gdt_info']}")
 
     else:
-        gene_dict = {}
+        gene_dict = gene_dict_impl.GeneDict()
         log.debug("No gdt file provided. Using empty gene_dict.")
 
     # check if columns 'AN' exists
@@ -149,9 +150,10 @@ def filter_whole_tsv(
             f" genes in gene_dict: {result['gene_dict_count']}"
         )
         log.trace(f"\tgenes: {result['genes']}")
-        log.trace(f"\tgenes without dbxref: {result['genes_without_dbxref']}")
-        log.trace(f"\tgenes not in gene_dict: {result['genes_not_in_dict']}")
-        log.trace(f"\tgenes IN gene_dict: {result['genes_in_dict']}")
+        log.trace(f"\twith dbxref: {result['genes_with_dbxref']}")
+        log.trace(f"\tin gene_dict: {result['genes_in_dict']}")
+        log.trace(f"\twithout dbxref: {result['genes_without_dbxref']}")
+        log.trace(f"\tnot in gene_dict: {result['genes_not_in_dict']}")
 
         if result["status"] == "missing_gene_dict_with_dbxref":
             log.trace(f"\t{AN} is missing genes in gene_dict but have dbxref")

@@ -1,13 +1,11 @@
 # -*- coding: utf-8 -*-
 
-from collections import defaultdict
+from collections import UserDict, defaultdict
 from dataclasses import dataclass, field
 from datetime import datetime
 import re
 from pathlib import Path
-from typing import Callable, Iterable, TypeVar, Union, Optional, cast
-
-T = TypeVar("T")
+from typing import Callable, Iterable, TypeVar, Union, Optional
 
 
 @dataclass(slots=True)
@@ -32,45 +30,72 @@ class GeneDescription(Gene):
     source: str
 
 
-def get_gene_dict_info(gene_dict: dict[str, Gene]) -> list[str]:
+GeneUnion = Union[GeneDescription, GeneGeneric, GeneDbxref]
+
+
+class GeneDict(UserDict[str, GeneUnion]):
+    def __init__(
+        self,
+        initial: Optional[dict[str, GeneUnion]] = None,
+        *,
+        version: str = "0.0.2",
+        header: Optional[list[str]] = None,
+        info: Optional[list[str]] = None,
+    ):
+        super().__init__(initial or {})
+        self.version = version
+        self.header = header if header is not None else []
+        self.info = info if info is not None else []
+
+
+T = TypeVar("T")
+G = TypeVar("G", bound=Gene)
+
+geneTuple = tuple[str, GeneUnion]
+geneList = list[tuple[str, G]]
+
+gdList = geneList[GeneDescription]
+gnList = geneList[GeneGeneric]
+dxList = geneList[GeneDbxref]
+
+SortedGeneGroups = tuple[gdList, gnList, dxList]
+
+
+def get_gene_dict_info(gene_dict: GeneDict) -> list[str]:
     """Get information about the gene dictionary.
     Args:
         gene_dict (dict): A dictionary containing gene information.
     Returns:
         info (str): A string containing information about the gene dictionary.
     """
-    labels, GeneGeneric_count, GeneDescription_count, GeneDbxref_count = set(), 0, 0, 0
-    _ = gene_dict.pop("gdt_info", None)
-    header = gene_dict.pop("gdt_header", None)
+    labels = set()
+    gd_int = 0
+    gn_int = 0
+    dx_int = 0
 
     for key in gene_dict:
         labels.add(gene_dict[key].label)
         match gene_dict[key]:
             case GeneDbxref():
-                GeneDbxref_count += 1
+                dx_int += 1
             case GeneGeneric():
-                GeneGeneric_count += 1
+                gn_int += 1
             case GeneDescription():
-                GeneDescription_count += 1
+                gd_int += 1
             case _:
                 print(f"[INFO] Unknown type for key {key}: {type(gene_dict[key])}")
 
     info: list[str] = []
     info.append(f"Gene dictionary length: {len(gene_dict)}")
     info.append(f"Label: {len(labels)}")
-    info.append(f"GeneDescription: {GeneDescription_count}")
-    info.append(f"GeneGenerics: {GeneGeneric_count}")
-    info.append(f"GeneDbxref: {GeneDbxref_count}")
-
-    if header:
-        gene_dict["gdt_header"] = header
+    info.append(f"GeneDescriptions: {gd_int}")
+    info.append(f"GeneGenerics: {gn_int}")
+    info.append(f"GeneDbxrefs: {dx_int}")
 
     return info
 
 
-def create_gene_dict(
-    gdt_file: Union[str, Path], max_an_sources: int = 20
-) -> dict[str, Gene]:
+def create_gene_dict(gdt_file: Union[str, Path], max_an_sources: int = 20) -> GeneDict:
     """Create a gene dictionary from a GDT file.
     Args:
         gdt_file (str): Path to the GDT file.
@@ -92,11 +117,10 @@ def create_gene_dict(
             f"Invalid GDT file version: {lines[0]}. Expected '#! version 0.0.2'"
         )
 
-    result: dict[str, Gene] = {}
-    header = []
+    result = GeneDict()
     for line in lines:
         if line.startswith("#!"):
-            header.append(line[2:].strip())
+            result.header.append(line[2:].strip())
             continue
         else:
             break
@@ -155,8 +179,7 @@ def create_gene_dict(
             )
 
     # Not the best use of cast, but it works
-    result["gdt_info"] = cast(Gene, get_gene_dict_info(result))
-    result["gdt_header"] = cast(Gene, header)
+    result.info = get_gene_dict_info(result)
     return result
 
 
@@ -183,7 +206,7 @@ def natural_sort(
 
 
 def write_gdt_file(
-    gd_source: dict[str, Gene], gdt_file: Union[str, Path], overwrite: bool = False
+    gene_dict: GeneDict, gdt_file: Union[str, Path], overwrite: bool = False
 ) -> None:
     """Write a gene dictionary to a GDT file, sorted by label.
     Args:
@@ -196,32 +219,20 @@ def write_gdt_file(
             f"GDT file already exists: {gdt_file}. Use overwrite=True to overwrite."
         )
 
-    if gd_source["gdt_header"][0] != "version 0.0.2":  # type: ignore[index]
-        raise ValueError(
-            f"GDT not on version 0.0.2. GDT version: {gd_source['gdt_header'][0]}"  # type: ignore[index]
-        )
+    if gene_dict.version != "0.0.2":
+        raise ValueError(f"GDT not on version 0.0.2. GDT version: {gene_dict.version}")
 
-    gene_dict = {
-        k: v for k, v in gd_source.items() if k not in ["gdt_header", "gdt_info"]
-    }
     all_labels: list[str] = natural_sort({gene.label for gene in gene_dict.values()})
 
     label_as_key = defaultdict(list)
     for key, value in gene_dict.items():
         label_as_key[value.label].append((key, value))
 
-    all_sorted: dict[
-        str,
-        tuple[
-            list[tuple[str, GeneDescription]],
-            list[tuple[str, GeneGeneric]],
-            list[tuple[str, GeneDbxref]],
-        ],
-    ] = {}
+    all_sorted: dict[str, SortedGeneGroups] = {}
     for label, values in label_as_key.items():
-        gd: list[tuple[str, GeneDescription]] = []
-        gn: list[tuple[str, GeneGeneric]] = []
-        dx: list[tuple[str, GeneDbxref]] = []
+        gd: gdList = []
+        gn: gnList = []
+        dx: dxList = []
         for key, value in values:
             match value:
                 case GeneDescription():
@@ -239,7 +250,7 @@ def write_gdt_file(
         )
 
     with open(gdt_file, "w") as f:
-        for line in gd_source["gdt_header"]:  # type: ignore[attr-defined]
+        for line in gene_dict.header:
             f.write(f"#! {line}\n")
 
         for label in all_labels:
@@ -288,30 +299,31 @@ def create_stripped_gdt(
         )
 
     gene_dict = create_gene_dict(gdt_file)
-    header: list[str] = cast(list[str], gene_dict["gdt_header"])
+    header = gene_dict.header
     header.append(
         f"{datetime.now().strftime('%Y-%m-%d %H:%M')}"
         f" - Stripped GDT version from original GDT file {gdt_file.name}"
     )
 
     # keep only GeneDescription
-    gene_dict = {
+    stripped = GeneDict()
+    stripped.data = {
         key: value
         for key, value in gene_dict.items()
         if isinstance(value, GeneDescription)
     }
 
-    gene_dict["gdt_info"] = cast(Gene, get_gene_dict_info(gene_dict))
-    gene_dict["gdt_header"] = cast(Gene, header)
-    write_gdt_file(gene_dict, gdt_file_out, overwrite=overwrite)
+    stripped.info = get_gene_dict_info(stripped)
+    stripped.header = header
+    write_gdt_file(stripped, gdt_file_out, overwrite=overwrite)
 
     print("Info before stripping:")
-    [print(x) for x in gene_dict["gdt_info"]]  # type: ignore[attr-defined]
+    [print(x) for x in gene_dict.info]
 
     print("\nNew Header:")
-    [print(x) for x in gene_dict["gdt_header"]]  # type: ignore[attr-defined]
+    [print(x) for x in stripped.header]
     print("New Info:")
-    [print(x) for x in gene_dict["gdt_info"]]  # type: ignore[attr-defined]
+    [print(x) for x in stripped.info]
 
 
 def create_empty_gdt(gdt_file: Union[Path, str]) -> None:

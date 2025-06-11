@@ -9,7 +9,6 @@ resolution-markers = [
 
 [[package]]
 name = "gdt"
-version = "0.1.2"
 source = { editable = "." }
 dependencies = [
     { name = "pandas" },

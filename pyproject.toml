@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "gdt"
-version = "0.1.2"
+dynamic = ["version"]
 description = "Gene Dictionary Tool - Bioinformatics package"
 authors = [
     {name = "Breno Dupin", email = "breno.dupin@gmail.com"},
@@ -23,6 +23,9 @@ Repository = "https://gitlab.com/brenodupin/gdt"
 
 [project.scripts]
 geneDict = "gdt.cli:cli_run"
+
+[tool.setuptools.dynamic]
+version = {attr = "gdt.__version__"}
 
 [tool.setuptools.packages.find]
 where = ["src"]

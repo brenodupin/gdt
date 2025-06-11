@@ -20,12 +20,14 @@ logging.addLevelName(TRACE, "TRACE")
 logging.setLoggerClass(GDTLogger)
 
 _logging_levels: dict[str, int] = {
+    "DISABLE": logging.CRITICAL + 1,  # Custom level above CRITICAL
     "CRITICAL": logging.CRITICAL,
     "ERROR": logging.ERROR,
     "WARNING": logging.WARNING,
     "INFO": logging.INFO,
     "DEBUG": logging.DEBUG,
     "TRACE": TRACE,
+    "NOTSET": logging.NOTSET,
 }
 
 
@@ -95,7 +97,9 @@ def create_dev_logger(
 
     log.propagate = False
 
-    log.debug(f"Logger setup complete. Logging to {log_file_path}")
+    log.debug("Dev log setup complete")
+    log.debug(f"Console logging level {console_level}")
+    log.debug(f"File logging level {file_level} at {log_file_path}")
     return log
 
 
@@ -136,7 +140,7 @@ def create_simple_logger(
         if log_file is None:
             print(
                 "No log file specified, even though save_to_file is True. "
-                "This log file will be save in the current directory as 'gdt_default.log'."
+                "Log will be save in the current directory in 'gdt_default.log'."
             )
             log_file = "gdt_default.log"
 
@@ -151,12 +155,34 @@ def create_simple_logger(
         log.addHandler(file_handler)
 
     log.propagate = False
-    log.debug("Simple logger setup complete.")
+    log.debug("Simple log setup complete.")
+    log.debug(f"Console logging level {console_level if print_to_console else 'None'}")
     log.debug(
-        f"Console logging enabled: {print_to_console} at level {console_level if print_to_console else 'None'}"
-    )
-    log.debug(
-        f"File logging enabled: {save_to_file} at level {file_level if save_to_file else 'None'}"
+        f"File logging level {file_level} at {log_file_path if log_file else 'None'}"
     )
 
+    return log
+
+
+def setup_logger(
+    debug: bool, log_file: Union[Path, str, None], quiet: bool
+) -> GDTLogger:
+    """Set up logger based on command line arguments."""
+
+    console_level = "DISABLE" if quiet else ("DEBUG" if debug else "INFO")
+    file_level = "TRACE" if debug else "DEBUG"
+
+    # Create logger based on log file preference
+    if log_file:
+        log_file = Path(log_file).resolve()
+        log = create_simple_logger(
+            print_to_console=not quiet,
+            console_level=console_level,
+            file_level=file_level,
+            log_file=log_file,
+        )
+    else:
+        log = create_dev_logger(console_level=console_level, file_level=file_level)
+
+    log.trace("Logger setup complete.")
     return log

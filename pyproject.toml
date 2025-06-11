@@ -22,7 +22,7 @@ Homepage = "https://gitlab.com/brenodupin/gdt"
 Repository = "https://gitlab.com/brenodupin/gdt"
 
 [project.scripts]
-geneDict = "gdt.cli:cli_run"
+gdt-cli = "gdt.cli:cli_run"
 
 [tool.setuptools.dynamic]
 version = {attr = "gdt.__version__"}

@@ -19,3 +19,174 @@
 2025-06-11 21:07:19,591 - INFO - 	GeneGenerics: 0
 2025-06-11 21:07:19,591 - INFO - 	GeneDbxrefs: 280
 2025-06-11 21:07:24,120 - DEBUG - Features info df, writing to /home/brenodupin/matheus/gdt/example/fungi_mt/misc/features_info.tsv
+2025-06-11 21:13:06,083 - INFO - Loaded gene_dict from /home/brenodupin/matheus/gdt/example/fungi_mt/misc/gdt/fungi_mt_pilot_05.gdt
+2025-06-11 21:13:06,085 - INFO - Header:
+2025-06-11 21:13:06,086 - INFO - 	version 0.0.2
+2025-06-11 21:13:06,086 - INFO - 	Fungi_mt
+2025-06-11 21:13:06,086 - INFO - 	2025-04-09 17:54 - Conversion from gdt to gdt2
+2025-06-11 21:13:06,087 - INFO - 	2025-06-05 18:11 - Stripped GDT version from original GDT file Fungi_mt.gdt
+2025-06-11 21:13:06,087 - INFO - 	2025-06-11 20:37 - Data added from TEMP 01
+2025-06-11 21:13:06,087 - INFO - 	2025-06-11 20:50 - Data added from TEMP Symbol 01
+2025-06-11 21:13:06,087 - INFO - GDT Info:
+2025-06-11 21:13:06,088 - INFO - 	Gene dictionary length: 825
+2025-06-11 21:13:06,089 - INFO - 	Label: 56
+2025-06-11 21:13:06,089 - INFO - 	GeneDescriptions: 545
+2025-06-11 21:13:06,090 - INFO - 	GeneGenerics: 0
+2025-06-11 21:13:06,090 - INFO - 	GeneDbxrefs: 280
+2025-06-11 21:13:16,070 - DEBUG - Adding gene-atp6 with label 'MT-ATP6', an_sources: ['HE983611.1'], comment: automated insertion from missing_dbxref_best_feature
+2025-06-11 21:13:16,071 - DEBUG - Adding gene-KX657746.1:43686..44465 with label 'MT-ATP6', an_sources: ['KX657746.1'], comment: automated insertion from missing_dbxref_best_feature
+2025-06-11 21:13:16,081 - DEBUG - Adding gene-atp8 with label 'MT-ATP8', an_sources: ['HE983611.1'], comment: automated insertion from missing_dbxref_best_feature
+2025-06-11 21:13:16,082 - DEBUG - Adding gene-KX657746.1:43243..43389 with label 'MT-ATP8', an_sources: ['KX657746.1'], comment: automated insertion from missing_dbxref_best_feature
+2025-06-11 21:13:16,084 - DEBUG - Adding gene-KX657746.1:60840..61070 with label 'MT-ATP9', an_sources: ['KX657746.1'], comment: automated insertion from missing_dbxref_best_feature
+2025-06-11 21:13:16,085 - DEBUG - Adding gene-atp9 with label 'MT-ATP9', an_sources: ['HE983611.1'], comment: automated insertion from missing_dbxref_best_feature
+2025-06-11 21:13:16,085 - DEBUG - Adding gene-KX657746.1:50911..56402 with label 'MT-COB', an_sources: ['KX657746.1'], comment: automated insertion from missing_dbxref_best_feature
+2025-06-11 21:13:16,086 - DEBUG - Adding gene-cob with label 'MT-COB', an_sources: ['HE983611.1'], comment: automated insertion from missing_dbxref_best_feature
+2025-06-11 21:13:16,087 - DEBUG - Adding gene-cox1 with label 'MT-CO1', an_sources: ['HE983611.1'], comment: automated insertion from missing_dbxref_best_feature
+2025-06-11 21:13:16,089 - DEBUG - Adding gene-KX657746.1:33527..42029 with label 'MT-CO1', an_sources: ['KX657746.1'], comment: automated insertion from missing_dbxref_best_feature
+2025-06-11 21:13:16,092 - DEBUG - Adding gene-KX657746.1:13835..14590 with label 'MT-CO2', an_sources: ['KX657746.1'], comment: automated insertion from missing_dbxref_best_feature
+2025-06-11 21:13:16,094 - DEBUG - Adding gene-cox2 with label 'MT-CO2', an_sources: ['HE983611.1'], comment: automated insertion from missing_dbxref_best_feature
+2025-06-11 21:13:16,095 - DEBUG - Adding gene-cox3 with label 'MT-CO3', an_sources: ['HE983611.1'], comment: automated insertion from missing_dbxref_best_feature
+2025-06-11 21:13:16,096 - DEBUG - Adding gene-KX657746.1:19927..20736 with label 'MT-CO3', an_sources: ['KX657746.1'], comment: automated insertion from missing_dbxref_best_feature
+2025-06-11 21:13:16,097 - DEBUG - Adding rna-KX657746.1:1..3338 with label 'MT-RNR2', an_sources: ['KX657746.1'], comment: automated insertion from missing_dbxref_best_feature
+2025-06-11 21:13:16,098 - DEBUG - Adding rna-AFUA_m0250 with label 'MT-RNR2', an_sources: ['JQ346808.1'], comment: automated insertion from missing_dbxref_best_feature
+2025-06-11 21:13:16,100 - DEBUG - Adding gene-lsu with label 'MT-RNR2', an_sources: ['HE983611.1'], comment: automated insertion from missing_dbxref_best_feature
+2025-06-11 21:13:16,101 - DEBUG - Adding rna-lsu with label 'MT-RNR2', an_sources: ['HE983611.1'], comment: automated insertion from missing_dbxref_best_feature
+2025-06-11 21:13:16,101 - DEBUG - Adding gene-KX657746.1:1..3338 with label 'MT-RNR2', an_sources: ['KX657746.1'], comment: automated insertion from missing_dbxref_best_feature
+2025-06-11 21:13:16,102 - DEBUG - Adding gene-KX657746.1:31383..31807 with label 'MT-RPM1', an_sources: ['KX657746.1'], comment: automated insertion from missing_dbxref_best_feature
+2025-06-11 21:13:16,104 - DEBUG - Adding gene-KX657746.1:69794..71405 with label 'MT-RNR1', an_sources: ['KX657746.1'], comment: automated insertion from missing_dbxref_best_feature
+2025-06-11 21:13:16,105 - DEBUG - Adding gene-rpm1 with label 'MT-RPM1', an_sources: ['HE983611.1'], comment: automated insertion from missing_dbxref_best_feature
+2025-06-11 21:13:16,111 - DEBUG - Adding rna-rpm1 with label 'MT-RPM1', an_sources: ['HE983611.1'], comment: automated insertion from missing_dbxref_best_feature
+2025-06-11 21:13:16,113 - DEBUG - Adding gene-KX657746.1:64298..65467 with label 'MT-RPS3', an_sources: ['KX657746.1'], comment: automated insertion from missing_dbxref_best_feature
+2025-06-11 21:13:16,113 - DEBUG - Adding rna-KX657746.1:69794..71405 with label 'MT-RNR1', an_sources: ['KX657746.1'], comment: automated insertion from missing_dbxref_best_feature
+2025-06-11 21:13:16,114 - DEBUG - Adding rna-AFUA_m0120 with label 'MT-RNR1', an_sources: ['JQ346808.1'], comment: automated insertion from missing_dbxref_best_feature
+2025-06-11 21:13:16,117 - DEBUG - Adding gene-ssu with label 'MT-RNR1', an_sources: ['HE983611.1'], comment: automated insertion from missing_dbxref_best_feature
+2025-06-11 21:13:16,118 - DEBUG - Adding rna-ssu with label 'MT-RNR1', an_sources: ['HE983611.1'], comment: automated insertion from missing_dbxref_best_feature
+2025-06-11 21:13:16,120 - DEBUG - Adding rna-AFUA_m0470 with label 'MT-TA', an_sources: ['JQ346808.1'], comment: automated insertion from missing_dbxref_best_feature
+2025-06-11 21:13:16,121 - DEBUG - Adding rna-AFUA_m0330 with label 'MT-TA', an_sources: ['JQ346808.1'], comment: automated insertion from missing_dbxref_best_feature
+2025-06-11 21:13:16,122 - DEBUG - Adding rna-KX657746.1:11127..11199 with label 'MT-TA', an_sources: ['KX657746.1'], comment: automated insertion from missing_dbxref_best_feature
+2025-06-11 21:13:16,123 - DEBUG - Adding gene-tRNA-Ala with label 'MT-TA', an_sources: ['HE983611.1'], comment: automated insertion from missing_dbxref_best_feature
+2025-06-11 21:13:16,124 - DEBUG - Adding rna-tRNA-Ala with label 'MT-TA', an_sources: ['HE983611.1'], comment: automated insertion from missing_dbxref_best_feature
+2025-06-11 21:13:16,124 - DEBUG - Adding rna-tRNA-Arg with label 'MT-TR', an_sources: ['HE983611.1'], comment: automated insertion from missing_dbxref_best_feature
+2025-06-11 21:13:16,127 - DEBUG - Adding gene-tRNA-Arg with label 'MT-TR', an_sources: ['HE983611.1'], comment: automated insertion from missing_dbxref_best_feature
+2025-06-11 21:13:16,130 - DEBUG - Adding rna-AFUA_m0500 with label 'MT-TR', an_sources: ['JQ346808.1'], comment: automated insertion from missing_dbxref_best_feature
+2025-06-11 21:13:16,133 - DEBUG - Adding gene-tRNA-Arg-2 with label 'MT-TR', an_sources: ['HE983611.1'], comment: automated insertion from missing_dbxref_best_feature
+2025-06-11 21:13:16,134 - DEBUG - Adding rna-tRNA-Arg-2 with label 'MT-TR', an_sources: ['HE983611.1'], comment: automated insertion from missing_dbxref_best_feature
+2025-06-11 21:13:16,136 - DEBUG - Adding rna-AFUA_m0070 with label 'MT-TR', an_sources: ['JQ346808.1'], comment: automated insertion from missing_dbxref_best_feature
+2025-06-11 21:13:16,138 - DEBUG - Adding rna-KX657746.1:10202..10272 with label 'MT-TR', an_sources: ['KX657746.1'], comment: automated insertion from missing_dbxref_best_feature
+2025-06-11 21:13:16,139 - DEBUG - Adding rna-KX657746.1:7667..7739 with label 'MT-TR', an_sources: ['KX657746.1'], comment: automated insertion from missing_dbxref_best_feature
+2025-06-11 21:13:16,141 - DEBUG - Adding rna-AFUA_m0030 with label 'MT-TN', an_sources: ['JQ346808.1'], comment: automated insertion from missing_dbxref_best_feature
+2025-06-11 21:13:16,144 - DEBUG - Adding rna-AFUA_m0080 with label 'MT-TN', an_sources: ['JQ346808.1'], comment: automated insertion from missing_dbxref_best_feature
+2025-06-11 21:13:16,146 - DEBUG - Adding rna-tRNA-Asn with label 'MT-TN', an_sources: ['HE983611.1'], comment: automated insertion from missing_dbxref_best_feature
+2025-06-11 21:13:16,147 - DEBUG - Adding rna-KX657746.1:12478..12549 with label 'MT-TN', an_sources: ['KX657746.1'], comment: automated insertion from missing_dbxref_best_feature
+2025-06-11 21:13:16,151 - DEBUG - Adding gene-tRNA-Asn with label 'MT-TN', an_sources: ['HE983611.1'], comment: automated insertion from missing_dbxref_best_feature
+2025-06-11 21:13:16,153 - DEBUG - Adding rna-AFUA_m0190 with label 'MT-TD', an_sources: ['JQ346808.1'], comment: automated insertion from missing_dbxref_best_feature
+2025-06-11 21:13:16,161 - DEBUG - Adding rna-KX657746.1:9037..9108 with label 'MT-TD', an_sources: ['KX657746.1'], comment: automated insertion from missing_dbxref_best_feature
+2025-06-11 21:13:16,163 - DEBUG - Adding rna-tRNA-Asp with label 'MT-TD', an_sources: ['HE983611.1'], comment: automated insertion from missing_dbxref_best_feature
+2025-06-11 21:13:16,166 - DEBUG - Adding gene-tRNA-Asp with label 'MT-TD', an_sources: ['HE983611.1'], comment: automated insertion from missing_dbxref_best_feature
+2025-06-11 21:13:16,170 - DEBUG - Adding gene-tRNA-Cys with label 'MT-TC', an_sources: ['HE983611.1'], comment: automated insertion from missing_dbxref_best_feature
+2025-06-11 21:13:16,172 - DEBUG - Adding rna-tRNA-Cys with label 'MT-TC', an_sources: ['HE983611.1'], comment: automated insertion from missing_dbxref_best_feature
+2025-06-11 21:13:16,175 - DEBUG - Adding rna-KX657746.1:5392..5464 with label 'MT-TC', an_sources: ['KX657746.1'], comment: automated insertion from missing_dbxref_best_feature
+2025-06-11 21:13:16,176 - DEBUG - Adding rna-AFUA_m0020 with label 'MT-TC', an_sources: ['JQ346808.1'], comment: automated insertion from missing_dbxref_best_feature
+2025-06-11 21:13:16,178 - DEBUG - Adding rna-AFUA_m0360 with label 'MT-TQ', an_sources: ['JQ346808.1'], comment: automated insertion from missing_dbxref_best_feature
+2025-06-11 21:13:16,179 - DEBUG - Adding gene-tRNA-Gln with label 'MT-TQ', an_sources: ['HE983611.1'], comment: automated insertion from missing_dbxref_best_feature
+2025-06-11 21:13:16,184 - DEBUG - Adding rna-KX657746.1:6429..6501 with label 'MT-TQ', an_sources: ['KX657746.1'], comment: automated insertion from missing_dbxref_best_feature
+2025-06-11 21:13:16,186 - DEBUG - Adding rna-tRNA-Gln with label 'MT-TQ', an_sources: ['HE983611.1'], comment: automated insertion from missing_dbxref_best_feature
+2025-06-11 21:13:16,187 - DEBUG - Adding rna-AFUA_m0280 with label 'MT-TE', an_sources: ['JQ346808.1'], comment: automated insertion from missing_dbxref_best_feature
+2025-06-11 21:13:16,188 - DEBUG - Adding rna-KX657746.1:49884..49955 with label 'MT-TE', an_sources: ['KX657746.1'], comment: automated insertion from missing_dbxref_best_feature
+2025-06-11 21:13:16,189 - DEBUG - Adding rna-tRNA-Glu with label 'MT-TE', an_sources: ['HE983611.1'], comment: automated insertion from missing_dbxref_best_feature
+2025-06-11 21:13:16,190 - DEBUG - Adding gene-tRNA-Glu with label 'MT-TE', an_sources: ['HE983611.1'], comment: automated insertion from missing_dbxref_best_feature
+2025-06-11 21:13:16,191 - DEBUG - Adding rna-AFUA_m0170 with label 'MT-TG', an_sources: ['JQ346808.1'], comment: automated insertion from missing_dbxref_best_feature
+2025-06-11 21:13:16,192 - DEBUG - Adding rna-KX657746.1:7877..7948 with label 'MT-TG', an_sources: ['KX657746.1'], comment: automated insertion from missing_dbxref_best_feature
+2025-06-11 21:13:16,193 - DEBUG - Adding rna-AFUA_m0180 with label 'MT-TG', an_sources: ['JQ346808.1'], comment: automated insertion from missing_dbxref_best_feature
+2025-06-11 21:13:16,195 - DEBUG - Adding rna-tRNA-Gly with label 'MT-TG', an_sources: ['HE983611.1'], comment: automated insertion from missing_dbxref_best_feature
+2025-06-11 21:13:16,196 - DEBUG - Adding gene-tRNA-Gly with label 'MT-TG', an_sources: ['HE983611.1'], comment: automated insertion from missing_dbxref_best_feature
+2025-06-11 21:13:16,201 - DEBUG - Adding rna-tRNA-His with label 'MT-TH', an_sources: ['HE983611.1'], comment: automated insertion from missing_dbxref_best_feature
+2025-06-11 21:13:16,203 - DEBUG - Adding gene-tRNA-His with label 'MT-TH', an_sources: ['HE983611.1'], comment: automated insertion from missing_dbxref_best_feature
+2025-06-11 21:13:16,203 - DEBUG - Adding rna-AFUA_m0410 with label 'MT-TH', an_sources: ['JQ346808.1'], comment: automated insertion from missing_dbxref_best_feature
+2025-06-11 21:13:16,204 - DEBUG - Adding rna-KX657746.1:5503..5573 with label 'MT-TH', an_sources: ['KX657746.1'], comment: automated insertion from missing_dbxref_best_feature
+2025-06-11 21:13:16,206 - DEBUG - Adding rna-KX657746.1:11325..11397 with label 'MT-TI', an_sources: ['KX657746.1'], comment: automated insertion from missing_dbxref_best_feature
+2025-06-11 21:13:16,207 - DEBUG - Adding rna-AFUA_m0100 with label 'MT-TI', an_sources: ['JQ346808.1'], comment: automated insertion from missing_dbxref_best_feature
+2025-06-11 21:13:16,210 - DEBUG - Adding gene-tRNA-Ile with label 'MT-TI', an_sources: ['HE983611.1'], comment: automated insertion from missing_dbxref_best_feature
+2025-06-11 21:13:16,212 - DEBUG - Adding rna-AFUA_m0220 with label 'MT-TI', an_sources: ['JQ346808.1'], comment: automated insertion from missing_dbxref_best_feature
+2025-06-11 21:13:16,213 - DEBUG - Adding rna-AFUA_m0050 with label 'MT-TI', an_sources: ['JQ346808.1'], comment: automated insertion from missing_dbxref_best_feature
+2025-06-11 21:13:16,213 - DEBUG - Adding rna-tRNA-Ile with label 'MT-TI', an_sources: ['HE983611.1'], comment: automated insertion from missing_dbxref_best_feature
+2025-06-11 21:13:16,214 - DEBUG - Adding rna-AFUA_m0380 with label 'MT-TI', an_sources: ['JQ346808.1'], comment: automated insertion from missing_dbxref_best_feature
+2025-06-11 21:13:16,216 - DEBUG - Adding rna-tRNA-Leu with label 'MT-TL1|2', an_sources: ['HE983611.1'], comment: automated insertion from missing_dbxref_best_feature
+2025-06-11 21:13:16,217 - DEBUG - Adding rna-KX657746.1:6326..6407 with label 'MT-TL1|2', an_sources: ['KX657746.1'], comment: automated insertion from missing_dbxref_best_feature
+2025-06-11 21:13:16,218 - DEBUG - Adding gene-tRNA-Leu-2 with label 'MT-TL1|2', an_sources: ['HE983611.1'], comment: automated insertion from missing_dbxref_best_feature
+2025-06-11 21:13:16,219 - DEBUG - Adding rna-tRNA-Leu-2 with label 'MT-TL1|2', an_sources: ['HE983611.1'], comment: automated insertion from missing_dbxref_best_feature
+2025-06-11 21:13:16,222 - DEBUG - Adding rna-AFUA_m0350 with label 'MT-TL1|2', an_sources: ['JQ346808.1'], comment: automated insertion from missing_dbxref_best_feature
+2025-06-11 21:13:16,223 - DEBUG - Adding rna-AFUA_m0320 with label 'MT-TL1|2', an_sources: ['JQ346808.1'], comment: automated insertion from missing_dbxref_best_feature
+2025-06-11 21:13:16,228 - DEBUG - Adding gene-tRNA-Leu with label 'MT-TL1|2', an_sources: ['HE983611.1'], comment: automated insertion from missing_dbxref_best_feature
+2025-06-11 21:13:16,231 - DEBUG - Adding rna-AFUA_m0160 with label 'MT-TK', an_sources: ['JQ346808.1'], comment: automated insertion from missing_dbxref_best_feature
+2025-06-11 21:13:16,234 - DEBUG - Adding rna-KX657746.1:7294..7365 with label 'MT-TK', an_sources: ['KX657746.1'], comment: automated insertion from missing_dbxref_best_feature
+2025-06-11 21:13:16,236 - DEBUG - Adding rna-tRNA-Lys with label 'MT-TK', an_sources: ['HE983611.1'], comment: automated insertion from missing_dbxref_best_feature
+2025-06-11 21:13:16,237 - DEBUG - Adding gene-tRNA-Lys with label 'MT-TK', an_sources: ['HE983611.1'], comment: automated insertion from missing_dbxref_best_feature
+2025-06-11 21:13:16,238 - DEBUG - Adding rna-AFUA_m0370 with label 'MT-TM', an_sources: ['JQ346808.1'], comment: automated insertion from missing_dbxref_best_feature
+2025-06-11 21:13:16,240 - DEBUG - Adding rna-KX657746.1:30593..30665 with label 'MT-TM', an_sources: ['KX657746.1'], comment: automated insertion from missing_dbxref_best_feature
+2025-06-11 21:13:16,241 - DEBUG - Adding rna-KX657746.1:13018..13091 with label 'MT-TM', an_sources: ['KX657746.1'], comment: automated insertion from missing_dbxref_best_feature
+2025-06-11 21:13:16,242 - DEBUG - Adding gene-tRNA-Met-2 with label 'MT-TM', an_sources: ['HE983611.1'], comment: automated insertion from missing_dbxref_best_feature
+2025-06-11 21:13:16,243 - DEBUG - Adding rna-AFUA_m0310 with label 'MT-TM', an_sources: ['JQ346808.1'], comment: automated insertion from missing_dbxref_best_feature
+2025-06-11 21:13:16,245 - DEBUG - Adding rna-tRNA-Met-2 with label 'MT-TM', an_sources: ['HE983611.1'], comment: automated insertion from missing_dbxref_best_feature
+2025-06-11 21:13:16,249 - DEBUG - Adding rna-AFUA_m0300 with label 'MT-TM', an_sources: ['JQ346808.1'], comment: automated insertion from missing_dbxref_best_feature
+2025-06-11 21:13:16,250 - DEBUG - Adding gene-tRNA-Met with label 'MT-TM', an_sources: ['HE983611.1'], comment: automated insertion from missing_dbxref_best_feature
+2025-06-11 21:13:16,252 - DEBUG - Adding rna-tRNA-Met with label 'MT-TM', an_sources: ['HE983611.1'], comment: automated insertion from missing_dbxref_best_feature
+2025-06-11 21:13:16,253 - DEBUG - Adding gene-tRNA-Phe with label 'MT-TF', an_sources: ['HE983611.1'], comment: automated insertion from missing_dbxref_best_feature
+2025-06-11 21:13:16,255 - DEBUG - Adding rna-tRNA-Phe with label 'MT-TF', an_sources: ['HE983611.1'], comment: automated insertion from missing_dbxref_best_feature
+2025-06-11 21:13:16,257 - DEBUG - Adding rna-AFUA_m0340 with label 'MT-TF', an_sources: ['JQ346808.1'], comment: automated insertion from missing_dbxref_best_feature
+2025-06-11 21:13:16,260 - DEBUG - Adding rna-KX657746.1:17753..17824 with label 'MT-TF', an_sources: ['KX657746.1'], comment: automated insertion from missing_dbxref_best_feature
+2025-06-11 21:13:16,261 - DEBUG - Adding gene-tRNA-Pro with label 'MT-TP', an_sources: ['HE983611.1'], comment: automated insertion from missing_dbxref_best_feature
+2025-06-11 21:13:16,263 - DEBUG - Adding rna-KX657746.1:32002..32073 with label 'MT-TP', an_sources: ['KX657746.1'], comment: automated insertion from missing_dbxref_best_feature
+2025-06-11 21:13:16,265 - DEBUG - Adding rna-AFUA_m0240 with label 'MT-TP', an_sources: ['JQ346808.1'], comment: automated insertion from missing_dbxref_best_feature
+2025-06-11 21:13:16,267 - DEBUG - Adding rna-tRNA-Pro with label 'MT-TP', an_sources: ['HE983611.1'], comment: automated insertion from missing_dbxref_best_feature
+2025-06-11 21:13:16,269 - DEBUG - Adding rna-AFUA_m0210 with label 'MT-TSEC', an_sources: ['JQ346808.1'], comment: automated insertion from missing_dbxref_best_feature
+2025-06-11 21:13:16,270 - DEBUG - Adding rna-KX657746.1:10110..10192 with label 'MT-TS1|2', an_sources: ['KX657746.1'], comment: automated insertion from missing_dbxref_best_feature
+2025-06-11 21:13:16,271 - DEBUG - Adding gene-tRNA-Ser with label 'MT-TS1|2', an_sources: ['HE983611.1'], comment: automated insertion from missing_dbxref_best_feature
+2025-06-11 21:13:16,272 - DEBUG - Adding rna-AFUA_m0200 with label 'MT-TS1|2', an_sources: ['JQ346808.1'], comment: automated insertion from missing_dbxref_best_feature
+2025-06-11 21:13:16,273 - DEBUG - Adding rna-tRNA-Ser-2 with label 'MT-TS1|2', an_sources: ['HE983611.1'], comment: automated insertion from missing_dbxref_best_feature
+2025-06-11 21:13:16,274 - DEBUG - Adding rna-tRNA-Ser with label 'MT-TS1|2', an_sources: ['HE983611.1'], comment: automated insertion from missing_dbxref_best_feature
+2025-06-11 21:13:16,276 - DEBUG - Adding gene-tRNA-Ser-2 with label 'MT-TS1|2', an_sources: ['HE983611.1'], comment: automated insertion from missing_dbxref_best_feature
+2025-06-11 21:13:16,277 - DEBUG - Adding rna-KX657746.1:62808..62894 with label 'MT-TS1|2', an_sources: ['KX657746.1'], comment: automated insertion from missing_dbxref_best_feature
+2025-06-11 21:13:16,278 - DEBUG - Adding rna-AFUA_m0230 with label 'MT-TS1|2', an_sources: ['JQ346808.1'], comment: automated insertion from missing_dbxref_best_feature
+2025-06-11 21:13:16,280 - DEBUG - Adding rna-AFUA_m0270 with label 'MT-TT', an_sources: ['JQ346808.1'], comment: automated insertion from missing_dbxref_best_feature
+2025-06-11 21:13:16,281 - DEBUG - Adding gene-tRNA-Thr with label 'MT-TT', an_sources: ['HE983611.1'], comment: automated insertion from missing_dbxref_best_feature
+2025-06-11 21:13:16,282 - DEBUG - Adding rna-tRNA-Thr with label 'MT-TT', an_sources: ['HE983611.1'], comment: automated insertion from missing_dbxref_best_feature
+2025-06-11 21:13:16,286 - DEBUG - Adding rna-KX657746.1:18120..18191 with label 'MT-TT', an_sources: ['KX657746.1'], comment: automated insertion from missing_dbxref_best_feature
+2025-06-11 21:13:16,289 - DEBUG - Adding rna-KX657746.1:4702..4774 with label 'MT-TT', an_sources: ['KX657746.1'], comment: automated insertion from missing_dbxref_best_feature
+2025-06-11 21:13:16,291 - DEBUG - Adding rna-KX657746.1:68113..68183 with label 'MT-TW', an_sources: ['KX657746.1'], comment: automated insertion from missing_dbxref_best_feature
+2025-06-11 21:13:16,293 - DEBUG - Adding rna-tRNA-Trp with label 'MT-TW', an_sources: ['HE983611.1'], comment: automated insertion from missing_dbxref_best_feature
+2025-06-11 21:13:16,296 - DEBUG - Adding gene-tRNA-Trp with label 'MT-TW', an_sources: ['HE983611.1'], comment: automated insertion from missing_dbxref_best_feature
+2025-06-11 21:13:16,296 - DEBUG - Adding gene-tRNA-Tyr with label 'MT-TY', an_sources: ['HE983611.1'], comment: automated insertion from missing_dbxref_best_feature
+2025-06-11 21:13:16,297 - DEBUG - Adding rna-KX657746.1:11879..11963 with label 'MT-TY', an_sources: ['KX657746.1'], comment: automated insertion from missing_dbxref_best_feature
+2025-06-11 21:13:16,299 - DEBUG - Adding rna-tRNA-Tyr with label 'MT-TY', an_sources: ['HE983611.1'], comment: automated insertion from missing_dbxref_best_feature
+2025-06-11 21:13:16,301 - DEBUG - Adding rna-AFUA_m0130 with label 'MT-TY', an_sources: ['JQ346808.1'], comment: automated insertion from missing_dbxref_best_feature
+2025-06-11 21:13:16,301 - DEBUG - Adding rna-KX657746.1:19056..19128 with label 'MT-TV', an_sources: ['KX657746.1'], comment: automated insertion from missing_dbxref_best_feature
+2025-06-11 21:13:16,302 - DEBUG - Adding rna-tRNA-Val with label 'MT-TV', an_sources: ['HE983611.1'], comment: automated insertion from missing_dbxref_best_feature
+2025-06-11 21:13:16,305 - DEBUG - Adding rna-AFUA_m0290 with label 'MT-TV', an_sources: ['JQ346808.1'], comment: automated insertion from missing_dbxref_best_feature
+2025-06-11 21:13:16,306 - DEBUG - Adding gene-tRNA-Val with label 'MT-TV', an_sources: ['HE983611.1'], comment: automated insertion from missing_dbxref_best_feature
+2025-06-11 21:13:16,308 - DEBUG - Adding gene-KX657746.1:11127..11199 with label 'MT-TA', an_sources: ['KX657746.1'], comment: automated insertion from missing_dbxref_best_feature
+2025-06-11 21:13:16,309 - DEBUG - Adding gene-KX657746.1:5392..5464 with label 'MT-TC', an_sources: ['KX657746.1'], comment: automated insertion from missing_dbxref_best_feature
+2025-06-11 21:13:16,310 - DEBUG - Adding gene-KX657746.1:9037..9108 with label 'MT-TD', an_sources: ['KX657746.1'], comment: automated insertion from missing_dbxref_best_feature
+2025-06-11 21:13:16,311 - DEBUG - Adding gene-KX657746.1:49884..49955 with label 'MT-TE', an_sources: ['KX657746.1'], comment: automated insertion from missing_dbxref_best_feature
+2025-06-11 21:13:16,313 - DEBUG - Adding gene-KX657746.1:17753..17824 with label 'MT-TF', an_sources: ['KX657746.1'], comment: automated insertion from missing_dbxref_best_feature
+2025-06-11 21:13:16,314 - DEBUG - Adding gene-KX657746.1:7877..7948 with label 'MT-TG', an_sources: ['KX657746.1'], comment: automated insertion from missing_dbxref_best_feature
+2025-06-11 21:13:16,318 - DEBUG - Adding gene-KX657746.1:5503..5573 with label 'MT-TH', an_sources: ['KX657746.1'], comment: automated insertion from missing_dbxref_best_feature
+2025-06-11 21:13:16,318 - DEBUG - Adding gene-KX657746.1:11325..11397 with label 'MT-TI', an_sources: ['KX657746.1'], comment: automated insertion from missing_dbxref_best_feature
+2025-06-11 21:13:16,320 - DEBUG - Adding gene-KX657746.1:7294..7365 with label 'MT-TK', an_sources: ['KX657746.1'], comment: automated insertion from missing_dbxref_best_feature
+2025-06-11 21:13:16,321 - DEBUG - Adding gene-KX657746.1:6326..6407 with label 'MT-TL1|2', an_sources: ['KX657746.1'], comment: automated insertion from missing_dbxref_best_feature
+2025-06-11 21:13:16,322 - DEBUG - Adding gene-KX657746.1:13018..13091 with label 'MT-TM', an_sources: ['KX657746.1'], comment: automated insertion from missing_dbxref_best_feature
+2025-06-11 21:13:16,323 - DEBUG - Adding gene-KX657746.1:12478..12549 with label 'MT-TN', an_sources: ['KX657746.1'], comment: automated insertion from missing_dbxref_best_feature
+2025-06-11 21:13:16,326 - DEBUG - Adding gene-KX657746.1:32002..32073 with label 'MT-TP', an_sources: ['KX657746.1'], comment: automated insertion from missing_dbxref_best_feature
+2025-06-11 21:13:16,328 - DEBUG - Adding gene-KX657746.1:6429..6501 with label 'MT-TQ', an_sources: ['KX657746.1'], comment: automated insertion from missing_dbxref_best_feature
+2025-06-11 21:13:16,329 - DEBUG - Adding gene-KX657746.1:7667..7739 with label 'MT-TR', an_sources: ['KX657746.1'], comment: automated insertion from missing_dbxref_best_feature
+2025-06-11 21:13:16,331 - DEBUG - Adding gene-KX657746.1:10202..10272 with label 'MT-TR', an_sources: ['KX657746.1'], comment: automated insertion from missing_dbxref_best_feature
+2025-06-11 21:13:16,332 - DEBUG - Adding gene-KX657746.1:62808..62894 with label 'MT-TS1|2', an_sources: ['KX657746.1'], comment: automated insertion from missing_dbxref_best_feature
+2025-06-11 21:13:16,333 - DEBUG - Adding gene-KX657746.1:10110..10192 with label 'MT-TS1|2', an_sources: ['KX657746.1'], comment: automated insertion from missing_dbxref_best_feature
+2025-06-11 21:13:16,334 - DEBUG - Adding gene-KX657746.1:18120..18191 with label 'MT-TT', an_sources: ['KX657746.1'], comment: automated insertion from missing_dbxref_best_feature
+2025-06-11 21:13:16,336 - DEBUG - Adding gene-KX657746.1:4702..4774 with label 'MT-TT', an_sources: ['KX657746.1'], comment: automated insertion from missing_dbxref_best_feature
+2025-06-11 21:13:16,337 - DEBUG - Adding gene-KX657746.1:19056..19128 with label 'MT-TV', an_sources: ['KX657746.1'], comment: automated insertion from missing_dbxref_best_feature
+2025-06-11 21:13:16,338 - DEBUG - Adding gene-KX657746.1:68113..68183 with label 'MT-TW', an_sources: ['KX657746.1'], comment: automated insertion from missing_dbxref_best_feature
+2025-06-11 21:13:16,339 - DEBUG - Adding gene-KX657746.1:11879..11963 with label 'MT-TY', an_sources: ['KX657746.1'], comment: automated insertion from missing_dbxref_best_feature
+2025-06-11 21:13:16,340 - DEBUG - Adding gene-KX657746.1:30593..30665 with label 'MT-TM', an_sources: ['KX657746.1'], comment: automated insertion from missing_dbxref_best_feature
+2025-06-11 21:13:16,341 - DEBUG - Adding gene-var1 with label 'MT-VAR1', an_sources: ['HE983611.1'], comment: automated insertion from missing_dbxref_best_feature
+2025-06-11 21:13:25,140 - INFO - Writing gene_dict file: /home/brenodupin/matheus/gdt/example/fungi_mt/misc/gdt/fungi_mt_pilot_06.gdt | Iteration: 6

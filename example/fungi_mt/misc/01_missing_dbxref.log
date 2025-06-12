@@ -190,3 +190,342 @@
 2025-06-11 21:13:16,340 - DEBUG - Adding gene-KX657746.1:30593..30665 with label 'MT-TM', an_sources: ['KX657746.1'], comment: automated insertion from missing_dbxref_best_feature
 2025-06-11 21:13:16,341 - DEBUG - Adding gene-var1 with label 'MT-VAR1', an_sources: ['HE983611.1'], comment: automated insertion from missing_dbxref_best_feature
 2025-06-11 21:13:25,140 - INFO - Writing gene_dict file: /home/brenodupin/matheus/gdt/example/fungi_mt/misc/gdt/fungi_mt_pilot_06.gdt | Iteration: 6
+2025-06-11 21:15:15,292 - INFO - Loaded gene_dict from /home/brenodupin/matheus/gdt/example/fungi_mt/misc/gdt/fungi_mt_pilot_06.gdt
+2025-06-11 21:15:15,292 - INFO - Header:
+2025-06-11 21:15:15,293 - INFO - 	version 0.0.2
+2025-06-11 21:15:15,293 - INFO - 	Fungi_mt
+2025-06-11 21:15:15,293 - INFO - 	2025-04-09 17:54 - Conversion from gdt to gdt2
+2025-06-11 21:15:15,294 - INFO - 	2025-06-05 18:11 - Stripped GDT version from original GDT file Fungi_mt.gdt
+2025-06-11 21:15:15,295 - INFO - 	2025-06-11 20:37 - Data added from TEMP 01
+2025-06-11 21:15:15,295 - INFO - 	2025-06-11 20:50 - Data added from TEMP Symbol 01
+2025-06-11 21:15:15,296 - INFO - 	2025-06-11 21:13 - Data added from missing_dbxref_best_feature
+2025-06-11 21:15:15,297 - INFO - GDT Info:
+2025-06-11 21:15:15,297 - INFO - 	Gene dictionary length: 981
+2025-06-11 21:15:15,298 - INFO - 	Label: 56
+2025-06-11 21:15:15,300 - INFO - 	GeneDescriptions: 545
+2025-06-11 21:15:15,301 - INFO - 	GeneGenerics: 156
+2025-06-11 21:15:15,301 - INFO - 	GeneDbxrefs: 280
+2025-06-11 21:15:39,494 - DEBUG - missing_dbxref: matching probable 'child feature + parent gene' pair (on the an original gff3, using all the features)
+2025-06-11 21:15:39,495 - DEBUG - AN: JQ346808.1| gene_ids: ['gene-AFUA_m0010', 'gene-AFUA_m0020', 'gene-AFUA_m0030', 'gene-AFUA_m0040', 'gene-AFUA_m0050', 'gene-AFUA_m0060', 'gene-AFUA_m0070', 'gene-AFUA_m0080', 'gene-AFUA_m0090', 'gene-AFUA_m0100', 'gene-AFUA_m0110', 'gene-AFUA_m0120', 'gene-AFUA_m0130', 'gene-AFUA_m0140', 'gene-AFUA_m0150', 'gene-AFUA_m0160', 'gene-AFUA_m0170', 'gene-AFUA_m0180', 'gene-AFUA_m0190', 'gene-AFUA_m0200', 'gene-AFUA_m0210', 'gene-AFUA_m0220', 'gene-AFUA_m0230', 'gene-AFUA_m0240', 'gene-AFUA_m0250', 'gene-AFUA_m0260', 'gene-AFUA_m0270', 'gene-AFUA_m0280', 'gene-AFUA_m0290', 'gene-AFUA_m0300', 'gene-AFUA_m0310', 'gene-AFUA_m0320', 'gene-AFUA_m0330', 'gene-AFUA_m0340', 'gene-AFUA_m0350', 'gene-AFUA_m0360', 'gene-AFUA_m0370', 'gene-AFUA_m0380', 'gene-AFUA_m0390', 'gene-AFUA_m0400', 'gene-AFUA_m0410', 'gene-AFUA_m0420', 'gene-AFUA_m0430', 'gene-AFUA_m0440', 'gene-AFUA_m0450', 'gene-AFUA_m0460', 'gene-AFUA_m0470', 'gene-AFUA_m0480', 'gene-AFUA_m0490', 'gene-AFUA_m0500', 'gene-AFUA_m0510', 'gene-AFUA_m0520', 'gene-AFUA_m0530']
+2025-06-11 21:15:39,518 - DEBUG -  gene_id: gene-AFUA_m0010 | len(candidates) = 1
+2025-06-11 21:15:39,520 - DEBUG -   chosen best_feature: cytochrome b
+2025-06-11 21:15:39,523 - DEBUG - 	t: CDS | fn: cytochrome b | a: ID=cds-AFE02850.1;Parent=gene-AFUA_m0010;Dbxref=NCBI_GP:AFE02850.1;Name=AFE02850.1;gbkey=CDS;locus_tag=AFUA_m0010;product=cytochrome b;protein_id=AFE02850.1;transl_table=4
+2025-06-11 21:15:39,524 - DEBUG -   best_feature in gene_dict, label: MT-CYB
+
+2025-06-11 21:15:39,525 - DEBUG -  gene_id: gene-AFUA_m0020 | len(candidates) = 1
+2025-06-11 21:15:39,526 - DEBUG -   chosen best_feature: tRNA-Cys
+2025-06-11 21:15:39,529 - DEBUG - 	t: tRNA | fn: tRNA-Cys | a: ID=rna-AFUA_m0020;Parent=gene-AFUA_m0020;Note=anticodon GCA;gbkey=tRNA;locus_tag=AFUA_m0020;product=tRNA-Cys
+2025-06-11 21:15:39,530 - DEBUG -   best_feature in gene_dict, label: MT-TC
+
+2025-06-11 21:15:39,531 - DEBUG -  gene_id: gene-AFUA_m0030 | len(candidates) = 1
+2025-06-11 21:15:39,532 - DEBUG -   chosen best_feature: tRNA-Asn
+2025-06-11 21:15:39,533 - DEBUG - 	t: tRNA | fn: tRNA-Asn | a: ID=rna-AFUA_m0030;Parent=gene-AFUA_m0030;Note=anticodon ATT;gbkey=tRNA;locus_tag=AFUA_m0030;product=tRNA-Asn
+2025-06-11 21:15:39,537 - DEBUG -   best_feature in gene_dict, label: MT-TN
+
+2025-06-11 21:15:39,538 - DEBUG -  gene_id: gene-AFUA_m0040 | len(candidates) = 1
+2025-06-11 21:15:39,539 - DEBUG -   chosen best_feature: NADH dehydrogenase subunit 1
+2025-06-11 21:15:39,540 - DEBUG - 	t: CDS | fn: NADH dehydrogenase subunit 1 | a: ID=cds-AFE02851.1;Parent=gene-AFUA_m0040;Dbxref=NCBI_GP:AFE02851.1;Name=AFE02851.1;gbkey=CDS;locus_tag=AFUA_m0040;product=NADH dehydrogenase subunit 1;protein_id=AFE02851.1;transl_table=4
+2025-06-11 21:15:39,541 - DEBUG -   best_feature in gene_dict, label: MT-ND1
+
+2025-06-11 21:15:39,542 - DEBUG -  gene_id: gene-AFUA_m0050 | len(candidates) = 1
+2025-06-11 21:15:39,543 - DEBUG -   chosen best_feature: tRNA-Ile
+2025-06-11 21:15:39,544 - DEBUG - 	t: tRNA | fn: tRNA-Ile | a: ID=rna-AFUA_m0050;Parent=gene-AFUA_m0050;Note=anticodon TAT;gbkey=tRNA;locus_tag=AFUA_m0050;product=tRNA-Ile
+2025-06-11 21:15:39,545 - DEBUG -   best_feature in gene_dict, label: MT-TI
+
+2025-06-11 21:15:39,546 - DEBUG -  gene_id: gene-AFUA_m0060 | len(candidates) = 1
+2025-06-11 21:15:39,547 - DEBUG -   chosen best_feature: NADH dehydrogenase subunit 4
+2025-06-11 21:15:39,548 - DEBUG - 	t: CDS | fn: NADH dehydrogenase subunit 4 | a: ID=cds-AFE02852.1;Parent=gene-AFUA_m0060;Dbxref=NCBI_GP:AFE02852.1;Name=AFE02852.1;gbkey=CDS;locus_tag=AFUA_m0060;product=NADH dehydrogenase subunit 4;protein_id=AFE02852.1;transl_table=4
+2025-06-11 21:15:39,549 - DEBUG -   best_feature in gene_dict, label: MT-ND4
+
+2025-06-11 21:15:39,550 - DEBUG -  gene_id: gene-AFUA_m0070 | len(candidates) = 1
+2025-06-11 21:15:39,552 - DEBUG -   chosen best_feature: tRNA-Arg
+2025-06-11 21:15:39,554 - DEBUG - 	t: tRNA | fn: tRNA-Arg | a: ID=rna-AFUA_m0070;Parent=gene-AFUA_m0070;Note=anticodon TCT;gbkey=tRNA;locus_tag=AFUA_m0070;product=tRNA-Arg
+2025-06-11 21:15:39,554 - DEBUG -   best_feature in gene_dict, label: MT-TR
+
+2025-06-11 21:15:39,555 - DEBUG -  gene_id: gene-AFUA_m0080 | len(candidates) = 1
+2025-06-11 21:15:39,555 - DEBUG -   chosen best_feature: tRNA-Asn
+2025-06-11 21:15:39,557 - DEBUG - 	t: tRNA | fn: tRNA-Asn | a: ID=rna-AFUA_m0080;Parent=gene-AFUA_m0080;Note=anticodon GTT;gbkey=tRNA;locus_tag=AFUA_m0080;product=tRNA-Asn
+2025-06-11 21:15:39,557 - DEBUG -   best_feature in gene_dict, label: MT-TN
+
+2025-06-11 21:15:39,558 - DEBUG -  gene_id: gene-AFUA_m0090 | len(candidates) = 1
+2025-06-11 21:15:39,559 - DEBUG -   chosen best_feature: ATP synthase subunit 8
+2025-06-11 21:15:39,560 - DEBUG - 	t: CDS | fn: ATP synthase subunit 8 | a: ID=cds-AFE02853.1;Parent=gene-AFUA_m0090;Dbxref=NCBI_GP:AFE02853.1;Name=AFE02853.1;gbkey=CDS;locus_tag=AFUA_m0090;product=ATP synthase subunit 8;protein_id=AFE02853.1;transl_table=4
+2025-06-11 21:15:39,560 - DEBUG -   best_feature in gene_dict, label: MT-ATP8
+
+2025-06-11 21:15:39,561 - DEBUG -  gene_id: gene-AFUA_m0100 | len(candidates) = 1
+2025-06-11 21:15:39,562 - DEBUG -   chosen best_feature: tRNA-Ile
+2025-06-11 21:15:39,564 - DEBUG - 	t: tRNA | fn: tRNA-Ile | a: ID=rna-AFUA_m0100;Parent=gene-AFUA_m0100;Note=anticodon TAT;gbkey=tRNA;locus_tag=AFUA_m0100;product=tRNA-Ile
+2025-06-11 21:15:39,565 - DEBUG -   best_feature in gene_dict, label: MT-TI
+
+2025-06-11 21:15:39,566 - DEBUG -  gene_id: gene-AFUA_m0110 | len(candidates) = 1
+2025-06-11 21:15:39,567 - DEBUG -   chosen best_feature: ATP synthase subunit 6
+2025-06-11 21:15:39,569 - DEBUG - 	t: CDS | fn: ATP synthase subunit 6 | a: ID=cds-AFE02854.1;Parent=gene-AFUA_m0110;Dbxref=NCBI_GP:AFE02854.1;Name=AFE02854.1;gbkey=CDS;locus_tag=AFUA_m0110;product=ATP synthase subunit 6;protein_id=AFE02854.1;transl_table=4
+2025-06-11 21:15:39,569 - DEBUG -   best_feature in gene_dict, label: MT-ATP6
+
+2025-06-11 21:15:39,570 - DEBUG -  gene_id: gene-AFUA_m0120 | len(candidates) = 1
+2025-06-11 21:15:39,573 - DEBUG -   chosen best_feature: small subunit ribosomal RNA
+2025-06-11 21:15:39,574 - DEBUG - 	t: rRNA | fn: small subunit ribosomal RNA | a: ID=rna-AFUA_m0120;Parent=gene-AFUA_m0120;gbkey=rRNA;locus_tag=AFUA_m0120;product=small subunit ribosomal RNA
+2025-06-11 21:15:39,575 - DEBUG -   best_feature in gene_dict, label: MT-RNR1
+
+2025-06-11 21:15:39,575 - DEBUG -  gene_id: gene-AFUA_m0130 | len(candidates) = 1
+2025-06-11 21:15:39,576 - DEBUG -   chosen best_feature: tRNA-Tyr
+2025-06-11 21:15:39,577 - DEBUG - 	t: tRNA | fn: tRNA-Tyr | a: ID=rna-AFUA_m0130;Parent=gene-AFUA_m0130;Note=anticodon GTA;gbkey=tRNA;locus_tag=AFUA_m0130;product=tRNA-Tyr
+2025-06-11 21:15:39,577 - DEBUG -   best_feature in gene_dict, label: MT-TY
+
+2025-06-11 21:15:39,579 - DEBUG -  gene_id: gene-AFUA_m0140 | len(candidates) = 1
+2025-06-11 21:15:39,580 - DEBUG -   chosen best_feature: NADH dehydrogenase subunit 6
+2025-06-11 21:15:39,582 - DEBUG - 	t: CDS | fn: NADH dehydrogenase subunit 6 | a: ID=cds-AFE02855.1;Parent=gene-AFUA_m0140;Dbxref=NCBI_GP:AFE02855.1;Name=AFE02855.1;gbkey=CDS;locus_tag=AFUA_m0140;product=NADH dehydrogenase subunit 6;protein_id=AFE02855.1;transl_table=4
+2025-06-11 21:15:39,583 - DEBUG -   best_feature in gene_dict, label: MT-ND6
+
+2025-06-11 21:15:39,584 - DEBUG -  gene_id: gene-AFUA_m0150 | len(candidates) = 1
+2025-06-11 21:15:39,584 - DEBUG -   chosen best_feature: cytochrome oxidase subunit 3
+2025-06-11 21:15:39,586 - DEBUG - 	t: CDS | fn: cytochrome oxidase subunit 3 | a: ID=cds-AFE02856.1;Parent=gene-AFUA_m0150;Dbxref=NCBI_GP:AFE02856.1;Name=AFE02856.1;gbkey=CDS;locus_tag=AFUA_m0150;product=cytochrome oxidase subunit 3;protein_id=AFE02856.1;transl_table=4
+2025-06-11 21:15:39,586 - DEBUG -   best_feature in gene_dict, label: MT-CO3
+
+2025-06-11 21:15:39,587 - DEBUG -  gene_id: gene-AFUA_m0160 | len(candidates) = 1
+2025-06-11 21:15:39,587 - DEBUG -   chosen best_feature: tRNA-Lys
+2025-06-11 21:15:39,588 - DEBUG - 	t: tRNA | fn: tRNA-Lys | a: ID=rna-AFUA_m0160;Parent=gene-AFUA_m0160;Note=anticodon TTT;gbkey=tRNA;locus_tag=AFUA_m0160;product=tRNA-Lys
+2025-06-11 21:15:39,589 - DEBUG -   best_feature in gene_dict, label: MT-TK
+
+2025-06-11 21:15:39,591 - DEBUG -  gene_id: gene-AFUA_m0170 | len(candidates) = 1
+2025-06-11 21:15:39,593 - DEBUG -   chosen best_feature: tRNA-Gly
+2025-06-11 21:15:39,595 - DEBUG - 	t: tRNA | fn: tRNA-Gly | a: ID=rna-AFUA_m0170;Parent=gene-AFUA_m0170;Note=anticodon ACC;gbkey=tRNA;locus_tag=AFUA_m0170;product=tRNA-Gly
+2025-06-11 21:15:39,596 - DEBUG -   best_feature in gene_dict, label: MT-TG
+
+2025-06-11 21:15:39,597 - DEBUG -  gene_id: gene-AFUA_m0180 | len(candidates) = 1
+2025-06-11 21:15:39,597 - DEBUG -   chosen best_feature: tRNA-Gly
+2025-06-11 21:15:39,599 - DEBUG - 	t: tRNA | fn: tRNA-Gly | a: ID=rna-AFUA_m0180;Parent=gene-AFUA_m0180;Note=anticodon TCC;gbkey=tRNA;locus_tag=AFUA_m0180;product=tRNA-Gly
+2025-06-11 21:15:39,599 - DEBUG -   best_feature in gene_dict, label: MT-TG
+
+2025-06-11 21:15:39,600 - DEBUG -  gene_id: gene-AFUA_m0190 | len(candidates) = 1
+2025-06-11 21:15:39,602 - DEBUG -   chosen best_feature: tRNA-Asp
+2025-06-11 21:15:39,603 - DEBUG - 	t: tRNA | fn: tRNA-Asp | a: ID=rna-AFUA_m0190;Parent=gene-AFUA_m0190;Note=anticodon GTC;gbkey=tRNA;locus_tag=AFUA_m0190;product=tRNA-Asp
+2025-06-11 21:15:39,604 - DEBUG -   best_feature in gene_dict, label: MT-TD
+
+2025-06-11 21:15:39,605 - DEBUG -  gene_id: gene-AFUA_m0200 | len(candidates) = 1
+2025-06-11 21:15:39,606 - DEBUG -   chosen best_feature: tRNA-Ser
+2025-06-11 21:15:39,608 - DEBUG - 	t: tRNA | fn: tRNA-Ser | a: ID=rna-AFUA_m0200;Parent=gene-AFUA_m0200;Note=anticodon GCT;gbkey=tRNA;locus_tag=AFUA_m0200;product=tRNA-Ser
+2025-06-11 21:15:39,608 - DEBUG -   best_feature in gene_dict, label: MT-TS1|2
+
+2025-06-11 21:15:39,609 - DEBUG -  gene_id: gene-AFUA_m0210 | len(candidates) = 1
+2025-06-11 21:15:39,611 - DEBUG -   chosen best_feature: tRNA-Sec
+2025-06-11 21:15:39,616 - DEBUG - 	t: tRNA | fn: tRNA-Sec | a: ID=rna-AFUA_m0210;Parent=gene-AFUA_m0210;Note=anticodon TCA;gbkey=tRNA;locus_tag=AFUA_m0210;product=tRNA-Sec
+2025-06-11 21:15:39,617 - DEBUG -   best_feature in gene_dict, label: MT-TSEC
+
+2025-06-11 21:15:39,618 - DEBUG -  gene_id: gene-AFUA_m0220 | len(candidates) = 1
+2025-06-11 21:15:39,620 - DEBUG -   chosen best_feature: tRNA-Ile
+2025-06-11 21:15:39,622 - DEBUG - 	t: tRNA | fn: tRNA-Ile | a: ID=rna-AFUA_m0220;Parent=gene-AFUA_m0220;Note=anticodon GAT;gbkey=tRNA;locus_tag=AFUA_m0220;product=tRNA-Ile
+2025-06-11 21:15:39,622 - DEBUG -   best_feature in gene_dict, label: MT-TI
+
+2025-06-11 21:15:39,625 - DEBUG -  gene_id: gene-AFUA_m0230 | len(candidates) = 1
+2025-06-11 21:15:39,626 - DEBUG -   chosen best_feature: tRNA-Ser
+2025-06-11 21:15:39,627 - DEBUG - 	t: tRNA | fn: tRNA-Ser | a: ID=rna-AFUA_m0230;Parent=gene-AFUA_m0230;Note=anticodon TGA;gbkey=tRNA;locus_tag=AFUA_m0230;product=tRNA-Ser
+2025-06-11 21:15:39,627 - DEBUG -   best_feature in gene_dict, label: MT-TS1|2
+
+2025-06-11 21:15:39,628 - DEBUG -  gene_id: gene-AFUA_m0240 | len(candidates) = 1
+2025-06-11 21:15:39,630 - DEBUG -   chosen best_feature: tRNA-Pro
+2025-06-11 21:15:39,632 - DEBUG - 	t: tRNA | fn: tRNA-Pro | a: ID=rna-AFUA_m0240;Parent=gene-AFUA_m0240;Note=anticodon TGG;gbkey=tRNA;locus_tag=AFUA_m0240;product=tRNA-Pro
+2025-06-11 21:15:39,632 - DEBUG -   best_feature in gene_dict, label: MT-TP
+
+2025-06-11 21:15:39,634 - DEBUG -  gene_id: gene-AFUA_m0250 | len(candidates) = 1
+2025-06-11 21:15:39,635 - DEBUG -   chosen best_feature: large subunit ribosomal RNA
+2025-06-11 21:15:39,638 - DEBUG - 	t: rRNA | fn: large subunit ribosomal RNA | a: ID=rna-AFUA_m0250;Parent=gene-AFUA_m0250;gbkey=rRNA;locus_tag=AFUA_m0250;product=large subunit ribosomal RNA
+2025-06-11 21:15:39,639 - DEBUG -   best_feature in gene_dict, label: MT-RNR2
+
+2025-06-11 21:15:39,641 - DEBUG -  gene_id: gene-AFUA_m0260 | len(candidates) = 1
+2025-06-11 21:15:39,642 - DEBUG -   chosen best_feature: ribosomal protein S5
+2025-06-11 21:15:39,645 - DEBUG - 	t: CDS | fn: ribosomal protein S5 | a: ID=cds-AFE02857.1;Parent=gene-AFUA_m0260;Dbxref=NCBI_GP:AFE02857.1;Name=AFE02857.1;gbkey=CDS;locus_tag=AFUA_m0260;product=ribosomal protein S5;protein_id=AFE02857.1;transl_table=4
+2025-06-11 21:15:39,646 - DEBUG -   best_feature in gene_dict, label: MT-RPS5
+
+2025-06-11 21:15:39,647 - DEBUG -  gene_id: gene-AFUA_m0270 | len(candidates) = 1
+2025-06-11 21:15:39,648 - DEBUG -   chosen best_feature: tRNA-Thr
+2025-06-11 21:15:39,649 - DEBUG - 	t: tRNA | fn: tRNA-Thr | a: ID=rna-AFUA_m0270;Parent=gene-AFUA_m0270;Note=anticodon TGT;gbkey=tRNA;locus_tag=AFUA_m0270;product=tRNA-Thr
+2025-06-11 21:15:39,651 - DEBUG -   best_feature in gene_dict, label: MT-TT
+
+2025-06-11 21:15:39,652 - DEBUG -  gene_id: gene-AFUA_m0280 | len(candidates) = 1
+2025-06-11 21:15:39,653 - DEBUG -   chosen best_feature: tRNA-Glu
+2025-06-11 21:15:39,654 - DEBUG - 	t: tRNA | fn: tRNA-Glu | a: ID=rna-AFUA_m0280;Parent=gene-AFUA_m0280;Note=anticodon TTC;gbkey=tRNA;locus_tag=AFUA_m0280;product=tRNA-Glu
+2025-06-11 21:15:39,654 - DEBUG -   best_feature in gene_dict, label: MT-TE
+
+2025-06-11 21:15:39,656 - DEBUG -  gene_id: gene-AFUA_m0290 | len(candidates) = 1
+2025-06-11 21:15:39,658 - DEBUG -   chosen best_feature: tRNA-Val
+2025-06-11 21:15:39,661 - DEBUG - 	t: tRNA | fn: tRNA-Val | a: ID=rna-AFUA_m0290;Parent=gene-AFUA_m0290;Note=anticodon TAC;gbkey=tRNA;locus_tag=AFUA_m0290;product=tRNA-Val
+2025-06-11 21:15:39,662 - DEBUG -   best_feature in gene_dict, label: MT-TV
+
+2025-06-11 21:15:39,663 - DEBUG -  gene_id: gene-AFUA_m0300 | len(candidates) = 1
+2025-06-11 21:15:39,663 - DEBUG -   chosen best_feature: tRNA-Met
+2025-06-11 21:15:39,665 - DEBUG - 	t: tRNA | fn: tRNA-Met | a: ID=rna-AFUA_m0300;Parent=gene-AFUA_m0300;Note=anticodon CAT;gbkey=tRNA;locus_tag=AFUA_m0300;product=tRNA-Met
+2025-06-11 21:15:39,666 - DEBUG -   best_feature in gene_dict, label: MT-TM
+
+2025-06-11 21:15:39,668 - DEBUG -  gene_id: gene-AFUA_m0310 | len(candidates) = 1
+2025-06-11 21:15:39,671 - DEBUG -   chosen best_feature: tRNA-Met
+2025-06-11 21:15:39,672 - DEBUG - 	t: tRNA | fn: tRNA-Met | a: ID=rna-AFUA_m0310;Parent=gene-AFUA_m0310;Note=anticodon CAT;gbkey=tRNA;locus_tag=AFUA_m0310;product=tRNA-Met
+2025-06-11 21:15:39,672 - DEBUG -   best_feature in gene_dict, label: MT-TM
+
+2025-06-11 21:15:39,673 - DEBUG -  gene_id: gene-AFUA_m0320 | len(candidates) = 1
+2025-06-11 21:15:39,674 - DEBUG -   chosen best_feature: tRNA-Leu
+2025-06-11 21:15:39,675 - DEBUG - 	t: tRNA | fn: tRNA-Leu | a: ID=rna-AFUA_m0320;Parent=gene-AFUA_m0320;Note=anticodon TAA;gbkey=tRNA;locus_tag=AFUA_m0320;product=tRNA-Leu
+2025-06-11 21:15:39,676 - DEBUG -   best_feature in gene_dict, label: MT-TL1|2
+
+2025-06-11 21:15:39,677 - DEBUG -  gene_id: gene-AFUA_m0330 | len(candidates) = 1
+2025-06-11 21:15:39,678 - DEBUG -   chosen best_feature: tRNA-Ala
+2025-06-11 21:15:39,679 - DEBUG - 	t: tRNA | fn: tRNA-Ala | a: ID=rna-AFUA_m0330;Parent=gene-AFUA_m0330;Note=anticodon TGC;gbkey=tRNA;locus_tag=AFUA_m0330;product=tRNA-Ala
+2025-06-11 21:15:39,681 - DEBUG -   best_feature in gene_dict, label: MT-TA
+
+2025-06-11 21:15:39,682 - DEBUG -  gene_id: gene-AFUA_m0340 | len(candidates) = 1
+2025-06-11 21:15:39,682 - DEBUG -   chosen best_feature: tRNA-Phe
+2025-06-11 21:15:39,684 - DEBUG - 	t: tRNA | fn: tRNA-Phe | a: ID=rna-AFUA_m0340;Parent=gene-AFUA_m0340;Note=anticodon GAA;gbkey=tRNA;locus_tag=AFUA_m0340;product=tRNA-Phe
+2025-06-11 21:15:39,686 - DEBUG -   best_feature in gene_dict, label: MT-TF
+
+2025-06-11 21:15:39,688 - DEBUG -  gene_id: gene-AFUA_m0350 | len(candidates) = 1
+2025-06-11 21:15:39,689 - DEBUG -   chosen best_feature: tRNA-Leu
+2025-06-11 21:15:39,692 - DEBUG - 	t: tRNA | fn: tRNA-Leu | a: ID=rna-AFUA_m0350;Parent=gene-AFUA_m0350;Note=anticodon TAG;gbkey=tRNA;locus_tag=AFUA_m0350;product=tRNA-Leu
+2025-06-11 21:15:39,693 - DEBUG -   best_feature in gene_dict, label: MT-TL1|2
+
+2025-06-11 21:15:39,694 - DEBUG -  gene_id: gene-AFUA_m0360 | len(candidates) = 1
+2025-06-11 21:15:39,694 - DEBUG -   chosen best_feature: tRNA-Gln
+2025-06-11 21:15:39,697 - DEBUG - 	t: tRNA | fn: tRNA-Gln | a: ID=rna-AFUA_m0360;Parent=gene-AFUA_m0360;Note=anticodon TTG;gbkey=tRNA;locus_tag=AFUA_m0360;product=tRNA-Gln
+2025-06-11 21:15:39,697 - DEBUG -   best_feature in gene_dict, label: MT-TQ
+
+2025-06-11 21:15:39,698 - DEBUG -  gene_id: gene-AFUA_m0370 | len(candidates) = 1
+2025-06-11 21:15:39,699 - DEBUG -   chosen best_feature: tRNA-Met
+2025-06-11 21:15:39,701 - DEBUG - 	t: tRNA | fn: tRNA-Met | a: ID=rna-AFUA_m0370;Parent=gene-AFUA_m0370;Note=anticodon CAT;gbkey=tRNA;locus_tag=AFUA_m0370;product=tRNA-Met
+2025-06-11 21:15:39,702 - DEBUG -   best_feature in gene_dict, label: MT-TM
+
+2025-06-11 21:15:39,702 - DEBUG -  gene_id: gene-AFUA_m0380 | len(candidates) = 1
+2025-06-11 21:15:39,703 - DEBUG -   chosen best_feature: tRNA-Ile
+2025-06-11 21:15:39,704 - DEBUG - 	t: tRNA | fn: tRNA-Ile | a: ID=rna-AFUA_m0380;Parent=gene-AFUA_m0380;Note=anticodon TAT;gbkey=tRNA;locus_tag=AFUA_m0380;product=tRNA-Ile
+2025-06-11 21:15:39,704 - DEBUG -   best_feature in gene_dict, label: MT-TI
+
+2025-06-11 21:15:39,705 - DEBUG -  gene_id: gene-AFUA_m0390 | len(candidates) = 1
+2025-06-11 21:15:39,706 - DEBUG -   chosen best_feature: hypothetical protein
+2025-06-11 21:15:39,710 - DEBUG - 	t: CDS | fn: hypothetical protein | a: ID=cds-AFE02858.1;Parent=gene-AFUA_m0390;Dbxref=NCBI_GP:AFE02858.1;Name=AFE02858.1;gbkey=CDS;locus_tag=AFUA_m0390;product=hypothetical protein;protein_id=AFE02858.1;transl_table=4
+2025-06-11 21:15:39,710 - DEBUG -   best_feature not in gene_dict: hypothetical protein
+2025-06-11 21:15:39,711 - DEBUG -   checking in temp_unk
+2025-06-11 21:15:39,712 - DEBUG -   not found in temp_unk, new label: MT-TEMP-1
+
+2025-06-11 21:15:39,713 - DEBUG -  gene_id: gene-AFUA_m0400 | len(candidates) = 1
+2025-06-11 21:15:39,714 - DEBUG -   chosen best_feature: hypothetical protein
+2025-06-11 21:15:39,715 - DEBUG - 	t: CDS | fn: hypothetical protein | a: ID=cds-AFE02859.1;Parent=gene-AFUA_m0400;Dbxref=NCBI_GP:AFE02859.1;Name=AFE02859.1;gbkey=CDS;locus_tag=AFUA_m0400;product=hypothetical protein;protein_id=AFE02859.1;transl_table=4
+2025-06-11 21:15:39,717 - DEBUG -   best_feature not in gene_dict: hypothetical protein
+2025-06-11 21:15:39,718 - DEBUG -   checking in temp_unk
+2025-06-11 21:15:39,718 - DEBUG -   found in temp_unk, label: MT-TEMP-1
+
+2025-06-11 21:15:39,720 - DEBUG -  gene_id: gene-AFUA_m0410 | len(candidates) = 1
+2025-06-11 21:15:39,720 - DEBUG -   chosen best_feature: tRNA-His
+2025-06-11 21:15:39,722 - DEBUG - 	t: tRNA | fn: tRNA-His | a: ID=rna-AFUA_m0410;Parent=gene-AFUA_m0410;Note=anticodon GTG;gbkey=tRNA;locus_tag=AFUA_m0410;product=tRNA-His
+2025-06-11 21:15:39,723 - DEBUG -   best_feature in gene_dict, label: MT-TH
+
+2025-06-11 21:15:39,727 - DEBUG -  gene_id: gene-AFUA_m0420 | len(candidates) = 2
+2025-06-11 21:15:39,728 - DEBUG -   chosen best_feature: cytochrome oxidase subunit 1
+2025-06-11 21:15:39,729 - DEBUG - 	t: CDS | fn: cytochrome oxidase subunit 1 | a: ID=cds-AFE02860.1;Parent=gene-AFUA_m0420;Dbxref=NCBI_GP:AFE02860.1;Name=AFE02860.1;gbkey=CDS;locus_tag=AFUA_m0420;product=cytochrome oxidase subunit 1;protein_id=AFE02860.1;transl_table=4
+2025-06-11 21:15:39,730 - DEBUG - 	t: CDS | fn: cytochrome oxidase subunit 1 | a: ID=cds-AFE02860.1;Parent=gene-AFUA_m0420;Dbxref=NCBI_GP:AFE02860.1;Name=AFE02860.1;gbkey=CDS;locus_tag=AFUA_m0420;product=cytochrome oxidase subunit 1;protein_id=AFE02860.1;transl_table=4
+2025-06-11 21:15:39,730 - DEBUG -   best_feature in gene_dict, label: MT-CO1
+
+2025-06-11 21:15:39,731 - DEBUG -  gene_id: gene-AFUA_m0430 | len(candidates) = 1
+2025-06-11 21:15:39,732 - DEBUG -   chosen best_feature: intron-encoded LAGLIDADG endonuclease family protein
+2025-06-11 21:15:39,733 - DEBUG - 	t: CDS | fn: intron-encoded LAGLIDADG endonuclease family protein | a: ID=cds-AFE02861.1;Parent=gene-AFUA_m0430;Dbxref=NCBI_GP:AFE02861.1;Name=AFE02861.1;gbkey=CDS;locus_tag=AFUA_m0430;product=intron-encoded LAGLIDADG endonuclease family protein;protein_id=AFE02861.1;transl_table=4
+2025-06-11 21:15:39,733 - DEBUG -   best_feature not in gene_dict: intron-encoded LAGLIDADG endonuclease family protein
+2025-06-11 21:15:39,734 - DEBUG -   checking in temp_unk
+2025-06-11 21:15:39,735 - DEBUG -   not found in temp_unk, new label: MT-TEMP-2
+
+2025-06-11 21:15:39,736 - DEBUG -  gene_id: gene-AFUA_m0440 | len(candidates) = 1
+2025-06-11 21:15:39,737 - DEBUG -   chosen best_feature: hypothetical protein
+2025-06-11 21:15:39,738 - DEBUG - 	t: CDS | fn: hypothetical protein | a: ID=cds-AFE02862.1;Parent=gene-AFUA_m0440;Dbxref=NCBI_GP:AFE02862.1;Name=AFE02862.1;gbkey=CDS;locus_tag=AFUA_m0440;product=hypothetical protein;protein_id=AFE02862.1;transl_table=4
+2025-06-11 21:15:39,739 - DEBUG -   best_feature not in gene_dict: hypothetical protein
+2025-06-11 21:15:39,739 - DEBUG -   checking in temp_unk
+2025-06-11 21:15:39,739 - DEBUG -   found in temp_unk, label: MT-TEMP-1
+
+2025-06-11 21:15:39,740 - DEBUG -  gene_id: gene-AFUA_m0450 | len(candidates) = 1
+2025-06-11 21:15:39,741 - DEBUG -   chosen best_feature: hypothetical protein
+2025-06-11 21:15:39,743 - DEBUG - 	t: CDS | fn: hypothetical protein | a: ID=cds-AFE02863.1;Parent=gene-AFUA_m0450;Dbxref=NCBI_GP:AFE02863.1;Name=AFE02863.1;gbkey=CDS;locus_tag=AFUA_m0450;product=hypothetical protein;protein_id=AFE02863.1;transl_table=4
+2025-06-11 21:15:39,743 - DEBUG -   best_feature not in gene_dict: hypothetical protein
+2025-06-11 21:15:39,744 - DEBUG -   checking in temp_unk
+2025-06-11 21:15:39,744 - DEBUG -   found in temp_unk, label: MT-TEMP-1
+
+2025-06-11 21:15:39,745 - DEBUG -  gene_id: gene-AFUA_m0460 | len(candidates) = 1
+2025-06-11 21:15:39,746 - DEBUG -   chosen best_feature: ATP synthase subunit 9
+2025-06-11 21:15:39,749 - DEBUG - 	t: CDS | fn: ATP synthase subunit 9 | a: ID=cds-AFE02864.1;Parent=gene-AFUA_m0460;Dbxref=NCBI_GP:AFE02864.1;Name=AFE02864.1;gbkey=CDS;locus_tag=AFUA_m0460;product=ATP synthase subunit 9;protein_id=AFE02864.1;transl_table=4
+2025-06-11 21:15:39,749 - DEBUG -   best_feature in gene_dict, label: MT-ATP9
+
+2025-06-11 21:15:39,750 - DEBUG -  gene_id: gene-AFUA_m0470 | len(candidates) = 1
+2025-06-11 21:15:39,751 - DEBUG -   chosen best_feature: tRNA-Ala
+2025-06-11 21:15:39,756 - DEBUG - 	t: tRNA | fn: tRNA-Ala | a: ID=rna-AFUA_m0470;Parent=gene-AFUA_m0470;Note=anticodon TGC;gbkey=tRNA;locus_tag=AFUA_m0470;product=tRNA-Ala
+2025-06-11 21:15:39,758 - DEBUG -   best_feature in gene_dict, label: MT-TA
+
+2025-06-11 21:15:39,759 - DEBUG -  gene_id: gene-AFUA_m0480 | len(candidates) = 1
+2025-06-11 21:15:39,760 - DEBUG -   chosen best_feature: NADH dehydrogenase subunit 3
+2025-06-11 21:15:39,761 - DEBUG - 	t: CDS | fn: NADH dehydrogenase subunit 3 | a: ID=cds-AFE02865.1;Parent=gene-AFUA_m0480;Dbxref=NCBI_GP:AFE02865.1;Name=AFE02865.1;gbkey=CDS;locus_tag=AFUA_m0480;product=NADH dehydrogenase subunit 3;protein_id=AFE02865.1;transl_table=4
+2025-06-11 21:15:39,761 - DEBUG -   best_feature in gene_dict, label: MT-ND3
+
+2025-06-11 21:15:39,762 - DEBUG -  gene_id: gene-AFUA_m0490 | len(candidates) = 1
+2025-06-11 21:15:39,763 - DEBUG -   chosen best_feature: cytochrome oxidase subunit 2
+2025-06-11 21:15:39,764 - DEBUG - 	t: CDS | fn: cytochrome oxidase subunit 2 | a: ID=cds-AFE02866.1;Parent=gene-AFUA_m0490;Dbxref=NCBI_GP:AFE02866.1;Name=AFE02866.1;gbkey=CDS;locus_tag=AFUA_m0490;product=cytochrome oxidase subunit 2;protein_id=AFE02866.1;transl_table=4
+2025-06-11 21:15:39,765 - DEBUG -   best_feature in gene_dict, label: MT-CO2
+
+2025-06-11 21:15:39,770 - DEBUG -  gene_id: gene-AFUA_m0500 | len(candidates) = 1
+2025-06-11 21:15:39,771 - DEBUG -   chosen best_feature: tRNA-Arg
+2025-06-11 21:15:39,773 - DEBUG - 	t: tRNA | fn: tRNA-Arg | a: ID=rna-AFUA_m0500;Parent=gene-AFUA_m0500;Note=anticodon ACG;gbkey=tRNA;locus_tag=AFUA_m0500;product=tRNA-Arg
+2025-06-11 21:15:39,773 - DEBUG -   best_feature in gene_dict, label: MT-TR
+
+2025-06-11 21:15:39,774 - DEBUG -  gene_id: gene-AFUA_m0510 | len(candidates) = 1
+2025-06-11 21:15:39,775 - DEBUG -   chosen best_feature: NADH dehydrogenase subunit 4L
+2025-06-11 21:15:39,776 - DEBUG - 	t: CDS | fn: NADH dehydrogenase subunit 4L | a: ID=cds-AFE02867.1;Parent=gene-AFUA_m0510;Dbxref=NCBI_GP:AFE02867.1;Name=AFE02867.1;gbkey=CDS;locus_tag=AFUA_m0510;product=NADH dehydrogenase subunit 4L;protein_id=AFE02867.1;transl_table=4
+2025-06-11 21:15:39,777 - DEBUG -   best_feature in gene_dict, label: MT-ND4L
+
+2025-06-11 21:15:39,779 - DEBUG -  gene_id: gene-AFUA_m0520 | len(candidates) = 1
+2025-06-11 21:15:39,779 - DEBUG -   chosen best_feature: NADH dehydrogenase subunit 5
+2025-06-11 21:15:39,784 - DEBUG - 	t: CDS | fn: NADH dehydrogenase subunit 5 | a: ID=cds-AFE02868.1;Parent=gene-AFUA_m0520;Dbxref=NCBI_GP:AFE02868.1;Name=AFE02868.1;gbkey=CDS;locus_tag=AFUA_m0520;product=NADH dehydrogenase subunit 5;protein_id=AFE02868.1;transl_table=4
+2025-06-11 21:15:39,785 - DEBUG -   best_feature in gene_dict, label: MT-ND5
+
+2025-06-11 21:15:39,787 - DEBUG -  gene_id: gene-AFUA_m0530 | len(candidates) = 1
+2025-06-11 21:15:39,788 - DEBUG -   chosen best_feature: NADH dehydrogenase subunit 2
+2025-06-11 21:15:39,790 - DEBUG - 	t: CDS | fn: NADH dehydrogenase subunit 2 | a: ID=cds-AFE02869.1;Parent=gene-AFUA_m0530;Dbxref=NCBI_GP:AFE02869.1;Name=AFE02869.1;gbkey=CDS;locus_tag=AFUA_m0530;product=NADH dehydrogenase subunit 2;protein_id=AFE02869.1;transl_table=4
+2025-06-11 21:15:39,791 - DEBUG -   best_feature in gene_dict, label: MT-ND2
+
+2025-06-11 21:15:39,792 - DEBUG - AN: KX657746.1| gene_ids: ['gene-KX657746.1:14572..15996', 'gene-KX657746.1:52846..53595', 'gene-KX657746.1:54192..55251', 'gene-KX657746.1:39156..40082', 'gene-KX657746.1:33769..34810', 'gene-KX657746.1:36814..38126']
+2025-06-11 21:15:39,816 - DEBUG -  gene_id: gene-KX657746.1:14572..15996 | len(candidates) = 1
+2025-06-11 21:15:39,817 - DEBUG -   chosen best_feature: Orf1p
+2025-06-11 21:15:39,818 - DEBUG - 	t: CDS | fn: Orf1p | a: ID=cds-AOT85194.1;Parent=gene-KX657746.1:14572..15996;Dbxref=NCBI_GP:AOT85194.1;Name=AOT85194.1;Note=homolog to ORF1 (de Zamaroczy and Bernardi%2C 1986a);gbkey=CDS;product=Orf1p;protein_id=AOT85194.1;transl_except=(pos:14572..14574%2Caa:Met);transl_table=3
+2025-06-11 21:15:39,819 - DEBUG -   best_feature not in gene_dict: Orf1p
+2025-06-11 21:15:39,820 - DEBUG -   checking in temp_unk
+2025-06-11 21:15:39,820 - DEBUG -   not found in temp_unk, new label: MT-TEMP-3
+
+2025-06-11 21:15:39,821 - DEBUG -  gene_id: gene-KX657746.1:52846..53595 | len(candidates) = 1
+2025-06-11 21:15:39,822 - DEBUG -   chosen best_feature: maturase/DNA endonuclease
+2025-06-11 21:15:39,823 - DEBUG - 	t: CDS | fn: maturase/DNA endonuclease | a: ID=cds-AOT85203.1;Parent=gene-KX657746.1:52846..53595;Dbxref=NCBI_GP:AOT85203.1;Name=AOT85203.1;Note=start codon not determined;gbkey=CDS;partial=true;product=maturase/DNA endonuclease;protein_id=AOT85203.1;start_range=.,52846;transl_table=3
+2025-06-11 21:15:39,824 - DEBUG -   best_feature not in gene_dict: maturase/DNA endonuclease
+2025-06-11 21:15:39,824 - DEBUG -   checking in temp_unk
+2025-06-11 21:15:39,825 - DEBUG -   not found in temp_unk, new label: MT-TEMP-4
+
+2025-06-11 21:15:39,826 - DEBUG -  gene_id: gene-KX657746.1:54192..55251 | len(candidates) = 1
+2025-06-11 21:15:39,826 - DEBUG -   chosen best_feature: hypothetical protein
+2025-06-11 21:15:39,827 - DEBUG - 	t: CDS | fn: hypothetical protein | a: ID=cds-AOT85204.1;Parent=gene-KX657746.1:54192..55251;Dbxref=NCBI_GP:AOT85204.1;Name=AOT85204.1;Note=start codon not determined;gbkey=CDS;partial=true;product=hypothetical protein;protein_id=AOT85204.1;start_range=.,54192;transl_table=3
+2025-06-11 21:15:39,827 - DEBUG -   best_feature not in gene_dict: hypothetical protein
+2025-06-11 21:15:39,828 - DEBUG -   checking in temp_unk
+2025-06-11 21:15:39,828 - DEBUG -   found in temp_unk, label: MT-TEMP-1
+
+2025-06-11 21:15:39,830 - DEBUG -  gene_id: gene-KX657746.1:39156..40082 | len(candidates) = 1
+2025-06-11 21:15:39,831 - DEBUG -   chosen best_feature: maturase/DNA endonuclease
+2025-06-11 21:15:39,832 - DEBUG - 	t: CDS | fn: maturase/DNA endonuclease | a: ID=cds-AOT85199.1;Parent=gene-KX657746.1:39156..40082;Dbxref=NCBI_GP:AOT85199.1;Name=AOT85199.1;Note=start codon not determined;gbkey=CDS;partial=true;product=maturase/DNA endonuclease;protein_id=AOT85199.1;start_range=.,39156;transl_table=3
+2025-06-11 21:15:39,836 - DEBUG -   best_feature not in gene_dict: maturase/DNA endonuclease
+2025-06-11 21:15:39,836 - DEBUG -   checking in temp_unk
+2025-06-11 21:15:39,837 - DEBUG -   found in temp_unk, label: MT-TEMP-4
+
+2025-06-11 21:15:39,839 - DEBUG -  gene_id: gene-KX657746.1:33769..34810 | len(candidates) = 1
+2025-06-11 21:15:39,839 - DEBUG -   chosen best_feature: maturase/DNA endonuclease
+2025-06-11 21:15:39,842 - DEBUG - 	t: CDS | fn: maturase/DNA endonuclease | a: ID=cds-AOT85197.1;Parent=gene-KX657746.1:33769..34810;Dbxref=NCBI_GP:AOT85197.1;Name=AOT85197.1;Note=start codon not determined;gbkey=CDS;partial=true;product=maturase/DNA endonuclease;protein_id=AOT85197.1;start_range=.,33769;transl_table=3
+2025-06-11 21:15:39,843 - DEBUG -   best_feature not in gene_dict: maturase/DNA endonuclease
+2025-06-11 21:15:39,843 - DEBUG -   checking in temp_unk
+2025-06-11 21:15:39,845 - DEBUG -   found in temp_unk, label: MT-TEMP-4
+
+2025-06-11 21:15:39,847 - DEBUG -  gene_id: gene-KX657746.1:36814..38126 | len(candidates) = 1
+2025-06-11 21:15:39,849 - DEBUG -   chosen best_feature: hypothetical protein
+2025-06-11 21:15:39,850 - DEBUG - 	t: CDS | fn: hypothetical protein | a: ID=cds-AOT85198.1;Parent=gene-KX657746.1:36814..38126;Dbxref=NCBI_GP:AOT85198.1;Name=AOT85198.1;Note=start codon not determined;gbkey=CDS;partial=true;product=hypothetical protein;protein_id=AOT85198.1;start_range=.,36814;transl_table=3
+2025-06-11 21:15:39,850 - DEBUG -   best_feature not in gene_dict: hypothetical protein
+2025-06-11 21:15:39,851 - DEBUG -   checking in temp_unk
+2025-06-11 21:15:39,853 - DEBUG -   found in temp_unk, label: MT-TEMP-1
+
+2025-06-11 21:16:11,740 - INFO - Writing TEMP Mapping GDT file: /home/brenodupin/matheus/gdt/example/fungi_mt/misc/gdt/TEMP_Mapping_01.gdt | Iteration: 1
+2025-06-11 21:16:19,066 - DEBUG - gene_dict changed, incrementing gdt file and writing it
+2025-06-11 21:16:19,067 - INFO - Writing GDT file: /home/brenodupin/matheus/gdt/example/fungi_mt/misc/gdt/fungi_mt_pilot_07.gdt

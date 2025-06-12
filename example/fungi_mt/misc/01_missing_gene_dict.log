@@ -1569,3 +1569,14 @@ GDT Info:
 2025-06-11 20:50:34,147 - INFO -  ---- [Finished] ----
 2025-06-11 20:50:41,686 - INFO - Writing TEMP Symbol GDT file: /home/brenodupin/matheus/gdt/example/fungi_mt/misc/gdt/TEMP_Symbol_01.gdt | Iteration: 1
 2025-06-11 20:50:47,605 - INFO - Writing gene_dict file: /home/brenodupin/matheus/gdt/example/fungi_mt/misc/gdt/fungi_mt_pilot_03.gdt | pilot itr: 3
+2025-06-11 21:03:35,735 - INFO - Removing gene IDs from GFF files.
+2025-06-11 21:03:35,737 - DEBUG - Processing NC_001224.1 for excluding 7 gene IDs
+2025-06-11 21:03:35,739 - TRACE - excluding gene IDs: {'gene-Q0065', 'gene-Q0055', 'gene-Q0255', 'gene-Q0050', 'gene-Q0075', 'gene-Q0070', 'gene-Q0060'}
+2025-06-11 21:03:35,754 - TRACE - Pattern for removal: ID=gene-Q0065;|ID=gene-Q0055;|ID=gene-Q0255;|ID=gene-Q0050;|ID=gene-Q0075;|ID=gene-Q0070;|ID=gene-Q0060;
+2025-06-11 21:03:35,760 - DEBUG - Processing NC_066216.1 for excluding 1 gene IDs
+2025-06-11 21:03:35,761 - TRACE - excluding gene IDs: {'gene-N4M62_mgp04'}
+2025-06-11 21:03:35,762 - TRACE - Pattern for removal: ID=gene-N4M62_mgp04;
+2025-06-11 21:03:35,765 - DEBUG - Processing NC_042229.1 for excluding 24 gene IDs
+2025-06-11 21:03:35,766 - TRACE - excluding gene IDs: {'gene-FDY65_mgp27', 'gene-FDY65_mgp29', 'gene-FDY65_mgp36', 'gene-FDY65_mgp18', 'gene-FDY65_mgp34', 'gene-FDY65_mgp05', 'gene-FDY65_mgp04', 'gene-FDY65_mgp03', 'gene-FDY65_mgp15', 'gene-FDY65_mgp41', 'gene-FDY65_mgp30', 'gene-FDY65_mgp02', 'gene-FDY65_mgp33', 'gene-FDY65_mgp37', 'gene-FDY65_mgp28', 'gene-FDY65_mgp13', 'gene-FDY65_mgp10', 'gene-FDY65_mgp25', 'gene-FDY65_mgp08', 'gene-FDY65_mgp44', 'gene-FDY65_mgp43', 'gene-FDY65_mgp09', 'gene-FDY65_mgp31', 'gene-FDY65_mgp42'}
+2025-06-11 21:03:35,769 - TRACE - Pattern for removal: ID=gene-FDY65_mgp27;|ID=gene-FDY65_mgp29;|ID=gene-FDY65_mgp36;|ID=gene-FDY65_mgp18;|ID=gene-FDY65_mgp34;|ID=gene-FDY65_mgp05;|ID=gene-FDY65_mgp04;|ID=gene-FDY65_mgp03;|ID=gene-FDY65_mgp15;|ID=gene-FDY65_mgp41;|ID=gene-FDY65_mgp30;|ID=gene-FDY65_mgp02;|ID=gene-FDY65_mgp33;|ID=gene-FDY65_mgp37;|ID=gene-FDY65_mgp28;|ID=gene-FDY65_mgp13;|ID=gene-FDY65_mgp10;|ID=gene-FDY65_mgp25;|ID=gene-FDY65_mgp08;|ID=gene-FDY65_mgp44;|ID=gene-FDY65_mgp43;|ID=gene-FDY65_mgp09;|ID=gene-FDY65_mgp31;|ID=gene-FDY65_mgp42;
+2025-06-11 21:03:35,769 - INFO - Finished removing gene IDs from 3 GFF files.

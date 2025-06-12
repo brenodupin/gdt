@@ -529,3 +529,9 @@
 2025-06-11 21:16:11,740 - INFO - Writing TEMP Mapping GDT file: /home/brenodupin/matheus/gdt/example/fungi_mt/misc/gdt/TEMP_Mapping_01.gdt | Iteration: 1
 2025-06-11 21:16:19,066 - DEBUG - gene_dict changed, incrementing gdt file and writing it
 2025-06-11 21:16:19,067 - INFO - Writing GDT file: /home/brenodupin/matheus/gdt/example/fungi_mt/misc/gdt/fungi_mt_pilot_07.gdt
+2025-06-11 21:19:47,036 - INFO - Removing 2 gene IDs from GFF files.
+2025-06-11 21:19:47,039 - TRACE - Processing JQ346808.1 for removal of gene IDs {'gene-AFUA_m0390', 'gene-AFUA_m0430'}
+2025-06-11 21:19:47,055 - TRACE - Pattern for removal: ID=gene-AFUA_m0390;|ID=gene-AFUA_m0430;
+2025-06-11 21:19:47,056 - TRACE - Processing KX657746.1 for removal of gene IDs {'gene-KX657746.1:14572..15996', 'gene-KX657746.1:52846..53595'}
+2025-06-11 21:19:47,057 - TRACE - Pattern for removal: ID=gene-KX657746.1:14572..15996;|ID=gene-KX657746.1:52846..53595;
+2025-06-11 21:19:47,058 - INFO - Finished removing gene IDs from 2 GFF files.

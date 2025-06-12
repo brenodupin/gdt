@@ -1,8 +1,18 @@
 # -*- coding: utf-8 -*-
 
-from typing import Optional, Union
-from pathlib import Path
+import re
+import os
+import shutil
 import pandas as pd
+import concurrent.futures
+
+from pathlib import Path
+from typing import Optional, cast, Union
+
+from . import gff3_utils
+from . import gene_dict_impl
+from . import logger_setup
+
 
 GFF3_COLUMNS: tuple[str, ...] = (
     "seqid",
@@ -17,6 +27,8 @@ GFF3_COLUMNS: tuple[str, ...] = (
 )
 QS_GENE = "type == 'gene'"
 QS_GENE_TRNA_RRNA = "type in ('gene', 'tRNA', 'rRNA')"
+
+RE_ID = re.compile(r"ID=([^;]+)")
 
 
 def load_gff3(
@@ -69,3 +81,193 @@ def filter_orfs(
     return gff3_df[
         ~gff3_df["attributes"].str.contains("|".join(orfs_strings))
     ].reset_index(drop=True)
+
+
+def check_single_an(
+    AN_path: Path,
+    gene_dict: gene_dict_impl.GeneDict,
+    keep_orfs: bool = False,
+    query_string: str = QS_GENE_TRNA_RRNA,
+) -> dict[str, Union[str, int, list[str]]]:
+    try:
+        AN: str = AN_path.stem
+        df = load_gff3(AN_path, query_string=query_string)
+
+        if not keep_orfs:  # removing ORFs
+            df = filter_orfs(df)
+
+        df["gene_id"] = df["attributes"].str.extract(RE_ID, expand=False)  # type: ignore[call-overload]
+        gene_ids = df["gene_id"].values
+
+        in_gene_dict_mask = [g in gene_dict for g in gene_ids]
+
+        # Get dbxref info
+        dbxref_mask = df["attributes"].str.contains("Dbxref=", na=False)
+
+        status = "good_to_go"
+        if not all(in_gene_dict_mask):
+            status = (
+                "missing_gene_dict_with_dbxref"
+                if all(dbxref_mask)
+                else "missing_dbxref"
+            )
+
+        return {
+            "AN": AN,
+            "status": status,
+            "gene_count": len(df),
+            "dbxref_count": sum(dbxref_mask),
+            "gene_dict_count": sum(in_gene_dict_mask),
+            "genes": gene_ids.tolist(),
+            "genes_without_dbxref": df[~dbxref_mask]["gene_id"].tolist(),
+            "genes_with_dbxref": df[dbxref_mask]["gene_id"].tolist(),
+            "genes_not_in_dict": [
+                g for g, in_dict in zip(gene_ids, in_gene_dict_mask) if not in_dict
+            ],
+            "genes_in_dict": [
+                g for g, in_dict in zip(gene_ids, in_gene_dict_mask) if in_dict
+            ],
+        }
+    except Exception as e:
+        return {"AN": AN, "status": "error", "error": str(e)}
+
+
+def filter_whole_tsv(
+    log: logger_setup.GDTLogger,
+    tsv_path: Path,
+    gdt_path: Optional[Path] = None,
+    keep_orfs: bool = False,
+    workers: int = 0,
+    AN_column: str = "AN",
+    gff_suffix: str = ".gff3",
+    query_string: str = QS_GENE_TRNA_RRNA,
+) -> None:
+    max_workers = os.cpu_count() or 1
+    workers = workers if (workers > 0 and workers <= max_workers) else max_workers
+    log.trace(
+        f"filter_whole_tsv called | tsv_path: {tsv_path} | gdt_path: {gdt_path}"
+        f" | w: {workers} | keep_orfs: {keep_orfs}"
+    )
+
+    AN_missing_dbxref: list[str] = []
+    AN_missing_gene_dict: list[str] = []
+    AN_good_to_go: list[str] = []
+
+    # check if tsv_path exists
+    if not tsv_path.exists():
+        log.error(f"tsv file not found: {gdt_path}")
+        raise FileNotFoundError(f"tsv file not found: {gdt_path}")
+
+    base_folder = tsv_path.parent
+    tsv = pd.read_csv(tsv_path, sep="\t", header=0, dtype=str)
+
+    MISC_DIR = base_folder / "misc"
+    GDT_DIR = MISC_DIR / "gdt"
+    GDT_DIR.mkdir(511, True, True)  # 511 = 0o777
+
+    # check if gdt_path exists, if not, create empty gene_dict
+    if gdt_path:
+        if not gdt_path.exists():
+            log.error(f"gdt file not found: {gdt_path}")
+            raise FileNotFoundError(f"gdt file not found: {gdt_path}")
+
+        # check if gdt file is in GDT_DIR
+        if gdt_path.parent != GDT_DIR:
+            gdt_path = shutil.move(gdt_path, GDT_DIR / gdt_path.name)
+            log.info(f"Moving gdt file to {gdt_path}")
+
+        gene_dict = gene_dict_impl.create_gene_dict(gdt_path)
+        log.debug(f"Gene dictionary loaded from {gdt_path}")
+        log.trace(f"Header]: {gene_dict.header}")
+        log.trace(f"Info]  : {gene_dict.info}")
+
+    else:
+        gene_dict = gene_dict_impl.GeneDict()
+        log.debug("No gdt file provided. Using empty gene_dict.")
+
+    # check if columns 'AN' exists
+    if AN_column not in tsv.columns:
+        log.error(f"AN column '{AN_column}' not found in {tsv_path}")
+        log.error(f"Available columns: {tsv.columns}")
+        raise ValueError(f"AN column '{AN_column}' not found in {tsv_path}")
+
+    # start processing
+    log.info(f"Processing {len(tsv)} ANs with {workers} workers")
+    with concurrent.futures.ProcessPoolExecutor(max_workers=workers) as executor:
+        futures = [
+            executor.submit(
+                check_single_an,
+                base_folder / f"{an}{gff_suffix}",
+                gene_dict,
+                keep_orfs,
+                query_string,
+            )
+            for an in tsv[AN_column]
+        ]
+    concurrent.futures.wait(futures)
+
+    for future in futures:
+        result = future.result()
+        if result["status"] == "error":
+            log.error(f"Error processing {result['AN']}: {result['error']}")
+            continue
+
+        AN: str = cast(str, result["AN"])
+        log.trace(f"-- [Processing: {AN}] --")
+        log.trace(
+            f"\tgenes: {result['gene_count']} | have dbxref: {result['dbxref_count']} |"
+            f" genes in gene_dict: {result['gene_dict_count']}"
+        )
+        log.trace(f"\tgenes: {result['genes']}")
+        log.trace(f"\twith dbxref: {result['genes_with_dbxref']}")
+        log.trace(f"\tin gene_dict: {result['genes_in_dict']}")
+        log.trace(f"\twithout dbxref: {result['genes_without_dbxref']}")
+        log.trace(f"\tnot in gene_dict: {result['genes_not_in_dict']}")
+
+        if result["status"] == "missing_gene_dict_with_dbxref":
+            log.trace(f"\t{AN} is missing genes in gene_dict but have dbxref")
+            AN_missing_gene_dict.append(AN)
+
+        elif result["status"] == "missing_dbxref":
+            log.trace(
+                f"\t{AN} is missing genes in gene_dict and is also missing dbxref"
+            )
+            AN_missing_dbxref.append(AN)
+
+        else:
+            log.trace(f"\t{AN} is good to go!")
+            AN_good_to_go.append(AN)
+
+        log.trace(f"-- [End Processing: {AN}] --")
+
+    log.info(f"ANs missing dbxref: {len(AN_missing_dbxref)}")
+    log.trace(f"ANs missing dbxref: {AN_missing_dbxref}")
+    log.info(f"ANs missing gene_dict: {len(AN_missing_gene_dict)}")
+    log.trace(f"ANs missing gene_dict: {AN_missing_gene_dict}")
+    log.info(f"ANs good to go: {len(AN_good_to_go)}")
+    log.trace(f"ANs good to go: {AN_good_to_go}")
+    log.info("Processing finished, creating output files")
+
+    path_gene_dict = MISC_DIR / "AN_missing_gene_dict.txt"
+    path_dbxref = MISC_DIR / "AN_missing_dbxref.txt"
+
+    if AN_missing_dbxref:
+        with open(path_dbxref, "w") as f:
+            f.write("\n".join(AN_missing_dbxref))
+
+    else:
+        log.debug("No ANs missing dbxref, skipping file creation")
+        # check if file exists and remove it
+        if path_dbxref.exists():
+            log.debug(f"Removing file: {path_dbxref}")
+            path_dbxref.unlink()
+
+    if AN_missing_gene_dict:
+        with open(path_gene_dict, "w") as f:
+            f.write("\n".join(AN_missing_gene_dict))
+
+    else:
+        log.debug("No ANs missing gene_dict, skipping file creation")
+        if path_gene_dict.exists():
+            log.debug(f"Removing file: {path_gene_dict}")
+            path_gene_dict.unlink()

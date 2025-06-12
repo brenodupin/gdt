@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 
+import os
 from . import logger_setup
 from . import gene_dict_impl
-from . import tsv_filter
 from . import gff3_utils
 from gdt import __version__
 
@@ -168,7 +168,7 @@ def cli_run() -> None:
             f"AN_column: {args.AN_column} | gff_suffix: {args.gff_suffix} | "
             f"query_string: {args.query_string}"
         )
-        tsv_filter.filter_whole_tsv(
+        gff3_utils.filter_whole_tsv(
             log,
             args.tsv,
             args.gdt,

@@ -37,7 +37,6 @@ def cli_run() -> None:
         help="Enable TRACE level in file, and DEBUG on console. "
         "Default: DEBUG level on file and INFO on console.",
     )
-
     global_flags.add_argument(
         "--log",
         required=False,
@@ -86,7 +85,6 @@ def cli_run() -> None:
         type=str,
         help="TSV file with indexed GFF3 files to filter.",
     )
-
     filter_parser.add_argument(
         "--AN-column",
         required=False,
@@ -162,8 +160,109 @@ def cli_run() -> None:
         help="Overwrite output file, if it already exists. Default: False",
     )
 
-    subparsers.add_parser("test", help="Test command", parents=[gp])
-    args = parser.parse_args()
+    standardize_parser = subparsers.add_parser(
+        "standardize",
+        help="Standardize gene names in GFF3 files.",
+        description="Standardize gene names across features in "
+        "GFF3 files using a GDT file.",
+        parents=[global_flags],
+    )
+    # mutually exclusive group for GFF or TSV input
+    flag_group = standardize_parser.add_mutually_exclusive_group(required=True)
+    flag_group.add_argument(
+        "--gff",
+        type=str,
+        help="GFF3 file to standardize.",
+    )
+    flag_group.add_argument(
+        "--tsv",
+        type=str,
+        help="TSV file with indexed GFF3 files to standardize.",
+    )
+
+    standardize_parser.add_argument(
+        "--gdt",
+        required=True,
+        type=str,
+        help="GDT file to use for standardization. ",
+    )
+    standardize_parser.add_argument(
+        "--AN-column",
+        required=False,
+        default="AN",
+        type=str,
+        help="Column name for NCBI Accession Number inside the TSV. Default: AN",
+    )
+    standardize_parser.add_argument(
+        "--gff-suffix",
+        required=False,
+        default=".gff3",
+        type=str,
+        help="Suffix for GFF files. Default: '.gff3'",
+    )
+    standardize_parser.add_argument(
+        "--query-string",
+        required=False,
+        default=gff3_utils.QS_GENE_TRNA_RRNA,
+        type=str,
+        help="Query string that pandas filter features in GFF. "
+        f"Default: '{gff3_utils.QS_GENE_TRNA_RRNA}'",
+    )
+    standardize_parser.add_argument(
+        "--check",
+        required=False,
+        default=False,
+        action="store_true",
+        help="Just check for standardization issues, "
+        "do not modify the GFF3 file. Default: False",
+    )
+    standardize_parser.add_argument(
+        "--workers",
+        required=False,
+        default=0,
+        type=int,
+        help="Number of workers to use. "
+        f"Default: 0 (use all available cores: {os.cpu_count()})",
+    )
+    standardize_parser.add_argument(
+        "--second-place",
+        required=False,
+        default=False,
+        action="store_true",
+        help="Add the gdt key/value pair to the second place in the GFF3 file, after the ID. "
+        "Default: False (add to the end of the attributes field).",
+    )
+    standardize_parser.add_argument(
+        "--gdt-tag",
+        required=False,
+        default="gdt_label",
+        type=str,
+        help="Tag to use for the GDT key/value pair in the GFF3 file. "
+        "Default: 'gdt_label'.",
+    )
+    standardize_parser.add_argument(
+        "--error-on-missing",
+        required=False,
+        default=False,
+        action="store_true",
+        help="Raise an error if a feature is missing in the GDT file. "
+        "Default: False (just log a warning and skip the feature).",
+    )
+    standardize_parser.add_argument(
+        "--save-copy",
+        required=False,
+        default=False,
+        action="store_true",
+        help="Save a copy of the original GFF3 file with a .original suffix. "
+        "Default: False (change inplace).",
+    )
+
+    subparsers.add_parser(
+        "test",
+        help="Test command",
+        parents=[global_flags],
+    )
+    args = main_parser.parse_args()
 
     if not args.quiet:
         print(GDT_BANNER)
@@ -213,6 +312,47 @@ def cli_run() -> None:
         else:
             log.error(f"Input GDT file does not exist: {args.gdt_in}")
             raise FileNotFoundError(f"GDT file not found: {args.gdt_in}")
+
+    elif args.command == "standardize":
+        log.info(
+            f"Standardize command: gff: {args.gff} | tsv: {args.tsv} | "
+            f"gdt: {args.gdt} | AN_column: {args.AN_column} | "
+            f"gff_suffix: {args.gff_suffix} | query_string: {args.query_string} | "
+            f"check: {args.check} | workers: {args.workers} | "
+            f"second_place: {args.second_place} | gdt_tag: {args.gdt_tag} | "
+            f"error_on_missing: {args.error_on_missing} | save_copy: {args.save_copy}"
+        )
+        args.gdt = Path(args.gdt).resolve()
+        if args.gff:
+            args.gff = Path(args.gff).resolve()
+            gff3_utils.standardize_gff3(
+                log,
+                args.gff,
+                args.gdt,
+                args.query_string,
+                args.check,
+                args.second_place,
+                args.gdt_tag,
+                args.error_on_missing,
+                args.save_copy,
+            )
+
+        elif args.tsv:
+            args.tsv = Path(args.tsv).resolve()
+            gff3_utils.standardize_tsv(
+                log,
+                args.tsv,
+                args.gdt,
+                args.AN_column,
+                args.gff_suffix,
+                args.query_string,
+                args.check,
+                args.workers,
+                args.second_place,
+                args.gdt_tag,
+                args.error_on_missing,
+                args.save_copy,
+            )
 
     elif args.command == "test":
         log.info(f"Test command: {args}")

@@ -3,6 +3,7 @@
 import re
 import os
 import shutil
+import numpy as np
 import pandas as pd
 import concurrent.futures
 
@@ -132,6 +133,45 @@ def check_single_an(
         return {"AN": AN, "status": "error", "error": str(e)}
 
 
+def check_column(
+    log: logger_setup.GDTLogger,
+    df: pd.DataFrame,
+    col: str,
+    df_txt: str = "TSV",
+) -> None:
+    if col not in df.columns:
+        log.error(f"Column '{col}' not found in DataFrame")
+        log.error(f"Available columns: {df.columns}")
+        raise ValueError(
+            f"Column '{col}' not found in {df_txt}. Please check the file."
+        )
+
+
+def check_gff_in_tsv(
+    log: logger_setup.GDTLogger,
+    df: pd.DataFrame,
+    base_path: Path,
+    gff_suffix: str = ".gff3",
+    AN_column: str = "AN",
+) -> None:
+    log.trace(
+        f"check_gff_in_tsv called | base_path: {base_path} | gff_suffix: {gff_suffix}"
+    )
+
+    missing_files = [
+        (AN, AN_path)
+        for AN in df[AN_column]
+        if not (AN_path := (base_path / f"{AN}{gff_suffix}")).is_file()
+    ]
+
+    if missing_files:
+        for AN, path in missing_files:
+            log.error(f"GFF3 file not found for {AN}, expected {path}")
+        raise FileNotFoundError(
+            f"Missing {len(missing_files)} GFF3 files. Please check the log for details."
+        )
+
+
 def filter_whole_tsv(
     log: logger_setup.GDTLogger,
     tsv_path: Path,
@@ -159,7 +199,9 @@ def filter_whole_tsv(
         raise FileNotFoundError(f"tsv file not found: {gdt_path}")
 
     base_folder = tsv_path.parent
-    tsv = pd.read_csv(tsv_path, sep="\t", header=0, dtype=str)
+    tsv = pd.read_csv(tsv_path, sep="\t")
+    check_column(log, tsv, AN_column)
+    check_gff_in_tsv(log, tsv, base_folder, gff_suffix, AN_column)
 
     MISC_DIR = base_folder / "misc"
     GDT_DIR = MISC_DIR / "gdt"
@@ -184,12 +226,6 @@ def filter_whole_tsv(
     else:
         gene_dict = gene_dict_impl.GeneDict()
         log.debug("No gdt file provided. Using empty gene_dict.")
-
-    # check if columns 'AN' exists
-    if AN_column not in tsv.columns:
-        log.error(f"AN column '{AN_column}' not found in {tsv_path}")
-        log.error(f"Available columns: {tsv.columns}")
-        raise ValueError(f"AN column '{AN_column}' not found in {tsv_path}")
 
     # start processing
     log.info(f"Processing {len(tsv)} ANs with {workers} workers")
@@ -240,13 +276,13 @@ def filter_whole_tsv(
 
         log.trace(f"-- [End Processing: {AN}] --")
 
-    log.info(f"ANs missing dbxref: {len(AN_missing_dbxref)}")
-    log.trace(f"ANs missing dbxref: {AN_missing_dbxref}")
-    log.info(f"ANs missing gene_dict: {len(AN_missing_gene_dict)}")
-    log.trace(f"ANs missing gene_dict: {AN_missing_gene_dict}")
     log.info(f"ANs good to go: {len(AN_good_to_go)}")
     log.trace(f"ANs good to go: {AN_good_to_go}")
-    log.info("Processing finished, creating output files")
+    log.info(f"ANs missing gene_dict: {len(AN_missing_gene_dict)}")
+    log.trace(f"ANs missing gene_dict: {AN_missing_gene_dict}")
+    log.info(f"ANs missing dbxref: {len(AN_missing_dbxref)}")
+    log.trace(f"ANs missing dbxref: {AN_missing_dbxref}")
+    log.info("Processing finished, resolving output files")
 
     path_gene_dict = MISC_DIR / "AN_missing_gene_dict.txt"
     path_dbxref = MISC_DIR / "AN_missing_dbxref.txt"
@@ -271,3 +307,148 @@ def filter_whole_tsv(
         if path_gene_dict.exists():
             log.debug(f"Removing file: {path_gene_dict}")
             path_gene_dict.unlink()
+
+
+def standardize_tsv(
+    log: logger_setup.GDTLogger,
+    tsv_path: Path,
+    gdt_path: Path,
+    AN_colum: str,
+    gff_suffix: str,
+    query_string: str,
+    check_flag: bool,
+    worker: int,
+    second_plance: bool,
+    gdt_tag: str,
+    error_on_missing: bool,
+    save_copy: bool,
+) -> None:
+    # checks
+    if not tsv_path.exists():
+        log.error(f"tsv file not found: {tsv_path}")
+        raise FileNotFoundError(f"tsv file not found: {tsv_path}")
+
+    if not gdt_path.exists():
+        log.error(f"gdt file not found: {gdt_path}")
+        raise FileNotFoundError(f"gdt file not found: {gdt_path}")
+
+    gene_dict = gene_dict_impl.create_gene_dict(gdt_path)
+    log.debug(f"Gene dictionary loaded from {gdt_path}")
+
+    tsv = pd.read_csv(tsv_path, sep="\t")
+    check_column(log, tsv, AN_colum)
+    check_gff_in_tsv(log, tsv, tsv_path.parent, gff_suffix, AN_colum)
+
+    for AN in tsv[AN_colum]:
+        gff_path = tsv_path.parent / f"{AN}{gff_suffix}"
+        standardize_gff3(
+            log,
+            gff_path,
+            gene_dict,
+            query_string,
+            check_flag,
+            second_plance,
+            gdt_tag,
+            error_on_missing,
+            save_copy,
+        )
+
+
+def standardize_gff3(
+    log: logger_setup.GDTLogger,
+    gff_path: Path,
+    gene_dict: gene_dict_impl.GeneDict,
+    query_string: str,
+    check_flag: bool,
+    second_plance: bool,
+    gdt_tag: str,
+    error_on_missing: bool,
+    save_copy: bool,
+) -> None:
+    """
+    Standardize a GFF3 file based on the provided parameters.
+    """
+    log.trace(f"standardize_gff3 called | gff_path: {gff_path}")
+
+    if not gff_path.exists():
+        log.error(f"GFF3 file not found: {gff_path}")
+        raise FileNotFoundError(f"GFF3 file not found: {gff_path}")
+
+    with open(gff_path, "r") as f:
+        lines = f.readlines()
+
+    headers, index = [], 0
+    while lines[index].startswith("#"):
+        headers.append(lines[index].strip())
+        index += 1
+
+    contents = []
+    series_holder = pd.Series([""], dtype="string")
+
+    for l in lines[index:]:
+        if not (l := l.strip()):
+            continue
+        line = l.split("\t")
+        joined_line = "\t".join(line)
+
+        # line[2] is type line, line[8] is attributes
+        series_holder[0] = line[2]
+        if pd.eval(query_string, local_dict={"type": series_holder})[0]:
+            gene_id = m.group(1) if (m := RE_ID.search(line[8])) else None
+            if gene_id:
+                gdt_label = gene_dict.get(gene_id, None)
+
+                if not gdt_label:
+                    log.error(f"Gene ID {gene_id} not found in gene_dict.")
+
+                    if error_on_missing:
+                        raise ValueError(f"Gene ID {gene_id} not found in gene_dict.")
+
+                    contents.append("\t".join(line))
+                    continue
+
+                gdt_str = f"{gdt_tag}={gdt_label.label}"
+
+                if gdt_str in line[8]:
+                    log.trace(
+                        f"Skipping {gdt_str} in {gff_path.name}. Already present."
+                    )
+                    contents.append("\t".join(line))
+                    continue
+
+                if f"{gdt_tag}=" in line[8]:
+                    log.debug(f"Removing existing {gdt_tag} tag in {gff_path.name}.")
+                    line[8] = re.sub(rf"{gdt_tag}=[^;]*;?", "", line[8])
+                    line[8] = line[8][:-1] if line[8].endswith(";") else line[8]
+
+                if second_plance:
+                    left, right = line[8].split(";", 1)
+                    line[8] = (
+                        f"{left};{gdt_str};{right}" if right else f"{left};{gdt_str}"
+                    )
+
+                else:
+                    line[8] = (
+                        f"{line[8]}{'' if line[8].endswith(';') else ';'}{gdt_tag}={gdt_label.label}"
+                    )
+            else:
+                log.error(f"ID not found in {gff_path.name}. att: {joined_line}")
+                if error_on_missing:
+                    raise ValueError(
+                        f"ID not found in {gff_path.name}. att: {joined_line}"
+                    )
+
+        contents.append("\t".join(line))
+
+    if not check_flag:
+        log.info(f"Standardizing {gff_path.name} with {gdt_tag} tag")
+        if save_copy:
+            backup_path = gff_path.with_suffix(".original")
+            shutil.copy(gff_path, backup_path)
+            log.info(f"Backup created at {backup_path}")
+
+        with open(gff_path, "w") as f:
+            f.write("\n".join(headers))
+            f.write("\n")
+            f.write("\n".join(contents))
+            f.write("\n\n")

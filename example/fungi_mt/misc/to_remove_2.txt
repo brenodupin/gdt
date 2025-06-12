@@ -1,0 +1,15 @@
+[MT-TEMP-1]
+hypothetical protein #gd MANUAL
+gene-AFUA_m0390 #gn JQ346808.1 #c insertion from missing_dbxref_unk_problems, source: hypothetical protein | type: CDS
+
+[MT-TEMP-2]
+intron-encoded LAGLIDADG endonuclease family protein #gd MANUAL
+gene-AFUA_m0430 #gn JQ346808.1 #c insertion from missing_dbxref_unk_problems, source: intron-encoded LAGLIDADG endonuclease family protein | type: CDS
+
+[MT-TEMP-3]
+Orf1p #gd MANUAL
+gene-KX657746.1:14572..15996 #gn KX657746.1 #c insertion from missing_dbxref_unk_problems, source: Orf1p | type: CDS
+
+[MT-TEMP-4]
+maturase/DNA endonuclease #gd MANUAL
+gene-KX657746.1:52846..53595 #gn KX657746.1 #c insertion from missing_dbxref_unk_problems, source: maturase/DNA endonuclease | type: CDS

@@ -28,8 +28,8 @@ def cli_run() -> None:
     """Command line interface for the Gene Dictionary Tool (gdt)"""
 
     # Global parser to add debug, log, and quiet flags to all subcommands
-    gp = argparse.ArgumentParser(add_help=False)
-    gp.add_argument(
+    global_flags = argparse.ArgumentParser(add_help=False)
+    global_flags.add_argument(
         "--debug",
         required=False,
         default=False,
@@ -38,7 +38,7 @@ def cli_run() -> None:
         "Default: DEBUG level on file and INFO on console.",
     )
 
-    gp.add_argument(
+    global_flags.add_argument(
         "--log",
         required=False,
         default=None,
@@ -46,7 +46,7 @@ def cli_run() -> None:
         help="Path to the log file. "
         "If not provided, a default log file will be created.",
     )
-    gp.add_argument(
+    global_flags.add_argument(
         "--quiet",
         required=False,
         default=False,
@@ -54,20 +54,23 @@ def cli_run() -> None:
         help="Suppress console output. Default: console output enabled.",
     )
 
-    parser = argparse.ArgumentParser(
+    main_parser = argparse.ArgumentParser(
         description=GDT_BANNER,
         formatter_class=argparse.RawDescriptionHelpFormatter,
-        parents=[gp],
-        epilog=f"Source ~ \033[32mhttps://gitlab.com/brenodupin/gdt{c_RESET}",
+        parents=[global_flags],
+        epilog=f"Source ~ \033[32mhttps://github.com/brenodupin/gdt{c_RESET}",
     )
-    parser.add_argument(
+    main_parser.add_argument(
         "--version",
         action="version",
         version=f"gdt {__version__}",
         help="Show the version of the gdt package.",
     )
-    subparsers = parser.add_subparsers(dest="command", help="Commands")
-    subparsers.required = True
+
+    subparsers = main_parser.add_subparsers(
+        dest="command",
+        required=True,
+    )
 
     filter_parser = subparsers.add_parser(
         "filter",
@@ -75,15 +78,21 @@ def cli_run() -> None:
         description="Filter GFF3 files that are indexed via TSV file, "
         "creating AN_missing_dbxref.txt and/or AN_missing_gene_dict.txt "
         "based on the provided GDT file.",
-        parents=[gp],
+        parents=[global_flags],
     )
-    filter_parser.add_argument("--tsv", required=True, help="TSV file to filter")
+    filter_parser.add_argument(
+        "--tsv",
+        required=True,
+        type=str,
+        help="TSV file with indexed GFF3 files to filter.",
+    )
+
     filter_parser.add_argument(
         "--AN-column",
         required=False,
         default="AN",
         type=str,
-        help="Column name for NCBI Accession Number. Default: AN",
+        help="Column name for NCBI Accession Number inside the TSV. Default: AN",
     )
     filter_parser.add_argument(
         "--gdt",
@@ -105,7 +114,8 @@ def cli_run() -> None:
         required=False,
         default=0,
         type=int,
-        help="Number of workers to use. Default: 0 (use all available cores)",
+        help="Number of workers to use. "
+        f"Default: 0 (use all available cores: {os.cpu_count()})",
     )
     filter_parser.add_argument(
         "--gff-suffix",
@@ -127,14 +137,22 @@ def cli_run() -> None:
         "stripped",
         help="Create a stripped version of a GDT file",
         description="Filter GeneGeneric's (#gn) and Dbxref's (#dx) out of a GDT file, "
-        "keeping only GeneDescription (#gd) entries and its metadata. ",
-        parents=[gp],
+        "keeping only GeneDescription (#gd) entries and its metadata.",
+        parents=[global_flags],
     )
     stripped_parser.add_argument(
-        "--gdt_in", "-gin", required=True, help="Input GDT file to strip."
+        "--gdt_in",
+        "-gin",
+        required=True,
+        type=str,
+        help="Input GDT file to strip.",
     )
     stripped_parser.add_argument(
-        "--gdt_out", "-gout", required=True, help="New GDT file to create."
+        "--gdt_out",
+        "-gout",
+        required=True,
+        type=str,
+        help="New GDT file to create.",
     )
     stripped_parser.add_argument(
         "--overwrite",

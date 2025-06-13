@@ -219,14 +219,6 @@ def cli_run() -> None:
         "do not modify the GFF3 file. Default: False",
     )
     standardize_parser.add_argument(
-        "--workers",
-        required=False,
-        default=0,
-        type=int,
-        help="Number of workers to use. "
-        f"Default: 0 (use all available cores: {os.cpu_count()})",
-    )
-    standardize_parser.add_argument(
         "--second-place",
         required=False,
         default=False,
@@ -259,11 +251,7 @@ def cli_run() -> None:
         "Default: False (change inplace).",
     )
 
-    subparsers.add_parser(
-        "test",
-        help="Test command",
-        parents=[global_flags],
-    )
+    subparsers.add_parser("test", help="Test command", parents=[global_flags])
     args = main_parser.parse_args()
 
     if not args.quiet:
@@ -309,7 +297,10 @@ def cli_run() -> None:
 
         if args.gdt_in.exists():
             gdt_impl.create_stripped_gdt(
-                args.gdt_in, args.gdt_out, overwrite=args.overwrite
+                log,
+                args.gdt_in,
+                args.gdt_out,
+                overwrite=args.overwrite,
             )
         else:
             log.error(f"Input GDT file does not exist: {args.gdt_in}")
@@ -320,23 +311,35 @@ def cli_run() -> None:
             f"Standardize command: gff: {args.gff} | tsv: {args.tsv} | "
             f"gdt: {args.gdt} | AN_column: {args.AN_column} | "
             f"gff_suffix: {args.gff_suffix} | query_string: {args.query_string} | "
-            f"check: {args.check} | workers: {args.workers} | "
-            f"second_place: {args.second_place} | gdt_tag: {args.gdt_tag} | "
-            f"error_on_missing: {args.error_on_missing} | save_copy: {args.save_copy}"
+            f"check: {args.check} | second_place: {args.second_place} | "
+            f"gdt_tag: {args.gdt_tag} | error_on_missing: {args.error_on_missing} | "
+            f"save_copy: {args.save_copy}"
         )
         args.gdt = Path(args.gdt).resolve()
         if args.gff:
             args.gff = Path(args.gff).resolve()
+
+            if not args.gff.is_file():
+                log.error(f"gff file not found: {args.gff}")
+
+            if not args.gdt.exists():
+                log.error(f"gdt file not found: {args.gdt}")
+                raise FileNotFoundError(f"gdt file not found: {args.gdt}")
+
+            gene_dict = gdt_impl.create_gene_dict(args.gdt)
+            log.debug(f"Gene dictionary loaded from {args.gdt}")
+
             gff3_utils.standardize_gff3(
                 log,
                 args.gff,
-                args.gdt,
+                gene_dict,
                 args.query_string,
                 args.check,
                 args.second_place,
                 args.gdt_tag,
                 args.error_on_missing,
                 args.save_copy,
+                True,
             )
 
         elif args.tsv:
@@ -349,7 +352,6 @@ def cli_run() -> None:
                 args.gff_suffix,
                 args.query_string,
                 args.check,
-                args.workers,
                 args.second_place,
                 args.gdt_tag,
                 args.error_on_missing,

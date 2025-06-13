@@ -312,7 +312,6 @@ def standardize_tsv(
     gff_suffix: str,
     query_string: str,
     check_flag: bool,
-    worker: int,
     second_plance: bool,
     gdt_tag: str,
     error_on_missing: bool,
@@ -348,6 +347,9 @@ def standardize_tsv(
             save_copy,
         )
 
+    if check_flag:
+        log.info(f"Not saving new gff, check flag set to {check_flag}")
+
 
 def standardize_gff3(
     log: logger_setup.GDTLogger,
@@ -359,6 +361,7 @@ def standardize_gff3(
     gdt_tag: str,
     error_on_missing: bool,
     save_copy: bool,
+    single_run: bool = False,
 ) -> None:
     """
     Standardize a GFF3 file based on the provided parameters.
@@ -428,7 +431,11 @@ def standardize_gff3(
                         f"{gdt_tag}={gdt_label.label}"
                     )
             else:
-                log.error(f"ID not found in {gff_path.name}. att: {joined_line}")
+                log.error(
+                    f"ID not found in {gff_path.name}. This is not supposed to happen, "
+                    f"and could be a problem with query_string ({query_string}). "
+                    f"Feature att: {joined_line}"
+                )
                 if error_on_missing:
                     raise ValueError(
                         f"ID not found in {gff_path.name}. att: {joined_line}"
@@ -437,7 +444,7 @@ def standardize_gff3(
         contents.append("\t".join(line))
 
     if not check_flag:
-        log.info(f"Standardizing {gff_path.name} with {gdt_tag} tag")
+        log.info(f"Standardizing {gff_path.name} by adding: {gdt_tag}")
         if save_copy:
             backup_path = gff_path.with_suffix(".original")
             shutil.copy(gff_path, backup_path)
@@ -448,3 +455,6 @@ def standardize_gff3(
             f.write("\n")
             f.write("\n".join(contents))
             f.write("\n\n")
+
+    elif single_run:
+        log.info(f"Not saving new gff, check flag set to {check_flag}")

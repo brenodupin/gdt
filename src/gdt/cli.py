@@ -1,13 +1,15 @@
 # -*- coding: utf-8 -*-
 
 import os
-from . import logger_setup
-from . import gene_dict_impl
-from . import gff3_utils
-from gdt import __version__
+import argparse
 
 from pathlib import Path
-import argparse
+
+from . import logger_setup
+from . import gdt_impl
+from . import gff3_utils
+from . import __version__
+
 
 c_RESET = "\033[0m"
 
@@ -306,7 +308,7 @@ def cli_run() -> None:
         args.gdt_out = Path(args.gdt_out).resolve()
 
         if args.gdt_in.exists():
-            gene_dict_impl.create_stripped_gdt(
+            gdt_impl.create_stripped_gdt(
                 args.gdt_in, args.gdt_out, overwrite=args.overwrite
             )
         else:

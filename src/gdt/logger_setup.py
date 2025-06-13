@@ -1,10 +1,11 @@
 # -*- coding: utf-8 -*-
 
-import logging
-import datetime
-from pathlib import Path
 import os
 import glob
+import logging
+import datetime
+
+from pathlib import Path
 from typing import Any, Optional, Union, cast
 
 TRACE = 5

@@ -9,7 +9,7 @@ import concurrent.futures
 from pathlib import Path
 from typing import Optional, cast, Union
 
-from . import gene_dict_impl
+from . import gdt_impl
 from . import logger_setup
 
 
@@ -85,7 +85,7 @@ def filter_orfs(
 
 def check_single_an(
     AN_path: Path,
-    gene_dict: gene_dict_impl.GeneDict,
+    gene_dict: gdt_impl.GeneDict,
     keep_orfs: bool = False,
     query_string: str = QS_GENE_TRNA_RRNA,
 ) -> dict[str, Union[str, int, list[str]]]:
@@ -213,13 +213,13 @@ def filter_whole_tsv(
             gdt_path = shutil.move(gdt_path, GDT_DIR / gdt_path.name)
             log.info(f"Moving gdt file to {gdt_path}")
 
-        gene_dict = gene_dict_impl.create_gene_dict(gdt_path)
+        gene_dict = gdt_impl.create_gene_dict(gdt_path)
         log.debug(f"Gene dictionary loaded from {gdt_path}")
         log.trace(f"Header : {gene_dict.header}")
         log.trace(f"Info   : {gene_dict.info}")
 
     else:
-        gene_dict = gene_dict_impl.GeneDict()
+        gene_dict = gdt_impl.GeneDict()
         log.debug("No gdt file provided. Using empty gene_dict.")
 
     # start processing
@@ -327,7 +327,7 @@ def standardize_tsv(
         log.error(f"gdt file not found: {gdt_path}")
         raise FileNotFoundError(f"gdt file not found: {gdt_path}")
 
-    gene_dict = gene_dict_impl.create_gene_dict(gdt_path)
+    gene_dict = gdt_impl.create_gene_dict(gdt_path)
     log.debug(f"Gene dictionary loaded from {gdt_path}")
 
     tsv = pd.read_csv(tsv_path, sep="\t")
@@ -352,7 +352,7 @@ def standardize_tsv(
 def standardize_gff3(
     log: logger_setup.GDTLogger,
     gff_path: Path,
-    gene_dict: gene_dict_impl.GeneDict,
+    gene_dict: gdt_impl.GeneDict,
     query_string: str,
     check_flag: bool,
     second_plance: bool,

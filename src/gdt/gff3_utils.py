@@ -3,14 +3,12 @@
 import re
 import os
 import shutil
-import numpy as np
 import pandas as pd
 import concurrent.futures
 
 from pathlib import Path
 from typing import Optional, cast, Union
 
-from . import gff3_utils
 from . import gene_dict_impl
 from . import logger_setup
 
@@ -30,6 +28,7 @@ QS_GENE = "type == 'gene'"
 QS_GENE_TRNA_RRNA = "type in ('gene', 'tRNA', 'rRNA')"
 
 RE_ID = re.compile(r"ID=([^;]+)")
+RE_dbxref_GeneID = re.compile(r"Dbxref=.*GeneID:")
 
 
 def load_gff3(
@@ -103,15 +102,11 @@ def check_single_an(
         in_gene_dict_mask = [g in gene_dict for g in gene_ids]
 
         # Get dbxref info
-        dbxref_mask = df["attributes"].str.contains("Dbxref=", na=False)
+        dbxref_mask = df["attributes"].str.contains(RE_dbxref_GeneID, na=False)
 
         status = "good_to_go"
         if not all(in_gene_dict_mask):
-            status = (
-                "missing_gene_dict_with_dbxref"
-                if all(dbxref_mask)
-                else "missing_dbxref"
-            )
+            status = "M_in_gene_dict" if all(dbxref_mask) else "M_dbxref_GeneID"
 
         return {
             "AN": AN,
@@ -158,17 +153,17 @@ def check_gff_in_tsv(
         f"check_gff_in_tsv called | base_path: {base_path} | gff_suffix: {gff_suffix}"
     )
 
-    missing_files = [
+    no_files = [
         (AN, AN_path)
         for AN in df[AN_column]
         if not (AN_path := (base_path / f"{AN}{gff_suffix}")).is_file()
     ]
 
-    if missing_files:
-        for AN, path in missing_files:
+    if no_files:
+        for AN, path in no_files:
             log.error(f"GFF3 file not found for {AN}, expected {path}")
         raise FileNotFoundError(
-            f"Missing {len(missing_files)} GFF3 files. Please check the log for details."
+            f"Missing {len(no_files)} GFF3 files. Please check the log for details."
         )
 
 
@@ -189,7 +184,7 @@ def filter_whole_tsv(
         f" | w: {workers} | keep_orfs: {keep_orfs}"
     )
 
-    AN_missing_dbxref: list[str] = []
+    AN_missing_dbxref_GeneID: list[str] = []
     AN_missing_gene_dict: list[str] = []
     AN_good_to_go: list[str] = []
 
@@ -220,8 +215,8 @@ def filter_whole_tsv(
 
         gene_dict = gene_dict_impl.create_gene_dict(gdt_path)
         log.debug(f"Gene dictionary loaded from {gdt_path}")
-        log.trace(f"Header]: {gene_dict.header}")
-        log.trace(f"Info]  : {gene_dict.info}")
+        log.trace(f"Header : {gene_dict.header}")
+        log.trace(f"Info   : {gene_dict.info}")
 
     else:
         gene_dict = gene_dict_impl.GeneDict()
@@ -255,20 +250,20 @@ def filter_whole_tsv(
             f" genes in gene_dict: {result['gene_dict_count']}"
         )
         log.trace(f"\tgenes: {result['genes']}")
-        log.trace(f"\twith dbxref: {result['genes_with_dbxref']}")
-        log.trace(f"\tin gene_dict: {result['genes_in_dict']}")
-        log.trace(f"\twithout dbxref: {result['genes_without_dbxref']}")
+        log.trace(f"\twith dbxref : {result['genes_with_dbxref']}")
+        log.trace(f"\tin gene_dict : {result['genes_in_dict']}")
+        log.trace(f"\twithout dbxref : {result['genes_without_dbxref']}")
         log.trace(f"\tnot in gene_dict: {result['genes_not_in_dict']}")
 
-        if result["status"] == "missing_gene_dict_with_dbxref":
+        if result["status"] == "M_in_gene_dict":
             log.trace(f"\t{AN} is missing genes in gene_dict but have dbxref")
             AN_missing_gene_dict.append(AN)
 
-        elif result["status"] == "missing_dbxref":
+        elif result["status"] == "M_dbxref_GeneID":
             log.trace(
                 f"\t{AN} is missing genes in gene_dict and is also missing dbxref"
             )
-            AN_missing_dbxref.append(AN)
+            AN_missing_dbxref_GeneID.append(AN)
 
         else:
             log.trace(f"\t{AN} is good to go!")
@@ -280,19 +275,19 @@ def filter_whole_tsv(
     log.trace(f"ANs good to go: {AN_good_to_go}")
     log.info(f"ANs missing gene_dict: {len(AN_missing_gene_dict)}")
     log.trace(f"ANs missing gene_dict: {AN_missing_gene_dict}")
-    log.info(f"ANs missing dbxref: {len(AN_missing_dbxref)}")
-    log.trace(f"ANs missing dbxref: {AN_missing_dbxref}")
+    log.info(f"ANs missing dbxref: {len(AN_missing_dbxref_GeneID)}")
+    log.trace(f"ANs missing dbxref: {AN_missing_dbxref_GeneID}")
     log.info("Processing finished, resolving output files")
 
     path_gene_dict = MISC_DIR / "AN_missing_gene_dict.txt"
-    path_dbxref = MISC_DIR / "AN_missing_dbxref.txt"
+    path_dbxref = MISC_DIR / "AN_missing_dbxref_GeneID.txt"
 
-    if AN_missing_dbxref:
+    if AN_missing_dbxref_GeneID:
         with open(path_dbxref, "w") as f:
-            f.write("\n".join(AN_missing_dbxref))
+            f.write("\n".join(AN_missing_dbxref_GeneID))
 
     else:
-        log.debug("No ANs missing dbxref, skipping file creation")
+        log.debug("No ANs missing dbxref GeneID, skipping file creation")
         # check if file exists and remove it
         if path_dbxref.exists():
             log.debug(f"Removing file: {path_dbxref}")
@@ -385,15 +380,15 @@ def standardize_gff3(
     contents = []
     series_holder = pd.Series([""], dtype="string")
 
-    for l in lines[index:]:
-        if not (l := l.strip()):
+    for text in lines[index:]:
+        if not (text := text.strip()):
             continue
-        line = l.split("\t")
+        line = text.split("\t")
         joined_line = "\t".join(line)
 
         # line[2] is type line, line[8] is attributes
         series_holder[0] = line[2]
-        if pd.eval(query_string, local_dict={"type": series_holder})[0]:
+        if pd.eval(query_string, local_dict={"type": series_holder})[0]:  # type: ignore[index]
             gene_id = m.group(1) if (m := RE_ID.search(line[8])) else None
             if gene_id:
                 gdt_label = gene_dict.get(gene_id, None)
@@ -429,7 +424,8 @@ def standardize_gff3(
 
                 else:
                     line[8] = (
-                        f"{line[8]}{'' if line[8].endswith(';') else ';'}{gdt_tag}={gdt_label.label}"
+                        f"{line[8]}{'' if line[8].endswith(';') else ';'}"
+                        f"{gdt_tag}={gdt_label.label}"
                     )
             else:
                 log.error(f"ID not found in {gff_path.name}. att: {joined_line}")

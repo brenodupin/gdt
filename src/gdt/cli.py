@@ -229,7 +229,7 @@ def cli_run() -> None:
         required=False,
         default=False,
         action="store_true",
-        help="Add the gdt key/value pair to the second place in the GFF3 file, after the ID. "
+        help="Add gdt-tag pair to the second place in the GFF3 file, after the ID. "
         "Default: False (add to the end of the attributes field).",
     )
     standardize_parser.add_argument(

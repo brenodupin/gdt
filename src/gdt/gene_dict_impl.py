@@ -15,9 +15,9 @@ class Gene:
 
 
 @dataclass(slots=True)
-class GeneDbxref(Gene):
+class DbxrefGeneID(Gene):
     an_source: str
-    dbxref: int
+    GeneID: int
 
 
 @dataclass(slots=True)
@@ -30,7 +30,7 @@ class GeneDescription(Gene):
     source: str
 
 
-GeneUnion = Union[GeneDescription, GeneGeneric, GeneDbxref]
+GeneUnion = Union[GeneDescription, GeneGeneric, DbxrefGeneID]
 
 
 class GeneDict(UserDict[str, GeneUnion]):
@@ -56,7 +56,7 @@ geneList = list[tuple[str, G]]
 
 gdList = geneList[GeneDescription]
 gnList = geneList[GeneGeneric]
-dxList = geneList[GeneDbxref]
+dxList = geneList[DbxrefGeneID]
 
 SortedGeneGroups = tuple[gdList, gnList, dxList]
 
@@ -76,7 +76,7 @@ def get_gene_dict_info(gene_dict: GeneDict) -> list[str]:
     for key in gene_dict:
         labels.add(gene_dict[key].label)
         match gene_dict[key]:
-            case GeneDbxref():
+            case DbxrefGeneID():
                 dx_int += 1
             case GeneGeneric():
                 gn_int += 1
@@ -89,8 +89,8 @@ def get_gene_dict_info(gene_dict: GeneDict) -> list[str]:
     info.append(f"Gene dictionary length: {len(gene_dict)}")
     info.append(f"Label: {len(labels)}")
     info.append(f"GeneDescriptions: {gd_int}")
-    info.append(f"GeneGenerics: {gn_int}")
-    info.append(f"GeneDbxrefs: {dx_int}")
+    info.append(f"GeneGenerics    : {gn_int}")
+    info.append(f"DbxrefGeneIDs   : {dx_int}")
 
     return info
 
@@ -148,16 +148,16 @@ def create_gene_dict(gdt_file: Union[str, Path], max_an_sources: int = 20) -> Ge
         else:
             comment = None
 
-        if "#dx" in line:  # GeneDX type
+        if "#dx" in line:  # DbxrefGeneID dx
             stuff = line.split("#dx", 1)[1].strip()
             an_source = stuff.split(":")[0].strip()
-            dbxref = int(stuff.split(":")[1].strip())
+            GeneID = int(stuff.split(":")[1].strip())
 
-            result[tag] = GeneDbxref(
-                label=current_section, an_source=an_source, dbxref=dbxref, c=comment
+            result[tag] = DbxrefGeneID(
+                label=current_section, an_source=an_source, GeneID=GeneID, c=comment
             )
 
-        elif "#gn" in line:  # GeneND type
+        elif "#gn" in line:  # GeneGeneric gn
             an_sources = [s.strip() for s in line.split("#gn", 1)[1].strip().split()]
             an_sources = an_sources if an_sources else []
 
@@ -171,7 +171,7 @@ def create_gene_dict(gdt_file: Union[str, Path], max_an_sources: int = 20) -> Ge
                 label=current_section, an_sources=an_sources, c=comment
             )
 
-        elif "#gd" in line:  # GeneDescription type
+        elif "#gd" in line:  # GeneDescription gd
             source = line.split("#gd", 1)[1].strip()
 
             result[tag] = GeneDescription(
@@ -239,7 +239,7 @@ def write_gdt_file(
                     gd.append((key, value))
                 case GeneGeneric():
                     gn.append((key, value))
-                case GeneDbxref():
+                case DbxrefGeneID():
                     dx.append((key, value))
 
         # Sort each group once
@@ -274,7 +274,7 @@ def write_gdt_file(
 
             for key, value in dx:
                 f.write(
-                    f"{key} #dx {value.an_source}:{value.dbxref}"
+                    f"{key} #dx {value.an_source}:{value.GeneID}"
                     f"{' #c ' + value.c if value.c else ''}\n"
                 )
 

@@ -91,8 +91,8 @@ def get_gene_dict_info(
                 print(f"[INFO] Unknown type for key {key}: {type(gene_dict[key])}")
 
     info: list[str] = []
-    info.append(f"Gene dictionary length: {len(gene_dict)}")
-    info.append(f"Label: {len(labels)}")
+    info.append(f"Labels: {len(labels)}")
+    info.append(f"Total Entries   : {len(gene_dict)}")
     info.append(f"GeneDescriptions: {gd_int}")
     info.append(f"GeneGenerics    : {gn_int}")
     info.append(f"DbxrefGeneIDs   : {dx_int}")

@@ -179,10 +179,6 @@ def filter_whole_tsv(
 ) -> None:
     max_workers = os.cpu_count() or 1
     workers = workers if (workers > 0 and workers <= max_workers) else max_workers
-    log.trace(
-        f"filter_whole_tsv called | tsv_path: {tsv_path} | gdt_path: {gdt_path}"
-        f" | w: {workers} | keep_orfs: {keep_orfs}"
-    )
 
     AN_missing_dbxref_GeneID: list[str] = []
     AN_missing_gene_dict: list[str] = []
@@ -366,9 +362,8 @@ def standardize_gff3(
     """
     Standardize a GFF3 file based on the provided parameters.
     """
-    log.trace(f"standardize_gff3 called | gff_path: {gff_path}")
 
-    if not gff_path.exists():
+    if single_run and not gff_path.exists():
         log.error(f"GFF3 file not found: {gff_path}")
         raise FileNotFoundError(f"GFF3 file not found: {gff_path}")
 

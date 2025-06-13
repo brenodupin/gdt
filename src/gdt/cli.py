@@ -251,15 +251,14 @@ def cli_run() -> None:
         "Default: False (change inplace).",
     )
 
-    subparsers.add_parser("test", help="Test command", parents=[global_flags])
     args = main_parser.parse_args()
 
     if not args.quiet:
         print(GDT_BANNER)
 
     log = logger_setup.setup_logger(args.debug, args.log, args.quiet)
-    log.trace("CLI run called.")
-    log.trace(f"exec path: {Path().resolve()}")
+    log.trace("CLI execution started")
+    log.trace(f"call path: {Path().resolve()}")
     log.trace(f"cli  path: {Path(__file__)}")
     log.trace(f"args: {args}")
 
@@ -270,7 +269,7 @@ def cli_run() -> None:
             args.gdt = Path(args.gdt).resolve()
 
         log.debug(
-            f"Filter command: tsv: {args.tsv} | gdt: {args.gdt} | "
+            f"filter command: tsv: {args.tsv} | gdt: {args.gdt} | "
             f"keep_orfs: {args.keep_orfs} | workers: {args.workers} | "
             f"AN_column: {args.AN_column} | gff_suffix: {args.gff_suffix} | "
             f"query_string: {args.query_string}"
@@ -288,7 +287,7 @@ def cli_run() -> None:
 
     elif args.command == "stripped":
         log.info(
-            f"Stripped command: gdt_in: {args.gdt_in} | "
+            f"stripped command: gdt_in: {args.gdt_in} | "
             f"gdt_out: {args.gdt_out} | "
             f"overwrite: {args.overwrite}"
         )
@@ -308,7 +307,7 @@ def cli_run() -> None:
 
     elif args.command == "standardize":
         log.info(
-            f"Standardize command: gff: {args.gff} | tsv: {args.tsv} | "
+            f"standardize command: gff: {args.gff} | tsv: {args.tsv} | "
             f"gdt: {args.gdt} | AN_column: {args.AN_column} | "
             f"gff_suffix: {args.gff_suffix} | query_string: {args.query_string} | "
             f"check: {args.check} | second_place: {args.second_place} | "
@@ -357,6 +356,3 @@ def cli_run() -> None:
                 args.error_on_missing,
                 args.save_copy,
             )
-
-    elif args.command == "test":
-        log.info(f"Test command: {args}")

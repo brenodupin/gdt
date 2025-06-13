@@ -2,6 +2,8 @@
 
 import re
 
+from . import logger_setup
+
 from pathlib import Path
 from datetime import datetime
 from dataclasses import dataclass, field
@@ -62,7 +64,9 @@ dxList = geneList[DbxrefGeneID]
 SortedGeneGroups = tuple[gdList, gnList, dxList]
 
 
-def get_gene_dict_info(gene_dict: GeneDict) -> list[str]:
+def get_gene_dict_info(
+    gene_dict: GeneDict,
+) -> list[str]:
     """Get information about the gene dictionary.
     Args:
         gene_dict (dict): A dictionary containing gene information.
@@ -96,7 +100,10 @@ def get_gene_dict_info(gene_dict: GeneDict) -> list[str]:
     return info
 
 
-def create_gene_dict(gdt_file: Union[str, Path], max_an_sources: int = 20) -> GeneDict:
+def create_gene_dict(
+    gdt_file: Union[str, Path],
+    max_an_sources: int = 20,
+) -> GeneDict:
     """Create a gene dictionary from a GDT file.
     Args:
         gdt_file (str): Path to the GDT file.
@@ -189,7 +196,9 @@ def _natural_sort_key(s: str) -> list[Union[int, str]]:
 
 
 def natural_sort(
-    iterable: Iterable[T], key: Callable[[T], str] | None = None, reverse: bool = False
+    iterable: Iterable[T],
+    key: Callable[[T], str] | None = None,
+    reverse: bool = False,
 ) -> list[T]:
     """Sort a list in natural order.
     Args:
@@ -207,7 +216,9 @@ def natural_sort(
 
 
 def write_gdt_file(
-    gene_dict: GeneDict, gdt_file: Union[str, Path], overwrite: bool = False
+    gene_dict: GeneDict,
+    gdt_file: Union[str, Path],
+    overwrite: bool = False,
 ) -> None:
     """Write a gene dictionary to a GDT file, sorted by label.
     Args:
@@ -281,7 +292,10 @@ def write_gdt_file(
 
 
 def create_stripped_gdt(
-    gdt_file: Union[Path, str], gdt_file_out: Union[Path, str], overwrite: bool = True
+    log: logger_setup.GDTLogger,
+    gdt_file: Union[Path, str],
+    gdt_file_out: Union[Path, str],
+    overwrite: bool = True,
 ) -> None:
     """Create a stripped GDT file from a GDT file.
     Args:
@@ -292,9 +306,11 @@ def create_stripped_gdt(
     gdt_file_out = Path(gdt_file_out).resolve()
 
     if not gdt_file.exists():
+        log.error(f"gdt not found: {gdt_file}")
         raise FileNotFoundError(f"GDT file not found: {gdt_file}")
 
     if gdt_file_out.exists() and not overwrite:
+        log.error(f"gdt already exists, overwrite: {overwrite} | gdt: {gdt_file_out}")
         raise FileExistsError(
             f"GDT file already exists: {gdt_file_out}. Use overwrite=True to overwrite."
         )
@@ -318,13 +334,17 @@ def create_stripped_gdt(
     stripped.header = header
     write_gdt_file(stripped, gdt_file_out, overwrite=overwrite)
 
-    print("Info before stripping:")
-    [print(x) for x in gene_dict.info]
+    log.info("Info before stripping:")
+    for txt in gene_dict.info:
+        log.info(txt)
 
-    print("\nNew Header:")
-    [print(x) for x in stripped.header]
-    print("New Info:")
-    [print(x) for x in stripped.info]
+    log.info("\nNew Header:")
+    for txt in stripped.header:
+        log.info(txt)
+
+    log.info("New Info:")
+    for txt in stripped.info:
+        log.info(txt)
 
 
 def create_empty_gdt(gdt_file: Union[Path, str]) -> None:

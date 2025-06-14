@@ -124,7 +124,7 @@ NC_066216.1	RefSeq	CDS	27907	28395	.	+	0	ID=cds-YP_010480807.1;Parent=gene-N4M62
 NC_066216.1	RefSeq	exon	24891	26126	.	+	.	ID=id-N4M62_mgp05-1;Parent=gene-N4M62_mgp05;Dbxref=GeneID:74863513;exon_number=1;gbkey=exon;gene=cox1;locus_tag=N4M62_mgp05;number=1
 NC_066216.1	RefSeq	exon	27907	28395	.	+	.	ID=id-N4M62_mgp05-2;Parent=gene-N4M62_mgp05;Dbxref=GeneID:74863513;exon_number=2;gbkey=exon;gene=cox1;locus_tag=N4M62_mgp05;number=2
 NC_066216.1	RefSeq	intron	26127	27906	.	+	.	ID=id-N4M62_mgp05;Parent=gene-N4M62_mgp05;Dbxref=GeneID:74863513;exon_number=1;gbkey=intron;gene=cox1;locus_tag=N4M62_mgp05;number=1
-NC_066216.1	RefSeq	gene	26257	26937	.	+	.	ID=gene-N4M62_mgp04;Dbxref=GeneID:74863515;Name=il15;gbkey=Gene;gene=il15;gene_biotype=protein_coding;locus_tag=N4M62_mgp04
+NC_066216.1	RefSeq	discard-gene	26257	26937	.	+	.	ID=gene-N4M62_mgp04;Dbxref=GeneID:74863515;Name=il15;gbkey=Gene;gene=il15;gene_biotype=protein_coding;locus_tag=N4M62_mgp04
 NC_066216.1	RefSeq	CDS	26257	26937	.	+	0	ID=cds-YP_010480808.1;Parent=gene-N4M62_mgp04;Dbxref=GenBank:YP_010480808.1,GeneID:74863515;Name=YP_010480808.1;gbkey=CDS;gene=il15;locus_tag=N4M62_mgp04;product=intron-encoded LAGLIDADG endonuclease;protein_id=YP_010480808.1;transl_table=4
 NC_066216.1	RefSeq	gene	28751	28975	.	+	.	ID=gene-N4M62_mgp03;Dbxref=GeneID:74863516;Name=atp9;gbkey=Gene;gene=atp9;gene_biotype=protein_coding;locus_tag=N4M62_mgp03
 NC_066216.1	RefSeq	CDS	28751	28975	.	+	0	ID=cds-YP_010480809.1;Parent=gene-N4M62_mgp03;Dbxref=GenBank:YP_010480809.1,GeneID:74863516;Name=YP_010480809.1;gbkey=CDS;gene=atp9;locus_tag=N4M62_mgp03;product=ATP synthase subunit 9;protein_id=YP_010480809.1;transl_table=4

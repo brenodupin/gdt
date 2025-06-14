@@ -1574,3 +1574,14 @@
 2025-06-14 15:41:04,673 - INFO - Writing GeneDict file: /home/brenodupin/matheus/gdt/example/fungi_mt/misc/gdt/fungi_mt_pilot_03.gdt | pilot itr: 3
 2025-06-14 15:41:04,678 - INFO - fungi_mt_pilot_03.gdt was created in misc/gdt!
 2025-06-14 15:41:04,679 - INFO - You must now add it to most_recent_gdt_filename in the Setup cell, and rerun the cell
+2025-06-14 15:49:06,726 - INFO -  ---- [Starting 'AN_missing_gene_dict excluding gene IDs from GFF3s'] ----
+2025-06-14 15:49:06,728 - INFO - Processing NC_001224.1 for excluding 7 gene IDs
+2025-06-14 15:49:06,729 - TRACE -  excluding gene IDs: {'gene-Q0060', 'gene-Q0255', 'gene-Q0050', 'gene-Q0065', 'gene-Q0075', 'gene-Q0055', 'gene-Q0070'}
+2025-06-14 15:49:06,730 - TRACE - Pattern for exclusion: ID=gene-Q0060;|ID=gene-Q0255;|ID=gene-Q0050;|ID=gene-Q0065;|ID=gene-Q0075;|ID=gene-Q0055;|ID=gene-Q0070;
+2025-06-14 15:49:06,731 - INFO - Processing NC_066216.1 for excluding 1 gene IDs
+2025-06-14 15:49:06,731 - TRACE -  excluding gene IDs: {'gene-N4M62_mgp04'}
+2025-06-14 15:49:06,732 - TRACE - Pattern for exclusion: ID=gene-N4M62_mgp04;
+2025-06-14 15:49:06,732 - INFO - Processing NC_042229.1 for excluding 24 gene IDs
+2025-06-14 15:49:06,733 - TRACE -  excluding gene IDs: {'gene-FDY65_mgp15', 'gene-FDY65_mgp09', 'gene-FDY65_mgp13', 'gene-FDY65_mgp41', 'gene-FDY65_mgp04', 'gene-FDY65_mgp30', 'gene-FDY65_mgp10', 'gene-FDY65_mgp03', 'gene-FDY65_mgp25', 'gene-FDY65_mgp28', 'gene-FDY65_mgp42', 'gene-FDY65_mgp31', 'gene-FDY65_mgp33', 'gene-FDY65_mgp36', 'gene-FDY65_mgp18', 'gene-FDY65_mgp05', 'gene-FDY65_mgp29', 'gene-FDY65_mgp44', 'gene-FDY65_mgp37', 'gene-FDY65_mgp02', 'gene-FDY65_mgp08', 'gene-FDY65_mgp43', 'gene-FDY65_mgp27', 'gene-FDY65_mgp34'}
+2025-06-14 15:49:06,735 - TRACE - Pattern for exclusion: ID=gene-FDY65_mgp15;|ID=gene-FDY65_mgp09;|ID=gene-FDY65_mgp13;|ID=gene-FDY65_mgp41;|ID=gene-FDY65_mgp04;|ID=gene-FDY65_mgp30;|ID=gene-FDY65_mgp10;|ID=gene-FDY65_mgp03;|ID=gene-FDY65_mgp25;|ID=gene-FDY65_mgp28;|ID=gene-FDY65_mgp42;|ID=gene-FDY65_mgp31;|ID=gene-FDY65_mgp33;|ID=gene-FDY65_mgp36;|ID=gene-FDY65_mgp18;|ID=gene-FDY65_mgp05;|ID=gene-FDY65_mgp29;|ID=gene-FDY65_mgp44;|ID=gene-FDY65_mgp37;|ID=gene-FDY65_mgp02;|ID=gene-FDY65_mgp08;|ID=gene-FDY65_mgp43;|ID=gene-FDY65_mgp27;|ID=gene-FDY65_mgp34;
+2025-06-14 15:49:06,735 - INFO -  ---- [Finished 'AN_missing_gene_dict excluding gene IDs from GFF3s'] ----

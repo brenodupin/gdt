@@ -20,3 +20,180 @@
 2025-06-14 15:50:55,794 - INFO - 	GeneGenerics    : 0
 2025-06-14 15:50:55,795 - INFO - 	DbxrefGeneIDs   : 280
 2025-06-14 15:51:00,524 - DEBUG - Features info df, writing to /home/brenodupin/matheus/gdt/example/fungi_mt/misc/features_info.tsv
+2025-06-14 16:00:19,924 - INFO - Verifing that all feature_names.txt values (excluding those in feature_unks.txt) exist in the most_recent_gdt_filename.
+2025-06-14 16:00:19,928 - INFO - GeneDict loaded from fungi_mt_pilot_05.gdt
+2025-06-14 16:00:19,930 - DEBUG - path: /home/brenodupin/matheus/gdt/example/fungi_mt/misc/gdt/fungi_mt_pilot_05.gdt
+2025-06-14 16:00:19,930 - INFO - Header:
+2025-06-14 16:00:19,931 - INFO - 	version 0.0.2
+2025-06-14 16:00:19,932 - INFO - 	Fungi_mt
+2025-06-14 16:00:19,933 - INFO - 	2025-04-09 17:54 - Conversion from gdt to gdt2
+2025-06-14 16:00:19,933 - INFO - 	2025-06-05 18:11 - Stripped GDT version from original GDT file Fungi_mt.gdt
+2025-06-14 16:00:19,934 - INFO - 	2025-06-11 20:37 - Data added from TEMP 01
+2025-06-14 16:00:19,934 - INFO - 	2025-06-11 20:50 - Data added from TEMP Symbol 01
+2025-06-14 16:00:19,935 - INFO - GDT Info:
+2025-06-14 16:00:19,935 - INFO - 	Labels: 56
+2025-06-14 16:00:19,936 - INFO - 	Total Entries   : 825
+2025-06-14 16:00:19,937 - INFO - 	GeneDescriptions: 545
+2025-06-14 16:00:19,937 - INFO - 	GeneGenerics    : 0
+2025-06-14 16:00:19,938 - INFO - 	DbxrefGeneIDs   : 280
+2025-06-14 16:00:25,761 - INFO -  ---- [Starting 'Automated insertion of gene_ids with known features from features_info.tsv'] ----
+2025-06-14 16:00:25,765 - DEBUG - Adding gene-atp6 with label 'MIT--ATP6', an_sources: ['HE983611.1'], comment: automated insertion from missing_dbxref_GeneID best feature
+2025-06-14 16:00:25,766 - DEBUG - Adding gene-KX657746.1:43686..44465 with label 'MIT--ATP6', an_sources: ['KX657746.1'], comment: automated insertion from missing_dbxref_GeneID best feature
+2025-06-14 16:00:25,770 - DEBUG - Adding gene-atp8 with label 'MIT--ATP8', an_sources: ['HE983611.1'], comment: automated insertion from missing_dbxref_GeneID best feature
+2025-06-14 16:00:25,771 - DEBUG - Adding gene-KX657746.1:43243..43389 with label 'MIT--ATP8', an_sources: ['KX657746.1'], comment: automated insertion from missing_dbxref_GeneID best feature
+2025-06-14 16:00:25,772 - DEBUG - Adding gene-KX657746.1:60840..61070 with label 'MIT--ATP9', an_sources: ['KX657746.1'], comment: automated insertion from missing_dbxref_GeneID best feature
+2025-06-14 16:00:25,773 - DEBUG - Adding gene-atp9 with label 'MIT--ATP9', an_sources: ['HE983611.1'], comment: automated insertion from missing_dbxref_GeneID best feature
+2025-06-14 16:00:25,775 - DEBUG - Adding gene-KX657746.1:50911..56402 with label 'MIT--COB', an_sources: ['KX657746.1'], comment: automated insertion from missing_dbxref_GeneID best feature
+2025-06-14 16:00:25,777 - DEBUG - Adding gene-cob with label 'MIT--COB', an_sources: ['HE983611.1'], comment: automated insertion from missing_dbxref_GeneID best feature
+2025-06-14 16:00:25,778 - DEBUG - Adding gene-cox1 with label 'MIT--CO1', an_sources: ['HE983611.1'], comment: automated insertion from missing_dbxref_GeneID best feature
+2025-06-14 16:00:25,779 - DEBUG - Adding gene-KX657746.1:33527..42029 with label 'MIT--CO1', an_sources: ['KX657746.1'], comment: automated insertion from missing_dbxref_GeneID best feature
+2025-06-14 16:00:25,780 - DEBUG - Adding gene-KX657746.1:13835..14590 with label 'MIT--CO2', an_sources: ['KX657746.1'], comment: automated insertion from missing_dbxref_GeneID best feature
+2025-06-14 16:00:25,781 - DEBUG - Adding gene-cox2 with label 'MIT--CO2', an_sources: ['HE983611.1'], comment: automated insertion from missing_dbxref_GeneID best feature
+2025-06-14 16:00:25,782 - DEBUG - Adding gene-cox3 with label 'MIT--CO3', an_sources: ['HE983611.1'], comment: automated insertion from missing_dbxref_GeneID best feature
+2025-06-14 16:00:25,783 - DEBUG - Adding gene-KX657746.1:19927..20736 with label 'MIT--CO3', an_sources: ['KX657746.1'], comment: automated insertion from missing_dbxref_GeneID best feature
+2025-06-14 16:00:25,785 - DEBUG - Adding rna-KX657746.1:1..3338 with label 'MIT--RNR2', an_sources: ['KX657746.1'], comment: automated insertion from missing_dbxref_GeneID best feature
+2025-06-14 16:00:25,786 - DEBUG - Adding rna-AFUA_m0250 with label 'MIT--RNR2', an_sources: ['JQ346808.1'], comment: automated insertion from missing_dbxref_GeneID best feature
+2025-06-14 16:00:25,787 - DEBUG - Adding gene-lsu with label 'MIT--RNR2', an_sources: ['HE983611.1'], comment: automated insertion from missing_dbxref_GeneID best feature
+2025-06-14 16:00:25,787 - DEBUG - Adding rna-lsu with label 'MIT--RNR2', an_sources: ['HE983611.1'], comment: automated insertion from missing_dbxref_GeneID best feature
+2025-06-14 16:00:25,788 - DEBUG - Adding gene-KX657746.1:1..3338 with label 'MIT--RNR2', an_sources: ['KX657746.1'], comment: automated insertion from missing_dbxref_GeneID best feature
+2025-06-14 16:00:25,789 - DEBUG - Adding gene-KX657746.1:31383..31807 with label 'MIT--RPM1', an_sources: ['KX657746.1'], comment: automated insertion from missing_dbxref_GeneID best feature
+2025-06-14 16:00:25,790 - DEBUG - Adding gene-KX657746.1:69794..71405 with label 'MIT--RNR1', an_sources: ['KX657746.1'], comment: automated insertion from missing_dbxref_GeneID best feature
+2025-06-14 16:00:25,793 - DEBUG - Adding gene-rpm1 with label 'MIT--RPM1', an_sources: ['HE983611.1'], comment: automated insertion from missing_dbxref_GeneID best feature
+2025-06-14 16:00:25,794 - DEBUG - Adding rna-rpm1 with label 'MIT--RPM1', an_sources: ['HE983611.1'], comment: automated insertion from missing_dbxref_GeneID best feature
+2025-06-14 16:00:25,795 - DEBUG - Adding gene-KX657746.1:64298..65467 with label 'MIT--RPS3', an_sources: ['KX657746.1'], comment: automated insertion from missing_dbxref_GeneID best feature
+2025-06-14 16:00:25,796 - DEBUG - Adding rna-KX657746.1:69794..71405 with label 'MIT--RNR1', an_sources: ['KX657746.1'], comment: automated insertion from missing_dbxref_GeneID best feature
+2025-06-14 16:00:25,797 - DEBUG - Adding rna-AFUA_m0120 with label 'MIT--RNR1', an_sources: ['JQ346808.1'], comment: automated insertion from missing_dbxref_GeneID best feature
+2025-06-14 16:00:25,798 - DEBUG - Adding gene-ssu with label 'MIT--RNR1', an_sources: ['HE983611.1'], comment: automated insertion from missing_dbxref_GeneID best feature
+2025-06-14 16:00:25,798 - DEBUG - Adding rna-ssu with label 'MIT--RNR1', an_sources: ['HE983611.1'], comment: automated insertion from missing_dbxref_GeneID best feature
+2025-06-14 16:00:25,801 - DEBUG - Adding rna-AFUA_m0470 with label 'MIT--TA', an_sources: ['JQ346808.1'], comment: automated insertion from missing_dbxref_GeneID best feature
+2025-06-14 16:00:25,802 - DEBUG - Adding rna-AFUA_m0330 with label 'MIT--TA', an_sources: ['JQ346808.1'], comment: automated insertion from missing_dbxref_GeneID best feature
+2025-06-14 16:00:25,803 - DEBUG - Adding rna-KX657746.1:11127..11199 with label 'MIT--TA', an_sources: ['KX657746.1'], comment: automated insertion from missing_dbxref_GeneID best feature
+2025-06-14 16:00:25,804 - DEBUG - Adding gene-tRNA-Ala with label 'MIT--TA', an_sources: ['HE983611.1'], comment: automated insertion from missing_dbxref_GeneID best feature
+2025-06-14 16:00:25,805 - DEBUG - Adding rna-tRNA-Ala with label 'MIT--TA', an_sources: ['HE983611.1'], comment: automated insertion from missing_dbxref_GeneID best feature
+2025-06-14 16:00:25,806 - DEBUG - Adding rna-tRNA-Arg with label 'MIT--TR', an_sources: ['HE983611.1'], comment: automated insertion from missing_dbxref_GeneID best feature
+2025-06-14 16:00:25,807 - DEBUG - Adding gene-tRNA-Arg with label 'MIT--TR', an_sources: ['HE983611.1'], comment: automated insertion from missing_dbxref_GeneID best feature
+2025-06-14 16:00:25,810 - DEBUG - Adding rna-AFUA_m0500 with label 'MIT--TR', an_sources: ['JQ346808.1'], comment: automated insertion from missing_dbxref_GeneID best feature
+2025-06-14 16:00:25,812 - DEBUG - Adding gene-tRNA-Arg-2 with label 'MIT--TR', an_sources: ['HE983611.1'], comment: automated insertion from missing_dbxref_GeneID best feature
+2025-06-14 16:00:25,816 - DEBUG - Adding rna-tRNA-Arg-2 with label 'MIT--TR', an_sources: ['HE983611.1'], comment: automated insertion from missing_dbxref_GeneID best feature
+2025-06-14 16:00:25,818 - DEBUG - Adding rna-AFUA_m0070 with label 'MIT--TR', an_sources: ['JQ346808.1'], comment: automated insertion from missing_dbxref_GeneID best feature
+2025-06-14 16:00:25,823 - DEBUG - Adding rna-KX657746.1:10202..10272 with label 'MIT--TR', an_sources: ['KX657746.1'], comment: automated insertion from missing_dbxref_GeneID best feature
+2025-06-14 16:00:25,823 - DEBUG - Adding rna-KX657746.1:7667..7739 with label 'MIT--TR', an_sources: ['KX657746.1'], comment: automated insertion from missing_dbxref_GeneID best feature
+2025-06-14 16:00:25,826 - DEBUG - Adding rna-AFUA_m0030 with label 'MIT--TN', an_sources: ['JQ346808.1'], comment: automated insertion from missing_dbxref_GeneID best feature
+2025-06-14 16:00:25,827 - DEBUG - Adding rna-AFUA_m0080 with label 'MIT--TN', an_sources: ['JQ346808.1'], comment: automated insertion from missing_dbxref_GeneID best feature
+2025-06-14 16:00:25,828 - DEBUG - Adding rna-tRNA-Asn with label 'MIT--TN', an_sources: ['HE983611.1'], comment: automated insertion from missing_dbxref_GeneID best feature
+2025-06-14 16:00:25,829 - DEBUG - Adding rna-KX657746.1:12478..12549 with label 'MIT--TN', an_sources: ['KX657746.1'], comment: automated insertion from missing_dbxref_GeneID best feature
+2025-06-14 16:00:25,830 - DEBUG - Adding gene-tRNA-Asn with label 'MIT--TN', an_sources: ['HE983611.1'], comment: automated insertion from missing_dbxref_GeneID best feature
+2025-06-14 16:00:25,832 - DEBUG - Adding rna-AFUA_m0190 with label 'MIT--TD', an_sources: ['JQ346808.1'], comment: automated insertion from missing_dbxref_GeneID best feature
+2025-06-14 16:00:25,834 - DEBUG - Adding rna-KX657746.1:9037..9108 with label 'MIT--TD', an_sources: ['KX657746.1'], comment: automated insertion from missing_dbxref_GeneID best feature
+2025-06-14 16:00:25,835 - DEBUG - Adding rna-tRNA-Asp with label 'MIT--TD', an_sources: ['HE983611.1'], comment: automated insertion from missing_dbxref_GeneID best feature
+2025-06-14 16:00:25,837 - DEBUG - Adding gene-tRNA-Asp with label 'MIT--TD', an_sources: ['HE983611.1'], comment: automated insertion from missing_dbxref_GeneID best feature
+2025-06-14 16:00:25,838 - DEBUG - Adding gene-tRNA-Cys with label 'MIT--TC', an_sources: ['HE983611.1'], comment: automated insertion from missing_dbxref_GeneID best feature
+2025-06-14 16:00:25,838 - DEBUG - Adding rna-tRNA-Cys with label 'MIT--TC', an_sources: ['HE983611.1'], comment: automated insertion from missing_dbxref_GeneID best feature
+2025-06-14 16:00:25,840 - DEBUG - Adding rna-KX657746.1:5392..5464 with label 'MIT--TC', an_sources: ['KX657746.1'], comment: automated insertion from missing_dbxref_GeneID best feature
+2025-06-14 16:00:25,840 - DEBUG - Adding rna-AFUA_m0020 with label 'MIT--TC', an_sources: ['JQ346808.1'], comment: automated insertion from missing_dbxref_GeneID best feature
+2025-06-14 16:00:25,843 - DEBUG - Adding rna-AFUA_m0360 with label 'MIT--TQ', an_sources: ['JQ346808.1'], comment: automated insertion from missing_dbxref_GeneID best feature
+2025-06-14 16:00:25,847 - DEBUG - Adding gene-tRNA-Gln with label 'MIT--TQ', an_sources: ['HE983611.1'], comment: automated insertion from missing_dbxref_GeneID best feature
+2025-06-14 16:00:25,848 - DEBUG - Adding rna-KX657746.1:6429..6501 with label 'MIT--TQ', an_sources: ['KX657746.1'], comment: automated insertion from missing_dbxref_GeneID best feature
+2025-06-14 16:00:25,849 - DEBUG - Adding rna-tRNA-Gln with label 'MIT--TQ', an_sources: ['HE983611.1'], comment: automated insertion from missing_dbxref_GeneID best feature
+2025-06-14 16:00:25,849 - DEBUG - Adding rna-AFUA_m0280 with label 'MIT--TE', an_sources: ['JQ346808.1'], comment: automated insertion from missing_dbxref_GeneID best feature
+2025-06-14 16:00:25,850 - DEBUG - Adding rna-KX657746.1:49884..49955 with label 'MIT--TE', an_sources: ['KX657746.1'], comment: automated insertion from missing_dbxref_GeneID best feature
+2025-06-14 16:00:25,851 - DEBUG - Adding rna-tRNA-Glu with label 'MIT--TE', an_sources: ['HE983611.1'], comment: automated insertion from missing_dbxref_GeneID best feature
+2025-06-14 16:00:25,856 - DEBUG - Adding gene-tRNA-Glu with label 'MIT--TE', an_sources: ['HE983611.1'], comment: automated insertion from missing_dbxref_GeneID best feature
+2025-06-14 16:00:25,858 - DEBUG - Adding rna-AFUA_m0170 with label 'MIT--TG', an_sources: ['JQ346808.1'], comment: automated insertion from missing_dbxref_GeneID best feature
+2025-06-14 16:00:25,859 - DEBUG - Adding rna-KX657746.1:7877..7948 with label 'MIT--TG', an_sources: ['KX657746.1'], comment: automated insertion from missing_dbxref_GeneID best feature
+2025-06-14 16:00:25,862 - DEBUG - Adding rna-AFUA_m0180 with label 'MIT--TG', an_sources: ['JQ346808.1'], comment: automated insertion from missing_dbxref_GeneID best feature
+2025-06-14 16:00:25,864 - DEBUG - Adding rna-tRNA-Gly with label 'MIT--TG', an_sources: ['HE983611.1'], comment: automated insertion from missing_dbxref_GeneID best feature
+2025-06-14 16:00:25,866 - DEBUG - Adding gene-tRNA-Gly with label 'MIT--TG', an_sources: ['HE983611.1'], comment: automated insertion from missing_dbxref_GeneID best feature
+2025-06-14 16:00:25,870 - DEBUG - Adding rna-tRNA-His with label 'MIT--TH', an_sources: ['HE983611.1'], comment: automated insertion from missing_dbxref_GeneID best feature
+2025-06-14 16:00:25,871 - DEBUG - Adding gene-tRNA-His with label 'MIT--TH', an_sources: ['HE983611.1'], comment: automated insertion from missing_dbxref_GeneID best feature
+2025-06-14 16:00:25,872 - DEBUG - Adding rna-AFUA_m0410 with label 'MIT--TH', an_sources: ['JQ346808.1'], comment: automated insertion from missing_dbxref_GeneID best feature
+2025-06-14 16:00:25,873 - DEBUG - Adding rna-KX657746.1:5503..5573 with label 'MIT--TH', an_sources: ['KX657746.1'], comment: automated insertion from missing_dbxref_GeneID best feature
+2025-06-14 16:00:25,874 - DEBUG - Adding rna-KX657746.1:11325..11397 with label 'MIT--TI', an_sources: ['KX657746.1'], comment: automated insertion from missing_dbxref_GeneID best feature
+2025-06-14 16:00:25,875 - DEBUG - Adding rna-AFUA_m0100 with label 'MIT--TI', an_sources: ['JQ346808.1'], comment: automated insertion from missing_dbxref_GeneID best feature
+2025-06-14 16:00:25,876 - DEBUG - Adding gene-tRNA-Ile with label 'MIT--TI', an_sources: ['HE983611.1'], comment: automated insertion from missing_dbxref_GeneID best feature
+2025-06-14 16:00:25,877 - DEBUG - Adding rna-AFUA_m0220 with label 'MIT--TI', an_sources: ['JQ346808.1'], comment: automated insertion from missing_dbxref_GeneID best feature
+2025-06-14 16:00:25,878 - DEBUG - Adding rna-AFUA_m0050 with label 'MIT--TI', an_sources: ['JQ346808.1'], comment: automated insertion from missing_dbxref_GeneID best feature
+2025-06-14 16:00:25,879 - DEBUG - Adding rna-tRNA-Ile with label 'MIT--TI', an_sources: ['HE983611.1'], comment: automated insertion from missing_dbxref_GeneID best feature
+2025-06-14 16:00:25,880 - DEBUG - Adding rna-AFUA_m0380 with label 'MIT--TI', an_sources: ['JQ346808.1'], comment: automated insertion from missing_dbxref_GeneID best feature
+2025-06-14 16:00:25,881 - DEBUG - Adding rna-tRNA-Leu with label 'MIT--TL1|2', an_sources: ['HE983611.1'], comment: automated insertion from missing_dbxref_GeneID best feature
+2025-06-14 16:00:25,881 - DEBUG - Adding rna-KX657746.1:6326..6407 with label 'MIT--TL1|2', an_sources: ['KX657746.1'], comment: automated insertion from missing_dbxref_GeneID best feature
+2025-06-14 16:00:25,882 - DEBUG - Adding gene-tRNA-Leu-2 with label 'MIT--TL1|2', an_sources: ['HE983611.1'], comment: automated insertion from missing_dbxref_GeneID best feature
+2025-06-14 16:00:25,883 - DEBUG - Adding rna-tRNA-Leu-2 with label 'MIT--TL1|2', an_sources: ['HE983611.1'], comment: automated insertion from missing_dbxref_GeneID best feature
+2025-06-14 16:00:25,884 - DEBUG - Adding rna-AFUA_m0350 with label 'MIT--TL1|2', an_sources: ['JQ346808.1'], comment: automated insertion from missing_dbxref_GeneID best feature
+2025-06-14 16:00:25,888 - DEBUG - Adding rna-AFUA_m0320 with label 'MIT--TL1|2', an_sources: ['JQ346808.1'], comment: automated insertion from missing_dbxref_GeneID best feature
+2025-06-14 16:00:25,889 - DEBUG - Adding gene-tRNA-Leu with label 'MIT--TL1|2', an_sources: ['HE983611.1'], comment: automated insertion from missing_dbxref_GeneID best feature
+2025-06-14 16:00:25,890 - DEBUG - Adding rna-AFUA_m0160 with label 'MIT--TK', an_sources: ['JQ346808.1'], comment: automated insertion from missing_dbxref_GeneID best feature
+2025-06-14 16:00:25,894 - DEBUG - Adding rna-KX657746.1:7294..7365 with label 'MIT--TK', an_sources: ['KX657746.1'], comment: automated insertion from missing_dbxref_GeneID best feature
+2025-06-14 16:00:25,895 - DEBUG - Adding rna-tRNA-Lys with label 'MIT--TK', an_sources: ['HE983611.1'], comment: automated insertion from missing_dbxref_GeneID best feature
+2025-06-14 16:00:25,896 - DEBUG - Adding gene-tRNA-Lys with label 'MIT--TK', an_sources: ['HE983611.1'], comment: automated insertion from missing_dbxref_GeneID best feature
+2025-06-14 16:00:25,896 - DEBUG - Adding rna-AFUA_m0370 with label 'MIT--TM', an_sources: ['JQ346808.1'], comment: automated insertion from missing_dbxref_GeneID best feature
+2025-06-14 16:00:25,898 - DEBUG - Adding rna-KX657746.1:30593..30665 with label 'MIT--TM', an_sources: ['KX657746.1'], comment: automated insertion from missing_dbxref_GeneID best feature
+2025-06-14 16:00:25,899 - DEBUG - Adding rna-KX657746.1:13018..13091 with label 'MIT--TM', an_sources: ['KX657746.1'], comment: automated insertion from missing_dbxref_GeneID best feature
+2025-06-14 16:00:25,900 - DEBUG - Adding gene-tRNA-Met-2 with label 'MIT--TM', an_sources: ['HE983611.1'], comment: automated insertion from missing_dbxref_GeneID best feature
+2025-06-14 16:00:25,901 - DEBUG - Adding rna-AFUA_m0310 with label 'MIT--TM', an_sources: ['JQ346808.1'], comment: automated insertion from missing_dbxref_GeneID best feature
+2025-06-14 16:00:25,903 - DEBUG - Adding rna-tRNA-Met-2 with label 'MIT--TM', an_sources: ['HE983611.1'], comment: automated insertion from missing_dbxref_GeneID best feature
+2025-06-14 16:00:25,904 - DEBUG - Adding rna-AFUA_m0300 with label 'MIT--TM', an_sources: ['JQ346808.1'], comment: automated insertion from missing_dbxref_GeneID best feature
+2025-06-14 16:00:25,905 - DEBUG - Adding gene-tRNA-Met with label 'MIT--TM', an_sources: ['HE983611.1'], comment: automated insertion from missing_dbxref_GeneID best feature
+2025-06-14 16:00:25,906 - DEBUG - Adding rna-tRNA-Met with label 'MIT--TM', an_sources: ['HE983611.1'], comment: automated insertion from missing_dbxref_GeneID best feature
+2025-06-14 16:00:25,908 - DEBUG - Adding gene-tRNA-Phe with label 'MIT--TF', an_sources: ['HE983611.1'], comment: automated insertion from missing_dbxref_GeneID best feature
+2025-06-14 16:00:25,912 - DEBUG - Adding rna-tRNA-Phe with label 'MIT--TF', an_sources: ['HE983611.1'], comment: automated insertion from missing_dbxref_GeneID best feature
+2025-06-14 16:00:25,913 - DEBUG - Adding rna-AFUA_m0340 with label 'MIT--TF', an_sources: ['JQ346808.1'], comment: automated insertion from missing_dbxref_GeneID best feature
+2025-06-14 16:00:25,914 - DEBUG - Adding rna-KX657746.1:17753..17824 with label 'MIT--TF', an_sources: ['KX657746.1'], comment: automated insertion from missing_dbxref_GeneID best feature
+2025-06-14 16:00:25,916 - DEBUG - Adding gene-tRNA-Pro with label 'MIT--TP', an_sources: ['HE983611.1'], comment: automated insertion from missing_dbxref_GeneID best feature
+2025-06-14 16:00:25,917 - DEBUG - Adding rna-KX657746.1:32002..32073 with label 'MIT--TP', an_sources: ['KX657746.1'], comment: automated insertion from missing_dbxref_GeneID best feature
+2025-06-14 16:00:25,918 - DEBUG - Adding rna-AFUA_m0240 with label 'MIT--TP', an_sources: ['JQ346808.1'], comment: automated insertion from missing_dbxref_GeneID best feature
+2025-06-14 16:00:25,919 - DEBUG - Adding rna-tRNA-Pro with label 'MIT--TP', an_sources: ['HE983611.1'], comment: automated insertion from missing_dbxref_GeneID best feature
+2025-06-14 16:00:25,920 - DEBUG - Adding rna-AFUA_m0210 with label 'MIT--TSEC', an_sources: ['JQ346808.1'], comment: automated insertion from missing_dbxref_GeneID best feature
+2025-06-14 16:00:25,922 - DEBUG - Adding rna-KX657746.1:10110..10192 with label 'MIT--TS1|2', an_sources: ['KX657746.1'], comment: automated insertion from missing_dbxref_GeneID best feature
+2025-06-14 16:00:25,923 - DEBUG - Adding gene-tRNA-Ser with label 'MIT--TS1|2', an_sources: ['HE983611.1'], comment: automated insertion from missing_dbxref_GeneID best feature
+2025-06-14 16:00:25,924 - DEBUG - Adding rna-AFUA_m0200 with label 'MIT--TS1|2', an_sources: ['JQ346808.1'], comment: automated insertion from missing_dbxref_GeneID best feature
+2025-06-14 16:00:25,926 - DEBUG - Adding rna-tRNA-Ser-2 with label 'MIT--TS1|2', an_sources: ['HE983611.1'], comment: automated insertion from missing_dbxref_GeneID best feature
+2025-06-14 16:00:25,927 - DEBUG - Adding rna-tRNA-Ser with label 'MIT--TS1|2', an_sources: ['HE983611.1'], comment: automated insertion from missing_dbxref_GeneID best feature
+2025-06-14 16:00:25,928 - DEBUG - Adding gene-tRNA-Ser-2 with label 'MIT--TS1|2', an_sources: ['HE983611.1'], comment: automated insertion from missing_dbxref_GeneID best feature
+2025-06-14 16:00:25,929 - DEBUG - Adding rna-KX657746.1:62808..62894 with label 'MIT--TS1|2', an_sources: ['KX657746.1'], comment: automated insertion from missing_dbxref_GeneID best feature
+2025-06-14 16:00:25,930 - DEBUG - Adding rna-AFUA_m0230 with label 'MIT--TS1|2', an_sources: ['JQ346808.1'], comment: automated insertion from missing_dbxref_GeneID best feature
+2025-06-14 16:00:25,931 - DEBUG - Adding rna-AFUA_m0270 with label 'MIT--TT', an_sources: ['JQ346808.1'], comment: automated insertion from missing_dbxref_GeneID best feature
+2025-06-14 16:00:25,932 - DEBUG - Adding gene-tRNA-Thr with label 'MIT--TT', an_sources: ['HE983611.1'], comment: automated insertion from missing_dbxref_GeneID best feature
+2025-06-14 16:00:25,934 - DEBUG - Adding rna-tRNA-Thr with label 'MIT--TT', an_sources: ['HE983611.1'], comment: automated insertion from missing_dbxref_GeneID best feature
+2025-06-14 16:00:25,934 - DEBUG - Adding rna-KX657746.1:18120..18191 with label 'MIT--TT', an_sources: ['KX657746.1'], comment: automated insertion from missing_dbxref_GeneID best feature
+2025-06-14 16:00:25,936 - DEBUG - Adding rna-KX657746.1:4702..4774 with label 'MIT--TT', an_sources: ['KX657746.1'], comment: automated insertion from missing_dbxref_GeneID best feature
+2025-06-14 16:00:25,938 - DEBUG - Adding rna-KX657746.1:68113..68183 with label 'MIT--TW', an_sources: ['KX657746.1'], comment: automated insertion from missing_dbxref_GeneID best feature
+2025-06-14 16:00:25,940 - DEBUG - Adding rna-tRNA-Trp with label 'MIT--TW', an_sources: ['HE983611.1'], comment: automated insertion from missing_dbxref_GeneID best feature
+2025-06-14 16:00:25,941 - DEBUG - Adding gene-tRNA-Trp with label 'MIT--TW', an_sources: ['HE983611.1'], comment: automated insertion from missing_dbxref_GeneID best feature
+2025-06-14 16:00:25,942 - DEBUG - Adding gene-tRNA-Tyr with label 'MIT--TY', an_sources: ['HE983611.1'], comment: automated insertion from missing_dbxref_GeneID best feature
+2025-06-14 16:00:25,943 - DEBUG - Adding rna-KX657746.1:11879..11963 with label 'MIT--TY', an_sources: ['KX657746.1'], comment: automated insertion from missing_dbxref_GeneID best feature
+2025-06-14 16:00:25,944 - DEBUG - Adding rna-tRNA-Tyr with label 'MIT--TY', an_sources: ['HE983611.1'], comment: automated insertion from missing_dbxref_GeneID best feature
+2025-06-14 16:00:25,945 - DEBUG - Adding rna-AFUA_m0130 with label 'MIT--TY', an_sources: ['JQ346808.1'], comment: automated insertion from missing_dbxref_GeneID best feature
+2025-06-14 16:00:25,947 - DEBUG - Adding rna-KX657746.1:19056..19128 with label 'MIT--TV', an_sources: ['KX657746.1'], comment: automated insertion from missing_dbxref_GeneID best feature
+2025-06-14 16:00:25,948 - DEBUG - Adding rna-tRNA-Val with label 'MIT--TV', an_sources: ['HE983611.1'], comment: automated insertion from missing_dbxref_GeneID best feature
+2025-06-14 16:00:25,949 - DEBUG - Adding rna-AFUA_m0290 with label 'MIT--TV', an_sources: ['JQ346808.1'], comment: automated insertion from missing_dbxref_GeneID best feature
+2025-06-14 16:00:25,950 - DEBUG - Adding gene-tRNA-Val with label 'MIT--TV', an_sources: ['HE983611.1'], comment: automated insertion from missing_dbxref_GeneID best feature
+2025-06-14 16:00:25,951 - DEBUG - Adding gene-KX657746.1:11127..11199 with label 'MIT--TA', an_sources: ['KX657746.1'], comment: automated insertion from missing_dbxref_GeneID best feature
+2025-06-14 16:00:25,953 - DEBUG - Adding gene-KX657746.1:5392..5464 with label 'MIT--TC', an_sources: ['KX657746.1'], comment: automated insertion from missing_dbxref_GeneID best feature
+2025-06-14 16:00:25,954 - DEBUG - Adding gene-KX657746.1:9037..9108 with label 'MIT--TD', an_sources: ['KX657746.1'], comment: automated insertion from missing_dbxref_GeneID best feature
+2025-06-14 16:00:25,955 - DEBUG - Adding gene-KX657746.1:49884..49955 with label 'MIT--TE', an_sources: ['KX657746.1'], comment: automated insertion from missing_dbxref_GeneID best feature
+2025-06-14 16:00:25,957 - DEBUG - Adding gene-KX657746.1:17753..17824 with label 'MIT--TF', an_sources: ['KX657746.1'], comment: automated insertion from missing_dbxref_GeneID best feature
+2025-06-14 16:00:25,958 - DEBUG - Adding gene-KX657746.1:7877..7948 with label 'MIT--TG', an_sources: ['KX657746.1'], comment: automated insertion from missing_dbxref_GeneID best feature
+2025-06-14 16:00:25,959 - DEBUG - Adding gene-KX657746.1:5503..5573 with label 'MIT--TH', an_sources: ['KX657746.1'], comment: automated insertion from missing_dbxref_GeneID best feature
+2025-06-14 16:00:25,961 - DEBUG - Adding gene-KX657746.1:11325..11397 with label 'MIT--TI', an_sources: ['KX657746.1'], comment: automated insertion from missing_dbxref_GeneID best feature
+2025-06-14 16:00:25,962 - DEBUG - Adding gene-KX657746.1:7294..7365 with label 'MIT--TK', an_sources: ['KX657746.1'], comment: automated insertion from missing_dbxref_GeneID best feature
+2025-06-14 16:00:25,963 - DEBUG - Adding gene-KX657746.1:6326..6407 with label 'MIT--TL1|2', an_sources: ['KX657746.1'], comment: automated insertion from missing_dbxref_GeneID best feature
+2025-06-14 16:00:25,964 - DEBUG - Adding gene-KX657746.1:13018..13091 with label 'MIT--TM', an_sources: ['KX657746.1'], comment: automated insertion from missing_dbxref_GeneID best feature
+2025-06-14 16:00:25,965 - DEBUG - Adding gene-KX657746.1:12478..12549 with label 'MIT--TN', an_sources: ['KX657746.1'], comment: automated insertion from missing_dbxref_GeneID best feature
+2025-06-14 16:00:25,966 - DEBUG - Adding gene-KX657746.1:32002..32073 with label 'MIT--TP', an_sources: ['KX657746.1'], comment: automated insertion from missing_dbxref_GeneID best feature
+2025-06-14 16:00:25,966 - DEBUG - Adding gene-KX657746.1:6429..6501 with label 'MIT--TQ', an_sources: ['KX657746.1'], comment: automated insertion from missing_dbxref_GeneID best feature
+2025-06-14 16:00:25,967 - DEBUG - Adding gene-KX657746.1:7667..7739 with label 'MIT--TR', an_sources: ['KX657746.1'], comment: automated insertion from missing_dbxref_GeneID best feature
+2025-06-14 16:00:25,967 - DEBUG - Adding gene-KX657746.1:10202..10272 with label 'MIT--TR', an_sources: ['KX657746.1'], comment: automated insertion from missing_dbxref_GeneID best feature
+2025-06-14 16:00:25,971 - DEBUG - Adding gene-KX657746.1:62808..62894 with label 'MIT--TS1|2', an_sources: ['KX657746.1'], comment: automated insertion from missing_dbxref_GeneID best feature
+2025-06-14 16:00:25,972 - DEBUG - Adding gene-KX657746.1:10110..10192 with label 'MIT--TS1|2', an_sources: ['KX657746.1'], comment: automated insertion from missing_dbxref_GeneID best feature
+2025-06-14 16:00:25,973 - DEBUG - Adding gene-KX657746.1:18120..18191 with label 'MIT--TT', an_sources: ['KX657746.1'], comment: automated insertion from missing_dbxref_GeneID best feature
+2025-06-14 16:00:25,974 - DEBUG - Adding gene-KX657746.1:4702..4774 with label 'MIT--TT', an_sources: ['KX657746.1'], comment: automated insertion from missing_dbxref_GeneID best feature
+2025-06-14 16:00:25,976 - DEBUG - Adding gene-KX657746.1:19056..19128 with label 'MIT--TV', an_sources: ['KX657746.1'], comment: automated insertion from missing_dbxref_GeneID best feature
+2025-06-14 16:00:25,978 - DEBUG - Adding gene-KX657746.1:68113..68183 with label 'MIT--TW', an_sources: ['KX657746.1'], comment: automated insertion from missing_dbxref_GeneID best feature
+2025-06-14 16:00:25,979 - DEBUG - Adding gene-KX657746.1:11879..11963 with label 'MIT--TY', an_sources: ['KX657746.1'], comment: automated insertion from missing_dbxref_GeneID best feature
+2025-06-14 16:00:25,981 - DEBUG - Adding gene-KX657746.1:30593..30665 with label 'MIT--TM', an_sources: ['KX657746.1'], comment: automated insertion from missing_dbxref_GeneID best feature
+2025-06-14 16:00:25,981 - DEBUG - Adding gene-var1 with label 'MIT--VAR1', an_sources: ['HE983611.1'], comment: automated insertion from missing_dbxref_GeneID best feature
+2025-06-14 16:00:25,982 - INFO -  ---- [Finished 'Automated insertion of gene_ids with known features from features_info.tsv'] ----
+2025-06-14 16:00:29,972 - INFO - Writing gene_dict file: /home/brenodupin/matheus/gdt/example/fungi_mt/misc/gdt/fungi_mt_pilot_06.gdt | Iteration: 6
+2025-06-14 16:00:29,976 - INFO - fungi_mt_pilot_06.gdt was created in misc/gdt!
+2025-06-14 16:00:29,977 - INFO - You must now add it to most_recent_gdt_filename in the Setup cell, and rerun the cell

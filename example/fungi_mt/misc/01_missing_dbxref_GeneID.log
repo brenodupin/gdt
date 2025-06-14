@@ -1,0 +1,22 @@
+2025-06-14 15:50:41,223 - DEBUG - Simple log setup complete.
+2025-06-14 15:50:41,224 - DEBUG - Console logging level DEBUG
+2025-06-14 15:50:41,224 - DEBUG - File logging level TRACE at /home/brenodupin/matheus/gdt/example/fungi_mt/misc/01_missing_dbxref_GeneID.log
+2025-06-14 15:50:41,224 - DEBUG - Running from notebook AN_missing_dbxref_GeneID.ipynb
+2025-06-14 15:50:53,724 - INFO - Found 3 ANs in /home/brenodupin/matheus/gdt/example/fungi_mt/misc/AN_missing_dbxref_GeneID.txt
+2025-06-14 15:50:53,728 - TRACE - ANs: ['KX657746.1', 'HE983611.1', 'JQ346808.1']
+2025-06-14 15:50:55,787 - INFO - GeneDict loaded from fungi_mt_pilot_04.gdt
+2025-06-14 15:50:55,788 - DEBUG - path: /home/brenodupin/matheus/gdt/example/fungi_mt/misc/gdt/fungi_mt_pilot_04.gdt
+2025-06-14 15:50:55,789 - INFO - Header:
+2025-06-14 15:50:55,789 - INFO - 	version 0.0.2
+2025-06-14 15:50:55,790 - INFO - 	Fungi_mt
+2025-06-14 15:50:55,790 - INFO - 	2025-04-09 17:54 - Conversion from gdt to gdt2
+2025-06-14 15:50:55,791 - INFO - 	2025-06-05 18:11 - Stripped GDT version from original GDT file Fungi_mt.gdt
+2025-06-14 15:50:55,791 - INFO - 	2025-06-11 20:37 - Data added from TEMP 01
+2025-06-14 15:50:55,791 - INFO - 	2025-06-11 20:50 - Data added from TEMP Symbol 01
+2025-06-14 15:50:55,792 - INFO - GDT Info:
+2025-06-14 15:50:55,793 - INFO - 	Labels: 56
+2025-06-14 15:50:55,793 - INFO - 	Total Entries   : 820
+2025-06-14 15:50:55,793 - INFO - 	GeneDescriptions: 540
+2025-06-14 15:50:55,794 - INFO - 	GeneGenerics    : 0
+2025-06-14 15:50:55,795 - INFO - 	DbxrefGeneIDs   : 280
+2025-06-14 15:51:00,524 - DEBUG - Features info df, writing to /home/brenodupin/matheus/gdt/example/fungi_mt/misc/features_info.tsv

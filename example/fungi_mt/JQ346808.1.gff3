@@ -113,7 +113,7 @@ JQ346808.1	Genbank	exon	16738	16808	.	+	.	ID=exon-AFUA_m0370-1;Parent=rna-AFUA_m
 JQ346808.1	Genbank	gene	16923	16994	.	+	.	ID=gene-AFUA_m0380;Name=AFUA_m0380;gbkey=Gene;gene_biotype=tRNA;locus_tag=AFUA_m0380
 JQ346808.1	Genbank	tRNA	16923	16994	.	+	.	ID=rna-AFUA_m0380;Parent=gene-AFUA_m0380;Note=anticodon TAT;gbkey=tRNA;locus_tag=AFUA_m0380;product=tRNA-Ile
 JQ346808.1	Genbank	exon	16923	16994	.	+	.	ID=exon-AFUA_m0380-1;Parent=rna-AFUA_m0380;Note=anticodon TAT;gbkey=tRNA;locus_tag=AFUA_m0380;product=tRNA-Ile
-JQ346808.1	Genbank	gene	17349	18191	.	+	.	ID=gene-AFUA_m0390;Name=AFUA_m0390;gbkey=Gene;gene_biotype=protein_coding;locus_tag=AFUA_m0390
+JQ346808.1	Genbank	discard-gene	17349	18191	.	+	.	ID=gene-AFUA_m0390;Name=AFUA_m0390;gbkey=Gene;gene_biotype=protein_coding;locus_tag=AFUA_m0390
 JQ346808.1	Genbank	CDS	17349	18191	.	+	0	ID=cds-AFE02858.1;Parent=gene-AFUA_m0390;Dbxref=NCBI_GP:AFE02858.1;Name=AFE02858.1;gbkey=CDS;locus_tag=AFUA_m0390;product=hypothetical protein;protein_id=AFE02858.1;transl_table=4
 JQ346808.1	Genbank	gene	18420	19196	.	+	.	ID=gene-AFUA_m0400;Name=AFUA_m0400;gbkey=Gene;gene_biotype=protein_coding;locus_tag=AFUA_m0400
 JQ346808.1	Genbank	CDS	18420	19196	.	+	0	ID=cds-AFE02859.1;Parent=gene-AFUA_m0400;Dbxref=NCBI_GP:AFE02859.1;Name=AFE02859.1;gbkey=CDS;locus_tag=AFUA_m0400;product=hypothetical protein;protein_id=AFE02859.1;transl_table=4
@@ -123,7 +123,7 @@ JQ346808.1	Genbank	exon	19240	19310	.	+	.	ID=exon-AFUA_m0410-1;Parent=rna-AFUA_m
 JQ346808.1	Genbank	gene	19390	23125	.	+	.	ID=gene-AFUA_m0420;Name=AFUA_m0420;gbkey=Gene;gene_biotype=protein_coding;locus_tag=AFUA_m0420
 JQ346808.1	Genbank	CDS	19390	19799	.	+	0	ID=cds-AFE02860.1;Parent=gene-AFUA_m0420;Dbxref=NCBI_GP:AFE02860.1;Name=AFE02860.1;gbkey=CDS;locus_tag=AFUA_m0420;product=cytochrome oxidase subunit 1;protein_id=AFE02860.1;transl_table=4
 JQ346808.1	Genbank	CDS	21820	23125	.	+	1	ID=cds-AFE02860.1;Parent=gene-AFUA_m0420;Dbxref=NCBI_GP:AFE02860.1;Name=AFE02860.1;gbkey=CDS;locus_tag=AFUA_m0420;product=cytochrome oxidase subunit 1;protein_id=AFE02860.1;transl_table=4
-JQ346808.1	Genbank	gene	19816	20691	.	+	.	ID=gene-AFUA_m0430;Name=AFUA_m0430;gbkey=Gene;gene_biotype=protein_coding;locus_tag=AFUA_m0430
+JQ346808.1	Genbank	discard-gene	19816	20691	.	+	.	ID=gene-AFUA_m0430;Name=AFUA_m0430;gbkey=Gene;gene_biotype=protein_coding;locus_tag=AFUA_m0430
 JQ346808.1	Genbank	CDS	19816	20691	.	+	0	ID=cds-AFE02861.1;Parent=gene-AFUA_m0430;Dbxref=NCBI_GP:AFE02861.1;Name=AFE02861.1;gbkey=CDS;locus_tag=AFUA_m0430;product=intron-encoded LAGLIDADG endonuclease family protein;protein_id=AFE02861.1;transl_table=4
 JQ346808.1	Genbank	gene	21066	21803	.	+	.	ID=gene-AFUA_m0440;Name=AFUA_m0440;gbkey=Gene;gene_biotype=protein_coding;locus_tag=AFUA_m0440
 JQ346808.1	Genbank	CDS	21066	21803	.	+	0	ID=cds-AFE02862.1;Parent=gene-AFUA_m0440;Dbxref=NCBI_GP:AFE02862.1;Name=AFE02862.1;gbkey=CDS;locus_tag=AFUA_m0440;product=hypothetical protein;protein_id=AFE02862.1;transl_table=4

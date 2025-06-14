@@ -539,3 +539,11 @@
 2025-06-14 16:02:48,809 - INFO - Writing gene_dict file: /home/brenodupin/matheus/gdt/example/fungi_mt/misc/gdt/fungi_mt_pilot_07.gdt | pilot itr: 7
 2025-06-14 16:02:48,816 - INFO - fungi_mt_pilot_07.gdt was created in misc/gdt!
 2025-06-14 16:02:48,817 - INFO - You must now add it to most_recent_gdt_filename in the Setup cell, and rerun the cell
+2025-06-14 16:06:40,148 - INFO -  ---- [Starting 'AN_missing_dbxref_GeneID excluding gene IDs from GFF3s'] ----
+2025-06-14 16:06:40,149 - INFO - Processing JQ346808.1 for excluding 2 gene IDs
+2025-06-14 16:06:40,150 - TRACE -  excluding gene IDs: {'gene-AFUA_m0430', 'gene-AFUA_m0390'}
+2025-06-14 16:06:40,151 - TRACE - Pattern for exclusion: ID=gene-AFUA_m0430;|ID=gene-AFUA_m0390;
+2025-06-14 16:06:40,153 - INFO - Processing KX657746.1 for excluding 2 gene IDs
+2025-06-14 16:06:40,154 - TRACE -  excluding gene IDs: {'gene-KX657746.1:52846..53595', 'gene-KX657746.1:14572..15996'}
+2025-06-14 16:06:40,155 - TRACE - Pattern for exclusion: ID=gene-KX657746.1:52846..53595;|ID=gene-KX657746.1:14572..15996;
+2025-06-14 16:06:40,155 - INFO -  ---- [Finished 'AN_missing_dbxref_GeneID excluding gene IDs from GFF3s'] ----

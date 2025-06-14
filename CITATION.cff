@@ -10,10 +10,14 @@ authors:
 
   - family-names: Sanita Lima
     given-names: Matheus
-    orcid: https://orcid.org/0000-0002-4050-402
+    orcid: https://orcid.org/0000-0002-4050-4022
     email: msanital@uwo.ca
     affiliation: "Western University" 
 
-title: test_project
-version: 0.1.0
-date-released: 2025-51-05/24/25
+title: GDT, Gene Dictionary Tool
+version: 0.1.3
+date-released: 2025-06-14
+
+# TODO pending star protocol
+#preferred-citation:
+#  type: article

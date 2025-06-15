@@ -210,7 +210,7 @@ def filter_whole_tsv(
             log.info(f"Moving gdt file to {gdt_path}")
 
         gene_dict = gdt_impl.create_gene_dict(gdt_path)
-        log.debug(f"Gene dictionary loaded from {gdt_path}")
+        log.debug(f"GeneDict loaded from {gdt_path}")
         log.trace(f"Header : {gene_dict.header}")
         log.trace(f"Info   : {gene_dict.info}")
 

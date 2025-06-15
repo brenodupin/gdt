@@ -232,7 +232,7 @@ def cli_run() -> None:
         default="gdt_label",
         type=str,
         help="Tag to use for the GDT key/value pair in the GFF3 file. "
-        "Default: 'gdt_label'.",
+        "Default: 'gdt_label='.",
     )
     standardize_parser.add_argument(
         "--error-on-missing",

@@ -2,9 +2,11 @@
   <img src="img/gdt_no_background.png" width="50%">
 
 $${\color{#E0AF68}{\LARGE\textsf{🧬 Standardizing gene names across organelle genomes 🧬}}}$$
+![Build Status](https://img.shields.io/badge/tests-in_development-yellow)
 [![Checked with mypy](https://www.mypy-lang.org/static/mypy_badge.svg)](https://mypy-lang.org/)
 [![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
 [![Linting: Ruff](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/charliermarsh/ruff/main/assets/badge/v2.json)](https://github.com/astral-sh/ruff)
+[![License](https://img.shields.io/badge/license-MIT-purple)](https://github.com/brenodupin/gdt/blob/master/LICENSE)
 [![DOI:10.1101/2025.06.15.659783v1](https://img.shields.io/badge/biorxiv-10.1101/2025.06.15.659783-blue)](https://doi.org/10.1101/2025.06.15.659783)
 
 </div>
@@ -20,8 +22,11 @@ GDT (Gene Dictonary Tool) is a protocol for the creation and implementation of a
 
 ### Requirements
 
-- [Python](https://www.python.org/) (>=3.10)
-- [pandas](https://pandas.pydata.org/) ()
+- [Python](https://www.python.org/) `(>=3.10)`
+- [pandas](https://pandas.pydata.org/) `(>=1.5.3,<3.0.0)`
+
+> [!NOTE]  
+> [biopython](https://biopython.org) is necessary for `AN_missing_gene_dict.ipynb`, and can be installed `with pip install biopython`
 
 ### Installation
 You can install the library with pip:
@@ -29,10 +34,13 @@ You can install the library with pip:
 pip install gdt
 ```
 
-If you plan on running ```AN_missing_gene_dict.ipynb```, you need to install [biopython](https://biopython.org)
+If you plan on running `AN_missing_gene_dict.ipynb`, you need to install [biopython](https://biopython.org)
 ```
 pip install biopython
 ```
+
+### CLI commands
+`
 
 
 

@@ -1,9 +1,42 @@
-gdt
-==============================
-__WIP__
-A short description of the project.
+<div align="center">
+  <img src="img/gdt_no_background.png" width="50%">
 
-Project Organization
+$${\color{#E0AF68}{\LARGE\textsf{🧬 Standardizing gene names across organelle genomes 🧬}}}$$
+[![Checked with mypy](https://www.mypy-lang.org/static/mypy_badge.svg)](https://mypy-lang.org/)
+[![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
+[![Linting: Ruff](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/charliermarsh/ruff/main/assets/badge/v2.json)](https://github.com/astral-sh/ruff)
+[![DOI:10.1101/2025.06.15.659783v1](https://img.shields.io/badge/biorxiv-10.1101/2025.06.15.659783-blue)](https://doi.org/10.1101/2025.06.15.659783)
+
+</div>
+
+# Table of Contents
+place_holder
+
+## Overview
+
+GDT (Gene Dictonary Tool) is a protocol for the creation and implementation of a gene dictionary across any type of annotated genomes. This Python library offers a suite of functionalities that enables the manipulation and integration of .gdt files into other pipelines seamlessly.
+
+## Getting Started
+
+### Requirements
+
+- [Python](https://www.python.org/) (>=3.10)
+- [pandas](https://pandas.pydata.org/) ()
+
+### Installation
+You can install the library with pip:
+```
+pip install gdt
+```
+
+If you plan on running ```AN_missing_gene_dict.ipynb```, you need to install [biopython](https://biopython.org)
+```
+pip install biopython
+```
+
+
+
+work in progress
 ```
 ├── CITATION.cff       <- Contains metadata on how the project might eventually be published. 
 ├── LICENSE
@@ -55,5 +88,4 @@ Project Organization
 ├── workspace          <- Space for intermediate results in the pipeline. By default excluded from the git repository.  
 ```
 
-<p><small>Project inspired by the <a target="_blank" href="https://drivendata.github.io/cookiecutter-data-science/">cookiecutter data science project template</a> and
-the <a target="_blank" href="https://snakemake.readthedocs.io/en/stable/snakefiles/deployment.html">Snakemake workflow template</a>. </small></p>
+<p><small>Project inspired by the <a target="_blank" href="https://drivendata.github.io/cookiecutter-data-science/">cookiecutter data science project template</a>

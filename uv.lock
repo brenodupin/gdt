@@ -22,7 +22,7 @@ dev = [
 ]
 
 [package.metadata]
-requires-dist = [{ name = "pandas" }]
+requires-dist = [{ name = "pandas", specifier = ">=1.5.3,<3.0.0" }]
 
 [package.metadata.requires-dev]
 dev = [

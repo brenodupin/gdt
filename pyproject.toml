@@ -14,12 +14,12 @@ readme = "README.md"
 license = {file = "LICENSE"}
 requires-python = ">=3.10"
 dependencies = [
-    "pandas",
+    "pandas>=1.5.3,<3.0.0",
 ]
 
 [project.urls]
-Homepage = "https://gitlab.com/brenodupin/gdt"
-Repository = "https://gitlab.com/brenodupin/gdt"
+Homepage = "https://github.com/brenodupin/gdt"
+Repository = "https://github.com/brenodupin/gdt"
 
 [project.scripts]
 gdt-cli = "gdt.cli:cli_run"

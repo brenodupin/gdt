@@ -137,7 +137,7 @@ def cli_run() -> None:
         "stripped",
         help="Create a stripped version of a GDT file",
         description="Filter GeneGeneric's (#gn) and Dbxref's (#dx) out of a GDT file, "
-        "keeping only GeneDescription (#gd) entries and its metadata.",
+        "keeping only GeneDescription (#gd) entries and their metadata.",
         parents=[global_flags],
     )
     stripped_parser.add_argument(

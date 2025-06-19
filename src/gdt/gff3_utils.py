@@ -1,11 +1,12 @@
 # -*- coding: utf-8 -*-
+"""Utilities for working with GFF3 files in the GDT package."""
 
 import concurrent.futures
 import os
 import re
 import shutil
 from pathlib import Path
-from typing import Optional, Union, cast
+from typing import Final, Optional, Union, cast
 
 import pandas as pd
 
@@ -101,7 +102,7 @@ def check_single_an(
     """Check a single GFF3 file for gene information and dbxref.
 
     Args:
-        AN_path (Path): Path to the GFF3 file.
+        an_path (Path): Path to the GFF3 file.
         gene_dict (GeneDict): Gene dictionary to check against.
         keep_orfs (bool): Whether to keep ORFs in the DataFrame.
         query_string (str): Query string to filter the DataFrame.
@@ -178,7 +179,7 @@ def check_gff_in_tsv(
     df: pd.DataFrame,
     base_path: Path,
     gff_suffix: str = ".gff3",
-    AN_column: str = "AN",
+    an_column: str = "AN",
 ) -> None:
     """Check if GFF3 files exist for each accession number in the DataFrame.
 
@@ -187,23 +188,23 @@ def check_gff_in_tsv(
         df (pd.DataFrame): DataFrame containing accession numbers.
         base_path (Path): Base path where GFF3 files are expected to be found.
         gff_suffix (str): Suffix for GFF3 files. Default is ".gff3".
-        AN_column (str): Column name containing accession numbers. Default is "AN".
+        an_column (str): Column name containing accession numbers. Default is "AN".
 
     """
-    check_column(log, df, AN_column, "TSV")
     log.trace(
         f"check_gff_in_tsv called | base_path: {base_path} | gff_suffix: {gff_suffix}"
     )
+    check_column(log, df, an_column, "TSV")
 
     no_files = [
-        (AN, AN_path)
-        for AN in df[AN_column]
-        if not (AN_path := (base_path / f"{AN}{gff_suffix}")).is_file()
+        (an, AN_path)
+        for an in df[an_column]
+        if not (AN_path := (base_path / f"{an}{gff_suffix}")).is_file()
     ]
 
     if no_files:
-        for AN, path in no_files:
-            log.error(f"GFF3 file not found for {AN}, expected {path}")
+        for an, path in no_files:
+            log.error(f"GFF3 file not found for {an}, expected {path}")
         raise FileNotFoundError(
             f"Missing {len(no_files)} GFF3 files. Please check the log for details."
         )
@@ -215,7 +216,7 @@ def filter_whole_tsv(
     gdt_path: Optional[Path] = None,
     keep_orfs: bool = False,
     workers: int = 0,
-    AN_column: str = "AN",
+    an_column: str = "AN",
     gff_suffix: str = ".gff3",
     query_string: str = QS_GENE_TRNA_RRNA,
 ) -> None:
@@ -224,35 +225,38 @@ def filter_whole_tsv(
     Args:
         log (GDTLogger): Logger instance for logging messages.
         tsv_path (Path): Path to the TSV file containing accession numbers.
-        gdt_path (Optional[Path]): Path to the GDT file. If None, an empty GeneDict is used.
+        gdt_path (Optional[Path]): Path to the GDT file.
+                                   If None, an empty GeneDict is used.
         keep_orfs (bool): Whether to keep ORFs in the GFF3 files. Default is False.
         workers (int): Number of worker processes to use for parallel processing.
                        Default is 0, meaing max cpu cores.
-        AN_column (str): Column name containing accession numbers in the TSV file. Default is "AN".
+        an_column (str): Column name containing accession numbers in the TSV file.
+                         Default is "AN".
         gff_suffix (str): Suffix for GFF3 files. Default is ".gff3".
-        query_string (str): Query string to filter GFF3 files. Default is QS_GENE_TRNA_RRNA.
+        query_string (str): Query string to filter GFF3 files.
+                            Default is QS_GENE_TRNA_RRNA.
 
 
     """
     max_workers = os.cpu_count() or 1
     workers = workers if (workers > 0 and workers <= max_workers) else max_workers
 
-    AN_missing_dbxref_GeneID: list[str] = []
-    AN_missing_gene_dict: list[str] = []
-    AN_good_to_go: list[str] = []
+    an_missing_dbxref_geneid: list[str] = []
+    an_missing_gene_dict: list[str] = []
+    an_good_to_go: list[str] = []
 
     # check if tsv_path exists
     if not tsv_path.exists():
         log.error(f"tsv file not found: {gdt_path}")
         raise FileNotFoundError(f"tsv file not found: {gdt_path}")
 
-    base_folder = tsv_path.parent
+    base_folder: Final[Path] = tsv_path.parent
     tsv = pd.read_csv(tsv_path, sep="\t")
-    check_column(log, tsv, AN_column)
-    check_gff_in_tsv(log, tsv, base_folder, gff_suffix, AN_column)
+    check_column(log, tsv, an_column)
+    check_gff_in_tsv(log, tsv, base_folder, gff_suffix, an_column)
 
-    MISC_DIR = base_folder / "misc"
-    GDT_DIR = MISC_DIR / "gdt"
+    MISC_DIR: Final[Path] = base_folder / "misc"  # noqa: N806
+    GDT_DIR: Final[Path] = MISC_DIR / "gdt"  # noqa: N806
     GDT_DIR.mkdir(511, True, True)  # 511 = 0o777
 
     # check if gdt_path exists, if not, create empty gene_dict
@@ -286,7 +290,7 @@ def filter_whole_tsv(
                 keep_orfs,
                 query_string,
             )
-            for an in tsv[AN_column]
+            for an in tsv[an_column]
         ]
     concurrent.futures.wait(futures)
 
@@ -296,8 +300,8 @@ def filter_whole_tsv(
             log.error(f"Error processing {result['AN']}: {result['error']}")
             continue
 
-        AN: str = cast(str, result["AN"])
-        log.trace(f"-- [Processing: {AN}] --")
+        an: str = cast(str, result["AN"])
+        log.trace(f"-- [Processing: {an}] --")
         log.trace(
             f"\tgenes: {result['gene_count']} | have dbxref: {result['dbxref_count']} |"
             f" genes in gene_dict: {result['gene_dict_count']}"
@@ -309,35 +313,35 @@ def filter_whole_tsv(
         log.trace(f"\tnot in gene_dict: {result['genes_not_in_dict']}")
 
         if result["status"] == "M_in_gene_dict":
-            log.trace(f"\t{AN} is missing genes in gene_dict but have dbxref")
-            AN_missing_gene_dict.append(AN)
+            log.trace(f"\t{an} is missing genes in gene_dict but have dbxref")
+            an_missing_gene_dict.append(an)
 
         elif result["status"] == "M_dbxref_GeneID":
             log.trace(
-                f"\t{AN} is missing genes in gene_dict and is also missing dbxref"
+                f"\t{an} is missing genes in gene_dict and is also missing dbxref"
             )
-            AN_missing_dbxref_GeneID.append(AN)
+            an_missing_dbxref_geneid.append(an)
 
         else:
-            log.trace(f"\t{AN} is good to go!")
-            AN_good_to_go.append(AN)
+            log.trace(f"\t{an} is good to go!")
+            an_good_to_go.append(an)
 
-        log.trace(f"-- [End Processing: {AN}] --")
+        log.trace(f"-- [End Processing: {an}] --")
 
-    log.info(f"ANs good to go: {len(AN_good_to_go)}")
-    log.trace(f"ANs good to go: {AN_good_to_go}")
-    log.info(f"ANs missing gene_dict: {len(AN_missing_gene_dict)}")
-    log.trace(f"ANs missing gene_dict: {AN_missing_gene_dict}")
-    log.info(f"ANs missing dbxref: {len(AN_missing_dbxref_GeneID)}")
-    log.trace(f"ANs missing dbxref: {AN_missing_dbxref_GeneID}")
+    log.info(f"ANs good to go: {len(an_good_to_go)}")
+    log.trace(f"ANs good to go: {an_good_to_go}")
+    log.info(f"ANs missing gene_dict: {len(an_missing_gene_dict)}")
+    log.trace(f"ANs missing gene_dict: {an_missing_gene_dict}")
+    log.info(f"ANs missing dbxref: {len(an_missing_dbxref_geneid)}")
+    log.trace(f"ANs missing dbxref: {an_missing_dbxref_geneid}")
     log.info("Processing finished, resolving output files")
 
     path_gene_dict = MISC_DIR / "AN_missing_gene_dict.txt"
     path_dbxref = MISC_DIR / "AN_missing_dbxref_GeneID.txt"
 
-    if AN_missing_dbxref_GeneID:
+    if an_missing_dbxref_geneid:
         with open(path_dbxref, "w") as f:
-            f.write("\n".join(AN_missing_dbxref_GeneID))
+            f.write("\n".join(an_missing_dbxref_geneid))
 
     else:
         log.debug("No ANs missing dbxref GeneID, skipping file creation")
@@ -346,9 +350,9 @@ def filter_whole_tsv(
             log.debug(f"Removing file: {path_dbxref}")
             path_dbxref.unlink()
 
-    if AN_missing_gene_dict:
+    if an_missing_gene_dict:
         with open(path_gene_dict, "w") as f:
-            f.write("\n".join(AN_missing_gene_dict))
+            f.write("\n".join(an_missing_gene_dict))
 
     else:
         log.debug("No ANs missing gene_dict, skipping file creation")
@@ -361,7 +365,7 @@ def standardize_tsv(
     log: logger_setup.GDTLogger,
     tsv_path: Path,
     gdt_path: Path,
-    AN_colum: str,
+    an_colum: str,
     gff_suffix: str,
     query_string: str,
     check_flag: bool,
@@ -376,13 +380,14 @@ def standardize_tsv(
         log (GDTLogger): Logger instance for logging messages.
         tsv_path (Path): Path to the TSV file containing accession numbers.
         gdt_path (Path): Path to the GDT file.
-        AN_colum (str): Column name containing accession numbers in the TSV file.
+        an_colum (str): Column name containing accession numbers in the TSV file.
         gff_suffix (str): Suffix for GFF3 files.
         query_string (str): Query string to filter GFF3 files.
         check_flag (bool): If True, do not save changes to GFF3 files.
-        second_place (bool): If True, add the GDT tag to the second place in attributes colunm.
-        gdt_tag (str): Tag to use for the GDT label in GFF3 attributes.
-        error_on_missing (bool): If True, raise an error if a gene ID is not found in the GeneDict.
+        second_place (bool): If True, add gdt_tag to the second place in attributes gff.
+        gdt_tag (str): Tag to use for gdt_tag in GFF3 attributes.
+        error_on_missing (bool): If True, raise an ValueError
+                                 if a gene ID is not in the GeneDict.
         save_copy (bool): If True, save a copy of the original GFF3 file.
 
     """
@@ -398,11 +403,11 @@ def standardize_tsv(
     log.debug(f"Gene dictionary loaded from {gdt_path}")
 
     tsv = pd.read_csv(tsv_path, sep="\t")
-    check_column(log, tsv, AN_colum)
-    check_gff_in_tsv(log, tsv, tsv_path.parent, gff_suffix, AN_colum)
+    check_column(log, tsv, an_colum)
+    check_gff_in_tsv(log, tsv, tsv_path.parent, gff_suffix, an_colum)
 
-    for AN in tsv[AN_colum]:
-        gff_path = tsv_path.parent / f"{AN}{gff_suffix}"
+    for an in tsv[an_colum]:
+        gff_path = tsv_path.parent / f"{an}{gff_suffix}"
         standardize_gff3(
             log,
             gff_path,
@@ -431,7 +436,7 @@ def standardize_gff3(
     save_copy: bool,
     single_run: bool = False,
 ) -> None:
-    """Standardize a GFF3 file by adding a GDT tag to the attributes column.
+    """Standardize a GFF3 file by adding a gdt_tag to the attributes column.
 
     Args:
         log (GDTLogger): Logger instance for logging messages.
@@ -439,12 +444,14 @@ def standardize_gff3(
         gene_dict (gdt_impl.GeneDict): GeneDict to check against.
         query_string (str): Query string to filter GFF3 features.
         check_flag (bool): If True, do not save changes to the GFF3 file.
-        second_place (bool): If True, add the GDT tag to the second place in attributes column.
-        gdt_tag (str): Tag to use for the GDT label in GFF3 attributes.
-        error_on_missing (bool): If True, raise an error if a gene ID is not found in the GeneDict.
+        second_place (bool): If True, add gdt_tag to the second place in attributes gff.
+        gdt_tag (str): Tag to use for the gdt_tag in GFF3 attributes.
+        error_on_missing (bool): If True, raise an ValueError
+                                 if a gene ID is not in the GeneDict.
         save_copy (bool): If True, save a copy of the original GFF3 file.
         single_run (bool): If True, check if the GFF3 file exists before processing.
-        Default is False, becouse in bulk processing, the check should be done in the calling function.
+                           Default is False, because in bulk processing,
+                           the check should be done in the calling function.
 
     """
     if single_run and not gff_path.exists():
@@ -510,15 +517,9 @@ def standardize_gff3(
                         f"{gdt_tag}={gdt_label.label}"
                     )
             else:
-                log.error(
-                    f"ID not found in {gff_path.name}. This is not supposed to happen, "
-                    f"and could be a problem with query_string ({query_string}). "
-                    f"Feature att: {joined_line}"
+                _handle_missing_gene_id(
+                    log, gff_path, query_string, joined_line, error_on_missing
                 )
-                if error_on_missing:
-                    raise ValueError(
-                        f"ID not found in {gff_path.name}. att: {joined_line}"
-                    )
 
         contents.append("\t".join(line))
 
@@ -537,3 +538,20 @@ def standardize_gff3(
 
     elif single_run:
         log.info(f"Not saving new gff, check flag set to {check_flag}")
+
+
+def _handle_missing_gene_id(
+    log: logger_setup.GDTLogger,
+    gff_path: Path,
+    query_string: str,
+    joined_line: str,
+    error_on_missing: bool = False,
+) -> None:
+    """Handle case where gene_id is not found."""
+    log.error(
+        f"ID not found in {gff_path.name}. This is not supposed to happen, "
+        f"and could be a problem with query_string ({query_string}). "
+        f"Feature att: {joined_line}"
+    )
+    if error_on_missing:
+        raise ValueError(f"ID not found in {gff_path.name}. att: {joined_line}")

@@ -24,19 +24,13 @@ GDT (Gene Dictonary Tool) is a protocol for the creation and implementation of a
 - [Python](https://www.python.org/) `(>=3.10)`
 - [pandas](https://pandas.pydata.org/) `(>=1.5.3,<3.0.0)`
 
-> [!NOTE]  
-> [biopython](https://biopython.org) is necessary for `AN_missing_gene_dict.ipynb`, and can be installed `with pip install biopython`
-
 ## Installation
 You can install the library with pip:
 ```shell
 pip install gdt
 ```
-
-If you plan on running `AN_missing_gene_dict.ipynb`, you need to install [biopython](https://biopython.org)
-```shell
-pip install biopython
-```
+> [!NOTE]  
+> [biopython](https://biopython.org) `(>=1.80)` is necessary for `AN_missing_gene_dict.ipynb`, and can be installed `with pip install biopython`
 
 ## CLI commands
 
@@ -111,7 +105,16 @@ gdt-cli gdt-cli standardize --tsv sandbox/fungi_mt/fungi_mt.tsv --gdt sandbox/fu
 --second --debug --log test1.log
 ```
 
+## Library usage
+You can use the library in your own Python scripts. The main interface is the `GeneDict` class, where you can load a GDT file and use its methods to manipulate it.
+```python
+from gdt import GeneDict
 
+gene_dict = gdt.create_gene_dict("path/to/gdt_file.gdt")
+type(gene_dict)
+# <class 'gdt.gene_dict.GeneDict'>
+# GeneDict object with methods to manipulate the GDT file
+```
 
 work in progress
 ```

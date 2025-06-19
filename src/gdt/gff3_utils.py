@@ -1,17 +1,15 @@
 # -*- coding: utf-8 -*-
 
-import re
-import os
-import shutil
-import pandas as pd
 import concurrent.futures
-
+import os
+import re
+import shutil
 from pathlib import Path
-from typing import Optional, cast, Union
+from typing import Optional, Union, cast
 
-from . import gdt_impl
-from . import logger_setup
+import pandas as pd
 
+from . import gdt_impl, logger_setup
 
 GFF3_COLUMNS: tuple[str, ...] = (
     "seqid",
@@ -40,8 +38,8 @@ def load_gff3(
     usecols: list[str] = ["type", "start", "end", "attributes"],
     query_string: Optional[str] = None,
 ) -> pd.DataFrame:
-    """
-    Load a GFF3 file into a pandas DataFrame, optionally filtering by a query string.
+    """Load a GFF3 file into a pandas DataFrame, optionally filtering by a query string.
+
     Args:
         filename (str): Path to the GFF3 file.
         sep (str): Separator used in the file.
@@ -50,10 +48,11 @@ def load_gff3(
         names (list): List of column names to use.
         usecols (list): List of columns to read from the file.
         query_string (str): Query string to filter the DataFrame.
+
     Returns:
         pd.DataFrame: DataFrame containing the filtered GFF3 data.
-    """
 
+    """
     if query_string:
         return (
             pd.read_csv(
@@ -78,20 +77,42 @@ def load_gff3(
 def filter_orfs(
     gff3_df: pd.DataFrame, orfs_strings: list[str] = ["Name=ORF", "Name=orf"]
 ) -> pd.DataFrame:
+    """Filter out ORFs from a GFF3 DataFrame.
+
+    Args:
+        gff3_df (pd.DataFrame): DataFrame containing GFF3 data.
+        orfs_strings (list): List of strings to identify ORFs.
+
+    Returns:
+        pd.DataFrame: DataFrame with ORFs removed.
+
+    """
     return gff3_df[
         ~gff3_df["attributes"].str.contains("|".join(orfs_strings))
     ].reset_index(drop=True)
 
 
 def check_single_an(
-    AN_path: Path,
+    an_path: Path,
     gene_dict: gdt_impl.GeneDict,
     keep_orfs: bool = False,
     query_string: str = QS_GENE_TRNA_RRNA,
 ) -> dict[str, Union[str, int, list[str]]]:
+    """Check a single GFF3 file for gene information and dbxref.
+
+    Args:
+        AN_path (Path): Path to the GFF3 file.
+        gene_dict (GeneDict): Gene dictionary to check against.
+        keep_orfs (bool): Whether to keep ORFs in the DataFrame.
+        query_string (str): Query string to filter the DataFrame.
+
+    Returns:
+        dict: Dictionary containing the results of the check.
+
+    """
     try:
-        AN: str = AN_path.stem
-        df = load_gff3(AN_path, query_string=query_string)
+        an: str = an_path.stem
+        df = load_gff3(an_path, query_string=query_string)
 
         if not keep_orfs:  # removing ORFs
             df = filter_orfs(df)
@@ -109,7 +130,7 @@ def check_single_an(
             status = "M_in_gene_dict" if all(dbxref_mask) else "M_dbxref_GeneID"
 
         return {
-            "AN": AN,
+            "AN": an,
             "status": status,
             "gene_count": len(df),
             "dbxref_count": sum(dbxref_mask),
@@ -125,7 +146,7 @@ def check_single_an(
             ],
         }
     except Exception as e:
-        return {"AN": AN, "status": "error", "error": str(e)}
+        return {"AN": an, "status": "error", "error": str(e)}
 
 
 def check_column(
@@ -134,6 +155,16 @@ def check_column(
     col: str,
     df_txt: str = "TSV",
 ) -> None:
+    """Check if a specific column exists in the DataFrame.
+
+    Args:
+        log (GDTLogger): Logger instance for logging messages.
+        df (pd.DataFrame): DataFrame to check.
+        col (str): Column name to check for.
+        df_txt (str): Text representation of the DataFrame type for error messages.
+
+    """
+    log.trace(f"check_column called | col: {col} | df_txt: {df_txt}")
     if col not in df.columns:
         log.error(f"Column '{col}' not found in DataFrame")
         log.error(f"Available columns: {df.columns}")
@@ -149,6 +180,17 @@ def check_gff_in_tsv(
     gff_suffix: str = ".gff3",
     AN_column: str = "AN",
 ) -> None:
+    """Check if GFF3 files exist for each accession number in the DataFrame.
+
+    Args:
+        log (GDTLogger): Logger instance for logging messages.
+        df (pd.DataFrame): DataFrame containing accession numbers.
+        base_path (Path): Base path where GFF3 files are expected to be found.
+        gff_suffix (str): Suffix for GFF3 files. Default is ".gff3".
+        AN_column (str): Column name containing accession numbers. Default is "AN".
+
+    """
+    check_column(log, df, AN_column, "TSV")
     log.trace(
         f"check_gff_in_tsv called | base_path: {base_path} | gff_suffix: {gff_suffix}"
     )
@@ -177,6 +219,21 @@ def filter_whole_tsv(
     gff_suffix: str = ".gff3",
     query_string: str = QS_GENE_TRNA_RRNA,
 ) -> None:
+    """Filter a whole TSV containing GFF3 files and check them against a GeneDict.
+
+    Args:
+        log (GDTLogger): Logger instance for logging messages.
+        tsv_path (Path): Path to the TSV file containing accession numbers.
+        gdt_path (Optional[Path]): Path to the GDT file. If None, an empty GeneDict is used.
+        keep_orfs (bool): Whether to keep ORFs in the GFF3 files. Default is False.
+        workers (int): Number of worker processes to use for parallel processing.
+                       Default is 0, meaing max cpu cores.
+        AN_column (str): Column name containing accession numbers in the TSV file. Default is "AN".
+        gff_suffix (str): Suffix for GFF3 files. Default is ".gff3".
+        query_string (str): Query string to filter GFF3 files. Default is QS_GENE_TRNA_RRNA.
+
+
+    """
     max_workers = os.cpu_count() or 1
     workers = workers if (workers > 0 and workers <= max_workers) else max_workers
 
@@ -209,7 +266,7 @@ def filter_whole_tsv(
             gdt_path = shutil.move(gdt_path, GDT_DIR / gdt_path.name)
             log.info(f"Moving gdt file to {gdt_path}")
 
-        gene_dict = gdt_impl.create_gene_dict(gdt_path)
+        gene_dict = gdt_impl.read_gdt(gdt_path)
         log.debug(f"GeneDict loaded from {gdt_path}")
         log.trace(f"Header : {gene_dict.header}")
         log.trace(f"Info   : {gene_dict.info}")
@@ -308,12 +365,27 @@ def standardize_tsv(
     gff_suffix: str,
     query_string: str,
     check_flag: bool,
-    second_plance: bool,
+    second_place: bool,
     gdt_tag: str,
     error_on_missing: bool,
     save_copy: bool,
 ) -> None:
-    # checks
+    """Standardize GFF3 files listed in a TSV based on a GeneDict.
+
+    Args:
+        log (GDTLogger): Logger instance for logging messages.
+        tsv_path (Path): Path to the TSV file containing accession numbers.
+        gdt_path (Path): Path to the GDT file.
+        AN_colum (str): Column name containing accession numbers in the TSV file.
+        gff_suffix (str): Suffix for GFF3 files.
+        query_string (str): Query string to filter GFF3 files.
+        check_flag (bool): If True, do not save changes to GFF3 files.
+        second_place (bool): If True, add the GDT tag to the second place in attributes colunm.
+        gdt_tag (str): Tag to use for the GDT label in GFF3 attributes.
+        error_on_missing (bool): If True, raise an error if a gene ID is not found in the GeneDict.
+        save_copy (bool): If True, save a copy of the original GFF3 file.
+
+    """
     if not tsv_path.exists():
         log.error(f"tsv file not found: {tsv_path}")
         raise FileNotFoundError(f"tsv file not found: {tsv_path}")
@@ -322,7 +394,7 @@ def standardize_tsv(
         log.error(f"gdt file not found: {gdt_path}")
         raise FileNotFoundError(f"gdt file not found: {gdt_path}")
 
-    gene_dict = gdt_impl.create_gene_dict(gdt_path)
+    gene_dict = gdt_impl.read_gdt(gdt_path)
     log.debug(f"Gene dictionary loaded from {gdt_path}")
 
     tsv = pd.read_csv(tsv_path, sep="\t")
@@ -337,7 +409,7 @@ def standardize_tsv(
             gene_dict,
             query_string,
             check_flag,
-            second_plance,
+            second_place,
             gdt_tag,
             error_on_missing,
             save_copy,
@@ -353,16 +425,28 @@ def standardize_gff3(
     gene_dict: gdt_impl.GeneDict,
     query_string: str,
     check_flag: bool,
-    second_plance: bool,
+    second_place: bool,
     gdt_tag: str,
     error_on_missing: bool,
     save_copy: bool,
     single_run: bool = False,
 ) -> None:
-    """
-    Standardize a GFF3 file based on the provided parameters.
-    """
+    """Standardize a GFF3 file by adding a GDT tag to the attributes column.
 
+    Args:
+        log (GDTLogger): Logger instance for logging messages.
+        gff_path (Path): Path to the GFF3 file.
+        gene_dict (gdt_impl.GeneDict): GeneDict to check against.
+        query_string (str): Query string to filter GFF3 features.
+        check_flag (bool): If True, do not save changes to the GFF3 file.
+        second_place (bool): If True, add the GDT tag to the second place in attributes column.
+        gdt_tag (str): Tag to use for the GDT label in GFF3 attributes.
+        error_on_missing (bool): If True, raise an error if a gene ID is not found in the GeneDict.
+        save_copy (bool): If True, save a copy of the original GFF3 file.
+        single_run (bool): If True, check if the GFF3 file exists before processing.
+        Default is False, becouse in bulk processing, the check should be done in the calling function.
+
+    """
     if single_run and not gff_path.exists():
         log.error(f"GFF3 file not found: {gff_path}")
         raise FileNotFoundError(f"GFF3 file not found: {gff_path}")
@@ -414,7 +498,7 @@ def standardize_gff3(
                     line[8] = re.sub(rf"{gdt_tag}=[^;]*;?", "", line[8])
                     line[8] = line[8][:-1] if line[8].endswith(";") else line[8]
 
-                if second_plance:
+                if second_place:
                     left, right = line[8].split(";", 1)
                     line[8] = (
                         f"{left};{gdt_str};{right}" if right else f"{left};{gdt_str}"

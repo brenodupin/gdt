@@ -1,12 +1,13 @@
 # -*- coding: utf-8 -*-
 
-import os
+import datetime
 import glob
 import logging
-import datetime
-
+import os
 from pathlib import Path
 from typing import Any, Optional, Union, cast
+
+from . import gdt_impl
 
 TRACE = 5
 
@@ -48,13 +49,15 @@ def create_dev_logger(
     log_file: Optional[Path] = None,
 ) -> GDTLogger:
     """Set up the logger for the GDT package.
+
     Args:
         console_level (Optional[str]): Log level for console output. Defaults to INFO.
         file_level (Optional[str]): Log level for file output. Defaults to DEBUG.
+
     Returns:
         tuple[str, logging.Logger]: Tuple with log file path and the logger instance.
-    """
 
+    """
     console_level_int = _logging_levels.get(console_level, logging.INFO)
     file_level_int = _logging_levels.get(file_level, logging.DEBUG)
 
@@ -112,14 +115,17 @@ def create_simple_logger(
     log_file: Union[Path, str, None] = None,
 ) -> GDTLogger:
     """Create a simple logger with optional console and file output.
+
     Args:
         print_to_console (bool): Whether to print logs to console. Defaults to True.
         console_level (Optional[str]): Log level for console output.
         save_to_file (bool): Whether to save logs to a file.
         file_level (Optional[str]): Log level for file output.
         log_file (Optional[Path]): Path to the log file.
+
     Returns:
         GDTLogger: Configured logger instance.
+
     """
     log = cast(GDTLogger, logging.getLogger("gdt"))
     log.setLevel(TRACE)
@@ -169,7 +175,6 @@ def setup_logger(
     debug: bool, log_file: Union[Path, str, None], quiet: bool
 ) -> GDTLogger:
     """Set up logger based on command line arguments."""
-
     console_level = "DISABLE" if quiet else ("DEBUG" if debug else "INFO")
     file_level = "TRACE" if debug else "DEBUG"
 
@@ -187,3 +192,17 @@ def setup_logger(
 
     log.trace("Logger setup complete.")
     return log
+
+
+def log_gdt_info(
+    log: GDTLogger,
+    gdt: gdt_impl.GeneDict,
+    spacer: str = "\t",
+    method: Optional[str] = None,
+) -> None:
+    log_func = getattr(log, method) if method else log.info
+    log_func(f"{spacer}Labels: {gdt.info.labels}")
+    log_func(f"{spacer}Total Entries   : {gdt.info.total_entries}")
+    log_func(f"{spacer}GeneDescriptions: {gdt.info.gene_descriptions}")
+    log_func(f"{spacer}GeneGenerics    : {gdt.info.gene_generics}")
+    log_func(f"{spacer}DbxrefGeneIDs   : {gdt.info.dbxref_GeneIDs}")

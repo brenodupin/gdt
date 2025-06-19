@@ -41,6 +41,15 @@ select = [
     "W",   # pycodestyle warnings  
     "F",   # pyflakes
     "C90", # mccabe complexity
+    "I",   # isort (import sorting)
+    "N",   # pep8-naming
+    "D",   # pydocstyle (if you want docstring compliance)
+]
+ignore = [
+    "D203",  # Keep D211 (no blank line before class)
+    "D213",  # Keep D212 (summary on first line)
+    "N816",
+    "N815"
 ]
 
 # Maximum complexity for functions - bioinformatics can have complex algorithms

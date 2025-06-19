@@ -1,17 +1,13 @@
 # -*- coding: utf-8 -*-
+"""Command line interface for the Gene Dictionary Tool (gdt)."""
 
-import os
 import argparse
-
+import os
 from pathlib import Path
 
-from . import logger_setup
-from . import gdt_impl
-from . import gff3_utils
-from . import __version__
+from . import __version__, gdt_impl, gff3_utils, logger_setup
 
-
-c_RESET = "\033[0m"
+C_RESET = "\033[0m"
 
 GDT_BANNER = f"""           ╔═════════════════════════════╗
            ║   ██████╗ ██████╗ ████████╗ ║
@@ -20,15 +16,14 @@ GDT_BANNER = f"""           ╔════════════════�
            ║  ██║   ██║██║  ██║   ██║    ║
            ║  ╚██████╔╝██████╔╝   ██║    ║
            ║   ╚═════╝ ╚═════╝    ╚═╝    ║
-           ║    \033[34mGene Dictionary Tool{c_RESET}     ║
+           ║    \033[34mGene Dictionary Tool{C_RESET}     ║
            ╚═════════════════════════════╝
-🧬 \033[33mStandardizing gene names across organelle genomes{c_RESET} 🧬
-                   Version: \033[32m{__version__}{c_RESET}"""
+🧬 \033[33mStandardizing gene names across organelle genomes{C_RESET} 🧬
+                   Version: \033[32m{__version__}{C_RESET}"""
 
 
 def cli_run() -> None:
-    """Command line interface for the Gene Dictionary Tool (gdt)"""
-
+    """Command line interface for the Gene Dictionary Tool (gdt)."""
     # Global parser to add debug, log, and quiet flags to all subcommands
     global_flags = argparse.ArgumentParser(add_help=False)
     global_flags.add_argument(
@@ -59,7 +54,7 @@ def cli_run() -> None:
         description=GDT_BANNER,
         formatter_class=argparse.RawDescriptionHelpFormatter,
         parents=[global_flags],
-        epilog=f"Source ~ \033[32mhttps://github.com/brenodupin/gdt{c_RESET}",
+        epilog=f"Source ~ \033[32mhttps://github.com/brenodupin/gdt{C_RESET}",
     )
     main_parser.add_argument(
         "--version",
@@ -325,7 +320,7 @@ def cli_run() -> None:
                 log.error(f"gdt file not found: {args.gdt}")
                 raise FileNotFoundError(f"gdt file not found: {args.gdt}")
 
-            gene_dict = gdt_impl.create_gene_dict(args.gdt)
+            gene_dict = gdt_impl.read_gdt(args.gdt)
             log.debug(f"Gene dictionary loaded from {args.gdt}")
 
             gff3_utils.standardize_gff3(

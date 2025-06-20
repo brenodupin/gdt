@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+"""Logger setup and management for GDT (Gene Dict Tool)."""
 
 import datetime
 import glob
@@ -13,7 +14,18 @@ TRACE = 5
 
 
 class GDTLogger(logging.Logger):
+    """Extended logger class for GDT with TRACE (5) level support."""
+
     def trace(self, message: Any, *args: Any, **kwargs: Any) -> None:
+        """Log 'msg % args' with severity 'TRACE'.
+
+        Trace is a custom level below DEBUG, but above INFO, valued at 5.
+
+        To pass exception information, use the keyword argument exc_info with
+        a true value, e.g.
+
+        logger.trace("Houston, we have a %s", "thorny problem", exc_info=1)
+        """
         if self.isEnabledFor(TRACE):
             self._log(TRACE, message, args, **kwargs)
 
@@ -22,7 +34,7 @@ logging.addLevelName(TRACE, "TRACE")
 logging.setLoggerClass(GDTLogger)
 
 _logging_levels: dict[str, int] = {
-    "DISABLE": logging.CRITICAL + 1,  # Custom level above CRITICAL
+    "DISABLE": logging.CRITICAL + 1,  # above CRITICAL, used to disable logging
     "CRITICAL": logging.CRITICAL,
     "ERROR": logging.ERROR,
     "WARNING": logging.WARNING,
@@ -34,6 +46,13 @@ _logging_levels: dict[str, int] = {
 
 
 def cleanup_logs(log_dir: Path, max_files: int = 10) -> None:
+    """Remove old log files, keeping only the most recent ones.
+
+    Args:
+        log_dir (Path): Directory where log files are stored.
+        max_files (int): Maximum number of log files to keep. Defaults to 10.
+
+    """
     log_files = sorted(glob.glob(str(log_dir / "gdt_*.log")))
     for old_file in log_files[: -(max_files - 1)]:
         try:
@@ -51,11 +70,13 @@ def create_dev_logger(
     """Set up the logger for the GDT package.
 
     Args:
-        console_level (Optional[str]): Log level for console output. Defaults to INFO.
-        file_level (Optional[str]): Log level for file output. Defaults to DEBUG.
+        console_level (str): Logging level for console output.
+        file_level (str): Logging level for file output.
+        log_file (Optional[Path]): Path to the log file. If None, a default
+                                   log file will be created at the project root,
 
     Returns:
-        tuple[str, logging.Logger]: Tuple with log file path and the logger instance.
+        GDTLogger: Configured logger instance.
 
     """
     console_level_int = _logging_levels.get(console_level, logging.INFO)
@@ -200,6 +221,17 @@ def log_gdt_info(
     spacer: str = "\t",
     method: Optional[str] = None,
 ) -> None:
+    """Log information about the GeneDict object.
+
+    Args:
+        log (GDTLogger): Logger instance to use for logging.
+        gdt (GeneDict): GeneDict object containing the information to log.
+        spacer (str): String to prepend to each log message for formatting.
+                      Defaults to tab.
+        method (Optional[str]): Name of the logging method to use, e.g., 'debug',
+                                'info', etc. Defaults to 'info'.
+
+    """
     log_func = getattr(log, method) if method else log.info
     log_func(f"{spacer}Labels: {gdt.info.labels}")
     log_func(f"{spacer}Total Entries   : {gdt.info.total_entries}")

@@ -30,6 +30,131 @@ GDT_BANNER = f"""           ╔════════════════�
                    Version: \033[32m{__version__}{C_RESET}"""
 
 
+def filter_command(
+    args: argparse.Namespace,
+    log: logger_setup.GDTLogger,
+) -> None:
+    """Command to filter GFF3 files based on a TSV file."""
+    args.tsv = Path(args.tsv).resolve()
+
+    if args.gdt:
+        args.gdt = Path(args.gdt).resolve()
+
+    log.debug(
+        f"filter command: tsv: {args.tsv} | gdt: {args.gdt} | "
+        f"keep_orfs: {args.keep_orfs} | workers: {args.workers} | "
+        f"AN_column: {args.AN_column} | gff_suffix: {args.gff_suffix} | "
+        f"query_string: {args.query_string}"
+    )
+    gff3_utils.filter_whole_tsv(
+        log,
+        args.tsv,
+        args.gdt,
+        args.keep_orfs,
+        args.workers,
+        args.AN_column,
+        args.gff_suffix,
+        args.query_string,
+    )
+
+
+def stripped_command(
+    args: argparse.Namespace,
+    log: logger_setup.GDTLogger,
+) -> None:
+    """Command to create a stripped version of a GDT file."""
+    log.info(
+        f"stripped command: gdt_in: {args.gdt_in} | "
+        f"gdt_out: {args.gdt_out} | "
+        f"overwrite: {args.overwrite}"
+    )
+    args.gdt_in = Path(args.gdt_in).resolve()
+    args.gdt_out = Path(args.gdt_out).resolve()
+
+    if not args.gdt_in.exists():
+        log.error(f"gdt not found: {args.gdt_in}")
+        raise FileNotFoundError(f"GDT file not found: {args.gdt_in}")
+
+    if args.gdt_out.exists() and not args.overwrite:
+        log.error(
+            f"gdt already exists, overwrite: {args.overwrite} | gdt: {args.gdt_out}"
+        )
+        raise FileExistsError(
+            f"GDT file already exists: {args.gdt_out}. Use overwrite=True to overwrite."
+        )
+
+    gene_dict = gdt_impl.read_gdt(args.gdt_in)
+    log.info("Info before stripping:")
+    logger_setup.log_gdt_info(log, gene_dict)
+
+    stripped = gene_dict.create_stripped()
+
+    log.info("\nNew Header:")
+    for txt in stripped.header:
+        log.info(txt)
+
+    log.info("New Info:")
+    logger_setup.log_gdt_info(log, stripped)
+    stripped.to_gdt(args.gdt_out, overwrite=args.overwrite)
+
+
+def standardize_command(
+    args: argparse.Namespace,
+    log: logger_setup.GDTLogger,
+) -> None:
+    """Command to standardize gene names in GFF3 files using a GDT file."""
+    log.info(
+        f"standardize command: gff: {args.gff} | tsv: {args.tsv} | "
+        f"gdt: {args.gdt} | AN_column: {args.AN_column} | "
+        f"gff_suffix: {args.gff_suffix} | query_string: {args.query_string} | "
+        f"check: {args.check} | second_place: {args.second_place} | "
+        f"gdt_tag: {args.gdt_tag} | error_on_missing: {args.error_on_missing} | "
+        f"save_copy: {args.save_copy}"
+    )
+    args.gdt = Path(args.gdt).resolve()
+    if args.gff:
+        args.gff = Path(args.gff).resolve()
+
+        if not args.gff.is_file():
+            log.error(f"gff file not found: {args.gff}")
+
+        if not args.gdt.exists():
+            log.error(f"gdt file not found: {args.gdt}")
+            raise FileNotFoundError(f"gdt file not found: {args.gdt}")
+
+        gene_dict = gdt_impl.read_gdt(args.gdt)
+        log.debug(f"Gene dictionary loaded from {args.gdt}")
+
+        gff3_utils.standardize_gff3(
+            log,
+            args.gff,
+            gene_dict,
+            args.query_string,
+            args.check,
+            args.second_place,
+            args.gdt_tag,
+            args.error_on_missing,
+            args.save_copy,
+            True,
+        )
+
+    elif args.tsv:
+        args.tsv = Path(args.tsv).resolve()
+        gff3_utils.standardize_tsv(
+            log,
+            args.tsv,
+            args.gdt,
+            args.AN_column,
+            args.gff_suffix,
+            args.query_string,
+            args.check,
+            args.second_place,
+            args.gdt_tag,
+            args.error_on_missing,
+            args.save_copy,
+        )
+
+
 def cli_run() -> None:
     """Command line interface for the Gene Dictionary Tool (gdt)."""
     # Global parser to add debug, log, and quiet flags to all subcommands
@@ -265,97 +390,12 @@ def cli_run() -> None:
     log.trace(f"cli  path: {Path(__file__)}")
     log.trace(f"args: {args}")
 
-    if args.command == "filter":
-        args.tsv = Path(args.tsv).resolve()
+    match args.command:
+        case "filter":
+            filter_command(args, log)
 
-        if args.gdt:
-            args.gdt = Path(args.gdt).resolve()
+        case "stripped":
+            stripped_command(args, log)
 
-        log.debug(
-            f"filter command: tsv: {args.tsv} | gdt: {args.gdt} | "
-            f"keep_orfs: {args.keep_orfs} | workers: {args.workers} | "
-            f"AN_column: {args.AN_column} | gff_suffix: {args.gff_suffix} | "
-            f"query_string: {args.query_string}"
-        )
-        gff3_utils.filter_whole_tsv(
-            log,
-            args.tsv,
-            args.gdt,
-            args.keep_orfs,
-            args.workers,
-            args.AN_column,
-            args.gff_suffix,
-            args.query_string,
-        )
-
-    elif args.command == "stripped":
-        log.info(
-            f"stripped command: gdt_in: {args.gdt_in} | "
-            f"gdt_out: {args.gdt_out} | "
-            f"overwrite: {args.overwrite}"
-        )
-        args.gdt_in = Path(args.gdt_in).resolve()
-        args.gdt_out = Path(args.gdt_out).resolve()
-
-        if args.gdt_in.exists():
-            gdt_impl.create_stripped_gdt(
-                log,
-                args.gdt_in,
-                args.gdt_out,
-                overwrite=args.overwrite,
-            )
-        else:
-            log.error(f"Input GDT file does not exist: {args.gdt_in}")
-            raise FileNotFoundError(f"GDT file not found: {args.gdt_in}")
-
-    elif args.command == "standardize":
-        log.info(
-            f"standardize command: gff: {args.gff} | tsv: {args.tsv} | "
-            f"gdt: {args.gdt} | AN_column: {args.AN_column} | "
-            f"gff_suffix: {args.gff_suffix} | query_string: {args.query_string} | "
-            f"check: {args.check} | second_place: {args.second_place} | "
-            f"gdt_tag: {args.gdt_tag} | error_on_missing: {args.error_on_missing} | "
-            f"save_copy: {args.save_copy}"
-        )
-        args.gdt = Path(args.gdt).resolve()
-        if args.gff:
-            args.gff = Path(args.gff).resolve()
-
-            if not args.gff.is_file():
-                log.error(f"gff file not found: {args.gff}")
-
-            if not args.gdt.exists():
-                log.error(f"gdt file not found: {args.gdt}")
-                raise FileNotFoundError(f"gdt file not found: {args.gdt}")
-
-            gene_dict = gdt_impl.read_gdt(args.gdt)
-            log.debug(f"Gene dictionary loaded from {args.gdt}")
-
-            gff3_utils.standardize_gff3(
-                log,
-                args.gff,
-                gene_dict,
-                args.query_string,
-                args.check,
-                args.second_place,
-                args.gdt_tag,
-                args.error_on_missing,
-                args.save_copy,
-                True,
-            )
-
-        elif args.tsv:
-            args.tsv = Path(args.tsv).resolve()
-            gff3_utils.standardize_tsv(
-                log,
-                args.tsv,
-                args.gdt,
-                args.AN_column,
-                args.gff_suffix,
-                args.query_string,
-                args.check,
-                args.second_place,
-                args.gdt_tag,
-                args.error_on_missing,
-                args.save_copy,
-            )
+        case "standardize":
+            standardize_command(args, log)

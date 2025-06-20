@@ -13,9 +13,10 @@ import glob
 import logging
 import os
 from pathlib import Path
-from typing import Any, Optional, Union, cast
+from typing import TYPE_CHECKING, Any, Optional, Union, cast
 
-from . import gdt_impl
+if TYPE_CHECKING:
+    from . import gdt_impl
 
 TRACE = 5
 
@@ -224,7 +225,7 @@ def setup_logger(
 
 def log_gdt_info(
     log: GDTLogger,
-    gdt: gdt_impl.GeneDict,
+    gdt: "gdt_impl.GeneDict",
     spacer: str = "\t",
     method: Optional[str] = None,
 ) -> None:

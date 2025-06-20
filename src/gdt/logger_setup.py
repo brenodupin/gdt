@@ -53,7 +53,7 @@ _logging_levels: dict[str, int] = {
 }
 
 
-def cleanup_logs(log_dir: Path, max_files: int = 10) -> None:
+def _cleanup_logs(log_dir: Path, max_files: int = 10) -> None:
     """Remove old log files, keeping only the most recent ones.
 
     Args:
@@ -103,7 +103,7 @@ def create_dev_logger(
         # Create a timestamp-based log filename
         timestamp = datetime.datetime.now().strftime("%Y%m%d_%H_%M_%S")
         log_file_path = log_dir / f"gdt_{timestamp}.log"
-        cleanup_logs(log_dir)
+        _cleanup_logs(log_dir)
 
     # Create and configure logger
     log = cast(GDTLogger, logging.getLogger("gdt"))

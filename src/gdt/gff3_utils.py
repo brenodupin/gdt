@@ -33,8 +33,8 @@ GFF3_COLUMNS: tuple[str, ...] = (
 QS_GENE = "type == 'gene'"
 QS_GENE_TRNA_RRNA = "type in ('gene', 'tRNA', 'rRNA')"
 
-RE_ID = re.compile(r"ID=([^;]+)")
-RE_dbxref_GeneID = re.compile(r"Dbxref=.*GeneID:")
+_RE_ID = re.compile(r"ID=([^;]+)")
+_RE_dbxref_GeneID = re.compile(r"Dbxref=.*GeneID:")
 
 
 def load_gff3(
@@ -125,13 +125,13 @@ def check_single_an(
         if not keep_orfs:  # removing ORFs
             df = filter_orfs(df)
 
-        df["gene_id"] = df["attributes"].str.extract(RE_ID, expand=False)  # type: ignore[call-overload]
+        df["gene_id"] = df["attributes"].str.extract(_RE_ID, expand=False)  # type: ignore[call-overload]
         gene_ids = df["gene_id"].values
 
         in_gene_dict_mask = [g in gene_dict for g in gene_ids]
 
         # Get dbxref info
-        dbxref_mask = df["attributes"].str.contains(RE_dbxref_GeneID, na=False)
+        dbxref_mask = df["attributes"].str.contains(_RE_dbxref_GeneID, na=False)
 
         status = "good_to_go"
         if not all(in_gene_dict_mask):
@@ -157,21 +157,13 @@ def check_single_an(
         return {"AN": an, "status": "error", "error": str(e)}
 
 
-def check_column(
+def _check_column(
     log: logger_setup.GDTLogger,
     df: pd.DataFrame,
     col: str,
     df_txt: str = "TSV",
 ) -> None:
-    """Check if a specific column exists in the DataFrame.
-
-    Args:
-        log (GDTLogger): Logger instance for logging messages.
-        df (pd.DataFrame): DataFrame to check.
-        col (str): Column name to check for.
-        df_txt (str): Text representation of the DataFrame type for error messages.
-
-    """
+    """Check if a specific column exists in the DataFrame."""
     log.trace(f"check_column called | col: {col} | df_txt: {df_txt}")
     if col not in df.columns:
         log.error(f"Column '{col}' not found in DataFrame")
@@ -201,7 +193,7 @@ def check_gff_in_tsv(
     log.trace(
         f"check_gff_in_tsv called | base_path: {base_path} | gff_suffix: {gff_suffix}"
     )
-    check_column(log, df, an_column, "TSV")
+    _check_column(log, df, an_column, "TSV")
 
     no_files = [
         (an, AN_path)
@@ -259,7 +251,7 @@ def filter_whole_tsv(
 
     base_folder: Final[Path] = tsv_path.parent
     tsv = pd.read_csv(tsv_path, sep="\t")
-    check_column(log, tsv, an_column)
+    _check_column(log, tsv, an_column)
     check_gff_in_tsv(log, tsv, base_folder, gff_suffix, an_column)
 
     MISC_DIR: Final[Path] = base_folder / "misc"  # noqa: N806
@@ -410,7 +402,7 @@ def standardize_tsv(
     log.debug(f"Gene dictionary loaded from {gdt_path}")
 
     tsv = pd.read_csv(tsv_path, sep="\t")
-    check_column(log, tsv, an_colum)
+    _check_column(log, tsv, an_colum)
     check_gff_in_tsv(log, tsv, tsv_path.parent, gff_suffix, an_colum)
 
     for an in tsv[an_colum]:
@@ -485,7 +477,7 @@ def standardize_gff3(
         # line[2] is type line, line[8] is attributes
         series_holder[0] = line[2]
         if pd.eval(query_string, local_dict={"type": series_holder})[0]:  # type: ignore[index]
-            gene_id = m.group(1) if (m := RE_ID.search(line[8])) else None
+            gene_id = m.group(1) if (m := _RE_ID.search(line[8])) else None
             if gene_id:
                 gdt_label = gene_dict.get(gene_id, None)
 

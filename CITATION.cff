@@ -18,6 +18,31 @@ title: GDT, Gene Dictionary Tool
 version: 0.1.3
 date-released: 2025-06-14
 
-# TODO pending star protocol
-#preferred-citation:
-#  type: article
+preferred-citation:
+  type: article
+  title: "Protocol for GDT, Gene Dictionary Tool, to create and implement a gene dictionary across annotated genomes"
+  container-title: bioRxiv
+  authors:
+    - family-names: Dupin
+      given-names: Breno
+    
+    - family-names: Sanita Lima
+      given-names: Matheus
+    
+    - family-names: Rossi Paschoal
+      given-names: Alexandre
+    
+    - family-names: Smith
+      given-names: David Roy
+  
+  doi: 10.1101/2025.06.15.659783
+  url: https://www.biorxiv.org/content/10.1101/2025.06.15.659783v1
+  date-published: 2025-06-16
+  version: 1
+identifiers:
+  - type: doi
+    value: 10.1101/2025.06.15.659783
+  - type: url
+  value: https://www.biorxiv.org/content/10.1101/2025.06.15.659783v1
+abstract: |
+  GDT - Gene Dictionary Tool - is a protocol for the creation and implementation of a gene dictionary across any type of annotated genomes. The final output, a gene dictionary (.gdt file), is meant to be not only comprehensive, but also versionable, Findable, Accessible, Interoperable, and Reusable (FAIR). The protocol is divided in a Python library and Jupyter notebooks that permit users to investigate their datasets incrementally. Here, we showcase GDT's functionalities by creating a gene dictionary of organelle genes.

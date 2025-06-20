@@ -30,9 +30,9 @@ You can install the library with pip:
 pip install gdt
 ```
 > [!NOTE]  
-> [biopython](https://biopython.org) `(>=1.80)` is necessary for `AN_missing_gene_dict.ipynb`, and can be installed `with pip install biopython`
+> [biopython](https://biopython.org) `(>=1.80)` is necessary for `AN_missing_gene_dict.ipynb`, and can be installed with `pip install biopython`
 
-## CLI commands
+## `gdt-cli` commands
 
 The flags above work on all commands:
 
@@ -41,11 +41,11 @@ The flags above work on all commands:
 | `-h`, `--help`      | Show the help message and exit. | 
 | `--debug`         | Enable TRACE level in file, and DEBUG on console.<br>Default: DEBUG level on file and INFO on console. |
 | `--log LOG`       | Path to the log file. If not provided, a default log file will be created. |
-| `--quiet`         | Suppress console output. Default: console output enabled. |
+| `--quiet`         | Suppress console output. |
 | `--version`      | Show the version of the gdt package. |
 
-### `gdt-cli filter`
-The filter command is used to filter GFF3 files that are indexed via a TSV file, creating `AN_missing_dbxref.txt` and/or `AN_missing_gene_dict.txt` based on the provided .gdt file.
+### `filter`
+The filter command is used to filter GFF3 files that are indexed via a TSV file, it may create `AN_missing_dbxref.txt` and/or `AN_missing_gene_dict.txt` based on the provided .gdt file.
 
 |       flag      |   description   |
 |-----------------|-----------------|
@@ -62,7 +62,7 @@ Usage example:
 gdt-cli filter --tsv fungi_mt_model2.tsv --gdt fungi_mt_model2_stripped.gdt --debug
 ```
 
-### `gdt-cli stripped`
+### `stripped`
 The stripped command filters out GeneGeneric (#gn) and Dbxref (#dx) entries from a GDT file, keeping only GeneDescription (#gd) entries and their metadata.
 
 |       flag      |   description   |
@@ -76,9 +76,9 @@ Usage example:
 gdt-cli stripped --gdt_in ../GeneDictionaries/Result/Fungi_mt.gdt --gdt_out fungi_mt_model2_stripped.gdt --overwrite
 ```
 
-### `gdt-cli standardize`
+### `standardize`
 The standardize command is used to standardize gene names across features in GFF3 files using a GDT file.
-The command has two modes, either single GFF3 file with `--gff` or with a TSV file with indexed GFF3 files with `--tsv`.
+The command has two modes, either single GFF3 file with `--gff` or a TSV file with indexed GFF3 files with `--tsv`.
 
 |       flag      |   description   |
 |-----------------|-----------------|
@@ -91,7 +91,7 @@ The command has two modes, either single GFF3 file with `--gff` or with a TSV fi
 | `--gdt GDT`       | GDT file to use for standardization. |
 | `--query-string QUERY_STRING` | Query string that pandas filter features in GFF. Default: 'type in ('gene', 'tRNA', 'rRNA')' |
 | `--check`         | Just check for standardization issues, do not modify the GFF3 file. Default: False |
-| `--second-place`  | Add gdt-tag pair to the second place in the GFF3 file, after the ID. Default: False (add to the end of the attributes field). |
+| `--second-place`  | Add gdt_tag pair to the second place in the GFF3 file, after the ID. Default: False (add to the end of the attributes field). |
 | `--gdt-tag GDT_TAG` | Tag to use for the GDT key/value pair in the GFF3 file. Default: 'gdt_label='. |
 | `--error-on-missing` | Raise an error if a feature is missing in the GDT file. Default: False (just log a warning and skip the feature). |
 | `--save-copy`     | Save a copy of the original GFF3 file with a .original suffix. Default: False (change inplace). |
@@ -101,22 +101,61 @@ Usage example:
 gdt-cli standardize --gff sandbox/fungi_mt/HE983611.1.gff3 --gdt sandbox/fungi_mt/misc/gdt/fungi_mt_pilot_07.gdt --save-copy
 ```
 ```shell
-gdt-cli gdt-cli standardize --tsv sandbox/fungi_mt/fungi_mt.tsv --gdt sandbox/fungi_mt/misc/gdt/fungi_mt_pilot_07.gdt
---second --debug --log test1.log
+gdt-cli standardize --tsv sandbox/fungi_mt/fungi_mt.tsv --gdt sandbox/fungi_mt/misc/gdt/fungi_mt_pilot_07.gdt --second-place --debug --log test1.log
 ```
 
 ## Library usage
 You can use the library in your own Python scripts. The main interface is the `GeneDict` class, where you can load a GDT file and use its methods to manipulate it.
+
+Since `GeneDict` inherits from `collections.UserDict`, it behaves like a dictionary, allowing you manipulate its entries using standard dictionary methods. The metadata are stored as attributes of the `GeneDict` object, which can be accessed directly.
+They are:
+- `version`: The version of the GDT file. ("0.0.2")
+- `header`: A list of strings containing the header lines from the GDT file.
+- `info`: An instance of `GeneDictInfo` containing metadata about its entries (This information is only calculated when `update_info()` is called, or when `lazy_info` is set to `False` in the constructor).
+    
+   - `labels`: The number of unique gene labels in the GDT file.
+   - `total_entries`: The total number of entries in the GDT file.
+   - `gene_descriptions`: The number of gene description entries (#gd) in the GDT file.
+   - `gene_generics`: The number of gene generic entries (#gn) in the GDT file.
+   - `dbxref_GeneIDs`: The number of dbxref entries (#dx) that contain GeneID in the GDT file.
+
+To read a GDT file, you can use the `read_gdt()` function, which returns a `GeneDict` object. You can then manipulate it as needed and save it back to a GDT file using the `to_gdt()` method.
+
 ```python
-from gdt import GeneDict
+from gdt import read_gdt
 
-gene_dict = gdt.create_gene_dict("path/to/gdt_file.gdt")
-type(gene_dict)
-# <class 'gdt.gene_dict.GeneDict'>
-# GeneDict object with methods to manipulate the GDT file
+# Read a GDT file
+gene_dict = read_gdt("path/to/your.gdt")
+# Check the type of the object
+print(type(gene_dict))  # <class 'gdt.gdt_impl.GeneDict'>
+# Access metadata
+print(gene_dict.version)  # "0.0.2"
+gene_dict.update_info()  # Update the info attribute with metadata
+print(gene_dict.info.labels)  # Number of unique gene labels
+print(gene_dict.info.total_entries)  # Total number of entries
+
+# Manipulate the GeneDict as needed
+# For example, you can access a specific entry by its key
+print(gene_dict["gene-ATP8"])  # Access the entry for 'gene-ATP8'
+
+# Save the GeneDict back to a GDT file
+gene_dict.to_gdt("path/to/your_output.gdt", overwrite=True)
 ```
+All GDT functions and classes are documented with docstrings, so you can use the `help()` function to get more information about them. A full documentation of the library is being built with Sphinx and can be found in the `docs` folder later on.
 
-work in progress
+
+## GDT dictionary creation
+
+The process of creating a GDT file is not fully automated because it requires extensive user input and curation. To facilitate this process, we provide two Jupyter notebooks that guide the user through the steps of creating a GDT file from scratch or from an existing stripped GDT file. These notebooks are designed to be run interactively, allowing the user to make decisions and curate the entries as needed.  
+We provide our GDT files (also in stripped form) for a most organelle genomes (public avaible at NCBI), which can be used as a starting point for creating new GDT files.
+
+A more detailed description of the process can be found in the preprint: [Protocol for GDT, Gene Dictionary Tool, to create and implement a gene dictionary across annotated genomes](https://doi.org/10.1101/2025.06.15.659783)
+
+## Project structure
+
+We follow a project structure inspired by the repo [cookiecutter-bioinformatics-project](https://github.com/maxplanck-ie/cookiecutter-bioinformatics-project), with some modifications to better suit our needs. Below is an overview of the project structure:
+
+
 ```
 ├── CITATION.cff       <- Contains metadata on how the project might eventually be published. 
 ├── LICENSE

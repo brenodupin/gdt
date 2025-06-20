@@ -1,4 +1,4 @@
-.PHONY: clean data lint requirements fetch_data pipeline
+.PHONY: clean data lint requirements fetch_data pipeline test
 
 #################################################################################
 # GLOBALS                                                                       #
@@ -20,6 +20,8 @@ CONDA_ACTIVATE=source $$(conda info --base)/etc/profile.d/conda.sh ; conda activ
 define module-load
         eval `/usr/bin/modulecmd bash load $(1)`
 endef
+
+ARGS ?= .
 
 
 #################################################################################
@@ -80,6 +82,15 @@ test_environment:
 	eval "$(conda shell.bash hook)"
 	conda activate $(PROJECT_NAME)
 	python3 test_environment.py
+
+## Run simple tests
+test:
+	echo "Running tests at $(ARGS)"
+	black $(ARGS)
+	uv run ruff check --fix $(ARGS)
+	uv run mypy --strict $(ARGS)
+
+
 
 #################################################################################
 # PROJECT RULES                                                                 #

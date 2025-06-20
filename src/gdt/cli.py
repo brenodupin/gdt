@@ -1,5 +1,13 @@
 # -*- coding: utf-8 -*-
-"""Command line interface for the Gene Dictionary Tool (gdt)."""
+"""Command line interface for the Gene Dictionary Tool (gdt).
+
+This module provides a command line interface to filter, standardize,
+and manipulate GFF3 files using a Gene Dictionary Tool (GDT) file.
+It supports various operations such as filtering GFF3 files based on
+indexed TSV files, creating stripped versions of GDT files, and
+standardizing gene names across GFF3 files.
+
+"""
 
 import argparse
 import os

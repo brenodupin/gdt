@@ -1,5 +1,12 @@
 # -*- coding: utf-8 -*-
-"""Utilities for working with GFF3 files in the GDT package."""
+"""Utilities for working with GFF3 files in the GDT package.
+
+This module provides functions to load, filter, and standardize GFF3 files,
+as well as to check them against a GeneDict. It includes functionality for
+loading GFF3 files into pandas DataFrames, filtering out ORFs, and checking
+the presence of gene IDs in a GeneDict.
+
+"""
 
 import concurrent.futures
 import os

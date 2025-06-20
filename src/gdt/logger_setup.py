@@ -1,5 +1,12 @@
 # -*- coding: utf-8 -*-
-"""Logger setup and management for GDT (Gene Dict Tool)."""
+"""Logger setup and management for GDT (Gene Dict Tool).
+
+This module provides functionality to create and configure loggers for the GDT
+package, including support for a custom TRACE logging level.
+
+The logger can be configured to output logs to the console and/or to a file,
+with customizable logging levels.
+"""
 
 import datetime
 import glob

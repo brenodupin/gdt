@@ -123,7 +123,7 @@ class GeneDict(UserDict[str, GeneUnion]):
                 Default is False.
 
         """
-        gdt_file = Path(gdt_file).resolve() if isinstance(gdt_file, str) else gdt_file
+        gdt_file = Path(gdt_file).resolve()
 
         if gdt_file.exists() and not overwrite:
             raise FileExistsError(
@@ -314,7 +314,10 @@ def read_gdt(
             dbxref = int(stuff.split(":")[1].strip())
 
             result[tag] = DbxrefGeneID(
-                label=current_section, an_source=an_source, GeneID=dbxref, c=comment
+                label=current_section,
+                an_source=an_source,
+                GeneID=dbxref,
+                c=comment,
             )
 
         elif "#gn" in line:  # GeneGeneric gn
@@ -328,14 +331,18 @@ def read_gdt(
                 f"adding only the first {max_an_sources}|"
 
             result[tag] = GeneGeneric(
-                label=current_section, an_sources=an_sources, c=comment
+                label=current_section,
+                an_sources=an_sources,
+                c=comment,
             )
 
         elif "#gd" in line:  # GeneDescription gd
             source = line.split("#gd", 1)[1].strip()
 
             result[tag] = GeneDescription(
-                label=current_section, source=source, c=comment
+                label=current_section,
+                source=source,
+                c=comment,
             )
 
     result.update_info()

@@ -260,16 +260,13 @@ class GeneDict(UserDict[str, GeneUnion]):
             lazy_info=lazy_info,
         )
 
-    def __repr__(self) -> str:
-        """Return a string representation of the GeneDict."""
-        return (
-            f"GeneDict(version={self.version}, header={self.header}, info={self.info})"
-        )
-
     def __str__(self) -> str:
         """Return a string representation of the GeneDict."""
+        if self.info.labels == 0:
+            self.update_info()
+
         return (
-            f"GeneDict(version={self.version}, header={self.header}, info:{self.info})"
+            f"GeneDict(version={self.version}, header={self.header}, info={self.info})"
         )
 
 

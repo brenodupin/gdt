@@ -21,7 +21,7 @@ __gdt_version__ = "0.0.2"
 @dataclass(slots=True)
 class _Gene:
     label: str
-    c: Optional[str]
+    c: Optional[str] = field(default=None, kw_only=True)
 
 
 @dataclass(slots=True)

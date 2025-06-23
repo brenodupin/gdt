@@ -1,5 +1,9 @@
 # GDICT File Format Specification
 
+Authors: Breno Dupin and Matheus Sanita Lima  
+Date: 23 June 2025  
+Version: 0.0.2
+
 ## Introduction
 
 The `GeneDict` (GDICT) format is a text file format designed for storing an `GeneDict` information, including gene names, identifiers, and database cross-references. GDICT files provide a structured way to organize and maintain gene nomenclature data with associated metadata.
@@ -7,9 +11,9 @@ The `GeneDict` (GDICT) format is a text file format designed for storing an `Gen
 ## File Structure
 
 A GDICT file consists of three main components:
-1. Header section (mandatory)
-2. Label definitions
-3. Data entries
+1. Header section (mandatory).
+2. Label definitions.
+3. Data entries.
 
 ### Header Section
 
@@ -24,12 +28,11 @@ The header section is **mandatory** and consists of lines beginning with `#!`. T
 
 #### Header Fields
 
-- **version** (mandatory): Must be the first line and specify the GDICT format version (currently `0.0.2`)
+- **version** (mandatory): Must be the first line and specify the GDICT format version (currently `0.0.2`).
 - **metadata_information** (recommended): Additional metadata lines containing free-form information such as:
-  - File name or identifier
-  - Creation/modification timestamps
-  - Processing history
-  - Data source information
+  - File name or identifier.
+  - Creation/modification timestamps.
+  - Processing history.
 
 #### Header Example
 
@@ -46,7 +49,7 @@ The header section is **mandatory** and consists of lines beginning with `#!`. T
 
 ### Label Structure
 
-GDICT files are organized into labeled sections, where each label represents a gene or feature group. Labels are defined by headers enclosed in square brackets. All data entries that follow a label header belong to that label until a new label is encountered.
+GDICT files are organized into labeled sections, where each label represents a genome feature (a gene, most times). Labels are defined by headers enclosed in square brackets. All data entries that follow a label header belong to that label until a new label is encountered.
 
 #### Label Header Format
 
@@ -54,24 +57,24 @@ GDICT files are organized into labeled sections, where each label represents a g
 [<LABEL>]
 ```
 
-The `LABEL` should be a unique identifier for the gene or feature group. We do recommend using a consistent naming convention, with an prefix, read more about it in [Label Naming Conventions](#label-naming-conventions).
+The `LABEL` should be a unique identifier for the genome feature. We do recommend using a consistent naming convention, with a prefix, as shown in the example below. Read more about it in [Label Naming Convention](#label-naming-convention).
 
 ### Data Entries
 
-Each labeled section contains data entries that describe various aspects of the gene or feature. There are three types of data entries, each with its own specific format:
+Each labeled section contains data entries that describe various aspects of the genome feature. There are three types of data entries, each with its own specific format. Although most entries are automaticaly generated, manually created (and curated) entries are also allowed.
 
-#### 1. Gene Description Entries (#gd)
+#### 1. 'Gene Description' Entry (#gd)
 
-Gene descriptions represent various names and descriptions for a gene.
+'Gene descriptions' are names that describe the given genome feature. These entries mostly come from NCBI Gene (`Gene description` field). These descriptors are not actually encountered in the GFF file (since gene identifiers tend to appear as `ID=gene-<gene_name>`), but are used to provide additional context and information about the gene when querying NCBI Gene.
 
 **Format:**
 ```
 <descriptor> #gd <source> [#c <comment>]
 ```
 
-- `descriptor`: The gene name or description
-- `source`: The source of the information (e.g., `MANUAL`, `NCBI`)
-- `comment` (optional): Additional information marked with `#c`
+- `descriptor`: The gene name or description.
+- `source`: The source of the information (e.g., `MANUAL`, `NCBI`).
+- `comment` (optional): Additional information marked with `#c`.
 
 **Example:**
 ```
@@ -87,25 +90,25 @@ The parser `gdt.read_gdt()` will convert this into a `GeneDict` object with the 
 
 ```python
 import gdt
-
+  
 gene_dict = gdt.GeneDict()
 gene_dict['ATP6'] = gdt.GeneDescription(label='MIT-ATP6', source='MANUAL')
 gene_dict['atp6'] = gdt.GeneDescription(label='MIT-ATP6', source='NCBI')
 gene_dict['ATP synthase subunit 6'] = gdt.GeneDescription(label='MIT-ATP6', source='NCBI', c='automated insertion')
 ```
 
-#### 2. Gene Generic Entries (#gn)
+#### 2. 'Gene Generic' Entry (#gn)
 
-Gene generic entries represent gene identifiers with multiple accession number sources.
+'Gene generic' entries are gene identifiers that can come from multiple genome annotations. These identifiers do not have a direct link to any external database (such as via dbxref GeneID).
 
 **Format:**
 ```
 <gene_identifier> #gn [<source1> <source2> ...] [#c <comment>]
 ```
 
-- `gene_identifier`: The gene identifier
-- `source1`, `source2`, etc.: Zero or more source accessions numbers (e.g., `JQ346808.1`, `KX657746.1`)
-- `comment` (optional): Additional information marked with `#c`
+- `gene_identifier`: The gene identifier, comes from `ID=<gene_identifier>` in the GFF attributes field.
+- `source1`, `source2`, etc.: Zero or more source accession numbers (e.g., `JQ346808.1`, `KX657746.1`).
+- `comment` (optional): Additional information marked with `#c`.
 
 **Example:**
 ```
@@ -120,29 +123,29 @@ The parser `gdt.read_gdt()` will convert this into a `GeneDict` object with the 
 
 ```python
 import gdt
-
+  
 gene_dict = gdt.GeneDict()
 gene_dict['gene-AFUA_m0110'] = gdt.GeneGeneric(label='MIT-ATP6', an_sources=['JQ346808.1'], c='insertion from missing_dbxref_GeneID feature mapping')
 gene_dict['gene-atp6'] = gdt.GeneGeneric(label='MIT-ATP6', an_sources=['HE983611.1', 'KX657746.1'], c='multiple sources available')
 gene_dict['gene-AtP6'] = gdt.GeneGeneric(label='MIT-ATP6', an_sources=[], c='no sources available')
 ```
 
-#### 3. Database Cross-reference Entries (#dx)
+#### 3. 'Database Cross-reference' (dbxref) Entries (#dx)
 
-Database cross-reference entries link to external database entries with specific GeneIDs. Right now only NCBI GeneIDs are supported.
+Database cross-reference entries link to external database entries with specific GeneIDs. In the current version (0.0.2), only NCBI GeneIDs are supported.
 
 **Format:**
 ```
-<gene_identifier> #dx <accession>:<geneID> [#c <comment>]
+<gene_identifier> #dx <source>:<GeneID> [#c <comment>]
 ```
 
-- `gene_identifier`: The gene identifier
-- `accession`: Database accession number (e.g., `NC_042229.1`)
-- `geneID`: Numeric gene ID in the database (e.g., `40135497`)
-- `comment` (optional): Additional information marked with `#c`. We use some conventions for comments, again all optionals:
-     - `gff_gene: <gene_name>` to indicate the `gene=` attribute found in the GFF file
-     - `ncbi_desc: <description>` to indicate the `Gene description` field, found when querying the NCBI Gene database using the `geneID`
-     - `ncbi_symbol: <symbol>` to indicate the `Gene symbol` field, found when querying the NCBI Gene database using the `geneID`
+- `gene_identifier`: The gene identifier, comes from `ID=<gene_identifier>` in the GFF attributes field.
+- `source`: Source accession number (e.g., `NC_042229.1`, `NC_066216.1`).
+- `GeneID`: Numeric gene ID in the database (e.g., `40135497`).
+- `comment` (optional): Additional information marked with `#c`. Some conventions are used for comments:
+     - `gff_gene: <value>` indicates the `gene=<value>` attribute found in the GFF file.
+     - `ncbi_desc: <value>` indicates the `Gene description` field, found when querying the NCBI Gene database using the `GeneID`.
+     - `ncbi_symbol: <value>` indicates the `Gene symbol` field, found when querying the NCBI Gene database using the `GeneID`.
 
 **Example:**
 ```
@@ -158,6 +161,7 @@ The parser `gdt.read_gdt()` will convert this into a `GeneDict` object with the 
 
 ```python
 import gdt
+  
 gene_dict = gdt.GeneDict()
 gene_dict['gene-ICI09_mgr02'] = gdt.DbxrefGeneID(label='MIT-RNR2', an_source='NC_050344.1', GeneID=58907350, c='ncbi_desc: large subunit ribosomal RNA')
 gene_dict['gene-N4M62_mgr01'] = gdt.DbxrefGeneID(label='MIT-RNR2', an_source='NC_066216.1', GeneID=74863499, c='gff_gene: rnl')
@@ -167,65 +171,83 @@ gene_dict['rna-FDY65_mgr02'] = gdt.DbxrefGeneID(label='MIT-RNR2', an_source='NC_
 ## Formatting Rules
 
 ### Line Structure
-- Each data entry occupies a single line
-- Fields are separated by single spaces
-- Lines beginning with `#!` are header lines (only at file start)
-- Lines beginning with `[` and ending with `]` are label headers
-- Empty lines are ignored but recommended between labeled sections for readability
+- Each data entry occupies a single line.
+- Fields are separated by single spaces.
+- Lines beginning with `#!` are header lines.
+- Lines beginning with `[` and ending with `]` are label headers.
+- Empty lines are ignored but recommended between labeled sections for readability.
 
 ### Character Encoding
-- Files should use UTF-8 encoding
-- Special characters in descriptors should be properly escaped
-- `#c`, `#gd`, `#gn`, and `#dx` are used as type markers and should not be used in descriptors or identifiers
-- Is recommended to now used `#` in general, since in future we could reserve other markers for other purposes
+- Files should use UTF-8 encoding.
+- `#c`, `#gd`, `#gn`, and `#dx` are used as type markers and should not be used in descriptors or identifiers.
+- As `#` is the defining character for type markers, the use of `#` outside of markers should be avoided at all costs.
 
 ### Case Sensitivity
 Everything in the GDICT file **is** case-sensitive, including labels, gene identifiers, and sources.
 
 ### Ordering Conventions
-While not mandatory, the following ordering is recommended (and implemented in `gdt.GeneDict().to_gdt()`) for clarity:
-1. Gene description (`#gd`) entries first
-2. Gene generic (`#gn`) entries second  
-3. Database cross-reference (`#dx`) entries last
-4. Within each type, entries should be naturally ordered by their identifiers (gdt provides a `natual_sort()` method to help with this)
+Whereas not mandatory, the following ordering of data entries in a given label is recommended (and implemented in `gdt.GeneDict().to_gdt()`) for clarity:
+1. 'Gene description' (`#gd`) entries first.
+2. 'Gene generic' (`#gn`) entries second.
+3. 'Database cross-reference' (`#dx`) entries last.
+4. Within each type, entries should be naturally ordered by their identifiers (gdt provides a `natual_sort()` method to help with this).
 
 ## Parsing logic of `gdt.read_gdt()`
 
 ### Header Processing
-1. The first line must be `#! version 0.0.2`
-2. Continue reading header lines until a line not starting with `#!` is encountered
-3. All header information after `#!` is treated as free-form metadata
+1. The first line must be `#! version 0.0.2`.
+2. Continue reading header lines until a line not starting with `#!` is encountered.
+3. All header information after `#!` is treated as free-form metadata.
 
 ### Data Processing
-1. Lines starting with `[` and ending with `]` define the current label
-2. Data entries are processed only when a current label is defined, otherwise they are skipped
-3. Comments are extracted by splitting on `#c` and trimming whitespace
-4. Lines are only considered valid if they contain at least type marker (`#gd`, `#gn`, or `#dx`)
-5. Each data entry is parsed according to its type, extracting the relevant fields and storing them in the `GeneDict` object
+1. Lines starting with `[` and ending with `]` define the current label.
+2. Data entries are processed only when a current label is defined, otherwise they are skipped.
+3. Comments are extracted by splitting on `#c` and trimming whitespace.
+4. Lines are only considered valid if, and only if, they contain one type marker (`#gd`, `#gn`, or `#dx`).
+5. Each data entry is parsed according to its type, extracting the relevant fields and storing them in the `GeneDict` object.
 
 #### Gene Description (#gd)
-- Split line on `#gd` to separate descriptor and source
-- Source is everything after `#gd` (trimmed)
-- Descriptor is everything before `#gd` (trimmed)
+- Split line on `#gd` to separate descriptor and source.
+- Source is everything after `#gd` (trimmed).
+- Descriptor is everything before `#gd` (trimmed).
 
 #### Gene Generic (#gn)
-- Split line on `#gn` to get sources and identifier
-- Identifier is everything before `#gn` (trimmed)
-- Sources are space-separated after `#gn`
-- Multiple sources are supported
-- No sources are allowed (empty after `#gn`)
+- Split line on `#gn` to get sources and identifier.
+- Identifier is everything before `#gn` (trimmed).
+- Sources are space-separated after `#gn`.
+- Multiple sources are supported.
+- 'No sources' is allowed (empty after `#gn`).
 
 #### Database Cross-reference (#dx)
-- Split line on `#dx` to get accession:geneID and indentifier
-- Identifier is everything before `#dx` (trimmed)
-- Split the result on `:` to separate accession and numeric GeneID
-- GeneID must be convertible to integer
+- Split line on `#dx` to get accession:geneID and indentifier.
+- Identifier is everything before `#dx` (trimmed).
+- Split the result on `:` to separate accession and numeric GeneID.
+- GeneID must be convertible to integer.
 
 ## File Extension
 
 GDICT files should use the `.gdict` file extension.
 
-## Complete Example File
+## Label Naming Conventions
+
+The official HGNC ([HUGO Gene Nomenclature Committee](https://www.genenames.org/)) nomenclature for human mitochondrial genes was adopted as a base for our convention. We have changed the HGNC convention `MT-<acronym>` to `MIT-<acronym`, so we could account for more cytoplasmic compartments as in:
+ - `MIT-` for mitochondria;
+ - `KNP–` for kinetoplast;
+ - `PLT-` for plastid;
+ - `NUC-` for nucleus;
+ - `API-` for apicoplast;
+ - `NMP-` for nucleomorph.
+
+For optimized consistency, the HGNC-approved symbols for the human mitochondrial genes were kept as original. The other symbols (in our case named as 'labels') were created based on the most common name variation for the given gene. For instance, 
+``` 
+[MT-CCMF]
+cytochrome c-type biogenesis protein CcmF #gd NCBI
+ccmf #gd NCBI
+```
+ 
+Although we did not stipulate a character number limit, we have always tried to keep labels as concise as possible (without compromising the label's discriminatory power).
+
+## Complete GDCIT Example File
 
 ```
 #! version 0.0.2

@@ -151,6 +151,38 @@ We provide our GDT files (also in stripped form) for a most organelle genomes (p
 
 A more detailed description of the process can be found in the preprint: [Protocol for GDT, Gene Dictionary Tool, to create and implement a gene dictionary across annotated genomes](https://doi.org/10.1101/2025.06.15.659783)
 
+## GDICT Format (TL;DR)
+
+**GDICT** is a text format for storing gene nomenclature data with cross-references to external databases. Perfect for organizing mitochondrial, plastid, and other organellar gene information.
+
+### Quick Overview
+- **File extension**: `.gdict`
+- **Structure**: Header + labeled sections with gene data
+- **Encoding**: UTF-8
+- **Current version**: 0.0.2
+
+### Basic Format
+```
+#! version 0.0.2
+#! Optional metadata lines
+
+[GENE-LABEL]
+gene description #gd SOURCE
+gene-identifier #gn SOURCE1 SOURCE2
+gene-identifier #dx SOURCE:GeneID
+```
+
+### Entry Types
+- **`#gd`** - Gene descriptions (names from NCBI Gene, etc.)
+- **`#gn`** - Gene identifiers from genome annotations  
+- **`#dx`** - Database cross-references with GeneIDs
+
+### Label Convention
+Uses organelle prefixes: `MIT-` (mitochondria), `PLT-` (plastid), `NUC-` (nucleus), etc.
+
+You can read more about it at the [Full specification](https://github.com/brenodupin/gdt/blob/master/GDICT_FILE_SPECIFICATION.md)
+
+
 ## Project structure
 
 We follow a project structure inspired by the repo [cookiecutter-bioinformatics-project](https://github.com/maxplanck-ie/cookiecutter-bioinformatics-project), with some modifications to better suit our needs. Below is an overview of the project structure:

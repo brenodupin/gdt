@@ -9,7 +9,6 @@ __version__ = "0.1.3"
 
 from .gdt_impl import (
     DbxrefGeneID,
-    Gene,
     GeneDescription,
     GeneDict,
     GeneDictInfo,

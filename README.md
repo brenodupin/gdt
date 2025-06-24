@@ -2,6 +2,7 @@
   <img src="img/gdt_no_background.png" width="50%">
 
 $${\color{#E0AF68}{\LARGE\textsf{🧬 Standardizing gene names across organelle genomes 🧬}}}$$  
+<br>
 ![Build Status](https://img.shields.io/badge/tests-in_development-yellow)
 [![Checked with mypy](https://www.mypy-lang.org/static/mypy_badge.svg)](https://mypy-lang.org/)
 [![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)

@@ -10,12 +10,28 @@ $${\color{#E0AF68}{\LARGE\textsf{🧬 Standardizing gene names across organelle 
 [![DOI:10.1101/2025.06.15.659783v1](https://img.shields.io/badge/biorxiv-10.1101/2025.06.15.659783-blue)](https://doi.org/10.1101/2025.06.15.659783)
 </div>
 
+
 # Table of Contents
-place_holder
+
+- [Overview](#overview)
+- [Getting Started](#getting-started)
+  - [Requirements](#requirements)
+  - [Installation](#installation)
+- [GDICT Format](#gdict-format)
+  - [tl;dr](#tldr)
+  - [Creation Process](#creation-process)
+- [CLI commands](#cli-commands)
+  - [`filter`](#filter)
+  - [`stripped`](#stripped)
+  - [`standardize`](#standardize)
+- [Library usage](#library-usage)
+- [Project structure](#project-structure)
+
 
 # Overview
 
 GDT (Gene Dictonary Tool) is a protocol for the creation and implementation of a gene dictionary across any type of annotated genomes. This Python library offers a suite of functionalities that enables the manipulation and integration of .gdt files into other pipelines seamlessly.
+
 
 # Getting Started
 
@@ -37,16 +53,56 @@ You can install the library with pip:
 ```shell
 pip install gdt
 ```
-
 ### Notebooks
 To run the Jupyter notebooks, you need to install the library and its dependencies:
 ```shell
 pip install gdt biopython
 ```
 
-## `gdt-cli` commands
+## GDICT Format
+### tl;dr
 
-The flags above work on all commands:
+GDICT (`.gdict`) is a plain-text file that stores a `GeneDict` with a human-readable, easily editable, and machine-parsable structure. `.gdict` files are read by `gdt.read_gdt()` and written to by `gdt.GeneDict.to_gdt()`. A GDICT file contains gene nomenclature data (i.e., gene identifiers) and associated metadata (gene names, database cross-references and comments added by the user).
+
+#### Quick Overview
+- **File extension**: `.gdict`
+- **Structure**: Header + labeled sections with gene data
+- **Encoding**: UTF-8
+- **Current version**: 0.0.2
+
+#### Basic Format
+```
+#! version 0.0.2
+#! Optional metadata lines
+
+[LABEL]
+gene description #gd SOURCE
+gene-identifier #gn SOURCE1 SOURCE2
+gene-identifier #dx SOURCE:GeneID
+```
+
+#### Entry Types
+- **`#gd`** - Gene descriptions (names from NCBI Gene, etc.)
+- **`#gn`** - Gene identifiers from genome annotations  
+- **`#dx`** - Database cross-references with GeneIDs
+
+#### Label Convention
+Uses organelle prefixes: `MIT-` (mitochondria), `PLT-` (plastid), `NUC-` (nucleus), or whatever you like. There's a Label Naming Convention in the complete specification page.
+
+#### Complete Specification
+You can read more about it at the [Full specification](https://github.com/brenodupin/gdt/blob/master/GDICT_FILE_SPECIFICATION.md)
+
+### Creation Process
+
+The process of creating a GDICT file is not fully automated because it requires extensive user input and curation. To facilitate this process, we provide two Jupyter notebooks that guide the user through the steps of creating a GDICT file from scratch or from an existing stripped GDICT file. These notebooks are designed to be run interactively, allowing the user to make decisions and curate the entries as needed.  
+We provide our GDICT files (also in stripped form) for a most organelle genomes (public avaible at NCBI), which can be used as a starting point for creating new GDICT files.
+
+A more detailed description of the process can be found in the preprint: [Protocol for GDT, Gene Dictionary Tool, to create and implement a gene dictionary across annotated genomes](https://doi.org/10.1101/2025.06.15.659783)
+
+
+## CLI commands
+
+The flags below work on all commands:
 
 |       flag      |   description   |
 |-----------------|-----------------|
@@ -56,7 +112,7 @@ The flags above work on all commands:
 | `--quiet`         | Suppress console output. |
 | `--version`      | Show the version of the gdt package. |
 
-### `filter`
+### `gdt-cli filter`
 The filter command is used to filter GFF3 files that are indexed via a TSV file, it may create `AN_missing_dbxref.txt` and/or `AN_missing_gene_dict.txt` based on the provided .gdt file.
 
 |       flag      |   description   |
@@ -74,7 +130,7 @@ Usage example:
 gdt-cli filter --tsv fungi_mt_model2.tsv --gdt fungi_mt_model2_stripped.gdt --debug
 ```
 
-### `stripped`
+### `gdt-cli stripped`
 The stripped command filters out GeneGeneric (#gn) and Dbxref (#dx) entries from a GDT file, keeping only GeneDescription (#gd) entries and their metadata.
 
 |       flag      |   description   |
@@ -88,7 +144,7 @@ Usage example:
 gdt-cli stripped --gdt_in ../GeneDictionaries/Result/Fungi_mt.gdt --gdt_out fungi_mt_model2_stripped.gdt --overwrite
 ```
 
-### `standardize`
+### `gdt-cli standardize`
 The standardize command is used to standardize gene names across features in GFF3 files using a GDT file.
 The command has two modes, either single GFF3 file with `--gff` or a TSV file with indexed GFF3 files with `--tsv`.
 
@@ -154,46 +210,6 @@ print(gene_dict["gene-ATP8"])  # Access the entry for 'gene-ATP8'
 gene_dict.to_gdt("path/to/your_output.gdt", overwrite=True)
 ```
 All GDT functions and classes are documented with docstrings, so you can use the `help()` function to get more information about them. A full documentation of the library is being built with Sphinx and can be found in the `docs` folder later on.
-
-
-## GDT dictionary creation
-
-The process of creating a GDT file is not fully automated because it requires extensive user input and curation. To facilitate this process, we provide two Jupyter notebooks that guide the user through the steps of creating a GDT file from scratch or from an existing stripped GDT file. These notebooks are designed to be run interactively, allowing the user to make decisions and curate the entries as needed.  
-We provide our GDT files (also in stripped form) for a most organelle genomes (public avaible at NCBI), which can be used as a starting point for creating new GDT files.
-
-A more detailed description of the process can be found in the preprint: [Protocol for GDT, Gene Dictionary Tool, to create and implement a gene dictionary across annotated genomes](https://doi.org/10.1101/2025.06.15.659783)
-
-## GDICT Format (TL;DR)
-
-GDICT (`.gdict`) is a plain-text file that stores a `GeneDict` with a human-readable, easily editable, and machine-parsable structure. `.gdict` files are read by `gdt.read_gdt()` and written to by `gdt.GeneDict.to_gdt()`. A GDICT file contains gene nomenclature data (i.e., gene identifiers) and associated metadata (gene names, database cross-references and comments added by the user).
-
-### Quick Overview
-- **File extension**: `.gdict`
-- **Structure**: Header + labeled sections with gene data
-- **Encoding**: UTF-8
-- **Current version**: 0.0.2
-
-### Basic Format
-```
-#! version 0.0.2
-#! Optional metadata lines
-
-[LABEL]
-gene description #gd SOURCE
-gene-identifier #gn SOURCE1 SOURCE2
-gene-identifier #dx SOURCE:GeneID
-```
-
-### Entry Types
-- **`#gd`** - Gene descriptions (names from NCBI Gene, etc.)
-- **`#gn`** - Gene identifiers from genome annotations  
-- **`#dx`** - Database cross-references with GeneIDs
-
-### Label Convention
-Uses organelle prefixes: `MIT-` (mitochondria), `PLT-` (plastid), `NUC-` (nucleus), or whatever you like. There's a Label Naming Convention in the complete specification page.
-
-### Complete Specification
-You can read more about it at the [Full specification](https://github.com/brenodupin/gdt/blob/master/GDICT_FILE_SPECIFICATION.md)
 
 ## Project structure
 

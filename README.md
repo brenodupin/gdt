@@ -21,16 +21,28 @@ GDT (Gene Dictonary Tool) is a protocol for the creation and implementation of a
 
 ## Requirements
 
+### `gdt` Library
 - [Python](https://www.python.org/) `(>=3.10)`
 - [pandas](https://pandas.pydata.org/) `(>=1.5.3,<3.0.0)`
 
+### Notebooks
+- [Python](https://www.python.org/) `(>=3.10)`
+- [gdt](https://github.com/brenodupin/gdt) `(>=0.1.3)`
+- [pandas](https://pandas.pydata.org/) `(>=1.5.3,<3.0.0)`
+- [biopython](https://biopython.org) `(>=1.80)`
+
 ## Installation
+### `gdt`
 You can install the library with pip:
 ```shell
 pip install gdt
 ```
-> [!NOTE]  
-> [biopython](https://biopython.org) `(>=1.80)` is necessary for `AN_missing_gene_dict.ipynb`, and can be installed with `pip install biopython`
+
+### Notebooks
+To run the Jupyter notebooks, you need to install the library and its dependencies:
+```shell
+pip install gdt biopython
+```
 
 ## `gdt-cli` commands
 
@@ -111,7 +123,7 @@ Since `GeneDict` inherits from `collections.UserDict`, it behaves like a diction
 They are:
 - `version`: The version of the GDT file. ("0.0.2")
 - `header`: A list of strings containing the header lines from the GDT file.
-- `info`: An instance of `GeneDictInfo` containing metadata about its entries (This information is only calculated when `update_info()` is called, or when `lazy_info` is set to `False` in the constructor).
+- `info`: An instance of `GeneDictInfo` containing metadata about its entries (This information is only calculated when `update_info()` is called, or when `lazy_info` is set to `False` at start).
     
    - `labels`: The number of unique gene labels in the GDT file.
    - `total_entries`: The total number of entries in the GDT file.
@@ -153,7 +165,7 @@ A more detailed description of the process can be found in the preprint: [Protoc
 
 ## GDICT Format (TL;DR)
 
-**GDICT** is a text format for storing gene nomenclature data with cross-references to external databases. Perfect for organizing mitochondrial, plastid, and other organellar gene information.
+GDICT (`.gdict`) is a plain-text file that stores a `GeneDict` with a human-readable, easily editable, and machine-parsable structure. `.gdict` files are read by `gdt.read_gdt()` and written to by `gdt.GeneDict.to_gdt()`. A GDICT file contains gene nomenclature data (i.e., gene identifiers) and associated metadata (gene names, database cross-references and comments added by the user).
 
 ### Quick Overview
 - **File extension**: `.gdict`
@@ -166,7 +178,7 @@ A more detailed description of the process can be found in the preprint: [Protoc
 #! version 0.0.2
 #! Optional metadata lines
 
-[GENE-LABEL]
+[LABEL]
 gene description #gd SOURCE
 gene-identifier #gn SOURCE1 SOURCE2
 gene-identifier #dx SOURCE:GeneID
@@ -178,65 +190,51 @@ gene-identifier #dx SOURCE:GeneID
 - **`#dx`** - Database cross-references with GeneIDs
 
 ### Label Convention
-Uses organelle prefixes: `MIT-` (mitochondria), `PLT-` (plastid), `NUC-` (nucleus), etc.
+Uses organelle prefixes: `MIT-` (mitochondria), `PLT-` (plastid), `NUC-` (nucleus), or whatever you like. There's a Label Naming Convention in the complete specification page.
 
+### Complete Specification
 You can read more about it at the [Full specification](https://github.com/brenodupin/gdt/blob/master/GDICT_FILE_SPECIFICATION.md)
-
 
 ## Project structure
 
-We follow a project structure inspired by the repo [cookiecutter-bioinformatics-project](https://github.com/maxplanck-ie/cookiecutter-bioinformatics-project), with some modifications to better suit our needs. Below is an overview of the project structure:
-
+We follow a project structure inspired by [cookiecutter-bioinformatics-project](https://github.com/maxplanck-ie/cookiecutter-bioinformatics-project), with some modifications to better suit our needs. Below is an overview of the project structure:
 
 ```
-├── CITATION.cff       <- Contains metadata on how the project might eventually be published. 
+├── CITATION.cff        <- Contains metadata on how the project might eventually be published. 
 ├── LICENSE
-├── Makefile           <- Makefile with commands like `make data` or `make train`
-├── README.md          <- The top-level README for developers using this project.
-├── config             <- Configuration options for the analysis. 
-|   ├── config.yaml    <- Snakemake config file. 
-|   └── samples.tsv    <- A metadata table for all the samples run in the analysis.  
+├── README.md           <- The top-level README for developers using this project. 
 │
-├── docs               <- A default Sphinx project; see sphinx-doc.org for details
+├── docs                <- A default Sphinx project; see sphinx-doc.org for details
 │
-├── environment.yaml   <- The requirements file for reproducing the analysis environment, e.g.
-│                         generated with `conda env export > environment.yaml`
 │
-├── img                <- A place to store images associated with the project/pipeline, e.g. a 
+├── img                 <- A place to store images associated with the project/pipeline, e.g. a 
 │                         a figure of the pipeline DAG. 
 │
-├── notebooks          <- Jupyter or Rmd notebooks. Naming convention is a number (for ordering),
+├── notebooks           <- Jupyter or Rmd notebooks. Naming convention is a number (for ordering),
 │                         the creator's initials, and a short `-` delimited description, e.g.
 │                         `1.0-jqp-initial-data-exploration`.
 │
-├── references         <- Data dictionaries, manuals, and all other explanatory materials.
+├── resources           <- Place for data. By default excluded from the git repository. 
+│   ├── external        <- Data from third party sources.
+│   └── raw_data        <- The original, immutable data dump.
 │
-├── reports            <- Generated analysis as HTML, PDF, LaTeX, etc.
-│   └── figures        <- Generated graphics and figures to be used in reporting
-│
-├── resources          <- Place for data. By default excluded from the git repository. 
-│   ├── external       <- Data from third party sources.
-│   └── raw_data       <- The original, immutable data dump.
-│
-├── results            <- Final output of the data processing pipeline. By default excluded from the git repository.
+├── example             <- Example data.
 │ 
-├── sandbox            <- A place to test scripts and ideas. By default excluded from the git repository.
+├── sandbox             <- A place to test scripts and ideas. By default excluded from the git repository.
 │ 
-├── scripts            <- A place for short shell or python scripts.
-│ 
-├── setup.py           <- Makes project pip installable (pip install -e .) so src can be importe
+├── pyproject.toml      <- Makes project pip installable (pip install -e .) so src can be imported.
 │
-├── src                <- Source code for use in this project.
-│   ├── __init__.py    <- Makes src a Python module
-├── tox.ini            <- tox file with settings for running tox; see tox.readthedocs.io
+├─ src                  <- Source code for use in this project.
+│  └─ gdt               <- Package containing the main library code.
+│     ├── __init__.py   <- Makes src/gdt a package.
+│     ├── cli.py        <- Contains the command line interface for the gdt package.
+│     ├── gdt_impl.py   <- Contains the main implementation of the GeneDict class and its methods.
+│     ├── gff3_utils.py <- Contains utility functions for working with GFF files.
+|     └── log_setup.py  <- Contains the logger configuration for the gdt package.
 │
-├── workflow           <- Place to store the main pipeline for rerunning all the analysis. 
-│   ├── envs           <- Contains different conda environments in .yaml format for running the pipeline. 
-│   ├── rules          <- Contains .smk files that are included by the main Snakefile, including common.smk for functions. 
-│   ├── scripts        <- Contains different R or python scripts used by the script: directive in Snakemake.
-│   ├── Snakefile      <- Contains the main entrypoint to the pipeline.
-│ 
-├── workspace          <- Space for intermediate results in the pipeline. By default excluded from the git repository.  
+├── tox.ini             <- tox file with settings for running tox; see tox.readthedocs.io 
+|
+|── ruff.toml           <- ruff configuration file for linting; see https://docs.astral.sh/ruff/configuration/
+|
+|── uv.lock             <- uv configuration file for versioning; see https://docs.astral.sh/uv/concepts/projects/sync/
 ```
-
-<p><small>Project inspired by the <a target="_blank" href="https://drivendata.github.io/cookiecutter-data-science/">cookiecutter data science project template</a>

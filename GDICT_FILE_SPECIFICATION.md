@@ -1,12 +1,12 @@
 # GDICT File Format Specification
 
 Authors: Breno Dupin and Matheus Sanita Lima  
-Date: 23 June 2025  
+Date: 24 June 2025  
 Version: 0.0.2
 
 ## Introduction
 
-The `GeneDict` (GDICT) format is a text file format designed for storing an `GeneDict` information, including gene names, identifiers, and database cross-references. GDICT files provide a structured way to organize and maintain gene nomenclature data with associated metadata.
+GDICT (`.gdict`) is a plain-text file that stores a `gdt.GeneDict` with a human-readable, easily editable, and machine-parsable structure. `.gdict` files are read by `gdt.read_gdt()` and written to by `gdt.GeneDict.to_gdt()`. A GDICT file contains gene nomenclature data (i.e., gene identifiers) and associated metadata (gene names, database cross-references and comments added by the user).
 
 ## File Structure
 

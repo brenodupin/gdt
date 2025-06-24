@@ -17,7 +17,7 @@ from typing import Final, Optional, Union, cast
 
 import pandas as pd
 
-from . import gdt_impl, logger_setup
+from . import gdt_impl, log_setup
 
 GFF3_COLUMNS: tuple[str, ...] = (
     "seqid",
@@ -158,7 +158,7 @@ def check_single_an(
 
 
 def _check_column(
-    log: logger_setup.GDTLogger,
+    log: log_setup.GDTLogger,
     df: pd.DataFrame,
     col: str,
     df_txt: str = "TSV",
@@ -174,7 +174,7 @@ def _check_column(
 
 
 def check_gff_in_tsv(
-    log: logger_setup.GDTLogger,
+    log: log_setup.GDTLogger,
     df: pd.DataFrame,
     base_path: Path,
     gff_suffix: str = ".gff3",
@@ -210,7 +210,7 @@ def check_gff_in_tsv(
 
 
 def filter_whole_tsv(
-    log: logger_setup.GDTLogger,
+    log: log_setup.GDTLogger,
     tsv_path: Path,
     gdt_path: Optional[Path] = None,
     keep_orfs: bool = False,
@@ -361,7 +361,7 @@ def filter_whole_tsv(
 
 
 def standardize_tsv(
-    log: logger_setup.GDTLogger,
+    log: log_setup.GDTLogger,
     tsv_path: Path,
     gdt_path: Path,
     an_colum: str,
@@ -424,7 +424,7 @@ def standardize_tsv(
 
 
 def standardize_gff3(
-    log: logger_setup.GDTLogger,
+    log: log_setup.GDTLogger,
     gff_path: Path,
     gene_dict: gdt_impl.GeneDict,
     query_string: str,
@@ -540,7 +540,7 @@ def standardize_gff3(
 
 
 def _handle_missing_gene_id(
-    log: logger_setup.GDTLogger,
+    log: log_setup.GDTLogger,
     gff_path: Path,
     query_string: str,
     joined_line: str,

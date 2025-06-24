@@ -13,7 +13,7 @@ import argparse
 import os
 from pathlib import Path
 
-from . import __version__, gdt_impl, gff3_utils, logger_setup
+from . import __version__, gdt_impl, gff3_utils, log_setup
 
 C_RESET = "\033[0m"
 
@@ -32,7 +32,7 @@ GDT_BANNER = f"""           ╔════════════════�
 
 def filter_command(
     args: argparse.Namespace,
-    log: logger_setup.GDTLogger,
+    log: log_setup.GDTLogger,
 ) -> None:
     """Command to filter GFF3 files based on a TSV file."""
     args.tsv = Path(args.tsv).resolve()
@@ -60,7 +60,7 @@ def filter_command(
 
 def stripped_command(
     args: argparse.Namespace,
-    log: logger_setup.GDTLogger,
+    log: log_setup.GDTLogger,
 ) -> None:
     """Command to create a stripped version of a GDT file."""
     log.info(
@@ -85,22 +85,23 @@ def stripped_command(
 
     gene_dict = gdt_impl.read_gdt(args.gdt_in)
     log.info("Info before stripping:")
-    logger_setup.log_gdt_info(log, gene_dict)
+    log_setup.log_gdt_info(log, gene_dict)
 
     stripped = gene_dict.create_stripped()
+    stripped.update_info()
 
     log.info("\nNew Header:")
     for txt in stripped.header:
         log.info(txt)
 
     log.info("New Info:")
-    logger_setup.log_gdt_info(log, stripped)
+    log_setup.log_gdt_info(log, stripped)
     stripped.to_gdt(args.gdt_out, overwrite=args.overwrite)
 
 
 def standardize_command(
     args: argparse.Namespace,
-    log: logger_setup.GDTLogger,
+    log: log_setup.GDTLogger,
 ) -> None:
     """Command to standardize gene names in GFF3 files using a GDT file."""
     log.info(
@@ -384,7 +385,7 @@ def cli_run() -> None:
     if not args.quiet:
         print(GDT_BANNER)
 
-    log = logger_setup.setup_logger(args.debug, args.log, args.quiet)
+    log = log_setup.setup_logger(args.debug, args.log, args.quiet)
     log.trace("CLI execution started")
     log.trace(f"call path: {Path().resolve()}")
     log.trace(f"cli  path: {Path(__file__)}")

@@ -44,7 +44,7 @@ GDT (Gene Dictonary Tool) is a protocol for the creation and implementation of a
 
 ### Notebooks
 - [Python](https://www.python.org/) `(>=3.10)`
-- [gdt](https://github.com/brenodupin/gdt) `(>=0.2.1)`
+- [gdt](https://github.com/brenodupin/gdt) `(>=1.0.0)`
 - [pandas](https://pandas.pydata.org/) `(>=1.5.3,<3.0.0)`
 - [biopython](https://biopython.org) `(>=1.80)`
 
@@ -88,6 +88,7 @@ gene-identifier #dx SOURCE:GeneID
 - **`#dx`** - Database cross-references with GeneIDs
 
 #### Label Convention
+TODO: update gene label conventions
 Uses organelle prefixes: `MIT-` (mitochondria), `PLT-` (plastid), `NUC-` (nucleus), or whatever you like. There's a Label Naming Convention in the complete specification page.
 
 #### Complete Specification

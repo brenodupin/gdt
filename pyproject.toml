@@ -6,20 +6,47 @@ build-backend = "setuptools.build_meta"
 name = "gdt"
 dynamic = ["version"]
 description = "Gene Dictionary Tool - Bioinformatics package"
+readme = "README.md"
+license = {text = "MIT"}
+requires-python = ">=3.10"
+
 authors = [
     {name = "Breno Dupin", email = "breno.dupin@gmail.com"},
     {name = "Matheus Sanita Lima", email = "msanital@uwo.ca"},
 ]
-readme = "README.md"
-license = "MIT"
-requires-python = ">=3.10"
+
 dependencies = [
     "pandas>=1.5.3,<3.0.0",
 ]
 
+keywords = [
+    "bioinformatics", 
+    "genomics", 
+    "gene-analysis", 
+    "computational-biology"
+]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "License :: Freely Distributable",
+    "License :: OSI Approved",
+    "License :: OSI Approved :: MIT License",
+    "Intended Audience :: Developers",
+    "Intended Audience :: Science/Research",
+    "Topic :: Scientific/Engineering",
+    "Topic :: Scientific/Engineering :: Bio-Informatics",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Operating System :: POSIX :: Linux",
+    "Operating System :: MacOS",
+]
+
 [project.urls]
 Homepage = "https://github.com/brenodupin/gdt"
-Repository = "https://github.com/brenodupin/gdt"
+Source = "https://github.com/brenodupin/gdt"
 
 [project.scripts]
 gdt-cli = "gdt.cli:cli_run"
@@ -43,46 +70,10 @@ dev = [
 ]
 
 [[tool.uv.index]]
-name = "testpypi"
-url = "https://test.pypi.org/simple/"
-publish-url = "https://test.pypi.org/legacy/"
+name = "pypi"
+url = "https://pypi.org/simple/"
+publish-url = "https://upload.pypi.org/legacy/"
 explicit = true
 
-
 [tool.black]
-# Line length - matching the flake8 config
 line-length = 88
-
-# Target Python versions (adjust based on your project)
-target-version = ['py310', 'py311']
-
-# Include and exclude patterns
-include = '\.(pyi?|ipynb)$'
-
-extend-exclude = '''
-# Exclude the same directories as flake8 config
-/(
-    \.git
-    | __pycache__
-    | \.pytest_cache
-    | \.tox
-    | venv
-    | env
-    | \.venv
-    | \.env
-    | build
-    | dist
-    | \.egg-info
-    | img
-    | logs
-    | reports
-    | resources
-    | sandbox
-    | data
-    | results
-    | output
-    | references
-    | \.ipynb_checkpoints
-    | \.Rproj\.user
-)/
-'''

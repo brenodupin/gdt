@@ -54,6 +54,7 @@ jobs:
           echo "previous_tag=$PREVIOUS_TAG" >> $GITHUB_OUTPUT
 
       - name: Create release
+        if: github.ref_name != 'v1.0.0'
         uses: softprops/action-gh-release@v2
         with:
           name: Release ${{ github.ref_name }}

@@ -45,7 +45,7 @@ jobs:
         run: |
           git fetch --tags
           PREVIOUS_TAG=$(git tag --sort=-version:refname | grep -v "^${{ github.ref_name }}$" | head -1)
-          CHANGELOG=$(git log --oneline --pretty=format:"- %h %s (by @%an)" ${PREVIOUS_TAG}..HEAD)
+          CHANGELOG=$(git log --oneline --pretty=format:"- %h %s" ${PREVIOUS_TAG}..HEAD)
           echo "changelog<<EOF" >> $GITHUB_OUTPUT
           echo "$CHANGELOG" >> $GITHUB_OUTPUT
           echo "EOF" >> $GITHUB_OUTPUT
@@ -55,7 +55,7 @@ jobs:
         if: github.ref_name != 'v1.0.0'
         uses: softprops/action-gh-release@v2
         with:
-          name: Release ${{ github.ref_name }}
+          name: ${{ github.ref_name }}
           body: |
             ## What's Changed
             

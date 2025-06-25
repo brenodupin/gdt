@@ -8,9 +8,11 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       id-token: write
-      contents: read
+      contents: write
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 50
       
       - name: Install uv
         uses: astral-sh/setup-uv@v3
@@ -25,7 +27,8 @@ jobs:
       
       - name: Validate version matches tag
         run: |
-          TAG_VERSION=${GITHUB_REF#refs/tags/v}
+          TAG_VERSION=${GITHUB_REF##*/}
+          TAG_VERSION=${TAG_VERSION#v}
           PACKAGE_VERSION=$(uv run python -c "from gdt import __version__; print(__version__)")
           if [ "$TAG_VERSION" != "$PACKAGE_VERSION" ]; then
             echo "Version mismatch: tag v$TAG_VERSION != package $PACKAGE_VERSION"
@@ -37,4 +40,26 @@ jobs:
         run: uv build
       
       - name: Publish to Test PyPI
-        run: uv publish --index testpypi --trusted-publishing
+        run: uv publish --index testpypi --trusted-publishing always
+      
+      - name: Generate custom changelog
+        id: changelog
+        run: |
+          git fetch --tags
+          PREVIOUS_TAG=$(git tag --sort=-version:refname | grep -v "^${{ github.ref_name }}$" | head -1)
+          CHANGELOG=$(git log --oneline --pretty=format:"- %h %s (by @%an)" ${PREVIOUS_TAG}..HEAD)
+          echo "changelog<<EOF" >> $GITHUB_OUTPUT
+          echo "$CHANGELOG" >> $GITHUB_OUTPUT
+          echo "EOF" >> $GITHUB_OUTPUT
+          echo "previous_tag=$PREVIOUS_TAG" >> $GITHUB_OUTPUT
+
+      - name: Create release
+        uses: softprops/action-gh-release@v2
+        with:
+          name: Release ${{ github.ref_name }}
+          body: |
+            ## What's Changed
+            
+            ${{ steps.changelog.outputs.changelog }}
+            
+            **Full Changelog**: https://github.com/${{ github.repository }}/compare/${{ steps.changelog.outputs.previous_tag }}...${{ github.ref_name }}

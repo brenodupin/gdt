@@ -5,7 +5,7 @@ This package provides tools for working with gene dictionaries, including
 GFF3 file parsing, gene dictionary manipulation, and logging setup.
 """
 
-__version__ = "0.1.3"
+__version__ = "0.2.1"
 
 from .gdt_impl import (
     DbxrefGeneID,

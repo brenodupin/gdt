@@ -11,7 +11,7 @@ authors = [
     {name = "Matheus Sanita Lima", email = "msanital@uwo.ca"},
 ]
 readme = "README.md"
-license = {file = "LICENSE"}
+license = "MIT"
 requires-python = ">=3.10"
 dependencies = [
     "pandas>=1.5.3,<3.0.0",

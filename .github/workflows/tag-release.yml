@@ -15,14 +15,13 @@ jobs:
           fetch-depth: 50
       
       - name: Install uv
-        uses: astral-sh/setup-uv@v3
+        uses: astral-sh/setup-uv@v6
         with:
           version: "latest"
           enable-cache: true
-          python-version: "3.10.16"
       
-      - name: Install dependencies
-        run: uv sync
+      - name: Install dependencies (no dev)
+        run: uv sync --no-dev
       
       - name: Validate version matches tag
         run: |

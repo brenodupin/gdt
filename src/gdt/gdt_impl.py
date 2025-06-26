@@ -10,7 +10,7 @@ reading GDT files, sorting gene entries, and creating stripped GDT files.
 
 import re
 from collections import UserDict, defaultdict
-from dataclasses import dataclass, field
+from dataclasses import dataclass, field, replace
 from datetime import datetime
 from pathlib import Path
 from typing import Callable, Iterable, Mapping, Optional, TypeVar, Union
@@ -248,7 +248,7 @@ class GeneDict(UserDict[str, GeneUnion]):
         header.append(f"{time_now()} - Stripped GDT version from original GDT file")
 
         stripped_data = {
-            key: value
+            key: replace(value)
             for key, value in self.data.items()
             if isinstance(value, GeneDescription)
         }

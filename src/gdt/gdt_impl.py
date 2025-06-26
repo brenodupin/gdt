@@ -66,7 +66,16 @@ class GeneDictInfo:
     dbxref_GeneIDs: int = 0
 
 
+T = TypeVar("T")
+G = TypeVar("G", bound=_Gene)
+
 GeneUnion = Union[GeneDescription, GeneGeneric, DbxrefGeneID]
+
+GeneList = list[tuple[str, G]]
+
+SortedGeneGroups = tuple[
+    GeneList[GeneDescription], GeneList[GeneGeneric], GeneList[DbxrefGeneID]
+]
 
 
 class GeneDict(UserDict[str, GeneUnion]):
@@ -145,9 +154,9 @@ class GeneDict(UserDict[str, GeneUnion]):
 
         all_sorted: dict[str, SortedGeneGroups] = {}
         for label, values in label_as_key.items():
-            gd: gdList = []
-            gn: gnList = []
-            dx: dxList = []
+            gd: GeneList[GeneDescription] = []
+            gn: GeneList[GeneGeneric] = []
+            dx: GeneList[DbxrefGeneID] = []
             for key, value in values:
                 match value:
                     case GeneDescription():
@@ -273,18 +282,6 @@ class GeneDict(UserDict[str, GeneUnion]):
 def time_now() -> str:
     """Return the current time formatted as a string."""
     return datetime.now().strftime("%Y-%m-%d %H:%M")
-
-
-T = TypeVar("T")
-G = TypeVar("G", bound=_Gene)
-
-GeneList = list[tuple[str, G]]
-
-gdList = GeneList[GeneDescription]
-gnList = GeneList[GeneGeneric]
-dxList = GeneList[DbxrefGeneID]
-
-SortedGeneGroups = tuple[gdList, gnList, dxList]
 
 
 def read_gdt(

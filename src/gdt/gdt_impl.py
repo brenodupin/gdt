@@ -13,7 +13,7 @@ from collections import UserDict, defaultdict
 from dataclasses import dataclass, field, replace
 from datetime import datetime
 from pathlib import Path
-from typing import Callable, Iterable, Mapping, Optional, TypeVar, Union
+from typing import Callable, Iterable, Mapping, Optional, TypeVar, Union, cast
 
 __gdt_version__ = "0.0.2"
 
@@ -118,6 +118,30 @@ class GeneDict(UserDict[str, GeneUnion]):
 
         if not lazy_info:
             self.update_info()
+
+    @classmethod
+    def _from_data(
+        cls,
+        data: Mapping[str, GeneUnion],
+        *,
+        version: str = __gdt_version__,
+        header: Optional[list[str]] = None,
+        lazy_info: bool = True,
+    ) -> "GeneDict":
+        """Fast constructor for internal use with pre-validated data."""
+        instance = cls.__new__(cls)  # Skip __init__ entirely
+        # Since this is for internal use, we assume data is already validated
+        instance.data = cast(
+            dict[str, GeneDescription | GeneGeneric | DbxrefGeneID], data
+        )
+        instance.version = version
+        instance.header = header or []
+        instance.info = GeneDictInfo()
+
+        if not lazy_info:
+            instance.update_info()
+
+        return instance
 
     def to_gdt(
         self,

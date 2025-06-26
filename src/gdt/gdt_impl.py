@@ -286,8 +286,52 @@ class GeneDict(UserDict[str, GeneUnion]):
             if isinstance(value, GeneDescription)
         }
 
-        return GeneDict(
-            initial=stripped_data,
+        # Since stripped came from an already existing GeneDict (self),
+        # we can optimize the creation of the new GeneDict
+        return self._from_data(
+            stripped_data,
+            version=self.version,
+            header=header,
+            lazy_info=lazy_info,
+        )
+
+    def rename_labels(
+        self,
+        names: Mapping[str, str],
+        lazy_info: bool = True,
+    ) -> "GeneDict":
+        """Rename labels in the GeneDict.
+
+        This method replaces the labels of all entries in the GeneDict according to
+        the provided mapping. If a label is not found in the mapping, it remains
+        unchanged.
+
+        Args:
+            names (Mapping[str, str]): A mapping of old label names to new label names.
+            lazy_info (bool): If False, `update_info` will be called on the renamed
+                              GeneDict. Default is True, meaning the info will not
+                              be updated until `update_info` is called.
+
+        Returns:
+            GeneDict: A new GeneDict instance with renamed labels and an updated header.
+
+        """
+        header = self.header.copy()
+        header.append(f"{time_now()} - Labels renamed")
+
+        renamed_data = {
+            key: (
+                replace(value, label=names[value.label])
+                if value.label in names
+                else replace(value)
+            )
+            for key, value in self.data.items()
+        }
+
+        # Since renamed_data came from an already existing GeneDict (self),
+        # we can optimize the creation of the new GeneDict
+        return self._from_data(
+            renamed_data,
             version=self.version,
             header=header,
             lazy_info=lazy_info,

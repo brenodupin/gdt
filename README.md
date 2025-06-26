@@ -232,9 +232,9 @@ We follow a project structure inspired by [cookiecutter-bioinformatics-project](
 │                         the creator's initials, and a short `-` delimited description, e.g.
 │                         `1.0-jqp-initial-data-exploration`.
 │
-├── resources           <- Place for data. By default excluded from the git repository. 
-│   ├── external        <- Data from third party sources.
-│   └── raw_data        <- The original, immutable data dump.
+├── resources           <- Place for data.
+│   ├── stripped        <- Stripped down GDICT files, from our protocol, containing only the #gd entries.
+│   └── pilot           <- Complete GDICT files, containing all entries (#gd, #gn, #dx) from our protocol.
 │
 ├── example             <- Example data.
 │ 

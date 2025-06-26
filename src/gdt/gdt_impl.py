@@ -290,6 +290,7 @@ SortedGeneGroups = tuple[gdList, gnList, dxList]
 def read_gdt(
     gdt_file: Union[str, Path],
     max_an_sources: int = 0,
+    lazy_info: bool = True,
 ) -> GeneDict:
     """Read a gdt file into GeneDict.
 
@@ -297,6 +298,9 @@ def read_gdt(
         gdt_file (str): Path to the GDT file.
         max_an_sources (int): Maximum number of AN sources to include in GeneGeneric.
                             If set to 0, all sources will be included. Default is 0.
+        lazy_info (bool): If False, `update_info` will be called on the created
+                          GeneDict. Default is True, meaning the info will not be
+                          updated until `update_info` is called.
 
     Returns:
         GeneDict: A dictionary containing the gdt file information.
@@ -383,7 +387,9 @@ def read_gdt(
                 c=comment,
             )
 
-    result.update_info()
+    if not lazy_info:
+        result.update_info()
+
     return result
 
 

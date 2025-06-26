@@ -261,29 +261,39 @@ class GeneDict(UserDict[str, GeneUnion]):
         self.info.labels = len(labels)
         self.info.total_entries = len(self.data)
 
-    def create_stripped(self, lazy_info: bool = True) -> "GeneDict":
+    def create_stripped(
+        self,
+        keep_gn: bool = False,
+        lazy_info: bool = True,
+    ) -> "GeneDict":
         """Create a stripped version of the GeneDict.
 
-        This method removes all entries that are not instances of `GeneDescription`
-        and updates the header to indicate that the GDT version has been stripped.
+        This method creates a new GeneDict instance that contains only the
+        `GeneDescription` and optionally `GeneGeneric` entries, removing any
+        `DbxrefGeneID` entries. The new GeneDict will have an updated header
+        indicating that it is a stripped version.
 
         Args:
+            keep_gn (bool): If True, `GeneGeneric` entries will be kept in the
+                            stripped version. Default is False, meaning only
+                            `GeneDescription` entries will be kept.
             lazy_info (bool): If False, `update_info` will be called on the stripped
                               GeneDict. Default is True, meaning the info will not
                               be updated until `update_info` is called.
 
         Returns:
-            GeneDict: A new GeneDict instance with only `GeneDescription` entries
-                      and an updated header.
+            GeneDict: A new GeneDict instance with stripped data and an updated header.
 
         """
         header = self.header.copy()
         header.append(f"{time_now()} - Stripped GDT version from original GDT file")
 
+        check = (GeneDescription, GeneGeneric) if keep_gn else GeneDescription
+
         stripped_data = {
             key: replace(value)
             for key, value in self.data.items()
-            if isinstance(value, GeneDescription)
+            if isinstance(value, check)
         }
 
         # Since stripped came from an already existing GeneDict (self),
@@ -358,7 +368,6 @@ class GeneDict(UserDict[str, GeneUnion]):
                       updated header.
 
         """
-
         if isinstance(labels, str):
             labels = [labels]
 

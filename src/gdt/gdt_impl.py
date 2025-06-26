@@ -337,6 +337,50 @@ class GeneDict(UserDict[str, GeneUnion]):
             lazy_info=lazy_info,
         )
 
+    def remove_labels(
+        self,
+        labels: Iterable[str],
+        lazy_info: bool = True,
+    ) -> "GeneDict":
+        """Remove entries with specified labels from the GeneDict.
+
+        This method removes all entries that have a label in the provided iterable
+        of labels.
+
+        Args:
+            labels (Iterable[str]): An iterable of labels to remove from the GeneDict.
+            lazy_info (bool): If False, `update_info` will be called on the modified
+                              GeneDict. Default is True, meaning the info will not
+                              be updated until `update_info` is called.
+
+        Returns:
+            GeneDict: A new GeneDict instance with specified labels removed and an
+                      updated header.
+
+        """
+
+        if isinstance(labels, str):
+            labels = [labels]
+
+        if not all(isinstance(label, str) for label in labels):
+            raise TypeError("All labels must be strings")
+
+        header = self.header.copy()
+        header.append(f"{time_now()} - Labels removed")
+
+        filtered_data = {
+            key: value for key, value in self.data.items() if value.label not in labels
+        }
+
+        # Since filtered_data came from an already existing GeneDict (self),
+        # we can optimize the creation of the new GeneDict
+        return self._from_data(
+            filtered_data,
+            version=self.version,
+            header=header,
+            lazy_info=lazy_info,
+        )
+
     def __str__(self) -> str:
         """Return a string representation of the GeneDict."""
         if self.info.labels == 0:

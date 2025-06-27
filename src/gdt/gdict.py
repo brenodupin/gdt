@@ -234,7 +234,7 @@ class GeneDict(UserDict[str, GeneUnion]):
         This method populates the `info` attribute with the number of unique labels,
         total entries, and counts of each type of gene entry.
 
-        `info` attribute is an instance of `GeneDictInfo` with the following fields:
+        `info` attribute is an instance of `GeneDictInfo` with the following attributes:
             - labels: Number of unique labels in the dictionary.
             - total_entries: Total number of entries in the dictionary.
             - gene_descriptions: Count of `GeneDescription` entries.

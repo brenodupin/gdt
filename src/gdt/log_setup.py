@@ -201,7 +201,9 @@ def create_simple_logger(
 
 
 def setup_logger(
-    debug: bool, log_file: Union[Path, str, None], quiet: bool
+    debug: bool,
+    log_file: Union[Path, str, None],
+    quiet: bool,
 ) -> GDTLogger:
     """Set up logger based on command line arguments."""
     console_level = "DISABLE" if quiet else ("DEBUG" if debug else "INFO")
@@ -225,7 +227,8 @@ def setup_logger(
 
 def log_info(
     log: GDTLogger,
-    gene_dict: "gdict.GeneDict",
+    gd: "gdict.GeneDict",
+    *,
     spacer: str = "\t",
     method: Optional[str] = None,
 ) -> None:
@@ -233,7 +236,7 @@ def log_info(
 
     Args:
         log (GDTLogger): Logger instance to use for logging.
-        gene_dict (GeneDict): GeneDict object containing the information to log.
+        gd (GeneDict): GeneDict object containing the information to log.
         spacer (str): String to prepend to each log message for formatting.
                       Defaults to tab.
         method (Optional[str]): Name of the logging method to use, e.g., 'debug',
@@ -241,8 +244,8 @@ def log_info(
 
     """
     log_func = getattr(log, method) if method else log.info
-    log_func(f"{spacer}Labels: {gene_dict.info.labels}")
-    log_func(f"{spacer}Total Entries   : {gene_dict.info.total_entries}")
-    log_func(f"{spacer}GeneDescriptions: {gene_dict.info.gene_descriptions}")
-    log_func(f"{spacer}GeneGenerics    : {gene_dict.info.gene_generics}")
-    log_func(f"{spacer}DbxrefGeneIDs   : {gene_dict.info.dbxref_GeneIDs}")
+    log_func(f"{spacer}Labels: {gd.info.labels}")
+    log_func(f"{spacer}Total Entries   : {gd.info.total_entries}")
+    log_func(f"{spacer}GeneDescriptions: {gd.info.gene_descriptions}")
+    log_func(f"{spacer}GeneGenerics    : {gd.info.gene_generics}")
+    log_func(f"{spacer}DbxrefGeneIDs   : {gd.info.dbxref_GeneIDs}")

@@ -83,7 +83,8 @@ def load_gff3(
 
 
 def filter_orfs(
-    gff3_df: pd.DataFrame, orfs_strings: list[str] = ["Name=ORF", "Name=orf"]
+    gff3_df: pd.DataFrame,
+    orfs_strings: list[str] = ["Name=ORF", "Name=orf"],
 ) -> pd.DataFrame:
     """Filter out ORFs from a GFF3 DataFrame.
 

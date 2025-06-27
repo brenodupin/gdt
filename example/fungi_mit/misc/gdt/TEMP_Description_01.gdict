@@ -1,0 +1,283 @@
+#! version 0.0.2
+#! TEMP_Description - 1
+#! 2025-06-27 18:40 - Automatically generated from 'AN_missing_gene_dict parsing gene= + NCBI Description'
+
+[MIT-TEMP-1]
+hyp3 #gd gff_gene
+gene-FDY65_mgp44 #dx NC_042229.1:40135512 #c gff_gene: hyp3
+
+[MIT-TEMP-2]
+hyp4 #gd gff_gene
+gene-FDY65_mgp43 #dx NC_042229.1:40135468 #c gff_gene: hyp4
+
+[MIT-TEMP-3]
+hyp5 #gd gff_gene
+gene-FDY65_mgp42 #dx NC_042229.1:40135469 #c gff_gene: hyp5
+
+[MIT-TEMP-4]
+hyp2 #gd gff_gene
+gene-FDY65_mgp41 #dx NC_042229.1:40135470 #c gff_gene: hyp2
+
+[MIT-TEMP-5]
+oi1nad5 #gd gff_gene
+gene-FDY65_mgp37 #dx NC_042229.1:40135474 #c gff_gene: oi1nad5
+
+[MIT-TEMP-6]
+oi2nad5 #gd gff_gene
+gene-FDY65_mgp36 #dx NC_042229.1:40135475 #c gff_gene: oi2nad5
+
+[MIT-TEMP-7]
+oi1nad1 #gd gff_gene
+gene-FDY65_mgp34 #dx NC_042229.1:40135477 #c gff_gene: oi1nad1
+
+[MIT-TEMP-8]
+oi2nad1 #gd gff_gene
+gene-FDY65_mgp33 #dx NC_042229.1:40135478 #c gff_gene: oi2nad1
+
+[MIT-TEMP-9]
+oi1cob #gd gff_gene
+gene-FDY65_mgp31 #dx NC_042229.1:40135480 #c gff_gene: oi1cob
+
+[MIT-TEMP-10]
+oi2cob #gd gff_gene
+gene-FDY65_mgp30 #dx NC_042229.1:40135481 #c gff_gene: oi2cob
+
+[MIT-TEMP-11]
+oi3cob #gd gff_gene
+gene-FDY65_mgp29 #dx NC_042229.1:40135482 #c gff_gene: oi3cob
+
+[MIT-TEMP-12]
+oi4cob #gd gff_gene
+gene-FDY65_mgp28 #dx NC_042229.1:40135483 #c gff_gene: oi4cob
+
+[MIT-TEMP-13]
+oi5cob #gd gff_gene
+gene-FDY65_mgp27 #dx NC_042229.1:40135484 #c gff_gene: oi5cob
+
+[MIT-TEMP-14]
+oi1cox2 #gd gff_gene
+gene-FDY65_mgp25 #dx NC_042229.1:40135486 #c gff_gene: oi1cox2
+
+[MIT-TEMP-15]
+hyp9 #gd gff_gene
+gene-FDY65_mgp18 #dx NC_042229.1:40135493 #c gff_gene: hyp9
+
+[MIT-TEMP-16]
+dpo #gd gff_gene
+gene-FDY65_mgp16 #dx NC_042229.1:40135495 #c gff_gene: dpo
+gene-FDY65_mgp17 #dx NC_042229.1:40135494 #c gff_gene: dpo
+
+[MIT-TEMP-17]
+hyp10 #gd gff_gene
+gene-FDY65_mgp15 #dx NC_042229.1:40135496 #c gff_gene: hyp10
+
+[MIT-TEMP-18]
+hyp1 #gd gff_gene
+gene-FDY65_mgp13 #dx NC_042229.1:40135498 #c gff_gene: hyp1
+
+[MIT-TEMP-19]
+hyp6 #gd gff_gene
+gene-FDY65_mgp10 #dx NC_042229.1:40135528 #c gff_gene: hyp6
+
+[MIT-TEMP-20]
+hyp7 #gd gff_gene
+gene-FDY65_mgp09 #dx NC_042229.1:40135503 #c gff_gene: hyp7
+
+[MIT-TEMP-21]
+hyp8 #gd gff_gene
+gene-FDY65_mgp08 #dx NC_042229.1:40135504 #c gff_gene: hyp8
+
+[MIT-TEMP-22]
+oi1cox1 #gd gff_gene
+gene-FDY65_mgp05 #dx NC_042229.1:40135502 #c gff_gene: oi1cox1
+
+[MIT-TEMP-23]
+oi2cox1 #gd gff_gene
+gene-FDY65_mgp04 #dx NC_042229.1:40135508 #c gff_gene: oi2cox1
+
+[MIT-TEMP-24]
+oi3cox1 #gd gff_gene
+gene-FDY65_mgp03 #dx NC_042229.1:40135509 #c gff_gene: oi3cox1
+
+[MIT-TEMP-25]
+oi4cox1 #gd gff_gene
+gene-FDY65_mgp02 #dx NC_042229.1:40135510 #c gff_gene: oi4cox1
+
+[MIT-TEMP-26]
+trnN-ATT #gd gff_gene
+gene-N4M62_mgt03 #dx NC_066216.1:74863481 #c gff_gene: trnN-ATT
+rna-N4M62_mgt03 #dx NC_066216.1:74863481 #c gff_gene: trnN-ATT
+
+[MIT-TEMP-27]
+trnR-TCT #gd gff_gene
+gene-N4M62_mgt04 #dx NC_066216.1:74863483 #c gff_gene: trnR-TCT
+rna-N4M62_mgt04 #dx NC_066216.1:74863483 #c gff_gene: trnR-TCT
+
+[MIT-TEMP-28]
+trnN-GTT #gd gff_gene
+gene-N4M62_mgt05 #dx NC_066216.1:74863484 #c gff_gene: trnN-GTT
+rna-N4M62_mgt05 #dx NC_066216.1:74863484 #c gff_gene: trnN-GTT
+
+[MIT-TEMP-29]
+trnY-GTA #gd gff_gene
+gene-N4M62_mgt06 #dx NC_066216.1:74863488 #c gff_gene: trnY-GTA
+rna-N4M62_mgt06 #dx NC_066216.1:74863488 #c gff_gene: trnY-GTA
+
+[MIT-TEMP-30]
+trnK-TTT #gd gff_gene
+gene-N4M62_mgt07 #dx NC_066216.1:74863491 #c gff_gene: trnK-TTT
+rna-N4M62_mgt07 #dx NC_066216.1:74863491 #c gff_gene: trnK-TTT
+
+[MIT-TEMP-31]
+trnG-ACC #gd gff_gene
+gene-N4M62_mgt08 #dx NC_066216.1:74863492 #c gff_gene: trnG-ACC
+rna-N4M62_mgt08 #dx NC_066216.1:74863492 #c gff_gene: trnG-ACC
+
+[MIT-TEMP-32]
+trnG-TCC #gd gff_gene
+gene-N4M62_mgt09 #dx NC_066216.1:74863493 #c gff_gene: trnG-TCC
+rna-N4M62_mgt09 #dx NC_066216.1:74863493 #c gff_gene: trnG-TCC
+
+[MIT-TEMP-33]
+trnD-GTC #gd gff_gene
+gene-N4M62_mgt10 #dx NC_066216.1:74863494 #c gff_gene: trnD-GTC
+rna-N4M62_mgt10 #dx NC_066216.1:74863494 #c gff_gene: trnD-GTC
+
+[MIT-TEMP-34]
+trnS-GCT #gd gff_gene
+gene-N4M62_mgt11 #dx NC_066216.1:74863495 #c gff_gene: trnS-GCT
+rna-N4M62_mgt11 #dx NC_066216.1:74863495 #c gff_gene: trnS-GCT
+
+[MIT-TEMP-35]
+trnI-GAT #gd gff_gene
+gene-N4M62_mgt12 #dx NC_066216.1:74863496 #c gff_gene: trnI-GAT
+rna-N4M62_mgt12 #dx NC_066216.1:74863496 #c gff_gene: trnI-GAT
+
+[MIT-TEMP-36]
+trnS-TGA #gd gff_gene
+gene-N4M62_mgt13 #dx NC_066216.1:74863497 #c gff_gene: trnS-TGA
+rna-N4M62_mgt13 #dx NC_066216.1:74863497 #c gff_gene: trnS-TGA
+
+[MIT-TEMP-37]
+trnP-TGG #gd gff_gene
+gene-N4M62_mgt14 #dx NC_066216.1:74863498 #c gff_gene: trnP-TGG
+rna-N4M62_mgt14 #dx NC_066216.1:74863498 #c gff_gene: trnP-TGG
+
+[MIT-TEMP-38]
+trnT-TGT #gd gff_gene
+gene-N4M62_mgt15 #dx NC_066216.1:74863501 #c gff_gene: trnT-TGT
+rna-N4M62_mgt15 #dx NC_066216.1:74863501 #c gff_gene: trnT-TGT
+
+[MIT-TEMP-39]
+trnE-TTC #gd gff_gene
+gene-N4M62_mgt16 #dx NC_066216.1:74863502 #c gff_gene: trnE-TTC
+rna-N4M62_mgt16 #dx NC_066216.1:74863502 #c gff_gene: trnE-TTC
+
+[MIT-TEMP-40]
+trnV-TAC #gd gff_gene
+gene-N4M62_mgt17 #dx NC_066216.1:74863503 #c gff_gene: trnV-TAC
+rna-N4M62_mgt17 #dx NC_066216.1:74863503 #c gff_gene: trnV-TAC
+
+[MIT-TEMP-41]
+trnM-CAT #gd gff_gene
+gene-N4M62_mgt18 #dx NC_066216.1:74863504 #c gff_gene: trnM-CAT
+gene-N4M62_mgt19 #dx NC_066216.1:74863505 #c gff_gene: trnM-CAT
+gene-N4M62_mgt25 #dx NC_066216.1:74863511 #c gff_gene: trnM-CAT
+rna-N4M62_mgt18 #dx NC_066216.1:74863504 #c gff_gene: trnM-CAT
+rna-N4M62_mgt19 #dx NC_066216.1:74863505 #c gff_gene: trnM-CAT
+rna-N4M62_mgt25 #dx NC_066216.1:74863511 #c gff_gene: trnM-CAT
+
+[MIT-TEMP-42]
+trnL-TAA #gd gff_gene
+gene-N4M62_mgt20 #dx NC_066216.1:74863506 #c gff_gene: trnL-TAA
+rna-N4M62_mgt20 #dx NC_066216.1:74863506 #c gff_gene: trnL-TAA
+
+[MIT-TEMP-43]
+trnA-TGC #gd gff_gene
+gene-N4M62_mgt21 #dx NC_066216.1:74863507 #c gff_gene: trnA-TGC
+rna-N4M62_mgt21 #dx NC_066216.1:74863507 #c gff_gene: trnA-TGC
+
+[MIT-TEMP-44]
+trnL-TAG #gd gff_gene
+gene-N4M62_mgt23 #dx NC_066216.1:74863509 #c gff_gene: trnL-TAG
+rna-N4M62_mgt23 #dx NC_066216.1:74863509 #c gff_gene: trnL-TAG
+
+[MIT-TEMP-45]
+trnQ-TTG #gd gff_gene
+gene-N4M62_mgt24 #dx NC_066216.1:74863510 #c gff_gene: trnQ-TTG
+rna-N4M62_mgt24 #dx NC_066216.1:74863510 #c gff_gene: trnQ-TTG
+
+[MIT-TEMP-46]
+trnH-GTG #gd gff_gene
+gene-N4M62_mgt26 #dx NC_066216.1:74863512 #c gff_gene: trnH-GTG
+rna-N4M62_mgt26 #dx NC_066216.1:74863512 #c gff_gene: trnH-GTG
+
+[MIT-TEMP-47]
+il15 #gd gff_gene
+gene-N4M62_mgp04 #dx NC_066216.1:74863515 #c gff_gene: il15
+
+[MIT-TEMP-48]
+15S_RRNA #gd gff_gene
+gene-Q0020 #dx NC_001224.1:9164990 #c gff_gene: 15S_RRNA
+rna-Q0020 #dx NC_001224.1:9164990 #c gff_gene: 15S_RRNA
+
+[MIT-TEMP-49]
+AI5_ALPHA #gd gff_gene
+gene-Q0070 #dx NC_001224.1:854597 #c gff_gene: AI5_ALPHA
+
+[MIT-TEMP-50]
+AI4 #gd gff_gene
+gene-Q0065 #dx NC_001224.1:854596 #c gff_gene: AI4
+
+[MIT-TEMP-51]
+AI3 #gd gff_gene
+gene-Q0060 #dx NC_001224.1:854595 #c gff_gene: AI3
+
+[MIT-TEMP-52]
+AI2 #gd gff_gene
+gene-Q0055 #dx NC_001224.1:854594 #c gff_gene: AI2
+
+[MIT-TEMP-53]
+AI1 #gd gff_gene
+gene-Q0050 #dx NC_001224.1:854593 #c gff_gene: AI1
+
+[MIT-TEMP-54]
+AI5_BETA #gd gff_gene
+gene-Q0075 #dx NC_001224.1:854599 #c gff_gene: AI5_BETA
+
+[MIT-TEMP-55]
+BI4 #gd gff_gene
+gene-Q0120 #dx NC_001224.1:854582 #c gff_gene: BI4
+
+[MIT-TEMP-56]
+BI3 #gd gff_gene
+gene-Q0115 #dx NC_001224.1:854605 #c gff_gene: BI3
+
+[MIT-TEMP-57]
+BI2 #gd gff_gene
+gene-Q0110 #dx NC_001224.1:854604 #c gff_gene: BI2
+
+[MIT-TEMP-58]
+OLI1 #gd gff_gene
+gene-Q0130 #dx NC_001224.1:854584 #c gff_gene: OLI1
+
+[MIT-TEMP-59]
+VAR1 #gd gff_gene
+gene-Q0140 #dx NC_001224.1:854586 #c gff_gene: VAR1
+
+[MIT-TEMP-60]
+21S_RRNA #gd gff_gene
+gene-Q0158 #dx NC_001224.1:9164988 #c gff_gene: 21S_RRNA
+rna-Q0158 #dx NC_001224.1:9164988 #c gff_gene: 21S_RRNA
+
+[MIT-TEMP-61]
+SCEI #gd gff_gene
+gene-Q0160 #dx NC_001224.1:854590 #c gff_gene: SCEI
+
+[MIT-TEMP-62]
+RPM1 #gd gff_gene
+gene-Q0285 #dx NC_001224.1:9164989 #c gff_gene: RPM1
+
+[MIT-TEMP-63]
+maturase-like protein #gd NCBI
+gene-Q0255 #dx NC_001224.1:854623 #c ncbi_desc: maturase-like protein

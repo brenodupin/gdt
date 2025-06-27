@@ -1,11 +1,14 @@
 # -*- coding: utf-8 -*-
 """Command line interface for the Gene Dictionary Tool (gdt).
 
-This module provides a command line interface to filter, standardize,
-and manipulate GFF3 files using a Gene Dictionary Tool (GDT) file.
-It supports various operations such as filtering GFF3 files based on
-indexed TSV files, creating stripped versions of GDT files, and
-standardizing gene names across GFF3 files.
+This module provides a command line interface with 3 commands:
+- `filter`: Filter GFF3 files based on a TSV file.
+- `stripped`: Create a stripped version of a GDICT file.
+- `standardize`: Standardize gene names in GFF3 files using a GDICT file.
+
+All commands support global flags for debugging, logging, and quiet mode.
+The CLI is designed to be user-friendly and provides detailed logging for
+each operation.
 
 """
 
@@ -13,7 +16,7 @@ import argparse
 import os
 from pathlib import Path
 
-from . import __version__, gdt_impl, gff3_utils, log_setup
+from . import __version__, gdict, gff3_utils, log_setup
 
 C_RESET = "\033[0m"
 
@@ -37,11 +40,11 @@ def filter_command(
     """Command to filter GFF3 files based on a TSV file."""
     args.tsv = Path(args.tsv).resolve()
 
-    if args.gdt:
-        args.gdt = Path(args.gdt).resolve()
+    if args.gdict:
+        args.gdict = Path(args.gdict).resolve()
 
     log.debug(
-        f"filter command: tsv: {args.tsv} | gdt: {args.gdt} | "
+        f"filter command: tsv: {args.tsv} | gdict: {args.gdict} | "
         f"keep_orfs: {args.keep_orfs} | workers: {args.workers} | "
         f"AN_column: {args.AN_column} | gff_suffix: {args.gff_suffix} | "
         f"query_string: {args.query_string}"
@@ -49,7 +52,7 @@ def filter_command(
     gff3_utils.filter_whole_tsv(
         log,
         args.tsv,
-        args.gdt,
+        args.gdict,
         args.keep_orfs,
         args.workers,
         args.AN_column,
@@ -64,28 +67,30 @@ def stripped_command(
 ) -> None:
     """Command to create a stripped version of a GDT file."""
     log.info(
-        f"stripped command: gdt_in: {args.gdt_in} | "
-        f"gdt_out: {args.gdt_out} | "
+        f"stripped command: gdict_in: {args.gdict_in} | "
+        f"gdict_out: {args.gdict_out} | "
         f"overwrite: {args.overwrite}"
     )
-    args.gdt_in = Path(args.gdt_in).resolve()
-    args.gdt_out = Path(args.gdt_out).resolve()
+    args.gdict_in = Path(args.gdict_in).resolve()
+    args.gdict_out = Path(args.gdict_out).resolve()
 
-    if not args.gdt_in.exists():
-        log.error(f"gdt not found: {args.gdt_in}")
-        raise FileNotFoundError(f"GDT file not found: {args.gdt_in}")
+    if not args.gdict_in.exists():
+        log.error(f"gdict not found: {args.gdict_in}")
+        raise FileNotFoundError(f"GDICT file not found: {args.gdict_in}")
 
-    if args.gdt_out.exists() and not args.overwrite:
+    if args.gdict_out.exists() and not args.overwrite:
         log.error(
-            f"gdt already exists, overwrite: {args.overwrite} | gdt: {args.gdt_out}"
+            f"gdict already exists, overwrite: {args.overwrite} | "
+            f"gdict: {args.gdict_out}"
         )
         raise FileExistsError(
-            f"GDT file already exists: {args.gdt_out}. Use overwrite=True to overwrite."
+            f"GDICT file already exists: {args.gdict_out}. "
+            f"Use overwrite=True to overwrite."
         )
 
-    gene_dict = gdt_impl.read_gdt(args.gdt_in)
+    gene_dict = gdict.read_gdict(args.gdict_in)
     log.info("Info before stripping:")
-    log_setup.log_gdt_info(log, gene_dict)
+    log_setup.log_info(log, gene_dict)
 
     stripped = gene_dict.create_stripped()
     stripped.update_info()
@@ -95,8 +100,8 @@ def stripped_command(
         log.info(txt)
 
     log.info("New Info:")
-    log_setup.log_gdt_info(log, stripped)
-    stripped.to_gdt(args.gdt_out, overwrite=args.overwrite)
+    log_setup.log_info(log, stripped)
+    stripped.to_gdict(args.gdict_out, overwrite=args.overwrite)
 
 
 def standardize_command(
@@ -106,25 +111,25 @@ def standardize_command(
     """Command to standardize gene names in GFF3 files using a GDT file."""
     log.info(
         f"standardize command: gff: {args.gff} | tsv: {args.tsv} | "
-        f"gdt: {args.gdt} | AN_column: {args.AN_column} | "
+        f"gdict: {args.gdict} | AN_column: {args.AN_column} | "
         f"gff_suffix: {args.gff_suffix} | query_string: {args.query_string} | "
         f"check: {args.check} | second_place: {args.second_place} | "
         f"gdt_tag: {args.gdt_tag} | error_on_missing: {args.error_on_missing} | "
         f"save_copy: {args.save_copy}"
     )
-    args.gdt = Path(args.gdt).resolve()
+    args.gdict = Path(args.gdict).resolve()
     if args.gff:
         args.gff = Path(args.gff).resolve()
 
         if not args.gff.is_file():
             log.error(f"gff file not found: {args.gff}")
 
-        if not args.gdt.exists():
-            log.error(f"gdt file not found: {args.gdt}")
-            raise FileNotFoundError(f"gdt file not found: {args.gdt}")
+        if not args.gdict.exists():
+            log.error(f"gdt file not found: {args.gdict}")
+            raise FileNotFoundError(f"gdt file not found: {args.gdict}")
 
-        gene_dict = gdt_impl.read_gdt(args.gdt)
-        log.debug(f"Gene dictionary loaded from {args.gdt}")
+        gene_dict = gdict.read_gdict(args.gdict)
+        log.debug(f"Gene dictionary loaded from {args.gdict}")
 
         gff3_utils.standardize_gff3(
             log,
@@ -144,7 +149,7 @@ def standardize_command(
         gff3_utils.standardize_tsv(
             log,
             args.tsv,
-            args.gdt,
+            args.gdict,
             args.AN_column,
             args.gff_suffix,
             args.query_string,
@@ -224,12 +229,12 @@ def cli_run() -> None:
         help="Column name for NCBI Accession Number inside the TSV. Default: AN",
     )
     filter_parser.add_argument(
-        "--gdt",
+        "--gdict",
         required=False,
         default=False,
         type=str,
-        help="GDT file to use for filtering. "
-        "If not provided, an empty GeneDict (i.e GDT file) will be used.",
+        help="GDICT file to use for filtering. "
+        "If not provided, an empty GeneDict (i.e GDICT file) will be used.",
     )
     filter_parser.add_argument(
         "--keep-orfs",
@@ -264,24 +269,24 @@ def cli_run() -> None:
 
     stripped_parser = subparsers.add_parser(
         "stripped",
-        help="Create a stripped version of a GDT file",
-        description="Filter GeneGeneric's (#gn) and Dbxref's (#dx) out of a GDT file, "
-        "keeping only GeneDescription (#gd) entries and their metadata.",
+        help="Create a stripped version of a GDICT file",
+        description="Filter GeneGeneric's (#gn) and Dbxref's (#dx) out of a GDICT file,"
+        " keeping only GeneDescription (#gd) entries and their metadata.",
         parents=[global_flags],
     )
     stripped_parser.add_argument(
-        "--gdt_in",
+        "--gdict_in",
         "-gin",
         required=True,
         type=str,
-        help="Input GDT file to strip.",
+        help="Input GDICT file to strip.",
     )
     stripped_parser.add_argument(
-        "--gdt_out",
+        "--gdict_out",
         "-gout",
         required=True,
         type=str,
-        help="New GDT file to create.",
+        help="New GDICT file to create.",
     )
     stripped_parser.add_argument(
         "--overwrite",
@@ -295,7 +300,7 @@ def cli_run() -> None:
         "standardize",
         help="Standardize gene names in GFF3 files.",
         description="Standardize gene names across features in "
-        "GFF3 files using a GDT file.",
+        "GFF3 files using a GDICT file.",
         parents=[global_flags],
     )
     # mutually exclusive group for GFF or TSV input
@@ -312,10 +317,10 @@ def cli_run() -> None:
     )
 
     standardize_parser.add_argument(
-        "--gdt",
+        "--gdict",
         required=True,
         type=str,
-        help="GDT file to use for standardization. ",
+        help="GDICT file to use for standardization. ",
     )
     standardize_parser.add_argument(
         "--AN-column",
@@ -368,7 +373,7 @@ def cli_run() -> None:
         required=False,
         default=False,
         action="store_true",
-        help="Raise an error if a feature is missing in the GDT file. "
+        help="Raise an error if a feature is missing in the GDICT file. "
         "Default: False (just log a warning and skip the feature).",
     )
     standardize_parser.add_argument(

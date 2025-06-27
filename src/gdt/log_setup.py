@@ -16,7 +16,7 @@ from pathlib import Path
 from typing import TYPE_CHECKING, Any, Optional, Union, cast
 
 if TYPE_CHECKING:
-    from . import gdt_impl
+    from . import gdict
 
 TRACE = 5
 
@@ -223,9 +223,9 @@ def setup_logger(
     return log
 
 
-def log_gdt_info(
+def log_info(
     log: GDTLogger,
-    gdt: "gdt_impl.GeneDict",
+    gene_dict: "gdict.GeneDict",
     spacer: str = "\t",
     method: Optional[str] = None,
 ) -> None:
@@ -233,7 +233,7 @@ def log_gdt_info(
 
     Args:
         log (GDTLogger): Logger instance to use for logging.
-        gdt (GeneDict): GeneDict object containing the information to log.
+        gene_dict (GeneDict): GeneDict object containing the information to log.
         spacer (str): String to prepend to each log message for formatting.
                       Defaults to tab.
         method (Optional[str]): Name of the logging method to use, e.g., 'debug',
@@ -241,8 +241,8 @@ def log_gdt_info(
 
     """
     log_func = getattr(log, method) if method else log.info
-    log_func(f"{spacer}Labels: {gdt.info.labels}")
-    log_func(f"{spacer}Total Entries   : {gdt.info.total_entries}")
-    log_func(f"{spacer}GeneDescriptions: {gdt.info.gene_descriptions}")
-    log_func(f"{spacer}GeneGenerics    : {gdt.info.gene_generics}")
-    log_func(f"{spacer}DbxrefGeneIDs   : {gdt.info.dbxref_GeneIDs}")
+    log_func(f"{spacer}Labels: {gene_dict.info.labels}")
+    log_func(f"{spacer}Total Entries   : {gene_dict.info.total_entries}")
+    log_func(f"{spacer}GeneDescriptions: {gene_dict.info.gene_descriptions}")
+    log_func(f"{spacer}GeneGenerics    : {gene_dict.info.gene_generics}")
+    log_func(f"{spacer}DbxrefGeneIDs   : {gene_dict.info.dbxref_GeneIDs}")

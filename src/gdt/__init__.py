@@ -7,16 +7,16 @@ GFF3 file parsing, gene dictionary manipulation, and logging setup.
 
 __version__ = "0.2.7"
 
-from .gdt_impl import (
+from .gdict import (
     DbxrefGeneID,
     GeneDescription,
     GeneDict,
     GeneDictInfo,
     GeneGeneric,
-    create_empty_gdt,
+    create_empty_gdict,
     natural_sort,
     natural_sort_key,
-    read_gdt,
+    read_gdict,
     time_now,
 )
 from .gff3_utils import (
@@ -36,6 +36,6 @@ from .log_setup import (
     GDTLogger,
     create_dev_logger,
     create_simple_logger,
-    log_gdt_info,
+    log_info,
     setup_logger,
 )

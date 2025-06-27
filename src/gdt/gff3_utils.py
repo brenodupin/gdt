@@ -17,7 +17,7 @@ from typing import Final, Optional, Union, cast
 
 import pandas as pd
 
-from . import gdt_impl, log_setup
+from . import gdict, log_setup
 
 GFF3_COLUMNS: tuple[str, ...] = (
     "seqid",
@@ -49,13 +49,13 @@ def load_gff3(
     """Load a GFF3 file into a pandas DataFrame, optionally filtering by a query string.
 
     Args:
-        filename (str): Path to the GFF3 file.
+        filename (Union[str, Path]): Path to the GFF3 file.
         sep (str): Separator used in the file.
         comment (str): Comment character in the file.
         header (int or None): Row number to use as the column names, None if no header.
-        names (list): List of column names to use.
-        usecols (list): List of columns to read from the file.
-        query_string (str): Query string to filter the DataFrame.
+        names (tuple[str, ...]): Tuple of column names to use.
+        usecols (list[str]): List of columns to read from the file.
+        query_string (str or None): Query string to filter the DataFrame.
 
     Returns:
         pd.DataFrame: DataFrame containing the filtered GFF3 data.
@@ -102,7 +102,7 @@ def filter_orfs(
 
 def check_single_an(
     an_path: Path,
-    gene_dict: gdt_impl.GeneDict,
+    gene_dict: gdict.GeneDict,
     keep_orfs: bool = False,
     query_string: str = QS_GENE_TRNA_RRNA,
 ) -> dict[str, Union[str, int, list[str]]]:
@@ -212,7 +212,7 @@ def check_gff_in_tsv(
 def filter_whole_tsv(
     log: log_setup.GDTLogger,
     tsv_path: Path,
-    gdt_path: Optional[Path] = None,
+    gdict_path: Optional[Path] = None,
     keep_orfs: bool = False,
     workers: int = 0,
     an_column: str = "AN",
@@ -224,7 +224,7 @@ def filter_whole_tsv(
     Args:
         log (GDTLogger): Logger instance for logging messages.
         tsv_path (Path): Path to the TSV file containing accession numbers.
-        gdt_path (Optional[Path]): Path to the GDT file.
+        gdict_path (Optional[Path]): Path to the GDICT file.
                                    If None, an empty GeneDict is used.
         keep_orfs (bool): Whether to keep ORFs in the GFF3 files. Default is False.
         workers (int): Number of worker processes to use for parallel processing.
@@ -246,8 +246,8 @@ def filter_whole_tsv(
 
     # check if tsv_path exists
     if not tsv_path.exists():
-        log.error(f"tsv file not found: {gdt_path}")
-        raise FileNotFoundError(f"tsv file not found: {gdt_path}")
+        log.error(f"tsv file not found: {tsv_path}")
+        raise FileNotFoundError(f"tsv file not found: {tsv_path}")
 
     base_folder: Final[Path] = tsv_path.parent
     tsv = pd.read_csv(tsv_path, sep="\t")
@@ -258,25 +258,25 @@ def filter_whole_tsv(
     GDT_DIR: Final[Path] = MISC_DIR / "gdt"  # noqa: N806
     GDT_DIR.mkdir(511, True, True)  # 511 = 0o777
 
-    # check if gdt_path exists, if not, create empty gene_dict
-    if gdt_path:
-        if not gdt_path.exists():
-            log.error(f"gdt file not found: {gdt_path}")
-            raise FileNotFoundError(f"gdt file not found: {gdt_path}")
+    # check if tsv_path exists, if not, create empty gene_dict
+    if gdict_path:
+        if not gdict_path.exists():
+            log.error(f"gdict file not found: {gdict_path}")
+            raise FileNotFoundError(f"gdict file not found: {gdict_path}")
 
-        # check if gdt file is in GDT_DIR
-        if gdt_path.parent != GDT_DIR:
-            gdt_path = shutil.move(gdt_path, GDT_DIR / gdt_path.name)
-            log.info(f"Moving gdt file to {gdt_path}")
+        # check if gdict file is in GDT_DIR
+        if gdict_path.parent != GDT_DIR:
+            gdict_path = shutil.move(gdict_path, GDT_DIR / gdict_path.name)
+            log.info(f"Moving gdict file to {gdict_path}")
 
-        gene_dict = gdt_impl.read_gdt(gdt_path)
-        log.debug(f"GeneDict loaded from {gdt_path}")
+        gene_dict = gdict.read_gdict(gdict_path)
+        log.debug(f"GeneDict loaded from {gdict_path}")
         log.trace(f"Header : {gene_dict.header}")
         log.trace(f"Info   : {gene_dict.info}")
 
     else:
-        gene_dict = gdt_impl.GeneDict()
-        log.debug("No gdt file provided. Using empty gene_dict.")
+        gene_dict = gdict.GeneDict()
+        log.debug("No gdict file provided. Using empty GeneDict.")
 
     # start processing
     log.info(f"Processing {len(tsv)} ANs with {workers} workers")
@@ -363,7 +363,7 @@ def filter_whole_tsv(
 def standardize_tsv(
     log: log_setup.GDTLogger,
     tsv_path: Path,
-    gdt_path: Path,
+    gdict_path: Path,
     an_colum: str,
     gff_suffix: str,
     query_string: str,
@@ -378,7 +378,7 @@ def standardize_tsv(
     Args:
         log (GDTLogger): Logger instance for logging messages.
         tsv_path (Path): Path to the TSV file containing accession numbers.
-        gdt_path (Path): Path to the GDT file.
+        gdict_path (Path): Path to the GDICT file.
         an_colum (str): Column name containing accession numbers in the TSV file.
         gff_suffix (str): Suffix for GFF3 files.
         query_string (str): Query string to filter GFF3 files.
@@ -394,12 +394,12 @@ def standardize_tsv(
         log.error(f"tsv file not found: {tsv_path}")
         raise FileNotFoundError(f"tsv file not found: {tsv_path}")
 
-    if not gdt_path.exists():
-        log.error(f"gdt file not found: {gdt_path}")
-        raise FileNotFoundError(f"gdt file not found: {gdt_path}")
+    if not gdict_path.exists():
+        log.error(f"gdict file not found: {gdict_path}")
+        raise FileNotFoundError(f"gdict file not found: {gdict_path}")
 
-    gene_dict = gdt_impl.read_gdt(gdt_path)
-    log.debug(f"Gene dictionary loaded from {gdt_path}")
+    gene_dict = gdict.read_gdict(gdict_path)
+    log.debug(f"Gene dictionary loaded from {gdict_path}")
 
     tsv = pd.read_csv(tsv_path, sep="\t")
     _check_column(log, tsv, an_colum)
@@ -426,7 +426,7 @@ def standardize_tsv(
 def standardize_gff3(
     log: log_setup.GDTLogger,
     gff_path: Path,
-    gene_dict: gdt_impl.GeneDict,
+    gene_dict: gdict.GeneDict,
     query_string: str,
     check_flag: bool,
     second_place: bool,
@@ -440,7 +440,7 @@ def standardize_gff3(
     Args:
         log (GDTLogger): Logger instance for logging messages.
         gff_path (Path): Path to the GFF3 file.
-        gene_dict (gdt_impl.GeneDict): GeneDict to check against.
+        gene_dict (GeneDict): GeneDict to check against.
         query_string (str): Query string to filter GFF3 features.
         check_flag (bool): If True, do not save changes to the GFF3 file.
         second_place (bool): If True, add gdt_tag to the second place in attributes gff.

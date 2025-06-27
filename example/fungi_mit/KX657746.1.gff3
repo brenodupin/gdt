@@ -57,7 +57,7 @@ KX657746.1	Genbank	tRNA	13018	13091	.	+	.	ID=rna-KX657746.1:13018..13091;Parent=
 KX657746.1	Genbank	exon	13018	13091	.	+	.	ID=exon-KX657746.1:13018..13091-1;Parent=rna-KX657746.1:13018..13091;Note=transfer RNA Methionine%3B anticodon: CAU;codons=AUG;gbkey=tRNA;product=tRNA-Met
 KX657746.1	Genbank	gene	13835	14590	.	+	.	ID=gene-KX657746.1:13835..14590;description=cox2;gbkey=Gene;gene_biotype=protein_coding
 KX657746.1	Genbank	CDS	13835	14590	.	+	0	ID=cds-AOT85193.1;Parent=gene-KX657746.1:13835..14590;Dbxref=NCBI_GP:AOT85193.1;Name=AOT85193.1;gbkey=CDS;product=Cox2p;protein_id=AOT85193.1;transl_table=3
-KX657746.1	Genbank	gene	14572	15996	.	+	.	ID=gene-KX657746.1:14572..15996;description=Orf1;gbkey=Gene;gene_biotype=protein_coding
+KX657746.1	Genbank	discard-gene	14572	15996	.	+	.	ID=gene-KX657746.1:14572..15996;description=Orf1;gbkey=Gene;gene_biotype=protein_coding
 KX657746.1	Genbank	CDS	14572	15996	.	+	0	ID=cds-AOT85194.1;Parent=gene-KX657746.1:14572..15996;Dbxref=NCBI_GP:AOT85194.1;Name=AOT85194.1;Note=homolog to ORF1 (de Zamaroczy and Bernardi%2C 1986a);gbkey=CDS;product=Orf1p;protein_id=AOT85194.1;transl_except=(pos:14572..14574%2Caa:Met);transl_table=3
 KX657746.1	Genbank	gene	17753	17824	.	+	.	ID=gene-KX657746.1:17753..17824;description=trnF;gbkey=Gene;gene_biotype=tRNA
 KX657746.1	Genbank	tRNA	17753	17824	.	+	.	ID=rna-KX657746.1:17753..17824;Parent=gene-KX657746.1:17753..17824;Note=transfer RNA Phenylalanine%3B anticodon: GAA;codons=UUC;gbkey=tRNA;product=tRNA-Phe
@@ -129,7 +129,7 @@ KX657746.1	Genbank	intron	51304	51946	.	+	.	ID=id-KX657746.1:51304..51946;Parent
 KX657746.1	Genbank	intron	51969	52831	.	+	.	ID=id-KX657746.1:51969..52831;Parent=gene-KX657746.1:50911..56402;Note=cob-I2(group II%3B bI1beta);gbkey=intron
 KX657746.1	Genbank	intron	52846	54114	.	+	.	ID=id-KX657746.1:52846..54114;Parent=gene-KX657746.1:50911..56402;Note=cob-I3(group ID%3B bI2);gbkey=intron
 KX657746.1	Genbank	intron	54192	55750	.	+	.	ID=id-KX657746.1:54192..55750;Parent=gene-KX657746.1:50911..56402;Note=cob-I4(group IB%3B bI3);gbkey=intron
-KX657746.1	Genbank	gene	52846	53595	.	+	.	ID=gene-KX657746.1:52846..53595;description=cob-I3 RF;gbkey=Gene;gene_biotype=protein_coding;partial=true;start_range=.,52846
+KX657746.1	Genbank	discard-gene	52846	53595	.	+	.	ID=gene-KX657746.1:52846..53595;description=cob-I3 RF;gbkey=Gene;gene_biotype=protein_coding;partial=true;start_range=.,52846
 KX657746.1	Genbank	CDS	52846	53595	.	+	0	ID=cds-AOT85203.1;Parent=gene-KX657746.1:52846..53595;Dbxref=NCBI_GP:AOT85203.1;Name=AOT85203.1;Note=start codon not determined;gbkey=CDS;partial=true;product=maturase/DNA endonuclease;protein_id=AOT85203.1;start_range=.,52846;transl_table=3
 KX657746.1	Genbank	gene	54192	55251	.	+	.	ID=gene-KX657746.1:54192..55251;description=cob-I4 RF;gbkey=Gene;gene_biotype=protein_coding;partial=true;start_range=.,54192
 KX657746.1	Genbank	CDS	54192	55251	.	+	1	ID=cds-AOT85204.1;Parent=gene-KX657746.1:54192..55251;Dbxref=NCBI_GP:AOT85204.1;Name=AOT85204.1;Note=start codon not determined;gbkey=CDS;partial=true;product=hypothetical protein;protein_id=AOT85204.1;start_range=.,54192;transl_table=3

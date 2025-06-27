@@ -1,0 +1,117 @@
+##gff-version 3
+#!gff-spec-version 1.21
+#!processor NCBI annotwriter
+##sequence-region HE983611.1 1 26326
+##species https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=1072105
+HE983611.1	EMBL	region	1	26326	.	+	.	ID=HE983611.1:1..26326;Dbxref=taxon:1072105;Is_circular=true;Name=MT;gbkey=Src;genome=mitochondrion;mol_type=genomic DNA;old-name=Lachancea dasiensis CBS 10888;strain=CBS10888;type-material=culture from holotype of Lachancea dasiensis
+HE983611.1	EMBL	gene	17	88	.	+	.	ID=gene-tRNA-Trp;Name=tRNA-Trp;gbkey=Gene;gene=tRNA-Trp;gene_biotype=tRNA
+HE983611.1	EMBL	tRNA	17	88	.	+	.	ID=rna-tRNA-Trp;Parent=gene-tRNA-Trp;gbkey=tRNA;gene=tRNA-Trp;product=tRNA-Trp
+HE983611.1	EMBL	exon	17	88	.	+	.	ID=exon-tRNA-Trp-1;Parent=rna-tRNA-Trp;gbkey=tRNA;gene=tRNA-Trp;product=tRNA-Trp
+HE983611.1	EMBL	gene	106	3768	.	+	.	ID=gene-lsu;Name=lsu;gbkey=Gene;gene=lsu;gene_biotype=rRNA
+HE983611.1	EMBL	rRNA	106	3768	.	+	.	ID=rna-lsu;Parent=gene-lsu;gbkey=rRNA;gene=lsu;product=23S ribosomal RNA
+HE983611.1	EMBL	exon	106	3768	.	+	.	ID=exon-lsu-1;Parent=rna-lsu;gbkey=rRNA;gene=lsu;product=23S ribosomal RNA
+HE983611.1	EMBL	gene	4004	4076	.	+	.	ID=gene-tRNA-Thr;Name=tRNA-Thr;gbkey=Gene;gene=tRNA-Thr;gene_biotype=tRNA
+HE983611.1	EMBL	tRNA	4004	4076	.	+	.	ID=rna-tRNA-Thr;Parent=gene-tRNA-Thr;gbkey=tRNA;gene=tRNA-Thr;product=tRNA-Thr
+HE983611.1	EMBL	exon	4004	4076	.	+	.	ID=exon-tRNA-Thr-1;Parent=rna-tRNA-Thr;gbkey=tRNA;gene=tRNA-Thr;product=tRNA-Thr
+HE983611.1	EMBL	gene	4118	4189	.	+	.	ID=gene-tRNA-Glu;Name=tRNA-Glu;gbkey=Gene;gene=tRNA-Glu;gene_biotype=tRNA
+HE983611.1	EMBL	tRNA	4118	4189	.	+	.	ID=rna-tRNA-Glu;Parent=gene-tRNA-Glu;gbkey=tRNA;gene=tRNA-Glu;product=tRNA-Glu
+HE983611.1	EMBL	exon	4118	4189	.	+	.	ID=exon-tRNA-Glu-1;Parent=rna-tRNA-Glu;gbkey=tRNA;gene=tRNA-Glu;product=tRNA-Glu
+HE983611.1	EMBL	gene	4571	5734	.	+	.	ID=gene-cob;Name=cob;gbkey=Gene;gene=cob;gene_biotype=protein_coding
+HE983611.1	EMBL	CDS	4571	5734	.	+	0	ID=cds-CCW77434.1;Parent=gene-cob;Dbxref=NCBI_GP:CCW77434.1;Name=CCW77434.1;gbkey=CDS;gene=cob;product=putative apocytochrome b;protein_id=CCW77434.1;transl_table=3
+HE983611.1	EMBL	gene	5839	5911	.	+	.	ID=gene-tRNA-Met;Name=tRNA-Met;gbkey=Gene;gene=tRNA-Met;gene_biotype=tRNA
+HE983611.1	EMBL	tRNA	5839	5911	.	+	.	ID=rna-tRNA-Met;Parent=gene-tRNA-Met;gbkey=tRNA;gene=tRNA-Met;product=tRNA-Met
+HE983611.1	EMBL	exon	5839	5911	.	+	.	ID=exon-tRNA-Met-1;Parent=rna-tRNA-Met;gbkey=tRNA;gene=tRNA-Met;product=tRNA-Met
+HE983611.1	EMBL	gene	5953	6303	.	+	.	ID=gene-rpm1;Name=rpm1;gbkey=Gene;gene=rpm1;gene_biotype=rRNA
+HE983611.1	EMBL	rRNA	5953	6303	.	+	.	ID=rna-rpm1;Parent=gene-rpm1;gbkey=rRNA;gene=rpm1;product=RNA subunit of RNaseP
+HE983611.1	EMBL	exon	5953	6303	.	+	.	ID=exon-rpm1-1;Parent=rna-rpm1;gbkey=rRNA;gene=rpm1;product=RNA subunit of RNaseP
+HE983611.1	EMBL	gene	6336	6407	.	+	.	ID=gene-tRNA-Pro;Name=tRNA-Pro;gbkey=Gene;gene=tRNA-Pro;gene_biotype=tRNA
+HE983611.1	EMBL	tRNA	6336	6407	.	+	.	ID=rna-tRNA-Pro;Parent=gene-tRNA-Pro;gbkey=tRNA;gene=tRNA-Pro;product=tRNA-Pro
+HE983611.1	EMBL	exon	6336	6407	.	+	.	ID=exon-tRNA-Pro-1;Parent=rna-tRNA-Pro;gbkey=tRNA;gene=tRNA-Pro;product=tRNA-Pro
+HE983611.1	EMBL	gene	6947	14045	.	+	.	ID=gene-cox1;Name=cox1;gbkey=Gene;gene=cox1;gene_biotype=protein_coding
+HE983611.1	EMBL	CDS	6947	7186	.	+	0	ID=cds-CCW77435.1;Parent=gene-cox1;Dbxref=NCBI_GP:CCW77435.1;Name=CCW77435.1;gbkey=CDS;gene=cox1;product=putative cytochrome c oxydase%2C subunit 1;protein_id=CCW77435.1;transl_table=3
+HE983611.1	EMBL	CDS	8680	9159	.	+	0	ID=cds-CCW77435.1;Parent=gene-cox1;Dbxref=NCBI_GP:CCW77435.1;Name=CCW77435.1;gbkey=CDS;gene=cox1;product=putative cytochrome c oxydase%2C subunit 1;protein_id=CCW77435.1;transl_table=3
+HE983611.1	EMBL	CDS	10477	10656	.	+	0	ID=cds-CCW77435.1;Parent=gene-cox1;Dbxref=NCBI_GP:CCW77435.1;Name=CCW77435.1;gbkey=CDS;gene=cox1;product=putative cytochrome c oxydase%2C subunit 1;protein_id=CCW77435.1;transl_table=3
+HE983611.1	EMBL	CDS	11850	11921	.	+	0	ID=cds-CCW77435.1;Parent=gene-cox1;Dbxref=NCBI_GP:CCW77435.1;Name=CCW77435.1;gbkey=CDS;gene=cox1;product=putative cytochrome c oxydase%2C subunit 1;protein_id=CCW77435.1;transl_table=3
+HE983611.1	EMBL	CDS	13413	14045	.	+	0	ID=cds-CCW77435.1;Parent=gene-cox1;Dbxref=NCBI_GP:CCW77435.1;Name=CCW77435.1;gbkey=CDS;gene=cox1;product=putative cytochrome c oxydase%2C subunit 1;protein_id=CCW77435.1;transl_table=3
+HE983611.1	EMBL	exon	6947	7186	.	+	.	ID=id-cox1-1;Parent=gene-cox1;exon_number=1;gbkey=exon;gene=cox1;number=1
+HE983611.1	EMBL	exon	8680	9159	.	+	.	ID=id-cox1-2;Parent=gene-cox1;exon_number=2;gbkey=exon;gene=cox1;number=2
+HE983611.1	EMBL	exon	10477	10656	.	+	.	ID=id-cox1-3;Parent=gene-cox1;exon_number=3;gbkey=exon;gene=cox1;number=3
+HE983611.1	EMBL	exon	11850	11921	.	+	.	ID=id-cox1-4;Parent=gene-cox1;exon_number=4;gbkey=exon;gene=cox1;number=4
+HE983611.1	EMBL	exon	13413	14045	.	+	.	ID=id-cox1-5;Parent=gene-cox1;exon_number=5;gbkey=exon;gene=cox1;number=5
+HE983611.1	EMBL	intron	7187	8679	.	+	.	ID=id-cox1;Parent=gene-cox1;exon_number=1;gbkey=intron;gene=cox1;number=1
+HE983611.1	EMBL	intron	9160	10476	.	+	.	ID=id-cox1-6;Parent=gene-cox1;exon_number=2;gbkey=intron;gene=cox1;number=2
+HE983611.1	EMBL	intron	10657	11849	.	+	.	ID=id-cox1-7;Parent=gene-cox1;exon_number=3;gbkey=intron;gene=cox1;number=3
+HE983611.1	EMBL	intron	11922	13412	.	+	.	ID=id-cox1-8;Parent=gene-cox1;exon_number=4;gbkey=intron;gene=cox1;number=4
+HE983611.1	EMBL	gene	14455	14601	.	+	.	ID=gene-atp8;Name=atp8;gbkey=Gene;gene=atp8;gene_biotype=protein_coding
+HE983611.1	EMBL	CDS	14455	14601	.	+	0	ID=cds-CCW77436.1;Parent=gene-atp8;Dbxref=NCBI_GP:CCW77436.1;Name=CCW77436.1;gbkey=CDS;gene=atp8;product=putative ATP synthase%2C subunit 8;protein_id=CCW77436.1;transl_table=3
+HE983611.1	EMBL	gene	15091	15873	.	+	.	ID=gene-atp6;Name=atp6;gbkey=Gene;gene=atp6;gene_biotype=protein_coding
+HE983611.1	EMBL	CDS	15091	15873	.	+	0	ID=cds-CCW77437.1;Parent=gene-atp6;Dbxref=NCBI_GP:CCW77437.1;Name=CCW77437.1;gbkey=CDS;gene=atp6;product=putative ATP synthase%2C subunit 6;protein_id=CCW77437.1;transl_table=3
+HE983611.1	EMBL	gene	16331	16561	.	+	.	ID=gene-atp9;Name=atp9;gbkey=Gene;gene=atp9;gene_biotype=protein_coding
+HE983611.1	EMBL	CDS	16331	16561	.	+	0	ID=cds-CCW77438.1;Parent=gene-atp9;Dbxref=NCBI_GP:CCW77438.1;Name=CCW77438.1;gbkey=CDS;gene=atp9;product=putative ATP synthase%2C subunit 9;protein_id=CCW77438.1;transl_table=3
+HE983611.1	EMBL	gene	17211	17282	.	+	.	ID=gene-tRNA-Leu;Name=tRNA-Leu;gbkey=Gene;gene=tRNA-Leu;gene_biotype=tRNA
+HE983611.1	EMBL	tRNA	17211	17282	.	+	.	ID=rna-tRNA-Leu;Parent=gene-tRNA-Leu;gbkey=tRNA;gene=tRNA-Leu;product=tRNA-Leu
+HE983611.1	EMBL	exon	17211	17282	.	+	.	ID=exon-tRNA-Leu-1;Parent=rna-tRNA-Leu;gbkey=tRNA;gene=tRNA-Leu;product=tRNA-Leu
+HE983611.1	EMBL	gene	17453	17524	.	+	.	ID=gene-tRNA-Phe;Name=tRNA-Phe;gbkey=Gene;gene=tRNA-Phe;gene_biotype=tRNA
+HE983611.1	EMBL	tRNA	17453	17524	.	+	.	ID=rna-tRNA-Phe;Parent=gene-tRNA-Phe;gbkey=tRNA;gene=tRNA-Phe;product=tRNA-Phe
+HE983611.1	EMBL	exon	17453	17524	.	+	.	ID=exon-tRNA-Phe-1;Parent=rna-tRNA-Phe;gbkey=tRNA;gene=tRNA-Phe;product=tRNA-Phe
+HE983611.1	EMBL	gene	17580	18335	.	+	.	ID=gene-cox2;Name=cox2;gbkey=Gene;gene=cox2;gene_biotype=protein_coding
+HE983611.1	EMBL	CDS	17580	18335	.	+	0	ID=cds-CCW77439.1;Parent=gene-cox2;Dbxref=NCBI_GP:CCW77439.1;Name=CCW77439.1;gbkey=CDS;gene=cox2;product=putative cytochrome c oxydase%2C subunit 2;protein_id=CCW77439.1;transl_table=3
+HE983611.1	EMBL	gene	18552	18624	.	+	.	ID=gene-tRNA-Cys;Name=tRNA-Cys;gbkey=Gene;gene=tRNA-Cys;gene_biotype=tRNA
+HE983611.1	EMBL	tRNA	18552	18624	.	+	.	ID=rna-tRNA-Cys;Parent=gene-tRNA-Cys;gbkey=tRNA;gene=tRNA-Cys;product=tRNA-Cys
+HE983611.1	EMBL	exon	18552	18624	.	+	.	ID=exon-tRNA-Cys-1;Parent=rna-tRNA-Cys;gbkey=tRNA;gene=tRNA-Cys;product=tRNA-Cys
+HE983611.1	EMBL	gene	18701	18773	.	+	.	ID=gene-tRNA-Val;Name=tRNA-Val;gbkey=Gene;gene=tRNA-Val;gene_biotype=tRNA
+HE983611.1	EMBL	tRNA	18701	18773	.	+	.	ID=rna-tRNA-Val;Parent=gene-tRNA-Val;gbkey=tRNA;gene=tRNA-Val;product=tRNA-Val
+HE983611.1	EMBL	exon	18701	18773	.	+	.	ID=exon-tRNA-Val-1;Parent=rna-tRNA-Val;gbkey=tRNA;gene=tRNA-Val;product=tRNA-Val
+HE983611.1	EMBL	gene	19040	19849	.	+	.	ID=gene-cox3;Name=cox3;gbkey=Gene;gene=cox3;gene_biotype=protein_coding
+HE983611.1	EMBL	CDS	19040	19849	.	+	0	ID=cds-CCW77440.1;Parent=gene-cox3;Dbxref=NCBI_GP:CCW77440.1;Name=CCW77440.1;gbkey=CDS;gene=cox3;product=putative cytochrome c oxydase%2C subunit 3;protein_id=CCW77440.1;transl_table=3
+HE983611.1	EMBL	gene	19990	20071	.	+	.	ID=gene-tRNA-Leu-2;Name=tRNA-Leu;gbkey=Gene;gene=tRNA-Leu;gene_biotype=tRNA
+HE983611.1	EMBL	tRNA	19990	20071	.	+	.	ID=rna-tRNA-Leu-2;Parent=gene-tRNA-Leu-2;gbkey=tRNA;gene=tRNA-Leu;product=tRNA-Leu
+HE983611.1	EMBL	exon	19990	20071	.	+	.	ID=exon-tRNA-Leu-2-1;Parent=rna-tRNA-Leu-2;gbkey=tRNA;gene=tRNA-Leu;product=tRNA-Leu
+HE983611.1	EMBL	gene	20288	20360	.	+	.	ID=gene-tRNA-Gln;Name=tRNA-Gln;gbkey=Gene;gene=tRNA-Gln;gene_biotype=tRNA
+HE983611.1	EMBL	tRNA	20288	20360	.	+	.	ID=rna-tRNA-Gln;Parent=gene-tRNA-Gln;gbkey=tRNA;gene=tRNA-Gln;product=tRNA-Gln
+HE983611.1	EMBL	exon	20288	20360	.	+	.	ID=exon-tRNA-Gln-1;Parent=rna-tRNA-Gln;gbkey=tRNA;gene=tRNA-Gln;product=tRNA-Gln
+HE983611.1	EMBL	gene	20591	20662	.	+	.	ID=gene-tRNA-Lys;Name=tRNA-Lys;gbkey=Gene;gene=tRNA-Lys;gene_biotype=tRNA
+HE983611.1	EMBL	tRNA	20591	20662	.	+	.	ID=rna-tRNA-Lys;Parent=gene-tRNA-Lys;gbkey=tRNA;gene=tRNA-Lys;product=tRNA-Lys
+HE983611.1	EMBL	exon	20591	20662	.	+	.	ID=exon-tRNA-Lys-1;Parent=rna-tRNA-Lys;gbkey=tRNA;gene=tRNA-Lys;product=tRNA-Lys
+HE983611.1	EMBL	gene	20745	20817	.	+	.	ID=gene-tRNA-Arg;Name=tRNA-Arg;gbkey=Gene;gene=tRNA-Arg;gene_biotype=tRNA
+HE983611.1	EMBL	tRNA	20745	20817	.	+	.	ID=rna-tRNA-Arg;Parent=gene-tRNA-Arg;gbkey=tRNA;gene=tRNA-Arg;product=tRNA-Arg
+HE983611.1	EMBL	exon	20745	20817	.	+	.	ID=exon-tRNA-Arg-1;Parent=rna-tRNA-Arg;gbkey=tRNA;gene=tRNA-Arg;product=tRNA-Arg
+HE983611.1	EMBL	gene	21142	21213	.	+	.	ID=gene-tRNA-Gly;Name=tRNA-Gly;gbkey=Gene;gene=tRNA-Gly;gene_biotype=tRNA
+HE983611.1	EMBL	tRNA	21142	21213	.	+	.	ID=rna-tRNA-Gly;Parent=gene-tRNA-Gly;gbkey=tRNA;gene=tRNA-Gly;product=tRNA-Gly
+HE983611.1	EMBL	exon	21142	21213	.	+	.	ID=exon-tRNA-Gly-1;Parent=rna-tRNA-Gly;gbkey=tRNA;gene=tRNA-Gly;product=tRNA-Gly
+HE983611.1	EMBL	gene	21398	21469	.	+	.	ID=gene-tRNA-Asp;Name=tRNA-Asp;gbkey=Gene;gene=tRNA-Asp;gene_biotype=tRNA
+HE983611.1	EMBL	tRNA	21398	21469	.	+	.	ID=rna-tRNA-Asp;Parent=gene-tRNA-Asp;gbkey=tRNA;gene=tRNA-Asp;product=tRNA-Asp
+HE983611.1	EMBL	exon	21398	21469	.	+	.	ID=exon-tRNA-Asp-1;Parent=rna-tRNA-Asp;gbkey=tRNA;gene=tRNA-Asp;product=tRNA-Asp
+HE983611.1	EMBL	gene	21474	21556	.	+	.	ID=gene-tRNA-Ser;Name=tRNA-Ser;gbkey=Gene;gene=tRNA-Ser;gene_biotype=tRNA
+HE983611.1	EMBL	tRNA	21474	21556	.	+	.	ID=rna-tRNA-Ser;Parent=gene-tRNA-Ser;gbkey=tRNA;gene=tRNA-Ser;product=tRNA-Ser
+HE983611.1	EMBL	exon	21474	21556	.	+	.	ID=exon-tRNA-Ser-1;Parent=rna-tRNA-Ser;gbkey=tRNA;gene=tRNA-Ser;product=tRNA-Ser
+HE983611.1	EMBL	gene	21574	21645	.	+	.	ID=gene-tRNA-Arg-2;Name=tRNA-Arg;gbkey=Gene;gene=tRNA-Arg;gene_biotype=tRNA
+HE983611.1	EMBL	tRNA	21574	21645	.	+	.	ID=rna-tRNA-Arg-2;Parent=gene-tRNA-Arg-2;gbkey=tRNA;gene=tRNA-Arg;product=tRNA-Arg
+HE983611.1	EMBL	exon	21574	21645	.	+	.	ID=exon-tRNA-Arg-2-1;Parent=rna-tRNA-Arg-2;gbkey=tRNA;gene=tRNA-Arg;product=tRNA-Arg
+HE983611.1	EMBL	gene	21679	21750	.	+	.	ID=gene-tRNA-His;Name=tRNA-His;gbkey=Gene;gene=tRNA-His;gene_biotype=tRNA
+HE983611.1	EMBL	tRNA	21679	21750	.	+	.	ID=rna-tRNA-His;Parent=gene-tRNA-His;gbkey=tRNA;gene=tRNA-His;product=tRNA-His
+HE983611.1	EMBL	exon	21679	21750	.	+	.	ID=exon-tRNA-His-1;Parent=rna-tRNA-His;gbkey=tRNA;gene=tRNA-His;product=tRNA-His
+HE983611.1	EMBL	gene	22073	22145	.	+	.	ID=gene-tRNA-Met-2;Name=tRNA-Met;gbkey=Gene;gene=tRNA-Met;gene_biotype=tRNA
+HE983611.1	EMBL	tRNA	22073	22145	.	+	.	ID=rna-tRNA-Met-2;Parent=gene-tRNA-Met-2;gbkey=tRNA;gene=tRNA-Met;product=tRNA-Met
+HE983611.1	EMBL	exon	22073	22145	.	+	.	ID=exon-tRNA-Met-2-1;Parent=rna-tRNA-Met-2;gbkey=tRNA;gene=tRNA-Met;product=tRNA-Met
+HE983611.1	EMBL	gene	22393	23481	.	+	.	ID=gene-var1;Name=var1;gbkey=Gene;gene=var1;gene_biotype=protein_coding
+HE983611.1	EMBL	CDS	22393	23481	.	+	0	ID=cds-CCW77441.1;Parent=gene-var1;Dbxref=NCBI_GP:CCW77441.1;Name=CCW77441.1;gbkey=CDS;gene=var1;product=putative mitochondrial ribosomal protein VAR1;protein_id=CCW77441.1;transl_table=3
+HE983611.1	EMBL	gene	23701	23785	.	+	.	ID=gene-tRNA-Tyr;Name=tRNA-Tyr;gbkey=Gene;gene=tRNA-Tyr;gene_biotype=tRNA
+HE983611.1	EMBL	tRNA	23701	23785	.	+	.	ID=rna-tRNA-Tyr;Parent=gene-tRNA-Tyr;gbkey=tRNA;gene=tRNA-Tyr;product=tRNA-Tyr
+HE983611.1	EMBL	exon	23701	23785	.	+	.	ID=exon-tRNA-Tyr-1;Parent=rna-tRNA-Tyr;gbkey=tRNA;gene=tRNA-Tyr;product=tRNA-Tyr
+HE983611.1	EMBL	gene	23840	23911	.	+	.	ID=gene-tRNA-Asn;Name=tRNA-Asn;gbkey=Gene;gene=tRNA-Asn;gene_biotype=tRNA
+HE983611.1	EMBL	tRNA	23840	23911	.	+	.	ID=rna-tRNA-Asn;Parent=gene-tRNA-Asn;gbkey=tRNA;gene=tRNA-Asn;product=tRNA-Asn
+HE983611.1	EMBL	exon	23840	23911	.	+	.	ID=exon-tRNA-Asn-1;Parent=rna-tRNA-Asn;gbkey=tRNA;gene=tRNA-Asn;product=tRNA-Asn
+HE983611.1	EMBL	gene	24100	24171	.	+	.	ID=gene-tRNA-Ala;Name=tRNA-Ala;gbkey=Gene;gene=tRNA-Ala;gene_biotype=tRNA
+HE983611.1	EMBL	tRNA	24100	24171	.	+	.	ID=rna-tRNA-Ala;Parent=gene-tRNA-Ala;gbkey=tRNA;gene=tRNA-Ala;product=tRNA-Ala
+HE983611.1	EMBL	exon	24100	24171	.	+	.	ID=exon-tRNA-Ala-1;Parent=rna-tRNA-Ala;gbkey=tRNA;gene=tRNA-Ala;product=tRNA-Ala
+HE983611.1	EMBL	gene	24375	24447	.	+	.	ID=gene-tRNA-Ile;Name=tRNA-Ile;gbkey=Gene;gene=tRNA-Ile;gene_biotype=tRNA
+HE983611.1	EMBL	tRNA	24375	24447	.	+	.	ID=rna-tRNA-Ile;Parent=gene-tRNA-Ile;gbkey=tRNA;gene=tRNA-Ile;product=tRNA-Ile
+HE983611.1	EMBL	exon	24375	24447	.	+	.	ID=exon-tRNA-Ile-1;Parent=rna-tRNA-Ile;gbkey=tRNA;gene=tRNA-Ile;product=tRNA-Ile
+HE983611.1	EMBL	gene	24586	24671	.	+	.	ID=gene-tRNA-Ser-2;Name=tRNA-Ser;gbkey=Gene;gene=tRNA-Ser;gene_biotype=tRNA
+HE983611.1	EMBL	tRNA	24586	24671	.	+	.	ID=rna-tRNA-Ser-2;Parent=gene-tRNA-Ser-2;gbkey=tRNA;gene=tRNA-Ser;product=tRNA-Ser
+HE983611.1	EMBL	exon	24586	24671	.	+	.	ID=exon-tRNA-Ser-2-1;Parent=rna-tRNA-Ser-2;gbkey=tRNA;gene=tRNA-Ser;product=tRNA-Ser
+HE983611.1	EMBL	gene	24747	26303	.	+	.	ID=gene-ssu;Name=ssu;gbkey=Gene;gene=ssu;gene_biotype=rRNA
+HE983611.1	EMBL	rRNA	24747	26303	.	+	.	ID=rna-ssu;Parent=gene-ssu;gbkey=rRNA;gene=ssu;product=15S ribosomal RNA
+HE983611.1	EMBL	exon	24747	26303	.	+	.	ID=exon-ssu-1;Parent=rna-ssu;gbkey=rRNA;gene=ssu;product=15S ribosomal RNA
+

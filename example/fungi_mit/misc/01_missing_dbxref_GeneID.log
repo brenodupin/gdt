@@ -1,0 +1,24 @@
+2025-06-27 19:20:35,124 - DEBUG - Simple log setup complete.
+2025-06-27 19:20:35,125 - DEBUG - Console logging level DEBUG
+2025-06-27 19:20:35,125 - DEBUG - File logging level TRACE at /home/brenodupin/matheus/gdt/example/fungi_mit/misc/01_missing_dbxref_GeneID.log
+2025-06-27 19:20:35,125 - DEBUG - Running from notebook AN_missing_dbxref_GeneID.ipynb
+2025-06-27 19:20:38,300 - INFO - Found 3 ANs in /home/brenodupin/matheus/gdt/example/fungi_mit/misc/AN_missing_dbxref_GeneID.txt
+2025-06-27 19:20:38,301 - TRACE - ANs: ['KX657746.1', 'HE983611.1', 'JQ346808.1']
+2025-06-27 19:21:05,123 - INFO - GeneDict loaded from Fungi_mit_pilot_03.gdict
+2025-06-27 19:21:05,123 - DEBUG - path: /home/brenodupin/matheus/gdt/example/fungi_mit/misc/gdt/Fungi_mit_pilot_03.gdict
+2025-06-27 19:21:05,124 - INFO - Header:
+2025-06-27 19:21:05,126 - INFO - 	version 0.0.2
+2025-06-27 19:21:05,126 - INFO - 	Fungi_mit
+2025-06-27 19:21:05,127 - INFO - 	2025-04-09 17:54 - Conversion from gdt to gdt2
+2025-06-27 19:21:05,128 - INFO - 	2025-06-27 17:56 - Stripped GDICT version from original GDICT file
+2025-06-27 19:21:05,128 - INFO - 	2025-06-27 17:56 - Labels removed
+2025-06-27 19:21:05,129 - INFO - 	2025-06-27 17:56 - Labels renamed
+2025-06-27 19:21:05,129 - INFO - 	2025-06-27 18:41 - Data added from 'AN_missing_gene_dict parsing gene= + NCBI Description'
+2025-06-27 19:21:05,130 - INFO - 	2025-06-27 18:56 - Data added from 'AN_missing_gene_dict parsing NCBI Gene Symbol'
+2025-06-27 19:21:05,131 - INFO - GDT Info:
+2025-06-27 19:21:05,131 - INFO - 	Labels: 57
+2025-06-27 19:21:05,132 - INFO - 	Total Entries   : 1332
+2025-06-27 19:21:05,133 - INFO - 	GeneDescriptions: 536
+2025-06-27 19:21:05,133 - INFO - 	GeneGenerics    : 520
+2025-06-27 19:21:05,134 - INFO - 	DbxrefGeneIDs   : 276
+2025-06-27 19:21:16,016 - DEBUG - Features info df, writing to /home/brenodupin/matheus/gdt/example/fungi_mit/misc/features_info.tsv

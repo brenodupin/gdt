@@ -219,6 +219,7 @@ def filter_whole_tsv(
     an_column: str = "AN",
     gff_suffix: str = ".gff3",
     query_string: str = QS_GENE_TRNA_RRNA,
+    check_flag: bool = False,
 ) -> None:
     """Filter a whole TSV containing GFF3 files and check them against a GeneDict.
 
@@ -235,6 +236,8 @@ def filter_whole_tsv(
         gff_suffix (str): Suffix for GFF3 files. Default is ".gff3".
         query_string (str): Query string to filter GFF3 files.
                             Default is QS_GENE_TRNA_RRNA.
+        check_flag (bool): If True, do not save changes any files.
+                           Default is False.
 
 
     """
@@ -339,26 +342,29 @@ def filter_whole_tsv(
     path_gene_dict = MISC_DIR / "AN_missing_gene_dict.txt"
     path_dbxref = MISC_DIR / "AN_missing_dbxref_GeneID.txt"
 
-    if an_missing_dbxref_geneid:
+    if an_missing_dbxref_geneid and not check_flag:
         with open(path_dbxref, "w") as f:
             f.write("\n".join(an_missing_dbxref_geneid))
 
-    else:
+    elif not check_flag:
         log.debug("No ANs missing dbxref GeneID, skipping file creation")
         # check if file exists and remove it
         if path_dbxref.exists():
             log.debug(f"Removing file: {path_dbxref}")
             path_dbxref.unlink()
 
-    if an_missing_gene_dict:
+    if an_missing_gene_dict and not check_flag:
         with open(path_gene_dict, "w") as f:
             f.write("\n".join(an_missing_gene_dict))
 
-    else:
+    elif not check_flag:
         log.debug("No ANs missing gene_dict, skipping file creation")
         if path_gene_dict.exists():
             log.debug(f"Removing file: {path_gene_dict}")
             path_gene_dict.unlink()
+
+    if check_flag:
+        log.info("Check flag is set, not saving any changes to any files.")
 
 
 def standardize_tsv(

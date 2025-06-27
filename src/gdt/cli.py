@@ -58,6 +58,7 @@ def filter_command(
         args.AN_column,
         args.gff_suffix,
         args.query_string,
+        args.check,
     )
 
 
@@ -265,6 +266,14 @@ def cli_run() -> None:
         type=str,
         help="Query string that pandas filter features in GFF. "
         f"Default: '{gff3_utils.QS_GENE_TRNA_RRNA}'",
+    )
+    filter_parser.add_argument(
+        "--check",
+        required=False,
+        default=False,
+        action="store_true",
+        help="Just check for filtering issues, "
+        "do not write or delete any files. Default: False",
     )
 
     stripped_parser = subparsers.add_parser(

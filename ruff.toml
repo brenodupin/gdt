@@ -53,7 +53,7 @@ ignore = [
 ]
 
 # Maximum complexity for functions - bioinformatics can have complex algorithms
-mccabe.max-complexity = 15
+mccabe.max-complexity = 16
 
 # Per-file ignores for specific patterns common in bioinformatics
 [lint.per-file-ignores]

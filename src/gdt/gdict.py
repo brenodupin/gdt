@@ -457,7 +457,7 @@ def read_gdict(
         if not line or not current_section:
             continue
 
-        # Parse gene line
+        # Parse entry line
         tag = line.split("#", 1)[0].strip()
         if not tag:
             print(f"Skipping empty tag in line: {line}")

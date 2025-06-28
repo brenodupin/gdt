@@ -93,7 +93,7 @@ def stripped_command(
     log.info("Info before stripping:")
     log_setup.log_info(log, gene_dict)
 
-    stripped = gene_dict.create_stripped()
+    stripped = gene_dict.create_stripped(keep_gn=args.keep_gn)
     stripped.update_info()
 
     log.info("\nNew Header:")
@@ -296,6 +296,14 @@ def cli_run() -> None:
         required=True,
         type=str,
         help="New GDICT file to create.",
+    )
+    stripped_parser.add_argument(
+        "--keep-gn",
+        required=False,
+        default=False,
+        action="store_true",
+        help="Keep GeneGeneric entries (#gn) in the stripped GDICT file. "
+        "Default: False (keep only GeneDescription in the stripped).",
     )
     stripped_parser.add_argument(
         "--overwrite",

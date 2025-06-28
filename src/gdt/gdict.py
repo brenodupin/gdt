@@ -13,7 +13,7 @@ from collections import UserDict, defaultdict
 from dataclasses import dataclass, field, replace
 from datetime import datetime
 from pathlib import Path
-from typing import Callable, Iterable, Mapping, Optional, TypeVar, Union, cast
+from typing import Callable, Iterable, Mapping, Optional, TypeVar, Union
 
 __gdict_version__ = "0.0.2"
 
@@ -112,6 +112,7 @@ class GeneDict(UserDict[str, GeneUnion]):
 
         """
         super().__init__(initial or {})
+
         self.version: str = version
         self.header: list[str] = header or []
         self.info: GeneDictInfo = info or GeneDictInfo()
@@ -122,21 +123,27 @@ class GeneDict(UserDict[str, GeneUnion]):
     @classmethod
     def _from_data(
         cls,
-        data: Mapping[str, GeneUnion],
+        inital: dict[str, GeneUnion],
         *,
         version: str = __gdict_version__,
         header: Optional[list[str]] = None,
+        info: Optional[GeneDictInfo] = None,
         lazy_info: bool = True,
     ) -> "GeneDict":
-        """Fast constructor for internal use with pre-validated data."""
-        instance = cls.__new__(cls)  # Skip __init__ entirely
-        # Since this is for internal use, we assume data is already validated
-        instance.data = cast(
-            dict[str, GeneDescription | GeneGeneric | DbxrefGeneID], data
-        )
+        """Fast constructor for internal use with pre-validated data.
+
+        This method is intended for internal use when the data has already been
+        validated (mostly by coming from another GeneDict) and is ready to be used
+        to create a GeneDict instance. It skips the `__init__` method, which would've
+        call `self.update()` (`self.data.update(data)`) on all key/value pairs from
+        `initial`.
+        """
+        instance = cls.__new__(cls)
+        instance.data = inital
+
         instance.version = version
         instance.header = header or []
-        instance.info = GeneDictInfo()
+        instance.info = info or GeneDictInfo()
 
         if not lazy_info:
             instance.update_info()

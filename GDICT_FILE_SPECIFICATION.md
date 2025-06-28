@@ -6,7 +6,7 @@ Version: 0.0.2
 
 ## Introduction
 
-GDICT (`.gdict`) is a plain-text file that stores a `gdt.GeneDict` with a human-readable, easily editable, and machine-parsable structure. `.gdict` files are read by `gdt.read_gdt()` and written to by `gdt.GeneDict.to_gdt()`. A GDICT file contains gene nomenclature data (i.e., gene identifiers) and associated metadata (gene names, database cross-references and comments added by the user).
+GDICT (`.gdict`) is a plain-text file that stores a `gdt.GeneDict` with a human-readable, easily editable, and machine-parsable structure. `.gdict` files are read by `gdt.read_gdict()` and written to by `gdt.GeneDict.to_gdict()`. A GDICT file contains gene nomenclature data (i.e., gene identifiers) and associated metadata (gene names, database cross-references and comments added by the user).
 
 ## File Structure
 
@@ -38,9 +38,9 @@ The header section is **mandatory** and consists of lines beginning with `#!`. T
 
 ```
 #! version 0.0.2
-#! Fungi_mt
+#! Fungi_mit
 #! 2025-04-09 17:54 - Conversion from v1 gdt to gdt version 0.0.2
-#! 2025-06-05 18:11 - Stripped GDT version from original GDT file Fungi_mt.gdt
+#! 2025-06-05 18:11 - Stripped GDICT version from original GDICT file Fungi_mit.gdict
 #! 2025-06-11 20:37 - Data added from TEMP 01
 #! 2025-06-11 20:50 - Data added from TEMP Symbol 01
 #! 2025-06-14 16:00 - Data added from 'Automated insertion of gene_ids with known features from features_info.tsv'
@@ -86,7 +86,7 @@ ATP synthase subunit 6 #gd NCBI #c automated insertion
 ...
 ```
 
-The parser `gdt.read_gdt()` will convert this into a `GeneDict` object with the same structure as the following Python code:
+The parser `gdt.read_gdict()` will convert this into a `GeneDict` object with the same structure as the following Python code:
 
 ```python
 import gdt
@@ -119,7 +119,7 @@ gene-atp6 #gn HE983611.1 KX657746.1 #c multiple sources available
 gene-AtP6 #gn #c no sources available
 ...
 ```
-The parser `gdt.read_gdt()` will convert this into a `GeneDict` object with the same structure as the following Python code:
+The parser `gdt.read_gdict()` will convert this into a `GeneDict` object with the same structure as the following Python code:
 
 ```python
 import gdt
@@ -149,7 +149,7 @@ Database cross-reference entries link to external database entries with specific
 
 **Example:**
 ```
-[MIT-RNR2]
+[MIT-RNRL]
 ...
 gene-ICI09_mgr02 #dx NC_050344.1:58907350 #c ncbi_desc: large subunit ribosomal RNA
 gene-N4M62_mgr01 #dx NC_066216.1:74863499 #c gff_gene: rnl
@@ -157,15 +157,15 @@ rna-FDY65_mgr02 #dx NC_042229.1:40135507 #c ncbi_desc: large subunit ribosomal R
 ...
 ```
 
-The parser `gdt.read_gdt()` will convert this into a `GeneDict` object with the same structure as the following Python code:
+The parser `gdt.read_gdict()` will convert this into a `GeneDict` object with the same structure as the following Python code:
 
 ```python
 import gdt
   
 gene_dict = gdt.GeneDict()
-gene_dict['gene-ICI09_mgr02'] = gdt.DbxrefGeneID(label='MIT-RNR2', an_source='NC_050344.1', GeneID=58907350, c='ncbi_desc: large subunit ribosomal RNA')
-gene_dict['gene-N4M62_mgr01'] = gdt.DbxrefGeneID(label='MIT-RNR2', an_source='NC_066216.1', GeneID=74863499, c='gff_gene: rnl')
-gene_dict['rna-FDY65_mgr02'] = gdt.DbxrefGeneID(label='MIT-RNR2', an_source='NC_042229.1', GeneID=40135507, c='ncbi_desc: large subunit ribosomal RNA')
+gene_dict['gene-ICI09_mgr02'] = gdt.DbxrefGeneID(label='MIT-RNRL', an_source='NC_050344.1', GeneID=58907350, c='ncbi_desc: large subunit ribosomal RNA')
+gene_dict['gene-N4M62_mgr01'] = gdt.DbxrefGeneID(label='MIT-RNRL', an_source='NC_066216.1', GeneID=74863499, c='gff_gene: rnl')
+gene_dict['rna-FDY65_mgr02'] = gdt.DbxrefGeneID(label='MIT-RNRL', an_source='NC_042229.1', GeneID=40135507, c='ncbi_desc: large subunit ribosomal RNA')
 ```
 
 ## Formatting Rules
@@ -186,13 +186,13 @@ gene_dict['rna-FDY65_mgr02'] = gdt.DbxrefGeneID(label='MIT-RNR2', an_source='NC_
 Everything in the GDICT file **is** case-sensitive, including labels, gene identifiers, and sources.
 
 ### Ordering Conventions
-Whereas not mandatory, the following ordering of data entries in a given label is recommended (and implemented in `gdt.GeneDict().to_gdt()`) for clarity:
+Whereas not mandatory, the following ordering of data entries in a given label is recommended (and implemented in `gdt.GeneDict().to_gdict()`) for clarity:
 1. 'Gene description' (`#gd`) entries first.
 2. 'Gene generic' (`#gn`) entries second.
 3. 'Database cross-reference' (`#dx`) entries last.
 4. Within each type, entries should be naturally ordered by their identifiers (gdt provides a `natual_sort()` method to help with this).
 
-## Parsing logic of `gdt.read_gdt()`
+## Parsing logic of `gdt.read_gdict()`
 
 ### Header Processing
 1. The first line must be `#! version 0.0.2`.

@@ -1,5 +1,5 @@
 <div align="center">
-  <img src="img/gdt_no_background.png" width="50%">
+  <img src="img/GDT_logo.png" width="50%">
 
 $${\color{#E0AF68}{\LARGE\textsf{🧬 Standardizing gene names across organelle genomes 🧬}}}$$  
 <br>
@@ -31,8 +31,7 @@ $${\color{#E0AF68}{\LARGE\textsf{🧬 Standardizing gene names across organelle 
 
 # Overview
 
-GDT (Gene Dictonary Tool) is a protocol for the creation and implementation of a gene dictionary across any type of annotated genomes. This Python library offers a suite of functionalities that enables the manipulation and integration of .gdt files into other pipelines seamlessly.
-
+GDT (Gene Dictonary Tool) is a protocol for the creation and implementation of a gene dictionary across any type of annotated genomes. This Python package offers a suite of functionalities that enables the manipulation and integration of .gdict files into other pipelines seamlessly.
 
 # Getting Started
 
@@ -55,7 +54,7 @@ You can install the library with pip:
 pip install gdt
 ```
 ### Notebooks
-To run the Jupyter notebooks, you need to install the library and its dependencies:
+To run the Jupyter notebooks, you need to install gdt and biopython.:
 ```shell
 pip install gdt biopython
 ```
@@ -63,7 +62,7 @@ pip install gdt biopython
 ## GDICT Format
 ### tl;dr
 
-GDICT (`.gdict`) is a plain-text file that stores a `GeneDict` with a human-readable, easily editable, and machine-parsable structure. `.gdict` files are read by `gdt.read_gdt()` and written to by `gdt.GeneDict.to_gdt()`. A GDICT file contains gene nomenclature data (i.e., gene identifiers) and associated metadata (gene names, database cross-references and comments added by the user).
+GDICT (`.gdict`) is a plain-text file that stores a `GeneDict` with a human-readable, easily editable, and machine-parsable structure. `.gdict` files are read by `gdt.read_gdict()` and written to by `gdt.GeneDict.to_gdict()`. A GDICT file contains gene nomenclature data (i.e., gene identifiers) and associated metadata (gene names, database cross-references and comments added by the user).
 
 #### Quick Overview
 - **File extension**: `.gdict`
@@ -115,13 +114,13 @@ The flags below work on all commands:
 | `--version`      | Show the version of the gdt package. |
 
 ### `gdt-cli filter`
-The filter command is used to filter GFF3 files that are indexed via a TSV file, it may create `AN_missing_dbxref.txt` and/or `AN_missing_gene_dict.txt` based on the provided .gdt file.
+The filter command is used to filter GFF3 files that are indexed via a TSV file, it may create `AN_missing_dbxref.txt` and/or `AN_missing_gene_dict.txt` based on the provided .gdict file.
 
 |       flag      |   description   |
 |-----------------|-----------------|
 | `--tsv TSV`       | TSV file with indexed GFF3 files to filter. |
 | `--AN-column AN_COLUMN` | Column name for NCBI Accession Number inside the TSV. Default: AN |
-| `--gdt GDT`       | GDT file to use for filtering. If not provided, an empty GeneDict (i.e., GDT file) will be used. |
+| `--gdict GDICT`       | GDICT file to use for filtering. If not provided, an empty GeneDict (i.e., GDICT file) will be used. |
 | `--keep-orfs`     | Keep ORFs. Default: exclude ORFs. |
 | `--workers WORKERS` | Number of workers to use. Default: 0 (use all available cores) |
 | `--gff-suffix GFF_SUFFIX` | Suffix for GFF files. Default: '.gff3' |
@@ -129,21 +128,21 @@ The filter command is used to filter GFF3 files that are indexed via a TSV file,
 
 Usage example: 
 ```shell
-gdt-cli filter --tsv fungi_mt_model2.tsv --gdt fungi_mt_model2_stripped.gdt --debug
+gdt-cli filter --tsv fungi_mt_model2.tsv --gdict fungi_mt_model2_stripped.gdict --debug
 ```
 
 ### `gdt-cli stripped`
-The stripped command filters out GeneGeneric (#gn) and Dbxref (#dx) entries from a GDT file, keeping only GeneDescription (#gd) entries and their metadata.
+The stripped command filters out GeneGeneric (#gn) and Dbxref (#dx) entries from a GDICT file, keeping only GeneDescription (#gd) entries and their metadata.
 
 |       flag      |   description   |
 |-----------------|-----------------|
-| `--gdt_in GDT_IN`, `-gin GDT_IN` | Input GDT file to be stripped. |
-| `--gdt_out GDT_OUT`, `-gout GDT_OUT` | New GDT file to create. |
+| `--gdict_in GDT_IN`, `-gin GDICT_IN` | Input GDICT file to be stripped. |
+| `--gdict_out GDT_OUT`, `-gout GDICT_OUT` | New GDICT file to create. |
 | `--overwrite`     | Overwrite output file, if it already exists. Default: False |
 
 Usage example: 
 ```shell
-gdt-cli stripped --gdt_in ../GeneDictionaries/Result/Fungi_mt.gdt --gdt_out fungi_mt_model2_stripped.gdt --overwrite
+gdt-cli stripped --gdict_in ../GeneDictionaries/Result/Fungi_mt.gdict --gdict_out fungi_mt_model2_stripped.gdict --overwrite
 ```
 
 ### `gdt-cli standardize`
@@ -158,7 +157,7 @@ The command has two modes, either single GFF3 file with `--gff` or a TSV file wi
 | `--AN-column AN_COLUMN` | Column name for NCBI Accession Number inside the TSV. Default: AN |
 | `--gff-suffix GFF_SUFFIX` | Suffix for GFF files. Default: '.gff3' |
 |<img width=200/> |<img width=500/>|
-| `--gdt GDT`       | GDT file to use for standardization. |
+| `--gdict GDICT`       | GDICT file to use for standardization. |
 | `--query-string QUERY_STRING` | Query string that pandas filter features in GFF. Default: 'type in ('gene', 'tRNA', 'rRNA')' |
 | `--check`         | Just check for standardization issues, do not modify the GFF3 file. Default: False |
 | `--second-place`  | Add gdt_tag pair to the second place in the GFF3 file, after the ID. Default: False (add to the end of the attributes field). |
@@ -168,10 +167,10 @@ The command has two modes, either single GFF3 file with `--gff` or a TSV file wi
 
 Usage example:
 ```shell
-gdt-cli standardize --gff sandbox/fungi_mt/HE983611.1.gff3 --gdt sandbox/fungi_mt/misc/gdt/fungi_mt_pilot_07.gdt --save-copy
+gdt-cli standardize --gff sandbox/fungi_mt/HE983611.1.gff3 --gdict sandbox/fungi_mt/misc/gdt/fungi_mt_pilot_07.gdict --save-copy
 ```
 ```shell
-gdt-cli standardize --tsv sandbox/fungi_mt/fungi_mt.tsv --gdt sandbox/fungi_mt/misc/gdt/fungi_mt_pilot_07.gdt --second-place --debug --log test1.log
+gdt-cli standardize --tsv sandbox/fungi_mt/fungi_mt.tsv --gdict sandbox/fungi_mt/misc/gdt/fungi_mt_pilot_07.gdict --second-place --debug --log test1.log
 ```
 
 ## Library usage
@@ -189,15 +188,15 @@ They are:
    - `gene_generics`: The number of gene generic entries (#gn) in the GDT file.
    - `dbxref_GeneIDs`: The number of dbxref entries (#dx) that contain GeneID in the GDT file.
 
-To read a GDT file, you can use the `read_gdt()` function, which returns a `GeneDict` object. You can then manipulate it as needed and save it back to a GDT file using the `to_gdt()` method.
+To read a GDT file, you can use the `read_gdict()` function, which returns a `GeneDict` object. You can then manipulate it as needed and save it back to a GDT file using the `to_gdict()` method.
 
 ```python
-from gdt import read_gdt
+import gdt
 
 # Read a GDT file
-gene_dict = read_gdt("path/to/your.gdt")
+gene_dict = gdt.read_gdict("path/to/your.gdict")
 # Check the type of the object
-print(type(gene_dict))  # <class 'gdt.gdt_impl.GeneDict'>
+print(type(gene_dict))  # <class 'gdt.gdict.GeneDict'>
 # Access metadata
 print(gene_dict.version)  # "0.0.2"
 gene_dict.update_info()  # Update the info attribute with metadata
@@ -209,7 +208,7 @@ print(gene_dict.info.total_entries)  # Total number of entries
 print(gene_dict["gene-ATP8"])  # Access the entry for 'gene-ATP8'
 
 # Save the GeneDict back to a GDT file
-gene_dict.to_gdt("path/to/your_output.gdt", overwrite=True)
+gene_dict.to_gdict("path/to/your_output.gdict", overwrite=True)
 ```
 All GDT functions and classes are documented with docstrings, so you can use the `help()` function to get more information about them. A full documentation of the library is being built with Sphinx and can be found in the `docs` folder later on.
 
@@ -228,9 +227,7 @@ We follow a project structure inspired by [cookiecutter-bioinformatics-project](
 ├── img                 <- A place to store images associated with the project/pipeline, e.g. a 
 │                         a figure of the pipeline DAG. 
 │
-├── notebooks           <- Jupyter or Rmd notebooks. Naming convention is a number (for ordering),
-│                         the creator's initials, and a short `-` delimited description, e.g.
-│                         `1.0-jqp-initial-data-exploration`.
+├── notebooks           <- Jupyter or Rmd notebooks.
 │
 ├── resources           <- Place for data.
 │   ├── stripped        <- Stripped down GDICT files, from our protocol, containing only the #gd entries.

@@ -1,7 +1,7 @@
 # GDICT File Format Specification
 
 Authors: Breno Dupin and Matheus Sanita Lima  
-Date: 24 June 2025  
+Date: 28 June 2025  
 Version: 0.0.2
 
 ## Introduction
@@ -238,12 +238,12 @@ The official HGNC ([HUGO Gene Nomenclature Committee](https://www.genenames.org/
 - All labels follow the format `<prefix>-<symbol>`, where `<prefix>` is a three-letter code representing the genetic compartment, and `<symbol>` is the gene name or identifier.
 
 - We have changed the HGNC `MT` prefix to `MIT`, so the labels could account for more cytoplasmic compartments as in:
- - `MIT` for mitochondria;
- - `KNP` for kinetoplast;
- - `PLT` for plastid;
- - `NUC` for nucleus;
- - `API` for apicoplast;
- - `NMP` for nucleomorph.
+  - `MIT` for mitochondria;
+  - `KNP` for kinetoplast;
+  - `PLT` for plastid;
+  - `NUC` for nucleus;
+  - `API` for apicoplast;
+  - `NMP` for nucleomorph.
 
 - We kept the HGNC-approved symbols (but with the changed prefix) for the human mitochondrial protein-coding and tRNA genes.
 
@@ -251,7 +251,7 @@ The official HGNC ([HUGO Gene Nomenclature Committee](https://www.genenames.org/
 
 - For all other genes, we kept the gene labels as close as possible to the gene name (or any piece of identifying information) found in the respective genome annotation. That means that, for most times, we did not lump overlapping naming conventions (e.g., ATPA with ATP1).
 
-- **When** the rRNA gene annotation had information on the rRNA sedimentation coefficient other than 12S and 16s (e.g., 18S, 21S, etc), we labeled it as `<prefix>-RNR##`, wherein ## refers to the respective sedimentation coefficient found in the annotation (e.g., `MT-RNR18` for the 18S rRNA gene).
+- **When** the rRNA gene annotation had information on the rRNA sedimentation coefficient other than 12S and 16S (e.g., 18S, 21S, etc), we labeled it as `<prefix>-RNR##`, wherein ## refers to the respective sedimentation coefficient found in the annotation (e.g., `MT-RNR18` for the 18S rRNA gene).
 
 - Feel free to adapt the labels to your needs, by combining, renaming, removing, or adding new labels.
   

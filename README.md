@@ -20,6 +20,11 @@ $${\color{#E0AF68}{\LARGE\textsf{🧬 Standardizing gene names across organelle 
   - [Installation](#installation)
 - [GDICT Format](#gdict-format)
   - [tl;dr](#tldr)
+    - [Quick Overview](#quick-overview)
+    - [Basic Format](#basic-format)
+    - [Entry Types](#entry-types)
+    - [Label Convention](#label-convention)
+    - [Complete Specification](#complete-specification)
   - [Creation Process](#creation-process)
 - [CLI commands](#cli-commands)
   - [`filter`](#filter)
@@ -88,12 +93,12 @@ gene-identifier #dx SOURCE:GeneID
 
 #### Label Convention
 
-We propose a label naming convention that is based on the human mitochondrial gene nomenclature, but adapted to accommodate other organelles and genetic compartments. The labels are structured as `<prefix>-<symbol>`, where `<prefix>` is a three-letter code representing the genetic compartment, and `<symbol>` is the gene name or identifier.
+We propose a label naming convention that is based on the [HGNC](https://www.genenames.org/) human mitochondrial gene nomenclature, but adapted to accommodate other organelles and genetic compartments. The labels are structured as `<prefix>-<symbol>`, where `<prefix>` is a three-letter code representing the genetic compartment, and `<symbol>` is the gene name or identifier.
 
 **The GDT library will not enforce any label naming convention** (even our own!), helping you rename and remove labels with the `gdt.GeneDict.rename_labels()` and `gdt.GeneDict.remove_labels()` methods, respectively.
 
 #### Complete Specification
-You can read more about it at the [Full specification](https://github.com/brenodupin/gdt/blob/master/GDICT_FILE_SPECIFICATION.md)
+You can read more about it at the [GDICT File Specification](https://github.com/brenodupin/gdt/blob/master/GDICT_FILE_SPECIFICATION.md)
 
 ### Creation Process
 

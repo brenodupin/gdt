@@ -1,0 +1,1235 @@
+#! version 0.0.2
+#! Green_Algae_mit
+#! 2025-04-09 18:27 - Conversion from gdt to gdt2
+#! 2025-06-28 16:04 - Stripped GDICT version from original GDICT file
+#! 2025-06-28 16:04 - Labels removed
+#! 2025-06-28 16:04 - Labels renamed
+
+[MIT-AAT]
+aat #gd MANUAL
+leucyl/phenylalanyl-tRNA--protein transferase #gd NCBI
+
+[MIT-AI1]
+intron-encoded endonuclease I #gd NCBI
+
+[MIT-AI2]
+aI2 #gd MANUAL
+intron-encoded endonuclease aI2 #gd NCBI
+
+[MIT-AI3]
+aI3 #gd MANUAL
+intron-encoded endonuclease aI3 #gd NCBI
+intron-encoded endonuclease aI3-2 #gd NCBI
+
+[MIT-ATP1]
+atp1 #gd NCBI
+Atp1 #gd NCBI
+ATP1 #gd NCBI
+ATP subunit 1 #gd NCBI
+ATP synthase F0 subunit 1 #gd NCBI
+ATP synthase F1 subunit 1 #gd NCBI
+ATP synthase F1 subunit alpha #gd NCBI
+ATP synthase subunit 1 #gd NCBI
+ATP synthase subunit alpha #gd NCBI
+ATPase subunit 1 #gd NCBI
+H(+)-transporting ATPase subunit 1 #gd NCBI
+H(+)-transporting ATPase, subunit 1 #gd NCBI
+gene-atp1 #gn #c generic ID found in GFF
+
+[MIT-ATP4]
+atp4 #gd NCBI
+Atp4 #gd NCBI
+ATP synthaase subunit 4 #gd NCBI
+ATP synthase F0 subunit 4 #gd NCBI
+ATP synthase F0 subunit b #gd NCBI
+ATP synthase F0 subunit beta #gd NCBI
+ATP synthase F1 subunit 4 #gd NCBI
+ATP synthase subunit 4 #gd NCBI
+ATP synthate subunit 4 #gd NCBI
+ATPase subunit 4 #gd NCBI
+ATPase subunit 4.1 #gd NCBI
+ATPase subunit 4.2 #gd NCBI
+gene-atp4 #gn #c generic ID found in GFF
+gene-ATP4 #gn #c generic ID found in GFF
+gene-atp4-2 #gn #c generic ID found in GFF
+gene-atp4-3 #gn #c generic ID found in GFF
+
+[MIT-ATP6]
+atp6 #gd NCBI
+Atp6 #gd NCBI
+ATP subunit 6 #gd NCBI
+ATP synthase F0 subunit 6 #gd NCBI
+ATP synthase F0 subunit a #gd NCBI
+ATP synthase F1 subunit 6 #gd NCBI
+ATP synthase subunit 6 #gd NCBI
+ATP synthase subunit a #gd NCBI
+ATPase subunit 6 #gd NCBI
+ATPase subunit 6.1 #gd NCBI
+ATPase subunit 6.2 #gd NCBI
+H(+)-transporting ATPase #gd NCBI
+H(+)-transporting ATPase F0 subunit 6 #gd NCBI
+H-transporting ATPase #gd NCBI
+gene-atp6 #gn #c generic ID found in GFF
+gene-ATP6 #gn #c generic ID found in GFF
+gene-atp6-2 #gn #c generic ID found in GFF
+gene-atpASE6 #gn #c generic ID found in GFF
+
+[MIT-ATP8]
+atp8 #gd NCBI
+Atp8 #gd NCBI
+Atp8_1 #gd NCBI
+Atp8_2 #gd NCBI
+ATP synthase F0 subunit 8 #gd NCBI
+ATP synthase F1 subunit 8 #gd NCBI
+ATP synthase FO subunit 8 #gd NCBI
+ATP synthase subunit8 #gd NCBI
+ATP synthase subunit 8 #gd NCBI
+ATPase subunit 8 #gd NCBI
+ATPase subunit 8.1 #gd NCBI
+ATPase subunit 8.2 #gd NCBI
+gene-ATP8 #gn #c generic ID found in GFF
+gene-atp8 #gn #c generic ID found in GFF
+gene-atp8-2 #gn #c generic ID found in GFF
+gene-atp8-3 #gn #c generic ID found in GFF
+
+[MIT-ATP9]
+atp9 #gd NCBI
+Atp9 #gd NCBI
+ATP synthase F0 subunit 9 #gd NCBI
+ATP synthase F0 subunit c #gd NCBI
+ATP synthase F1 subunit 9 #gd NCBI
+ATP synthase subunit 9 #gd NCBI
+ATP synthate subunit 9 #gd NCBI
+ATPase subunit 9 #gd NCBI
+H(+)-transporting ATPase subunit 9 #gd NCBI
+H(+)-transporting ATPase, subunit 9 #gd NCBI
+gene-atp9 #gn #c generic ID found in GFF
+gene-atp9-2 #gn #c generic ID found in GFF
+
+[MIT-ATPA]
+ATP synthase CF1 alpha subunit #gd NCBI
+AtpA #gd NCBI
+atpA #gd MANUAL
+gene-atpA #gn #c generic ID found in GFF
+gene-atpA-2 #gn #c generic ID found in GFF
+
+[MIT-ATPH]
+ATP synthase CF0 C subunit #gd NCBI
+gene-atpH #gn #c generic ID found in GFF
+
+[MIT-CCMF]
+heme lyase #gd NCBI
+
+[MIT-CO1]
+cox1 #gd NCBI
+Cox1 #gd NCBI
+Cox1_1 #gd NCBI
+Cox1_2 #gd NCBI
+Cytochrome c oxidase I #gd NCBI
+cytochrome c oxidase subunit1 #gd NCBI
+cytochrome c oxidase subunit 1 #gd NCBI
+cytochrome c oxidase subunit I #gd NCBI
+cytochrome oxidase subunit 1 #gd NCBI
+cytochrome oxidase subunit 1.1 #gd NCBI
+cytochrome oxidase subunit 1.2 #gd NCBI
+cytochrome oxidase subunit I #gd NCBI
+gene-COI #gn #c generic ID found in GFF
+gene-cox1 #gn #c generic ID found in GFF
+gene-cox1-2 #gn #c generic ID found in GFF
+
+[MIT-CO2]
+Cox2 #gd NCBI
+cox2 #gd MANUAL
+cytochrome c oxidase subunit 2 #gd NCBI
+cytochrome c oxidase subunit II #gd NCBI
+cytochrome oxidase subunit 2 #gd NCBI
+cytochrome oxidase subunit II #gd NCBI
+cytochrome oxidase, subunit II #gd NCBI
+putative cytochrome c oxidase subunit 2 #gd NCBI
+gene-COII #gn #c generic ID found in GFF
+gene-cox2 #gn #c generic ID found in GFF
+gene-cox2-2 #gn #c generic ID found in GFF
+
+[MIT-CO2-A]
+cox2a #gd MANUAL
+cytochrome c oxidase subunit 2a #gd NCBI
+gene-cox2a #gn #c generic ID found in GFF
+
+[MIT-CO3]
+CO3 #gd NCBI
+cox3 #gd NCBI
+Cox3 #gd NCBI
+cytochrome c oxidase subunit 3 #gd NCBI
+cytochrome c oxidase subunit III #gd NCBI
+cytochrome oxidase subunit 3 #gd NCBI
+cytochrome oxidase subunit III #gd NCBI
+cytochrome oxidase, subunit III #gd NCBI
+gene-CO3 #gn #c generic ID found in GFF
+gene-cox3 #gn #c generic ID found in GFF
+gene-cox3-2 #gn #c generic ID found in GFF
+
+[MIT-COB]
+apocytochrome b #gd NCBI
+apocytochrome B #gd NCBI
+cob #gd NCBI
+Cob #gd NCBI
+cytb #gd MANUAL
+Cytb #gd NCBI
+cytochrome b #gd NCBI
+gene-cob #gn #c generic ID found in GFF
+gene-cob-2 #gn #c generic ID found in GFF
+gene-CYTB #gn #c generic ID found in GFF
+gene-cytB #gn #c generic ID found in GFF
+
+[MIT-DDIT3]
+Ddit3 #gd MANUAL
+DNA damage-inducible transcript 3 protein #gd NCBI
+
+[MIT-MI25]
+ATP synthase protein MI25 #gd NCBI
+MI25 #gd MANUAL
+
+[MIT-MTA]
+HTH-type transcriptional activator #gd NCBI
+mta #gd MANUAL
+
+[MIT-MTTB]
+maturase B #gd NCBI
+MttB #gd NCBI
+mttB #gd NCBI
+putative sec-independent periplasmic protein translocase TatC #gd NCBI
+Sec-independent protein translocase #gd NCBI
+Sec-independent protein translocase protein #gd NCBI
+SecY-independant transporter protein #gd NCBI
+SecY-independent transporter protein #gd NCBI
+transport membrane protein #gd NCBI
+gene-mttB #gn #c generic ID found in GFF
+
+[MIT-ND1]
+nad1 #gd NCBI
+Nad1 #gd NCBI
+NADH dehydrogenase (ubiquinone), subunit 1 #gd NCBI
+NADH dehydrogenase subunit 1 #gd NCBI
+NADH dehydrogenase subunit 1.1 #gd NCBI
+NADH dehydrogenase subunit 1.2 #gd NCBI
+NADH dehydrogenasesubunit 1 #gd NCBI
+NADH-ubiquinone oxidoreductase chain 1 #gd NCBI
+NADH-ubiquinone oxidoreductase subunit 1 #gd NCBI
+gene-nad1 #gn #c generic ID found in GFF
+gene-ND1 #gn #c generic ID found in GFF
+
+[MIT-ND2]
+nad2 #gd NCBI
+Nad2 #gd NCBI
+NADH dehydrogenase (ubiquinone), subunit 2 #gd NCBI
+NADH dehydrogenase subunit 2 #gd NCBI
+NADH dehydrogenasesubunit 2 #gd NCBI
+NADH-ubiquinone oxidoreductase chain 2 #gd NCBI
+NADH-ubiquinone oxidoreductase subunit 2 #gd NCBI
+putative NADH-ubiquinone oxidoreductase subunit 2 #gd NCBI
+putative NADH-ubiquinone oxidoreductase, subunit 2 #gd NCBI
+gene-nad2 #gn #c generic ID found in GFF
+gene-ND2 #gn #c generic ID found in GFF
+
+[MIT-ND3]
+nad3 #gd NCBI
+Nad3 #gd NCBI
+NADH dehydrogenase (ubiquinone), subunit 3 #gd NCBI
+NADH dehydrogenase subunit 3 #gd NCBI
+NADH dehydrogenasesubunit 3 #gd NCBI
+NADH-ubiquinone oxidoreductase chain 3 #gd NCBI
+NADH-ubiquinone oxidoreductase subunit 3 #gd NCBI
+gene-nad3 #gn #c generic ID found in GFF
+gene-ND3 #gn #c generic ID found in GFF
+
+[MIT-ND4]
+nad4 #gd NCBI
+Nad4 #gd NCBI
+NADH dehydrogenase (ubiquinone), subunit 4 #gd NCBI
+NADH dehydrogenase subunit 4 #gd NCBI
+NADH dehydrogenasesubunit 4 #gd NCBI
+NADH-ubiquinone oxidoreductase chain 4 #gd NCBI
+NADH-ubiquinone oxidoreductase subunit 4 #gd NCBI
+gene-nad4 #gn #c generic ID found in GFF
+gene-nad4-2 #gn #c generic ID found in GFF
+gene-ND4 #gn #c generic ID found in GFF
+
+[MIT-ND4L]
+nad4L #gd NCBI
+Nad4L #gd NCBI
+Nad4L_1 #gd NCBI
+Nad4L_2 #gd NCBI
+NADH dehydrogenase (ubiquinone), subunit 4L #gd NCBI
+NADH dehydrogenase subunit 4L #gd NCBI
+NADH dehydrogenasesubunit 4L #gd NCBI
+nadh subunit 4L #gd NCBI
+NADH-ubiquinone oxidoreductase chain 4L #gd NCBI
+NADH-ubiquinone oxidoreductase subunit 4L #gd NCBI
+gene-nad4L #gn #c generic ID found in GFF
+gene-nad4l #gn #c generic ID found in GFF
+gene-ND4L #gn #c generic ID found in GFF
+
+[MIT-ND5]
+nad5 #gd NCBI
+Nad5 #gd NCBI
+NADH dehydrogenase subunit 5 #gd NCBI
+NADH deydrogenase (ubiquinone), subunit 5 #gd NCBI
+NADH-ubiquinone oxidoreductase chain 5 #gd NCBI
+NADH-ubiquinone oxidoreductase subunit 5 #gd NCBI
+gene-nad5 #gn #c generic ID found in GFF
+gene-nad5-2 #gn #c generic ID found in GFF
+gene-nad5-3 #gn #c generic ID found in GFF
+gene-ND5 #gn #c generic ID found in GFF
+
+[MIT-ND6]
+nad6 #gd NCBI
+Nad6 #gd NCBI
+NADH dehydrogenase (ubiquinone), subunit 6 #gd NCBI
+NADH dehydrogenase subunit 6 #gd NCBI
+NADH dehydrogenase subunit 6.1 #gd NCBI
+NADH dehydrogenase subunit 6.2 #gd NCBI
+NADH dehydrogenasesubunit 6 #gd NCBI
+NADH-ubiquinone oxidoreductase chain 6 #gd NCBI
+NADH-ubiquinone oxidoreductase subunit 6 #gd NCBI
+gene-nad6 #gn #c generic ID found in GFF
+gene-nad6-2 #gn #c generic ID found in GFF
+gene-ND6 #gn #c generic ID found in GFF
+
+[MIT-ND7]
+nad7 #gd NCBI
+Nad7 #gd NCBI
+NADH dehydrogenase (ubiquinone), subunit 7 #gd NCBI
+NADH dehydrogenase subunit 7 #gd NCBI
+NADH dehydrogenasesubunit 7 #gd NCBI
+NADH-ubiquinone oxidoreductase 49 kDa subunit #gd NCBI
+putative NADH dehydrogenase subunit 7 #gd NCBI
+gene-nad7 #gn #c generic ID found in GFF
+gene-nad7-2 #gn #c generic ID found in GFF
+gene-nad7-3 #gn #c generic ID found in GFF
+
+[MIT-ND9]
+nad9 #gd NCBI
+Nad9 #gd NCBI
+NADH dehydrogenase (ubiquinone), subunit 9 #gd NCBI
+NADH dehydrogenase subunit9 #gd NCBI
+NADH dehydrogenase subunit 9 #gd NCBI
+NADH dehydrogenasesubunit 9 #gd NCBI
+gene-nad9 #gn #c generic ID found in GFF
+gene-nad9-2 #gn #c generic ID found in GFF
+
+[MIT-ND10]
+NADH dehydrogenase subunit 10 #gd NCBI
+gene-nad10 #gn #c generic ID found in GFF
+
+[MIT-ND11|A|B]
+nad11a #gd MANUAL
+nad11b #gd MANUAL
+truncated NADH dehydrogenase subunit 11 #gd NCBI
+
+[MIT-NDHA]
+ndhA #gd NCBI
+
+[MIT-NDHB]
+ndhB #gd MANUAL
+gene-ndhB #gn #c generic ID found in GFF
+
+[MIT-NDHC]
+nad3/ndhC #gd NCBI
+
+[MIT-NDHD]
+ndhD #gd NCBI
+
+[MIT-NDHE]
+gene-ndhE #gn #c generic ID found in GFF
+
+[MIT-NDHF]
+ndhF #gd NCBI
+
+[MIT-NDHG]
+ndhG #gd NCBI
+
+[MIT-NDHH]
+ndhH #gd MANUAL
+gene-ndhH #gn #c generic ID found in GFF
+
+[MIT-NDHJ]
+gene-ndhJ #gn #c generic ID found in GFF
+
+[MIT-NDHK]
+ndhK #gd NCBI
+
+[MIT-NUOI]
+NADH-quinone oxidoreductase subunit I #gd NCBI
+nuoI #gd MANUAL
+
+[MIT-RECR]
+recombination protein #gd NCBI
+recR #gd MANUAL
+
+[MIT-RNPB]
+ribonuclease P RNA #gd NCBI
+RnpB #gd NCBI
+
+[MIT-RNR5]
+5S ribosomal RNA #gd NCBI
+rrn5 #gd MANUAL
+gene-rrn5 #gn #c generic ID found in GFF
+gene-rrn5-2 #gn #c generic ID found in GFF
+gene-rrn5-3 #gn #c generic ID found in GFF
+gene-rrnF #gn #c generic ID found in GFF
+
+[MIT-RNR16]
+16S ribosomal RNA #gd NCBI
+16S small subunit ribosomal RNA #gd NCBI
+
+[MIT-RNR18]
+18S ribosomal RNA #gd NCBI
+rrn18 #gd MANUAL
+gene-18S_rna #gn #c generic ID found in GFF
+gene-rrn18 #gn #c generic ID found in GFF
+gene-rrn18-2 #gn #c generic ID found in GFF
+
+[MIT-RNR23]
+23S large subunit ribosomal RNA #gd NCBI
+23S ribosomal RNA #gd NCBI
+gene-rrn23 #gn #c generic ID found in GFF
+
+[MIT-RNRL]
+gene-rnl a #gd MANUAL #c maybe encoding problem
+gene-rnl b #gd MANUAL #c maybe encoding problem
+gene-rnl c #gd MANUAL #c maybe encoding problem
+gene-rnl d #gd MANUAL #c maybe encoding problem
+gene-rnl f #gd MANUAL #c maybe encoding problem
+L1 ribosomal RNA #gd NCBI
+L2a ribosomal RNA #gd NCBI
+L2b ribosomal RNA #gd NCBI
+L3a ribosomal RNA #gd NCBI
+L3b ribosomal RNA #gd NCBI
+L4 ribosomal RNA #gd NCBI
+L5 ribosomal RNA #gd NCBI
+L6 ribosomal RNA #gd NCBI
+L7 ribosomal RNA #gd NCBI
+L8 ribosomal RNA #gd NCBI
+l-rRNA #gd NCBI
+large subunit ribosomal RNA #gd NCBI
+large subunit ribosomal RNA fragment a #gd NCBI
+large subunit ribosomal RNA fragment b #gd NCBI
+large subunit ribosomal RNA fragment c #gd NCBI
+large subunit ribosomal RNA fragment d #gd NCBI
+large subunit ribosomal RNA fragment e #gd NCBI
+large subunit ribosomal RNA fragment L1 #gd NCBI
+large subunit ribosomal RNA fragment L2 #gd NCBI
+large subunit ribosomal RNA fragment L3 #gd NCBI
+large subunit ribosomal RNA fragment L4 #gd NCBI
+large subunit ribosomal RNA fragment L5 #gd NCBI
+large subunit ribosomal RNA fragment L6 #gd NCBI
+large subunit ribosomal RNA fragment L7 #gd NCBI
+large subunit ribosomal RNA fragment L8 #gd NCBI
+large subunit ribosomal RNA fragment number 1 #gd NCBI
+large subunit ribosomal RNA fragment number 2 #gd NCBI
+large subunit ribosomal RNA fragment number 3 #gd NCBI
+large subunit ribosomal RNA fragment number 4 #gd NCBI
+large subunit ribosomal RNA fragment number 5 #gd NCBI
+large subunit ribosomal RNA fragment number 6 #gd NCBI
+large subunit ribosomal RNA fragment number 7 #gd NCBI
+large subunit ribosomal RNA fragment number 8 #gd NCBI
+ribosomal RNA MitLSU (n/a) #gd NCBI
+rnl #gd MANUAL
+rnl_a #gd MANUAL
+rnl_b #gd MANUAL
+rnl_c #gd MANUAL
+rnl_d #gd MANUAL
+rnl_e #gd MANUAL
+rrnL #gd NCBI
+rrnL1 #gd NCBI
+rrnL2 #gd MANUAL
+rrnL2a #gd MANUAL
+rrnL2b #gd MANUAL
+rrnL3 #gd MANUAL
+rrnL3a #gd MANUAL
+rrnL3b #gd MANUAL
+rrnL4 #gd MANUAL
+rrnL5 #gd MANUAL
+rrnL6 #gd MANUAL
+rrnL7 #gd NCBI
+rrnL8 #gd MANUAL
+gene-rnl #gn #c generic ID found in GFF
+gene-rnl1 #gn #c generic ID found in GFF
+gene-rnl2 #gn #c generic ID found in GFF
+gene-rnl3 #gn #c generic ID found in GFF
+gene-rnl4 #gn #c generic ID found in GFF
+gene-rnl-2 #gn #c generic ID found in GFF
+gene-rnl-3 #gn #c generic ID found in GFF
+gene-rnl-4 #gn #c generic ID found in GFF
+gene-rrl #gn #c generic ID found in GFF
+gene-rrn16 #gn #c generic ID found in GFF
+gene-rrnL #gn #c generic ID found in GFF
+gene-rrnL2a #gn #c generic ID found in GFF
+gene-rrnL2b #gn #c generic ID found in GFF
+gene-rrnL3a #gn #c generic ID found in GFF
+gene-rrnL3b #gn #c generic ID found in GFF
+gene-rrnL-2 #gn #c generic ID found in GFF
+gene-rrnL-3 #gn #c generic ID found in GFF
+gene-rrnL-4 #gn #c generic ID found in GFF
+
+[MIT-RNRS]
+gene-rns a #gd MANUAL #c maybe encoding problem
+gene-rns b #gd MANUAL #c maybe encoding problem
+ribosomal RNA MitSSU (n/a) #gd NCBI
+rns #gd MANUAL
+rrnS #gd MANUAL#gd MANUAL
+rrnS1 #gd MANUAL
+rrnS2 #gd MANUAL
+rrnS3 #gd MANUAL
+rrnS4 #gd MANUAL
+rrs #gd NCBI
+S1 ribosomal RNA #gd NCBI
+S2 ribosomal RNA #gd NCBI
+S3 ribosomal RNA #gd NCBI
+S4 ribosomal RNA #gd NCBI
+small subunit ribosomal RNA #gd NCBI
+small subunit ribosomal RNA fragment a #gd NCBI
+small subunit ribosomal RNA fragment c #gd NCBI
+small subunit ribosomal RNA fragment number 1 #gd NCBI
+small subunit ribosomal RNA fragment number 2 #gd NCBI
+small subunit ribosomal RNA fragment number 3 #gd NCBI
+small subunit ribosomal RNA fragment number 4 #gd NCBI
+small subunit ribosomal RNA fragment S1 #gd NCBI
+small subunit ribosomal RNA fragment S2 #gd NCBI
+small subunit ribosomal RNA fragment S3 #gd NCBI
+small subunit ribosomal RNA fragment S4 #gd NCBI
+gene-rns #gn #c generic ID found in GFF
+gene-rns1 #gn #c generic ID found in GFF
+gene-rns2 #gn #c generic ID found in GFF
+gene-rns-2 #gn #c generic ID found in GFF
+gene-rrnS #gn #c generic ID found in GFF
+gene-rrns4 #gn #c generic ID found in GFF
+gene-rrnS-2 #gn #c generic ID found in GFF
+gene-rrs #gn #c generic ID found in GFF
+rns_a #gn #c generic ID found in GFF
+rns_c #gn #c generic ID found in GFF
+
+[MIT-RPL2]
+ribosomal protein L2 #gd NCBI
+ribosomal protein large subunit 2 #gd NCBI
+rpl2 #gd NCBI
+gene-rpl2 #gn #c generic ID found in GFF
+
+[MIT-RPL5]
+50S ribosomal protein L5 #gd NCBI
+ribosomal protein L5 #gd NCBI
+ribosomal protein L7 #gd NCBI
+ribosomal protein L15 #gd NCBI
+ribosomal protein large subunit 5 #gd NCBI
+ribosomal protein subunit L5 #gd NCBI
+Rpl5 #gd NCBI
+rpl5 #gd NCBI
+gene-rpl5 #gn #c generic ID found in GFF
+gene-rpl5-2 #gn #c generic ID found in GFF
+gene-rplE #gn #c generic ID found in GFF
+
+[MIT-RPL6]
+50S ribosomal protein L6 #gd NCBI
+Ribosomal protein L6 #gd NCBI
+ribosomal protein L6 #gd NCBI
+Rpl6 #gd NCBI
+gene-rpl6 #gn #c generic ID found in GFF
+gene-rplF #gn #c generic ID found in GFF
+
+[MIT-RPL9]
+50S ribosomal protein L9 #gd NCBI
+rpl9 #gd MANUAL
+
+[MIT-RPL10]
+ribosomal protein L10 #gd NCBI
+rpl10 #gd MANUAL
+gene-rpl10 #gn #c generic ID found in GFF
+gene-rpl10-2 #gn #c generic ID found in GFF
+
+[MIT-RPL14]
+ribosomal protein L14 #gd NCBI
+Ribosomal protein L14 #gd NCBI
+ribsomal protein L14 #gd NCBI
+rpl14 #gd MANUAL
+Rpl14 #gd NCBI
+gene-rpl14 #gn #c generic ID found in GFF
+
+[MIT-RPL16]
+50S ribosomal protein L16 #gd NCBI
+putative ribosomal protein L16 #gd NCBI
+ribosomal protein L16 #gd NCBI
+ribosomal protein L16-like #gd NCBI
+ribosomal protein large subunit 16 #gd NCBI
+ribosomal protein subunit L16 #gd NCBI
+Rpl16 #gd NCBI
+rpl16 #gd NCBI
+gene-rpl16 #gn #c generic ID found in GFF
+gene-rpl16-2 #gn #c generic ID found in GFF
+gene-rplP #gn #c generic ID found in GFF
+
+[MIT-RPO]
+DNA-dependent RNA polymerase #gd NCBI
+DNA-directed RNA polymerase #gd NCBI
+
+[MIT-RPS1]
+ribosomal protein S1 #gd NCBI
+rps1 #gd MANUAL
+gene-rps1 #gn #c generic ID found in GFF
+
+[MIT-RPS2]
+30S ribosomal protein S2 #gd NCBI
+ribosomal protein S2 #gd NCBI
+Rps2 #gd NCBI
+rps2 #gd MANUAL
+gene-rps2 #gn #c generic ID found in GFF
+gene-rpsB #gn #c generic ID found in GFF
+
+[MIT-RPS3]
+30S ribosomal protein S3 #gd NCBI
+putative ribosomal protein S3 #gd NCBI
+ribosomal protein S3 #gd NCBI
+ribosomal protein small subunit 3 #gd NCBI
+Rps3 #gd NCBI
+rps3 #gd NCBI
+gene-rps3 #gn #c generic ID found in GFF
+gene-rps3-2 #gn #c generic ID found in GFF
+gene-rpsC #gn #c generic ID found in GFF
+
+[MIT-RPS4]
+30S ribosomal protein S4 #gd NCBI
+Ribosomal protein S4 #gd NCBI
+ribosomal protein S4 #gd NCBI
+ribosomal protein small subunit 4 #gd NCBI
+Rps4 #gd NCBI
+rps4 #gd NCBI
+gene-rps4 #gn #c generic ID found in GFF
+gene-rps4-2 #gn #c generic ID found in GFF
+gene-rpsD #gn #c generic ID found in GFF
+
+[MIT-RPS7]
+30S ribosomal protein S7 #gd NCBI
+ribosomal protein S7 #gd NCBI
+ribosomal protein small subunit 7 #gd NCBI
+Rps7 #gd NCBI
+rps7 #gd NCBI
+gene-rps7 #gn #c generic ID found in GFF
+gene-rps7-2 #gn #c generic ID found in GFF
+gene-rpsG #gn #c generic ID found in GFF
+
+[MIT-RPS8]
+ribosomal protein S8 #gd NCBI
+Ribosomal protein S8 #gd NCBI
+Rps8 #gd NCBI
+rps8 #gd NCBI
+gene-rps8 #gn #c generic ID found in GFF
+
+[MIT-RPS10]
+ribosomal protein S10 #gd NCBI
+Rps10 #gd NCBI
+gene-rps10 #gn #c generic ID found in GFF
+gene-RPS10 #gn #c generic ID found in GFF
+gene-rps10-2 #gn #c generic ID found in GFF
+
+[MIT-RPS11]
+30S ribosomal protein S11 #gd NCBI
+Ribosomal protein S11 #gd NCBI
+ribosomal protein S11 #gd NCBI
+rps11 #gd MANUAL
+Rps11 #gd NCBI
+gene-rps11 #gn #c generic ID found in GFF
+gene-rpsK #gn #c generic ID found in GFF
+
+[MIT-RPS12]
+30S ribosomal protein S12 #gd NCBI
+ribosomal protein S12 #gd NCBI
+ribosomal protein small subunit 12 #gd NCBI
+Rps12 #gd NCBI
+rps12 #gd NCBI
+gene-rps12 #gn #c generic ID found in GFF
+gene-rps12-2 #gn #c generic ID found in GFF
+gene-rpsL #gn #c generic ID found in GFF
+
+[MIT-RPS13]
+30S ribosomal protein S13 #gd NCBI
+ribosomal protein L13 #gd NCBI
+ribosomal protein S13 #gd NCBI
+Rps13 #gd NCBI
+gene-rps13 #gn #c generic ID found in GFF
+gene-rpsM #gn #c generic ID found in GFF
+
+[MIT-RPS14]
+30S ribosomal protein S14 #gd NCBI
+ribosomal protein S14 #gd NCBI
+ribosomal protein small subunit 14 #gd NCBI
+ribosomal protein subunit S14 #gd NCBI
+Rps14 #gd NCBI
+rps14 #gd NCBI
+gene-rps14 #gn #c generic ID found in GFF
+gene-rps14-2 #gn #c generic ID found in GFF
+gene-rpsN #gn #c generic ID found in GFF
+
+[MIT-RPS19]
+30S ribosomal protein S19 #gd NCBI
+ribosomal protein S19 #gd NCBI
+Rps19 #gd NCBI
+rps19 #gd MANUAL
+gene-rps19 #gn #c generic ID found in GFF
+gene-rpsS #gn #c generic ID found in GFF
+
+[MIT-RTL]
+reverse transcriptase-like protein #gd NCBI
+rtl #gd MANUAL
+RTL #gd NCBI
+gene-rtl #gn #c generic ID found in GFF
+
+[MIT-SDH3]
+sdh3 #gd MANUAL
+Succinate dehydrogenase 3 #gd NCBI
+succinate dehydrogenase subunit 3 #gd NCBI
+succinate:cytochrome c oxidoreductase subunit 3 #gd NCBI
+gene-sdh3 #gn #c generic ID found in GFF
+
+[MIT-SDH4]
+putative succinate dehydrogenase subunit 4 #gd NCBI
+Sdh4 #gd NCBI
+sdh4 #gd NCBI
+succinate dehydrogenase cytochrome subunit 3 #gd NCBI
+succinate dehydrogenase subunit 4 #gd NCBI
+succinate:cytochrome c oxidoreductase subunit 4 #gd NCBI
+gene-sdh4 #gn #c generic ID found in GFF
+gene-sdh4-2 #gn #c generic ID found in GFF
+
+[MIT-SSP2]
+small serum protein 2 #gd NCBI
+ssp2 #gd MANUAL
+
+[MIT-SUCC]
+sucC #gd MANUAL
+Succinate--CoA ligase [ADP-forming] subunit #gd NCBI
+
+[MIT-TA]
+gene-trnA (UGC) #gd MANUAL #c maybe encoding problem
+trnA tRNA #gd MANUAL
+trnA(TGC) #gd MANUAL
+tRNA-Ala #gd MANUAL
+gene-trnA #gn #c generic ID found in GFF
+gene-trnA(TGC) #gn #c generic ID found in GFF
+gene-trnA(tgc) #gn #c generic ID found in GFF
+gene-trnA(ugc) #gn #c generic ID found in GFF
+gene-trnA(UGC) #gn #c generic ID found in GFF
+gene-trnA-2 #gn #c generic ID found in GFF
+gene-tRNA-Ala(TGC) #gn #c generic ID found in GFF
+gene-trnA-ugc #gn #c generic ID found in GFF
+gene-trnA-UGC #gn #c generic ID found in GFF
+
+[MIT-TATC]
+Sec-independent protein translocase component TatC #gd NCBI
+Sec-independent protein translocase protein tatC #gd NCBI
+SecY-independent protein translocase component tatC #gd NCBI
+tatC #gd NCBI
+TatC #gd NCBI
+gene-tatC #gn #c generic ID found in GFF
+gene-TatC #gn #c generic ID found in GFF
+gene-tatC-2 #gn #c generic ID found in GFF
+
+[MIT-TC]
+gene-trnC (GCA) #gd MANUAL #c maybe encoding problem
+trnC (GCA) #gd MANUAL
+trnC tRNA #gd MANUAL
+trnC(GCA) tRNA #gd MANUAL
+gene-tRNA-Cys #gn #c generic ID found in GFF
+gene-tRNA-Cys(GCA) #gn #c generic ID found in GFF
+gene-tRNA-Cys-2 #gn #c generic ID found in GFF
+gene-trnC #gn #c generic ID found in GFF
+gene-trnC(gca) #gn #c generic ID found in GFF
+gene-trnC(GCA) #gn #c generic ID found in GFF
+gene-trnC(GCA)-2 #gn #c generic ID found in GFF
+gene-trnC-2 #gn #c generic ID found in GFF
+gene-trnC-ACA #gn #c generic ID found in GFF
+gene-trnC-GCA #gn #c generic ID found in GFF
+gene-trnC-GCA-2 #gn #c generic ID found in GFF
+tRNA-Cys #gn #c generic ID found in GFF
+trnC-ACA #gn #c generic ID found in GFF
+trnC-GCA #gn #c generic ID found in GFF
+
+[MIT-TD]
+gene-trnD (GUC) #gd MANUAL #c maybe encoding problem
+tRNA-Asp #gd MANUAL
+trnD #gd MANUAL
+trnD tRNA #gd MANUAL
+trnD(GTC) tRNA #gd MANUAL
+gene-tRNA-Asp #gn #c generic ID found in GFF
+gene-tRNA-Asp(GTC) #gn #c generic ID found in GFF
+gene-trnD #gn #c generic ID found in GFF
+gene-trnD(GTC) #gn #c generic ID found in GFF
+gene-trnD(gtc) #gn #c generic ID found in GFF
+gene-trnD(guc) #gn #c generic ID found in GFF
+gene-trnD(GUC) #gn #c generic ID found in GFF
+gene-trnD-2 #gn #c generic ID found in GFF
+gene-trnD-3 #gn #c generic ID found in GFF
+gene-trnD-cp #gn #c generic ID found in GFF
+gene-trnD-GTC #gn #c generic ID found in GFF
+gene-trnD-GTC-2 #gn #c generic ID found in GFF
+gene-trnD-GUC #gn #c generic ID found in GFF
+trnD(GUC) #gn #c generic ID found in GFF
+trnD-(GUC) #gn #c generic ID found in GFF
+trnD-GUC #gn #c generic ID found in GFF
+
+[MIT-TE]
+gene-trnE (UUC) #gd MANUAL #c maybe encoding problem
+tRNA-Glu #gd MANUAL
+trnE (UUC) #gd MANUAL
+trnE tRNA #gd MANUAL
+trnE(TTC) tRNA #gd MANUAL
+gene-tRNA-Glu #gn #c generic ID found in GFF
+gene-tRNA-Glu(TTC) #gn #c generic ID found in GFF
+gene-trnE #gn #c generic ID found in GFF
+gene-trnE(TTC) #gn #c generic ID found in GFF
+gene-trnE(ttc) #gn #c generic ID found in GFF
+gene-trnE(ttc)-2 #gn #c generic ID found in GFF
+gene-trnE(uuc) #gn #c generic ID found in GFF
+gene-trnE(UUC) #gn #c generic ID found in GFF
+gene-trnE-2 #gn #c generic ID found in GFF
+gene-trnE-TTC #gn #c generic ID found in GFF
+gene-trnE-TTC-2 #gn #c generic ID found in GFF
+gene-trnE-TTC-3 #gn #c generic ID found in GFF
+gene-trnE-uuc #gn #c generic ID found in GFF
+gene-trnE-UUC #gn #c generic ID found in GFF
+gene-trnE-UUC-2 #gn #c generic ID found in GFF
+trnE-UUC #gn #c generic ID found in GFF
+
+[MIT-TF]
+gene-trnF (GAA) #gd MANUAL #c maybe encoding problem
+tRNA-Phe #gd MANUAL
+trnF (GAA) #gd MANUAL
+gene-tRNA-Phe #gn #c generic ID found in GFF
+gene-tRNA-Phe(GAA) #gn #c generic ID found in GFF
+gene-trnF #gn #c generic ID found in GFF
+gene-trnF(aaa) #gn #c generic ID found in GFF
+gene-trnF(aaa)-2 #gn #c generic ID found in GFF
+gene-trnF(gaa) #gn #c generic ID found in GFF
+gene-trnF(GAA) #gn #c generic ID found in GFF
+gene-trnF(GAA)-2 #gn #c generic ID found in GFF
+gene-trnF-2 #gn #c generic ID found in GFF
+gene-trnF-AAA #gn #c generic ID found in GFF
+gene-trnF-gaa #gn #c generic ID found in GFF
+gene-trnF-GAA #gn #c generic ID found in GFF
+gene-trnF-GAA-2 #gn #c generic ID found in GFF
+gene-trnF-GAA-3 #gn #c generic ID found in GFF
+trnF-GAA #gn #c generic ID found in GFF
+
+[MIT-TG]
+gene-trnG (UCC) #gd MANUAL #c maybe encoding problem
+tRNA- Gly #gd MANUAL
+tRNA-Gly #gd MANUAL
+trnG (GCC) #gd MANUAL
+gene-tRNA-Gly #gn #c generic ID found in GFF
+gene-tRNA-Gly(TCC) #gn #c generic ID found in GFF
+gene-trnG #gn #c generic ID found in GFF
+gene-trnG1 #gn #c generic ID found in GFF
+gene-trnG2 #gn #c generic ID found in GFF
+gene-trnG(gcc) #gn #c generic ID found in GFF
+gene-trnG(GCC) #gn #c generic ID found in GFF
+gene-trnG(TCC) #gn #c generic ID found in GFF
+gene-trnG(tcc) #gn #c generic ID found in GFF
+gene-trnG(ucc) #gn #c generic ID found in GFF
+gene-trnG-GCC #gn #c generic ID found in GFF
+gene-trnG-UCC #gn #c generic ID found in GFF
+gene-trnG-ucc #gn #c generic ID found in GFF
+trnG-GCC #gn #c generic ID found in GFF
+
+[MIT-TH]
+gene-trnH (GUG) #gd MANUAL #c maybe encoding problem
+tRNA-His #gd MANUAL
+trnH (AUG) #gd MANUAL
+trnH (GUG) #gd MANUAL
+trnH tRNA #gd MANUAL
+trnH(GTG) tRNA #gd MANUAL
+gene-tRNA-His(GTG) #gn #c generic ID found in GFF
+gene-trnH #gn #c generic ID found in GFF
+gene-trnH(GTG) #gn #c generic ID found in GFF
+gene-trnH(gtg) #gn #c generic ID found in GFF
+gene-trnH(gug) #gn #c generic ID found in GFF
+gene-trnH(GUG) #gn #c generic ID found in GFF
+gene-trnH(GUG)-2 #gn #c generic ID found in GFF
+gene-trnH-GTG #gn #c generic ID found in GFF
+gene-trnH-gug #gn #c generic ID found in GFF
+gene-trnH-GUG #gn #c generic ID found in GFF
+gene-trnH-GUG-2 #gn #c generic ID found in GFF
+gene-trnH-GUG-cp #gn #c generic ID found in GFF
+trnH(GUG) #gn #c generic ID found in GFF
+trnH-AUG #gn #c generic ID found in GFF
+trnH-GUG #gn #c generic ID found in GFF
+
+[MIT-TI]
+gene-trnI (GAU) #gd MANUAL #c maybe encoding problem
+tRNA-Ile #gd MANUAL
+trnI tRNA #gd MANUAL
+gene-tRNA-Ile #gn #c generic ID found in GFF
+gene-tRNA-Ile(GAT) #gn #c generic ID found in GFF
+gene-trnI #gn #c generic ID found in GFF
+gene-trnI1 #gn #c generic ID found in GFF
+gene-trnI2 #gn #c generic ID found in GFF
+gene-trnI(cau) #gn #c generic ID found in GFF
+gene-trnI(GAT) #gn #c generic ID found in GFF
+gene-trnI(gat) #gn #c generic ID found in GFF
+gene-trnI(gau) #gn #c generic ID found in GFF
+gene-trnI-AAU #gn #c generic ID found in GFF
+gene-trnI-CAU #gn #c generic ID found in GFF
+gene-trnI-GAU #gn #c generic ID found in GFF
+trnI(UAU) #gn #c generic ID found in GFF
+trnI-cp #gn #c generic ID found in GFF
+
+[MIT-TK]
+gene-trnK (UUU) #gd MANUAL #c maybe encoding problem
+tRNA-Lys #gd MANUAL
+trnK (UUU) #gd MANUAL
+trnK tRNA #gd MANUAL
+trnK(TTT) tRNA #gd MANUAL
+gene-tRNA-Lys #gn #c generic ID found in GFF
+gene-tRNA-Lys(CTT) #gn #c generic ID found in GFF
+gene-tRNA-Lys(TTT) #gn #c generic ID found in GFF
+gene-tRNA-Lys-2 #gn #c generic ID found in GFF
+gene-trnK #gn #c generic ID found in GFF
+gene-trnK(TTT) #gn #c generic ID found in GFF
+gene-trnK(ttt) #gn #c generic ID found in GFF
+gene-trnK(uuu) #gn #c generic ID found in GFF
+gene-trnK(UUU) #gn #c generic ID found in GFF
+gene-trnK-2 #gn #c generic ID found in GFF
+gene-trnK-CUU #gn #c generic ID found in GFF
+gene-trnK-TTT #gn #c generic ID found in GFF
+gene-trnK-UUU #gn #c generic ID found in GFF
+trnK-UUU #gn #c generic ID found in GFF
+
+[MIT-TL1|2]
+gene-trnL (CAA) #gd MANUAL #c maybe encoding problem
+gene-trnL (CUA) #gd MANUAL #c maybe encoding problem
+gene-trnL (UAG) #gd MANUAL #c maybe encoding problem
+tRNA-Leu #gd MANUAL
+trnL(TAA) tRNA #gd MANUAL
+gene-tRNA-Leu(AAG) #gn #c generic ID found in GFF
+gene-tRNA-Leu(CAA) #gn #c generic ID found in GFF
+gene-trnL #gn #c generic ID found in GFF
+gene-trnL1 #gn #c generic ID found in GFF
+gene-trnL1(tag) #gn #c generic ID found in GFF
+gene-trnL2 #gn #c generic ID found in GFF
+gene-trnL2(cca) #gn #c generic ID found in GFF
+gene-trnL(AAG) #gn #c generic ID found in GFF
+gene-trnL(CAA) #gn #c generic ID found in GFF
+gene-trnL(caa) #gn #c generic ID found in GFF
+gene-trnL(CAG) #gn #c generic ID found in GFF
+gene-trnL(CUN) #gn #c generic ID found in GFF
+gene-trnL(gag) #gn #c generic ID found in GFF
+gene-trnL(TAA) #gn #c generic ID found in GFF
+gene-trnL(taa) #gn #c generic ID found in GFF
+gene-trnL(taa)-2 #gn #c generic ID found in GFF
+gene-trnL(tag) #gn #c generic ID found in GFF
+gene-trnL(uaa) #gn #c generic ID found in GFF
+gene-trnL(uag) #gn #c generic ID found in GFF
+gene-trnL(UUR) #gn #c generic ID found in GFF
+gene-trnL-2 #gn #c generic ID found in GFF
+gene-trnL-CAA #gn #c generic ID found in GFF
+gene-trnL-UAA #gn #c generic ID found in GFF
+gene-trnL-uaa #gn #c generic ID found in GFF
+gene-trnL-UAG #gn #c generic ID found in GFF
+gene-trnL-uag #gn #c generic ID found in GFF
+trnL-a-cp #gn #c generic ID found in GFF
+trnL-b #gn #c generic ID found in GFF
+trnL-c-cp #gn #c generic ID found in GFF
+
+[MIT-TM]
+gene-trnM (CAU) #gd MANUAL #c maybe encoding problem
+gene-trnM (CAU)-2 #gd MANUAL #c maybe encoding problem
+tRNA-Met #gd MANUAL
+trnM (CAU) #gd MANUAL
+gene-tRNA-Met #gn #c generic ID found in GFF
+gene-tRNA-Met(CAT) #gn #c generic ID found in GFF
+gene-tRNA-Met(CAT)-2 #gn #c generic ID found in GFF
+gene-tRNA-Met-2 #gn #c generic ID found in GFF
+gene-tRNA-Met-3 #gn #c generic ID found in GFF
+gene-tRNA-Met-4 #gn #c generic ID found in GFF
+gene-trnfM #gn #c generic ID found in GFF
+gene-trnfM(CAU) #gn #c generic ID found in GFF
+gene-trnfM(CAU)-2 #gn #c generic ID found in GFF
+gene-trnfM(CAU)-3 #gn #c generic ID found in GFF
+gene-trnfM-2 #gn #c generic ID found in GFF
+gene-trnfM-CAU #gn #c generic ID found in GFF
+gene-trnM #gn #c generic ID found in GFF
+gene-trnM(CAT) #gn #c generic ID found in GFF
+gene-trnM(cat) #gn #c generic ID found in GFF
+gene-trnM(CAT)-2 #gn #c generic ID found in GFF
+gene-trnM(cat)-2 #gn #c generic ID found in GFF
+gene-trnM(cat)-3 #gn #c generic ID found in GFF
+gene-trnM(cau) #gn #c generic ID found in GFF
+gene-trnM(CAU) #gn #c generic ID found in GFF
+gene-trnM(cau)-2 #gn #c generic ID found in GFF
+gene-trnM(CAU)-2 #gn #c generic ID found in GFF
+gene-trnM(cau)-3 #gn #c generic ID found in GFF
+gene-trnM-2 #gn #c generic ID found in GFF
+gene-trnM-3 #gn #c generic ID found in GFF
+gene-trnM-4 #gn #c generic ID found in GFF
+gene-trnM-5 #gn #c generic ID found in GFF
+gene-trnM-CAT #gn #c generic ID found in GFF
+gene-trnM-CAT-2 #gn #c generic ID found in GFF
+gene-trnM-CAT-3 #gn #c generic ID found in GFF
+gene-trnM-CAT-4 #gn #c generic ID found in GFF
+gene-trnM-cau #gn #c generic ID found in GFF
+gene-trnM-CAU #gn #c generic ID found in GFF
+gene-trnM-CAU-2 #gn #c generic ID found in GFF
+gene-trnM-CAU-3 #gn #c generic ID found in GFF
+gene-trnM-CAU-4 #gn #c generic ID found in GFF
+gene-trnM-CAU-5 #gn #c generic ID found in GFF
+gene-trnM-CAU-6 #gn #c generic ID found in GFF
+gene-trnM-CAU-7 #gn #c generic ID found in GFF
+gene-trnM-cp #gn #c generic ID found in GFF
+gene-trnMe(cau) #gn #c generic ID found in GFF
+gene-trnMf(cau) #gn #c generic ID found in GFF
+trnfM(CAU) #gn #c generic ID found in GFF
+trnM(CAT) #gn #c generic ID found in GFF
+trnM(CAU) #gn #c generic ID found in GFF
+trnM-CAU #gn #c generic ID found in GFF
+trnM-CAU-cp #gn #c generic ID found in GFF
+
+[MIT-TN]
+gene-trnN (GUU) #gd MANUAL #c maybe encoding problem
+tRNA-Asn #gd MANUAL
+trnN (GUU) #gd MANUAL
+trnN tRNA #gd MANUAL
+trnN(GTT) tRNA #gd MANUAL
+gene-tRNA-Asn #gn #c generic ID found in GFF
+gene-tRNA-Asn(GTT) #gn #c generic ID found in GFF
+gene-tRNA-Asn-2 #gn #c generic ID found in GFF
+gene-trnN #gn #c generic ID found in GFF
+gene-trnN(GTT) #gn #c generic ID found in GFF
+gene-trnN(gtt) #gn #c generic ID found in GFF
+gene-trnN(guu) #gn #c generic ID found in GFF
+gene-trnN(GUU) #gn #c generic ID found in GFF
+gene-trnN(GUU)-2 #gn #c generic ID found in GFF
+gene-trnN-2 #gn #c generic ID found in GFF
+gene-trnN-cp #gn #c generic ID found in GFF
+gene-trnN-GTT #gn #c generic ID found in GFF
+gene-trnN-GUU #gn #c generic ID found in GFF
+gene-trnN-GUU-2 #gn #c generic ID found in GFF
+gene-trnN-GUU-cp #gn #c generic ID found in GFF
+trnN(GUU) #gn #c generic ID found in GFF
+trnN-GUU #gn #c generic ID found in GFF
+
+[MIT-TP]
+gene-trnP (tgg) #gd MANUAL #c maybe encoding problem
+gene-trnP (UGG) #gd MANUAL #c maybe encoding problem
+tRNA-Pro #gd MANUAL
+trnP (UGG) #gd MANUAL
+trnP tRNA #gd MANUAL
+trnP(TGG) tRNA #gd MANUAL
+gene-tRNA-Pro #gn #c generic ID found in GFF
+gene-tRNA-Pro(AGG) #gn #c generic ID found in GFF
+gene-tRNA-Pro-2 #gn #c generic ID found in GFF
+gene-trnP #gn #c generic ID found in GFF
+gene-trnP(AGG) #gn #c generic ID found in GFF
+gene-trnP(tgg) #gn #c generic ID found in GFF
+gene-trnP(ugg) #gn #c generic ID found in GFF
+gene-trnP(UGG) #gn #c generic ID found in GFF
+gene-trnP-2 #gn #c generic ID found in GFF
+gene-trnP-3 #gn #c generic ID found in GFF
+gene-trnP-CGG #gn #c generic ID found in GFF
+gene-trnP-TGG #gn #c generic ID found in GFF
+gene-trnP-TGG-2 #gn #c generic ID found in GFF
+gene-trnP-UGG #gn #c generic ID found in GFF
+gene-trnP-UGG-2 #gn #c generic ID found in GFF
+trnP-UGG #gn #c generic ID found in GFF
+
+[MIT-TQ]
+gene-trnQ (UUG) #gd MANUAL #c maybe encoding problem
+tRNA-Gln #gd MANUAL
+trnQ (UUG) #gd MANUAL
+gene-tRNA-Gln #gn #c generic ID found in GFF
+gene-tRNA-Gln(TTG) #gn #c generic ID found in GFF
+gene-tRNA-Gln-2 #gn #c generic ID found in GFF
+gene-trnQ #gn #c generic ID found in GFF
+gene-trnQ(TTG) #gn #c generic ID found in GFF
+gene-trnQ(ttg) #gn #c generic ID found in GFF
+gene-trnQ(uug) #gn #c generic ID found in GFF
+gene-trnQ(UUG) #gn #c generic ID found in GFF
+gene-trnQ-2 #gn #c generic ID found in GFF
+gene-trnQ-3 #gn #c generic ID found in GFF
+gene-trnQ-4 #gn #c generic ID found in GFF
+gene-trnQ-TTG #gn #c generic ID found in GFF
+gene-trnQ-UUG #gn #c generic ID found in GFF
+gene-trnQ-UUG-2 #gn #c generic ID found in GFF
+trnQ-UUG #gn #c generic ID found in GFF
+
+[MIT-TR]
+gene-trnR (ACG) #gd MANUAL #c maybe encoding problem
+tRNA-Arg #gd MANUAL
+gene-tRNA-Arg(ACG) #gn #c generic ID found in GFF
+gene-trnR #gn #c generic ID found in GFF
+gene-trnR1 #gn #c generic ID found in GFF
+gene-trnR2 #gn #c generic ID found in GFF
+gene-trnR(ACG) #gn #c generic ID found in GFF
+gene-trnR(acg) #gn #c generic ID found in GFF
+gene-trnR(gcg) #gn #c generic ID found in GFF
+gene-trnR(tct) #gn #c generic ID found in GFF
+gene-trnR(ucg) #gn #c generic ID found in GFF
+gene-trnR(ucu) #gn #c generic ID found in GFF
+gene-trnR-ACG #gn #c generic ID found in GFF
+gene-trnR-GCG #gn #c generic ID found in GFF
+gene-trnR-TCT #gn #c generic ID found in GFF
+gene-trnR-UCG #gn #c generic ID found in GFF
+gene-trnR-UCU #gn #c generic ID found in GFF
+gene-trnR-ucu #gn #c generic ID found in GFF
+trnR-b-cp #gn #c generic ID found in GFF
+
+[MIT-TRMB]
+trmB #gd MANUAL
+tRNA (guanine-N(7)-)-methyltransferase #gd NCBI
+
+[MIT-TS1|2]
+gene-trnS (GCU) #gd MANUAL #c maybe encoding problem
+gene-trnS (GGA) #gd MANUAL #c maybe encoding problem
+tRNA-Ser #gd MANUAL
+trnS2 tRNA #gd MANUAL
+trnS (GCU) #gd MANUAL
+trnS (GGA) #gd MANUAL
+trnS (UGU) #gd MANUAL
+trnS tRNA #gd MANUAL
+trnS(TGA) tRNA #gd MANUAL
+trnS(UCN) tRNA #gd MANUAL
+gene-tRNA-Ser #gn #c generic ID found in GFF
+gene-tRNA-Ser(GCT) #gn #c generic ID found in GFF
+gene-tRNA-Ser(GGA) #gn #c generic ID found in GFF
+gene-tRNA-Ser-2 #gn #c generic ID found in GFF
+gene-trnS #gn #c generic ID found in GFF
+gene-trnS1 #gn #c generic ID found in GFF
+gene-trnS1(gct) #gn #c generic ID found in GFF
+gene-trnS2 #gn #c generic ID found in GFF
+gene-trnS2(gga) #gn #c generic ID found in GFF
+gene-trnS(aga) #gn #c generic ID found in GFF
+gene-trnS(AGY) #gn #c generic ID found in GFF
+gene-trnS(GCT) #gn #c generic ID found in GFF
+gene-trnS(gct) #gn #c generic ID found in GFF
+gene-trnS(gcu) #gn #c generic ID found in GFF
+gene-trnS(GCU) #gn #c generic ID found in GFF
+gene-trnS(GGA) #gn #c generic ID found in GFF
+gene-trnS(tct) #gn #c generic ID found in GFF
+gene-trnS(tct)-2 #gn #c generic ID found in GFF
+gene-trnS(tga) #gn #c generic ID found in GFF
+gene-trnS(UCN) #gn #c generic ID found in GFF
+gene-trnS(uga) #gn #c generic ID found in GFF
+gene-trnS-2 #gn #c generic ID found in GFF
+gene-trnS-3 #gn #c generic ID found in GFF
+gene-trnS-GCT #gn #c generic ID found in GFF
+gene-trnS-GCU #gn #c generic ID found in GFF
+gene-trnS-GGA #gn #c generic ID found in GFF
+gene-trnS-GGA-2 #gn #c generic ID found in GFF
+gene-trnS-GGA-cp #gn #c generic ID found in GFF
+gene-trnS-TGA #gn #c generic ID found in GFF
+gene-trnS-uga #gn #c generic ID found in GFF
+gene-trnS-UGA #gn #c generic ID found in GFF
+gene-trnS-UGA-2 #gn #c generic ID found in GFF
+trnS(GGA) #gn #c generic ID found in GFF
+trnS-GCU #gn #c generic ID found in GFF
+trnS-GGA #gn #c generic ID found in GFF
+trnS-UGA #gn #c generic ID found in GFF
+
+[MIT-TT]
+tRNA-Thr #gd MANUAL
+trnT tRNA #gd MANUAL
+trnT(TGT )tRNA #gd MANUAL
+trnT(TGT) tRNA #gd MANUAL
+gene-trnT #gn #c generic ID found in GFF
+gene-trnT(ggu) #gn #c generic ID found in GFF
+gene-trnT(tgt) #gn #c generic ID found in GFF
+gene-trnT(UGU) #gn #c generic ID found in GFF
+gene-trnT(ugu) #gn #c generic ID found in GFF
+gene-trnT-GGU #gn #c generic ID found in GFF
+gene-trnT-UGU #gn #c generic ID found in GFF
+
+[MIT-TV]
+gene-trnV (UAC) #gd MANUAL #c maybe encoding problem
+tRNA-Val #gd MANUAL
+trnV tRNA #gd MANUAL
+gene-tRNA-Val(TAC) #gn #c generic ID found in GFF
+gene-trnV #gn #c generic ID found in GFF
+gene-trnV(GAC) #gn #c generic ID found in GFF
+gene-trnV(TAC) #gn #c generic ID found in GFF
+gene-trnV(tac) #gn #c generic ID found in GFF
+gene-trnV(uac) #gn #c generic ID found in GFF
+gene-trnV-GAC #gn #c generic ID found in GFF
+gene-trnV-uac #gn #c generic ID found in GFF
+gene-trnV-UAC #gn #c generic ID found in GFF
+trnV(GAC) #gn #c generic ID found in GFF
+trnV-GAC #gn #c generic ID found in GFF
+
+[MIT-TW]
+gene-trnW (CCA) #gd MANUAL #c maybe encoding problem
+tRNA-Trp #gd MANUAL
+trnW (CCA) #gd MANUAL
+trnW tRNA #gd MANUAL
+trnW(TCA) tRNA #gd MANUAL
+gene-tRNA-Trp #gn #c generic ID found in GFF
+gene-tRNA-Trp(CCA) #gn #c generic ID found in GFF
+gene-trnW #gn #c generic ID found in GFF
+gene-trnW(cca) #gn #c generic ID found in GFF
+gene-trnW(CCA) #gn #c generic ID found in GFF
+gene-trnW(tca) #gn #c generic ID found in GFF
+gene-trnW(uca) #gn #c generic ID found in GFF
+gene-trnW-2 #gn #c generic ID found in GFF
+gene-trnW-CCA #gn #c generic ID found in GFF
+gene-trnW-cp #gn #c generic ID found in GFF
+trnW(CCA) #gn #c generic ID found in GFF
+trnW-CCA #gn #c generic ID found in GFF
+trnW-CCA-cp #gn #c generic ID found in GFF
+
+[MIT-TY]
+gene-trnY (GUA) #gd MANUAL #c maybe encoding problem
+tRNA-Tyr #gd MANUAL
+trnY (GTA) #gd MANUAL
+trnY tRNA #gd MANUAL
+trnY(GTA) tRNA #gd MANUAL
+gene-tRNA-Tyr #gn #c generic ID found in GFF
+gene-tRNA-Tyr(GTA) #gn #c generic ID found in GFF
+gene-trnY #gn #c generic ID found in GFF
+gene-trnY(GTA) #gn #c generic ID found in GFF
+gene-trnY(gta) #gn #c generic ID found in GFF
+gene-trnY(gua) #gn #c generic ID found in GFF
+gene-trnY(GUA) #gn #c generic ID found in GFF
+gene-trnY(GUA)-2 #gn #c generic ID found in GFF
+gene-trnY-GTA #gn #c generic ID found in GFF
+gene-trnY-gua #gn #c generic ID found in GFF
+gene-trnY-GUA #gn #c generic ID found in GFF
+gene-trnY-GUA-2 #gn #c generic ID found in GFF
+trnY-GUA #gn #c generic ID found in GFF
+
+[MIT-URED]
+urease accessory protein #gd NCBI
+ureD #gd MANUAL
+
+[MIT-VPS55]
+vacuolar protein sorting-associated protein 55 #gd NCBI
+vps55 #gd MANUAL
+
+[MIT-XSEB]
+exodeoxyribonuclease 7 small subunit #gd NCBI
+xseB #gd MANUAL
+
+[MIT-YEJU]
+cytochrome c1 ABC transporter channel subunit #gd NCBI
+cytochrome c1 ABC transporter subunit #gd NCBI
+yejU #gd MANUAL
+yejV #gd MANUAL
+
+[MIT-YMF16]
+tatC-like protein #gd NCBI
+tatC-like protein ymf16 #gd NCBI
+ymf16 #gd MANUAL
+Ymf16 #gd NCBI
+
+[MIT-YMF19]
+ATP synthase protein #gd NCBI
+ATP synthase protein YMF19 #gd NCBI
+ymf19 #gd MANUAL
+
+[MIT-YMF39]
+ymf39 #gd MANUAL
+Ymf39_1 #gd NCBI
+Ymf39_2 #gd NCBI

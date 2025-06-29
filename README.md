@@ -1,5 +1,5 @@
 <div align="center">
-  <img src="img/GDT_logo.png" width="50%">
+  <img src="https://github.com/brenodupin/gdt/blob/master/img/GDT_logo.png" width="50%">
 
 $${\color{#E0AF68}{\LARGE\textsf{🧬 Standardizing gene names across organelle genomes 🧬}}}$$  
 <br>

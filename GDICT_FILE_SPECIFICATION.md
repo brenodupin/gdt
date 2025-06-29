@@ -57,7 +57,7 @@ GDICT files are organized into labeled sections, where each label represents a g
 [<LABEL>]
 ```
 
-The `LABEL` should be a unique identifier for the genome feature. We do recommend using a consistent naming convention, with a prefix, as shown in the example below. Read more about it in [Label Naming Convention](#label-naming-convention).
+The `LABEL` should be a unique identifier for the genome feature. We do recommend using a consistent naming convention, with a prefix, as shown in the example below. Read more about it in [Label Naming Conventions](#label-naming-conventions).
 
 ### Data Entries
 
@@ -230,23 +230,31 @@ GDICT files should use the `.gdict` file extension.
 
 ## Label Naming Conventions
 
-The official HGNC ([HUGO Gene Nomenclature Committee](https://www.genenames.org/)) nomenclature for human mitochondrial genes was adopted as a base for our convention. We have changed the HGNC convention `MT-<acronym>` to `MIT-<acronym`, so we could account for more cytoplasmic compartments as in:
- - `MIT-` for mitochondria;
- - `KNP–` for kinetoplast;
- - `PLT-` for plastid;
- - `NUC-` for nucleus;
- - `API-` for apicoplast;
- - `NMP-` for nucleomorph.
+> [!NOTE]  
+> Even though our naming conventions were created for internal use, we aimed to create a system to facilitate the large-adoption of GDT and the standardization of (organelle) gene names. The proposed label naming conventions are not mandatory when using GDT, but are highly recommended. The user have total autonomy to change/adapt the labels, as the user sees fit.
 
-For optimized consistency, the HGNC-approved symbols for the human mitochondrial genes were kept as original. The other symbols (in our case named as 'labels') were created based on the most common name variation for the given gene. For instance, 
-``` 
-[MT-CCMF]
-cytochrome c-type biogenesis protein CcmF #gd NCBI
-ccmf #gd NCBI
-```
- 
-Although we did not stipulate a character number limit, we have always tried to keep labels as concise as possible (without compromising the label's discriminatory power).
+The official HGNC ([HUGO Gene Nomenclature Committee](https://www.genenames.org/)) nomenclature for human mitochondrial genes was adopted as a base for our convention. But to achieve a balance between consistency, interoperability, and scope, we have made some changes:
 
+- All labels follow the format `<prefix>-<symbol>`, where `<prefix>` is a three-letter code representing the genetic compartment, and `<symbol>` is the gene name or identifier.
+
+- We have changed the HGNC `MT` prefix to `MIT`, so the labels could account for more cytoplasmic compartments as in:
+ - `MIT` for mitochondria;
+ - `KNP` for kinetoplast;
+ - `PLT` for plastid;
+ - `NUC` for nucleus;
+ - `API` for apicoplast;
+ - `NMP` for nucleomorph.
+
+- We kept the HGNC-approved symbols (but with the changed prefix) for the human mitochondrial protein-coding and tRNA genes.
+
+- The HGNC symbols for rRNA genes (`MT-RNR1` for the 12S rRNA and `MT-RNR2` for the 16S rRNA) were changed to `<prefix>-RNRS` and `<prefix>-RNRL`, respectively.
+
+- For all other genes, we kept the gene labels as close as possible to the gene name (or any piece of identifying information) found in the respective genome annotation. That means that, for most times, we did not lump overlapping naming conventions (e.g., ATPA with ATP1).
+
+- **When** the rRNA gene annotation had information on the rRNA sedimentation coefficient other than 12S and 16s (e.g., 18S, 21S, etc), we labeled it as `<prefix>-RNR##`, wherein ## refers to the respective sedimentation coefficient found in the annotation (e.g., `MT-RNR18` for the 18S rRNA gene).
+
+- Feel free to adapt the labels to your needs, by combining, renaming, removing, or adding new labels.
+  
 ## Complete GDCIT Example File
 
 ```

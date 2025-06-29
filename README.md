@@ -87,8 +87,10 @@ gene-identifier #dx SOURCE:GeneID
 - **`#dx`** - Database cross-references with GeneIDs
 
 #### Label Convention
-TODO: update gene label conventions
-Uses organelle prefixes: `MIT-` (mitochondria), `PLT-` (plastid), `NUC-` (nucleus), or whatever you like. There's a Label Naming Convention in the complete specification page.
+
+We propose a label naming convention that is based on the human mitochondrial gene nomenclature, but adapted to accommodate other organelles and genetic compartments. The labels are structured as `<prefix>-<symbol>`, where `<prefix>` is a three-letter code representing the genetic compartment, and `<symbol>` is the gene name or identifier.
+
+**The GDT library will not enforce any label naming convention** (even our own!), helping you rename and remove labels with the `gdt.GeneDict.rename_labels()` and `gdt.GeneDict.remove_labels()` methods, respectively.
 
 #### Complete Specification
 You can read more about it at the [Full specification](https://github.com/brenodupin/gdt/blob/master/GDICT_FILE_SPECIFICATION.md)

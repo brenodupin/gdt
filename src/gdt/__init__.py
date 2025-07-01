@@ -23,6 +23,7 @@ from .gff3_utils import (
     GFF3_COLUMNS,
     QS_GENE,
     QS_GENE_TRNA_RRNA,
+    GFFPathBuilder,
     check_gff_in_tsv,
     check_single_an,
     filter_orfs,

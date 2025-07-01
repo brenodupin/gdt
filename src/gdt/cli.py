@@ -46,7 +46,7 @@ def filter_command(
     log.debug(
         f"filter command: tsv: {args.tsv} | gdict: {args.gdict} | "
         f"keep_orfs: {args.keep_orfs} | workers: {args.workers} | "
-        f"AN_column: {args.AN_column} | gff_suffix: {args.gff_suffix} | "
+        f"AN_column: {args.AN_column} | gff_ext: {args.gff_ext} | "
         f"query_string: {args.query_string}"
     )
     gff3_utils.filter_whole_tsv(
@@ -56,7 +56,7 @@ def filter_command(
         args.keep_orfs,
         args.workers,
         args.AN_column,
-        args.gff_suffix,
+        args.gff_ext,
         args.query_string,
         args.check,
     )
@@ -113,7 +113,7 @@ def standardize_command(
     log.info(
         f"standardize command: gff: {args.gff} | tsv: {args.tsv} | "
         f"gdict: {args.gdict} | AN_column: {args.AN_column} | "
-        f"gff_suffix: {args.gff_suffix} | query_string: {args.query_string} | "
+        f"gff_ext: {args.gff_ext} | query_string: {args.query_string} | "
         f"check: {args.check} | second_place: {args.second_place} | "
         f"gdt_tag: {args.gdt_tag} | error_on_missing: {args.error_on_missing} | "
         f"save_copy: {args.save_copy}"
@@ -152,7 +152,7 @@ def standardize_command(
             args.tsv,
             args.gdict,
             args.AN_column,
-            args.gff_suffix,
+            args.gff_ext,
             args.query_string,
             args.check,
             args.second_place,
@@ -253,11 +253,11 @@ def cli_run() -> None:
         f"Default: 0 (use all available cores: {os.cpu_count()})",
     )
     filter_parser.add_argument(
-        "--gff-suffix",
+        "--gff-ext",
         required=False,
         default=".gff3",
         type=str,
-        help="Suffix for GFF files. Default: '.gff3'",
+        help="File Extension for GFF files. Default: '.gff3'",
     )
     filter_parser.add_argument(
         "--query-string",
@@ -347,11 +347,11 @@ def cli_run() -> None:
         help="Column name for NCBI Accession Number inside the TSV. Default: AN",
     )
     standardize_parser.add_argument(
-        "--gff-suffix",
+        "--gff-ext",
         required=False,
         default=".gff3",
         type=str,
-        help="Suffix for GFF files. Default: '.gff3'",
+        help="File Extension for GFF files. Default: '.gff3'",
     )
     standardize_parser.add_argument(
         "--query-string",

@@ -257,6 +257,8 @@ def filter_whole_tsv(
     workers: int = 0,
     an_column: str = "AN",
     gff_ext: str = ".gff3",
+    gff_suffix: str = "",
+    in_folder: bool = False,
     query_string: str = QS_GENE_TRNA_RRNA,
     check_flag: bool = False,
 ) -> None:
@@ -273,6 +275,12 @@ def filter_whole_tsv(
         an_column (str): Column name containing accession numbers in the TSV file.
                          Default is "AN".
         gff_ext (str): File Extension for GFF3 files. Default is ".gff3".
+        gff_suffix (str): Suffix to be added when building GFF Paths from the TSV file.
+                         Example: "_clean" will create GFF paths like "<AN>_clean.gff3"
+                          if --gff-ext is ".gff3".
+        in_folder (bool): If True, GFF3 files are expected to be stored in subfolders
+                          named after the accession number. Default is False
+                          (expect GFF files to be in the same folder as the TSV file)
         query_string (str): Query string to filter GFF3 files.
                             Default is QS_GENE_TRNA_RRNA.
         check_flag (bool): If True, do not save changes any files.
@@ -292,7 +300,7 @@ def filter_whole_tsv(
         raise FileNotFoundError(f"tsv file not found: {tsv_path}")
 
     base_folder = tsv_path.parent
-    gff_builder = GFFPathBuilder(base_folder, ext=gff_ext)
+    gff_builder = GFFPathBuilder(base_folder, gff_suffix, gff_ext, in_folder)
     tsv = pd.read_csv(tsv_path, sep="\t")
     check_gff_in_tsv(log, tsv, gff_builder, an_column)
 
@@ -411,7 +419,9 @@ def standardize_tsv(
     tsv_path: Path,
     gdict_path: Path,
     an_colum: str,
+    gff_ext: str,
     gff_suffix: str,
+    in_folder: bool,
     query_string: str,
     check_flag: bool,
     second_place: bool,
@@ -426,7 +436,13 @@ def standardize_tsv(
         tsv_path (Path): Path to the TSV file containing accession numbers.
         gdict_path (Path): Path to the GDICT file.
         an_colum (str): Column name containing accession numbers in the TSV file.
-        gff_suffix (str): Suffix for GFF3 files.
+        gff_ext (str): File Extension for GFF3 files. Default is ".gff3".
+        gff_suffix (str): Suffix to be added when building GFF Paths from the TSV file.
+                          Example: "_clean" will create GFF paths like "<AN>_clean.gff3"
+                          if --gff-ext is ".gff3".
+        in_folder (bool): If True, GFF3 files are expected to be stored in subfolders
+                          named after the accession number. Default is False
+                          (expect GFF files to be in the same folder as the TSV file)
         query_string (str): Query string to filter GFF3 files.
         check_flag (bool): If True, do not save changes to GFF3 files.
         second_place (bool): If True, add gdt_tag to the second place in attributes gff.
@@ -448,7 +464,7 @@ def standardize_tsv(
     log.debug(f"Gene dictionary loaded from {gdict_path}")
 
     tsv = pd.read_csv(tsv_path, sep="\t")
-    gff_builder = GFFPathBuilder(tsv_path.parent, ext=gff_suffix)
+    gff_builder = GFFPathBuilder(tsv_path.parent, gff_suffix, gff_ext, in_folder)
     check_gff_in_tsv(log, tsv, gff_builder, an_colum)
 
     for an in tsv[an_colum]:

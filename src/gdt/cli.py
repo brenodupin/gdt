@@ -57,6 +57,8 @@ def filter_command(
         args.workers,
         args.AN_column,
         args.gff_ext,
+        args.gff_suffix,
+        args.in_folder,
         args.query_string,
         args.check,
     )
@@ -153,6 +155,8 @@ def standardize_command(
             args.gdict,
             args.AN_column,
             args.gff_ext,
+            args.gff_suffix,
+            args.in_folder,
             args.query_string,
             args.check,
             args.second_place,
@@ -260,6 +264,24 @@ def cli_run() -> None:
         help="File Extension for GFF files. Default: '.gff3'",
     )
     filter_parser.add_argument(
+        "--gff-suffix",
+        required=False,
+        default="",
+        type=str,
+        help="Suffix to be added when building GFF Paths from the TSV file. "
+        "Example: '_clean' will create GFF paths like '<AN>_clean.gff3' if "
+        "--gff-ext is '.gff3'. ",
+    )
+    filter_parser.add_argument(
+        "--in-folder",
+        required=False,
+        default=False,
+        action="store_true",
+        help="Expect GFF3 files to be stored in subfolders named after the accession"
+        "number, e.g., 'AN1234567/AN1234567.gff3'. Default: False"
+        "(expect GFF files to be in the same folder as the TSV file).",
+    )
+    filter_parser.add_argument(
         "--query-string",
         required=False,
         default=gff3_utils.QS_GENE_TRNA_RRNA,
@@ -352,6 +374,24 @@ def cli_run() -> None:
         default=".gff3",
         type=str,
         help="File Extension for GFF files. Default: '.gff3'",
+    )
+    standardize_parser.add_argument(
+        "--gff-suffix",
+        required=False,
+        default="",
+        type=str,
+        help="Suffix to be added when building GFF Paths from the TSV file. "
+        "Example: '_clean' will create GFF paths like '<AN>_clean.gff3' if "
+        "--gff-ext is '.gff3'. ",
+    )
+    standardize_parser.add_argument(
+        "--in-folder",
+        required=False,
+        default=False,
+        action="store_true",
+        help="Expect GFF3 files to be stored in subfolders named after the accession"
+        "number, e.g., 'AN1234567/AN1234567.gff3'. Default: False"
+        "(expect GFF files to be in the same folder as the TSV file).",
     )
     standardize_parser.add_argument(
         "--query-string",

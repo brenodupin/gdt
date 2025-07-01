@@ -12,8 +12,9 @@ import concurrent.futures
 import os
 import re
 import shutil
+from dataclasses import dataclass
 from pathlib import Path
-from typing import Final, Optional, Union, cast
+from typing import Optional, Union, cast
 
 import pandas as pd
 
@@ -35,6 +36,46 @@ QS_GENE_TRNA_RRNA = "type in ('gene', 'tRNA', 'rRNA')"
 
 _RE_ID = re.compile(r"ID=([^;]+)")
 _RE_dbxref_GeneID = re.compile(r"Dbxref=.*GeneID:")
+
+
+@dataclass
+class GFFPathBuilder:
+    """Class to build GFF3 file paths based on accession numbers.
+
+    Attributes:
+        base (Path): Base directory where GFF3 files are stored.
+        suffix (str): Suffix to append to the filename.
+        ext (str): File extension for GFF3 files.
+        in_folder (bool): If True, the GFF3 files are expected to be stored in
+                          subfolders named after the accession number.
+
+    """
+
+    base: Path
+    suffix: str = ""
+    ext: str = ".gff3"
+    in_folder: bool = False
+
+    def __post_init__(self) -> None:
+        """Resolve the base path to an absolute path."""
+        self.base = self.base.resolve()
+
+    def __call__(self, an: str) -> Path:
+        """Build the GFF3 file path for a given accession number.
+
+        This method constructs the path to the GFF3 file based on attributes
+        of the builder. If `in_folder` is True, it expects the GFF3 files to
+        be stored in subfolders named after the accession number.
+
+        Args:
+            an (str): Accession number.
+
+        Returns:
+            Path: Path to the GFF3 file.
+
+        """
+        filename = f"{an}{self.suffix}{self.ext}"
+        return self.base / an / filename if self.in_folder else self.base / filename
 
 
 def load_gff3(
@@ -102,6 +143,7 @@ def filter_orfs(
 
 
 def check_single_an(
+    an: str,
     an_path: Path,
     gene_dict: gdict.GeneDict,
     keep_orfs: bool = False,
@@ -110,6 +152,7 @@ def check_single_an(
     """Check a single GFF3 file for gene information and dbxref.
 
     Args:
+        an (str): Accession number to check.
         an_path (Path): Path to the GFF3 file.
         gene_dict (GeneDict): Gene dictionary to check against.
         keep_orfs (bool): Whether to keep ORFs in the DataFrame.
@@ -120,7 +163,6 @@ def check_single_an(
 
     """
     try:
-        an: str = an_path.stem
         df = load_gff3(an_path, query_string=query_string)
 
         if not keep_orfs:  # removing ORFs
@@ -177,8 +219,7 @@ def _check_column(
 def check_gff_in_tsv(
     log: log_setup.GDTLogger,
     df: pd.DataFrame,
-    base_path: Path,
-    gff_suffix: str = ".gff3",
+    path_builder: GFFPathBuilder,
     an_column: str = "AN",
 ) -> None:
     """Check if GFF3 files exist for each accession number in the DataFrame.
@@ -187,19 +228,17 @@ def check_gff_in_tsv(
         log (GDTLogger): Logger instance for logging messages.
         df (pd.DataFrame): DataFrame containing accession numbers.
         base_path (Path): Base path where GFF3 files are expected to be found.
-        gff_suffix (str): Suffix for GFF3 files. Default is ".gff3".
+        path_builder (GFFBuilder): Function to build GFF file paths.
         an_column (str): Column name containing accession numbers. Default is "AN".
 
     """
-    log.trace(
-        f"check_gff_in_tsv called | base_path: {base_path} | gff_suffix: {gff_suffix}"
-    )
+    log.trace(f"check_gff_in_tsv called | {path_builder}")
     _check_column(log, df, an_column, "TSV")
 
     no_files = [
-        (an, AN_path)
+        (an, an_path)
         for an in df[an_column]
-        if not (AN_path := (base_path / f"{an}{gff_suffix}")).is_file()
+        if not (an_path := path_builder(an)).is_file()
     ]
 
     if no_files:
@@ -217,7 +256,7 @@ def filter_whole_tsv(
     keep_orfs: bool = False,
     workers: int = 0,
     an_column: str = "AN",
-    gff_suffix: str = ".gff3",
+    gff_ext: str = ".gff3",
     query_string: str = QS_GENE_TRNA_RRNA,
     check_flag: bool = False,
 ) -> None:
@@ -233,12 +272,11 @@ def filter_whole_tsv(
                        Default is 0, meaing max cpu cores.
         an_column (str): Column name containing accession numbers in the TSV file.
                          Default is "AN".
-        gff_suffix (str): Suffix for GFF3 files. Default is ".gff3".
+        gff_ext (str): File Extension for GFF3 files. Default is ".gff3".
         query_string (str): Query string to filter GFF3 files.
                             Default is QS_GENE_TRNA_RRNA.
         check_flag (bool): If True, do not save changes any files.
                            Default is False.
-
 
     """
     max_workers = os.cpu_count() or 1
@@ -253,13 +291,13 @@ def filter_whole_tsv(
         log.error(f"tsv file not found: {tsv_path}")
         raise FileNotFoundError(f"tsv file not found: {tsv_path}")
 
-    base_folder: Final[Path] = tsv_path.parent
+    base_folder = tsv_path.parent
+    gff_builder = GFFPathBuilder(base_folder, ext=gff_ext)
     tsv = pd.read_csv(tsv_path, sep="\t")
-    _check_column(log, tsv, an_column)
-    check_gff_in_tsv(log, tsv, base_folder, gff_suffix, an_column)
+    check_gff_in_tsv(log, tsv, gff_builder, an_column)
 
-    MISC_DIR: Final[Path] = base_folder / "misc"  # noqa: N806
-    GDT_DIR: Final[Path] = MISC_DIR / "gdt"  # noqa: N806
+    MISC_DIR = base_folder / "misc"  # noqa: N806
+    GDT_DIR = MISC_DIR / "gdt"  # noqa: N806
     GDT_DIR.mkdir(511, True, True)  # 511 = 0o777
 
     # check if tsv_path exists, if not, create empty gene_dict
@@ -288,7 +326,8 @@ def filter_whole_tsv(
         futures = [
             executor.submit(
                 check_single_an,
-                base_folder / f"{an}{gff_suffix}",
+                an,
+                gff_builder(an),
                 gene_dict,
                 keep_orfs,
                 query_string,
@@ -303,7 +342,7 @@ def filter_whole_tsv(
             log.error(f"Error processing {result['AN']}: {result['error']}")
             continue
 
-        an: str = cast(str, result["AN"])
+        an: str = cast(str, result["AN"])  # TODO, how can i remove this cast?
         log.trace(f"-- [Processing: {an}] --")
         log.trace(
             f"\tgenes: {result['gene_count']} | have dbxref: {result['dbxref_count']} |"
@@ -409,14 +448,13 @@ def standardize_tsv(
     log.debug(f"Gene dictionary loaded from {gdict_path}")
 
     tsv = pd.read_csv(tsv_path, sep="\t")
-    _check_column(log, tsv, an_colum)
-    check_gff_in_tsv(log, tsv, tsv_path.parent, gff_suffix, an_colum)
+    gff_builder = GFFPathBuilder(tsv_path.parent, ext=gff_suffix)
+    check_gff_in_tsv(log, tsv, gff_builder, an_colum)
 
     for an in tsv[an_colum]:
-        gff_path = tsv_path.parent / f"{an}{gff_suffix}"
         standardize_gff3(
             log,
-            gff_path,
+            gff_builder(an),
             gene_dict,
             query_string,
             check_flag,

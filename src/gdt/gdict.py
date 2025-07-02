@@ -399,7 +399,71 @@ class GeneDict(UserDict[str, GeneUnion]):
             lazy_info=lazy_info,
         )
 
-    def __str__(self) -> str:
+    def merge_gdict(
+        self,
+        other: "GeneDict",
+        lazy_info: bool = True,
+    ) -> "GeneDict":
+        """Merge another GeneDict into this one.
+
+        This method combines the entries from another GeneDict into this one,
+        preserving the existing entries and adding new ones. If there are
+        conflicting keys, they will be handle on a each case basis, with the
+
+        Args:
+            other (GeneDict): The other GeneDict to merge into this one.
+            lazy_info (bool): If False, `update_info` will be called on the merged
+                              GeneDict. Default is True, meaning the info will not
+                              be updated until `update_info` is called.
+
+        Returns:
+            GeneDict: A new GeneDict instance with merged data and an updated header.
+
+        """
+        merged_data = self.data.copy()
+        error = []
+
+        for key, new in other.data.items():
+            if key not in merged_data:
+                merged_data[key] = replace(new)
+                continue
+
+            old = merged_data[key]
+
+            if type(old) is type(new):
+                result = _solve_conflict(old, new, type(new))
+
+                if result:
+                    merged_data[key] = result
+                else:
+                    error.append(f"same type '{key}': '{old}' vs '{new}'")
+
+            else:
+                error.append(f"diff type '{key}': '{old}' vs '{new}'")
+
+        if error:
+            print("[ERROR] Merging GeneDicts resulted in conflicts: ")
+            for err in error:
+                print(f"  - {err}")
+            raise ValueError(
+                "Merging GeneDicts resulted in conflicts. "
+                "Check the error messages for details."
+            )
+
+        header = self.header.copy()
+        header.append(
+            f"{time_now()} - Merged with another GDICT, added {len(other.data)} entries"
+        )
+        # Since merged_data came from an already existing GeneDict (self),
+        # we can optimize the creation of the new GeneDict
+        return self._from_data(
+            merged_data,
+            version=self.version,
+            header=header,
+            lazy_info=lazy_info,
+        )
+
+    def __repr__(self) -> str:
         """Return a string representation of the GeneDict."""
         if self.info.labels == 0:
             self.update_info()
@@ -593,3 +657,64 @@ def create_empty_gdict(
     with open(gdict_file, "w") as f:
         f.write(f"#! version {__gdict_version__}\n")
         f.write(f"#! {time_now()} - {default_text}\n")
+
+
+def _solve_conflict(
+    old: GeneUnion,
+    new: GeneUnion,
+    type_: type[GeneUnion],
+) -> Optional[GeneUnion]:
+    """Solve conflicts between two GeneUnion entries of the same type."""
+    match type_:
+        case DbxrefGeneID():
+            return _solve_dx(old, new)
+
+        case GeneGeneric():
+            return _solve_gn(old, new)
+
+        case GeneDescription():
+            return _solve_gd(old, new)
+
+        case _:
+            raise TypeError(f"Unsupported type for conflict resolution: {type_}")
+
+
+def _solve_dx(
+    old: DbxrefGeneID,
+    new: DbxrefGeneID,
+) -> Optional[DbxrefGeneID]:
+    """Solve conflicts between two DbxrefGeneID entries."""
+    if old.label != new.label:
+        return None
+
+    if old.an_source == new.an_source and old.GeneID == new.GeneID:
+        return replace(old)
+
+    return replace(old, c=f"{old.c} | Conflict with {new.an_source}:{new.GeneID}|")
+
+
+def _solve_gn(
+    old: GeneGeneric,
+    new: GeneGeneric,
+) -> Optional[GeneGeneric]:
+    """Solve conflicts between two GeneGeneric entries."""
+    if old.label == new.label:
+        an_sources = list(set(old.an_sources) | set(new.an_sources))
+        c = f"{old.c} + {new.c}" if old.c and new.c else old.c or new.c
+        return replace(old, an_sources=an_sources, c=c)
+
+    return None
+
+
+def _solve_gd(
+    old: GeneDescription,
+    new: GeneDescription,
+) -> Optional[GeneDescription]:
+    """Solve conflicts between two GeneDescription entries."""
+    if old.label == new.label:
+        if old.c == new.c:
+            return replace(old)
+
+        return replace(old, c=f"{old.c} + {new.c}")
+
+    return None

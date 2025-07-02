@@ -96,7 +96,7 @@ class GeneDict(UserDict[str, GeneUnion]):
         header: Optional[list[str]] = None,
         info: Optional[GeneDictInfo] = None,
         lazy_info: bool = True,
-    ):
+    ) -> None:
         """Initialize a GeneDict with optional initial data, version, header, and info.
 
         Args:

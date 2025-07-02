@@ -12,9 +12,8 @@ import concurrent.futures
 import os
 import re
 import shutil
-from dataclasses import dataclass
 from pathlib import Path
-from typing import Optional, Union, cast
+from typing import Callable, Optional, Union, cast
 
 import pandas as pd
 
@@ -38,34 +37,22 @@ _RE_ID = re.compile(r"ID=([^;]+)")
 _RE_dbxref_GeneID = re.compile(r"Dbxref=.*GeneID:")
 
 
-@dataclass
 class GFFPathBuilder:
-    """Class to build GFF3 file paths based on accession numbers.
+    """Flexible class to build GFF3 file paths based on accession numbers.
 
-    Attributes:
-        base (Path): Base directory where GFF3 files are stored.
-        suffix (str): Suffix to append to the filename.
-        ext (str): File extension for GFF3 files.
-        in_folder (bool): If True, the GFF3 files are expected to be stored in
-                          subfolders named after the accession number.
-
+    This class provides a framework for building file paths with
+    different strategies that can be swapped at runtime.
     """
 
-    base: Path
-    suffix: str = ""
-    ext: str = ".gff3"
-    in_folder: bool = False
+    def __init__(self) -> None:
+        """Initialize the builder with no build method set."""
+        self._build_method: Optional[Callable[[str], Path]] = None
+        self._str: str = "GFFPathBuilder(build=None)"
 
-    def __post_init__(self) -> None:
-        """Resolve the base path to an absolute path."""
-        self.base = self.base.resolve()
+    def build(self, an: str) -> Path:
+        """Build the path for a given accession number.
 
-    def __call__(self, an: str) -> Path:
-        """Build the GFF3 file path for a given accession number.
-
-        This method constructs the path to the GFF3 file based on attributes
-        of the builder. If `in_folder` is True, it expects the GFF3 files to
-        be stored in subfolders named after the accession number.
+        This method uses the currently active build strategy.
 
         Args:
             an (str): Accession number.
@@ -73,9 +60,119 @@ class GFFPathBuilder:
         Returns:
             Path: Path to the GFF3 file.
 
+        Raises:
+            ValueError: If no build method has been set.
+
         """
-        filename = f"{an}{self.suffix}{self.ext}"
-        return self.base / an / filename if self.in_folder else self.base / filename
+        if self._build_method is None:
+            raise ValueError(
+                "No build method set. Use one of the 'use_*_builder' methods first."
+            )
+        return self._build_method(an)
+
+    def use_standard_builder(
+        self,
+        base: Union[str, Path],
+        ext: str = ".gff3",
+        suffix: str = "",
+    ) -> "GFFPathBuilder":
+        """Set the standard filesystem-based build method.
+
+        This method expects files to be stored in a flat structure
+        under the specified base directory, with filenames formatted as
+        "<accession_number><suffix><ext>".
+
+        Args:
+            base (Union[str, Path]): Base directory where files are stored.
+            ext (str): File extension for files. Defaults to ".gff3".
+            suffix (str): Suffix to append to the filename. Defaults to "".
+
+        Returns:
+            GFFPathBuilder: Returns self.
+
+        """
+        base_path = Path(base).resolve()
+
+        def standard_builder(an: str) -> Path:
+            return base_path / f"{an}{suffix}{ext}"
+
+        self._build_method = standard_builder
+        self._str = (
+            f"GFFPathBuilder(build='standard', base='{base_path}', ext='{ext}', "
+            f"suffix='{suffix}')"
+        )
+        return self
+
+    def use_folder_builder(
+        self,
+        base: Union[str, Path],
+        ext: str = ".gff3",
+        suffix: str = "",
+    ) -> "GFFPathBuilder":
+        """Set the folder-based build method.
+
+        This method expects files to be stored in subfolders named after
+        the accession number, with filenames formatted as
+        "<accession_number><suffix><ext>".
+
+        Args:
+            base (Union[str, Path]): Base directory where files are stored.
+            ext (str): File extension for files. Defaults to ".gff3".
+            suffix (str): Suffix to append to the filename. Defaults to "".
+
+        Returns:
+            GFFPathBuilder: Returns self.
+
+        """
+        base_path = Path(base).resolve()
+
+        def folder_builder(an: str) -> Path:
+            return base_path / an / f"{an}{suffix}{ext}"
+
+        self._build_method = folder_builder
+        self._str = (
+            f"GFFPathBuilder(build='folder', base='{base_path}', ext='{ext}', "
+            f"suffix='{suffix}')"
+        )
+        return self
+
+    def use_custom_builder(
+        self,
+        builder_func: Callable[[str], Path],
+        help_text: Optional[str] = None,
+    ) -> "GFFPathBuilder":
+        """Set a custom build function as a drop-in replacement.
+
+        Args:
+            builder_func (Callable[[str], Path]): A function that takes an
+                accession number (str) and returns a Path object.
+            help_text (Optional[str]): Optional help text to describe the
+                custom builder function. Defaults to None, meaning it will print
+                the function name and its signature.
+
+        Returns:
+            GFFPathBuilder: Returns self.
+
+        Example:
+            def my_custom_builder(an: str) -> Path:
+                return Path(f"/custom/path/{an}_special.gff")
+
+            gff_path = GFFPathBuilder("/base/dir")
+            gff_path.use_custom_builder(my_custom_builder)
+            path = gff_path.build("NC_123456.1")
+
+        """
+        self._build_method = builder_func
+
+        if help_text is None:
+            help_text = getattr(builder_func, "__name__", "anonymous_function")
+
+        self._str = f"GFFPathBuilder(build='custom', help_text='{help_text}')"
+        return self
+
+    def __repr__(self) -> str:
+        """Return a string representation of the GFFPathBuilder."""
+        return self._str
 
 
 def load_gff3(
@@ -219,7 +316,7 @@ def _check_column(
 def check_gff_in_tsv(
     log: log_setup.GDTLogger,
     df: pd.DataFrame,
-    path_builder: GFFPathBuilder,
+    gff_builder: GFFPathBuilder,
     an_column: str = "AN",
 ) -> None:
     """Check if GFF3 files exist for each accession number in the DataFrame.
@@ -228,17 +325,17 @@ def check_gff_in_tsv(
         log (GDTLogger): Logger instance for logging messages.
         df (pd.DataFrame): DataFrame containing accession numbers.
         base_path (Path): Base path where GFF3 files are expected to be found.
-        path_builder (GFFBuilder): Function to build GFF file paths.
+        gff_builder (GFFBuilder): Function to build GFF file paths.
         an_column (str): Column name containing accession numbers. Default is "AN".
 
     """
-    log.trace(f"check_gff_in_tsv called | {path_builder}")
+    log.trace(f"check_gff_in_tsv called | {gff_builder}")
     _check_column(log, df, an_column, "TSV")
 
     no_files = [
         (an, an_path)
         for an in df[an_column]
-        if not (an_path := path_builder(an)).is_file()
+        if not (an_path := gff_builder.build(an)).is_file()
     ]
 
     if no_files:
@@ -300,7 +397,14 @@ def filter_whole_tsv(
         raise FileNotFoundError(f"tsv file not found: {tsv_path}")
 
     base_folder = tsv_path.parent
-    gff_builder = GFFPathBuilder(base_folder, gff_suffix, gff_ext, in_folder)
+
+    gff_builder = (
+        GFFPathBuilder().use_folder_builder(base_folder, gff_suffix, gff_ext)
+        if in_folder
+        else GFFPathBuilder().use_standard_builder(base_folder, gff_suffix, gff_ext)
+    )
+    log.debug(f"{gff_builder}")
+
     tsv = pd.read_csv(tsv_path, sep="\t")
     check_gff_in_tsv(log, tsv, gff_builder, an_column)
 
@@ -335,7 +439,7 @@ def filter_whole_tsv(
             executor.submit(
                 check_single_an,
                 an,
-                gff_builder(an),
+                gff_builder.build(an),
                 gene_dict,
                 keep_orfs,
                 query_string,
@@ -464,13 +568,20 @@ def standardize_tsv(
     log.debug(f"Gene dictionary loaded from {gdict_path}")
 
     tsv = pd.read_csv(tsv_path, sep="\t")
-    gff_builder = GFFPathBuilder(tsv_path.parent, gff_suffix, gff_ext, in_folder)
+    base_folder = tsv_path.parent
+
+    gff_builder = (
+        GFFPathBuilder().use_folder_builder(base_folder, gff_suffix, gff_ext)
+        if in_folder
+        else GFFPathBuilder().use_standard_builder(base_folder, gff_suffix, gff_ext)
+    )
+    log.debug(f"{gff_builder}")
     check_gff_in_tsv(log, tsv, gff_builder, an_colum)
 
     for an in tsv[an_colum]:
         standardize_gff3(
             log,
-            gff_builder(an),
+            gff_builder.build(an),
             gene_dict,
             query_string,
             check_flag,

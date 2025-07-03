@@ -13,7 +13,7 @@ from collections import UserDict, defaultdict
 from dataclasses import dataclass, field, replace
 from datetime import datetime
 from pathlib import Path
-from typing import Callable, Iterable, Mapping, Optional, TypeVar, Union
+from typing import Callable, Iterable, Mapping, Optional, TypeVar, Union, cast
 
 __gdict_version__ = "0.0.2"
 
@@ -431,7 +431,7 @@ class GeneDict(UserDict[str, GeneUnion]):
             old = merged_data[key]
 
             if type(old) is type(new):
-                result = _solve_conflict(old, new, type(new))
+                result = _solve_conflict(old, new)
 
                 if result:
                     merged_data[key] = result
@@ -452,7 +452,7 @@ class GeneDict(UserDict[str, GeneUnion]):
 
         header = self.header.copy()
         header.append(
-            f"{time_now()} - Merged with another GDICT, added {len(other.data)} entries"
+            f"{time_now()} - Merged GDICT's, totalling {len(merged_data)} entries"
         )
         # Since merged_data came from an already existing GeneDict (self),
         # we can optimize the creation of the new GeneDict
@@ -662,21 +662,25 @@ def create_empty_gdict(
 def _solve_conflict(
     old: GeneUnion,
     new: GeneUnion,
-    type_: type[GeneUnion],
 ) -> Optional[GeneUnion]:
     """Solve conflicts between two GeneUnion entries of the same type."""
-    match type_:
+    # the cast was needed because mypy doesn't understand that this function
+    # was only called after checking that `old` and `new` are of the same type.
+    # That way when the match determines the type of `old`, it should've also
+    # determined the type of `new` to be the same, i.e., the same type
+    # This is a workaround to avoid mypy errors.
+    match old:
         case DbxrefGeneID():
-            return _solve_dx(old, new)
+            return _solve_dx(old, cast(DbxrefGeneID, new))
 
         case GeneGeneric():
-            return _solve_gn(old, new)
+            return _solve_gn(old, cast(GeneGeneric, new))
 
         case GeneDescription():
-            return _solve_gd(old, new)
+            return _solve_gd(old, cast(GeneDescription, new))
 
         case _:
-            raise TypeError(f"Unsupported type for conflict resolution: {type_}")
+            raise TypeError(f"Unsupported type for conflict resolution: {type(old)}")
 
 
 def _solve_dx(
@@ -685,11 +689,15 @@ def _solve_dx(
 ) -> Optional[DbxrefGeneID]:
     """Solve conflicts between two DbxrefGeneID entries."""
     if old.label != new.label:
-        return None
+        return None  # different labels
 
     if old.an_source == new.an_source and old.GeneID == new.GeneID:
-        return replace(old)
+        return replace(
+            old,
+            c=_solve_comment(old.c, new.c),
+        )  # same label, same an_source and GeneID
 
+    # same label, different an_source or GeneID
     return replace(old, c=f"{old.c} | Conflict with {new.an_source}:{new.GeneID}|")
 
 
@@ -700,9 +708,13 @@ def _solve_gn(
     """Solve conflicts between two GeneGeneric entries."""
     if old.label == new.label:
         an_sources = list(set(old.an_sources) | set(new.an_sources))
-        c = f"{old.c} + {new.c}" if old.c and new.c else old.c or new.c
-        return replace(old, an_sources=an_sources, c=c)
+        return replace(
+            old,
+            an_sources=an_sources,
+            c=_solve_comment(old.c, new.c),
+        )  # same label, combine an_sources
 
+    # different labels
     return None
 
 
@@ -712,9 +724,33 @@ def _solve_gd(
 ) -> Optional[GeneDescription]:
     """Solve conflicts between two GeneDescription entries."""
     if old.label == new.label:
-        if old.c == new.c:
-            return replace(old)
+        return replace(
+            old,
+            source=(
+                old.source
+                if old.source == new.source
+                else f"{old.source} + {new.source}"
+            ),
+            c=_solve_comment(old.c, new.c),
+        )
 
-        return replace(old, c=f"{old.c} + {new.c}")
-
+    # different labels
     return None
+
+
+def _solve_comment(
+    old: Optional[str],
+    new: Optional[str],
+) -> Optional[str]:
+    """Solve conflicts between two comments."""
+    if old == new:
+        return old
+
+    if new is None:
+        return old
+
+    if old is None:
+        return new
+
+    # return f"d1: {old} + d2: {new}"
+    return f"{old} + {new}"

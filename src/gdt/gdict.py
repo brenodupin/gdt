@@ -754,3 +754,78 @@ def _solve_comment(
 
     # return f"d1: {old} + d2: {new}"
     return f"{old} + {new}"
+
+
+def parse_via_comments(
+    recipient: GeneDict,
+    donor: GeneDict,
+    string: str = "ncbi_desc:",
+    lazy_info: bool = True,
+    remove_keys: bool = True,
+    prune_labels: bool = True,
+) -> tuple[GeneDict, GeneDict]:
+    """Parse donor GeneDict entries via comments and update recipient GeneDict.
+
+    This function looks for comments in the donor GeneDict that match the specified
+    string (default is "ncbi_desc:"). If a comment matches, it checks if the
+    corresponding description exists in the recipient GeneDict. If it does, it
+    adds the donor entry to the recipient with the label from the recipient's
+    description. It also removes the donor entry from the donor GeneDict if
+    `remove_keys` is True.
+
+    Args:
+        recipient (GeneDict): The recipient GeneDict to update.
+        donor (GeneDict): The donor GeneDict to parse.
+        string (str): The string to search for in the comments of the donor GeneDict.
+                       Default is "ncbi_desc:".
+        lazy_info (bool): If False, `update_info` will be called on both recipient
+                          and donor GeneDicts. Default is True, meaning the info will
+                          not be updated until `update_info` is called.
+        remove_keys (bool): If True, the keys from the donor GeneDict that match the
+                            specified string will be removed after processing.
+                            Default is True.
+        prune_labels (bool): If True, the donor GeneDict will be pruned to only
+                             include entries with labels that are also present in the
+                             donor GeneDict. Default is True.
+    Returns:
+        tuple[GeneDict, GeneDict]: A tuple containing the updated recipient and donor
+                                   GeneDicts.
+
+    """
+    new_recipient = recipient.copy()
+    new_donor = donor.copy()
+    remove_keys = set()
+
+    for key, value in new_donor.data.items():
+        if not isinstance(value, DbxrefGeneID):
+            continue
+
+        if string in value.c:
+            desc = value.c.split(string, 1)[1].strip()
+
+            if desc and desc in new_recipient.data:
+                new_recipient.data[key] = replace(
+                    value,
+                    label=new_recipient.data[desc].label,
+                )
+
+            remove_keys.add(key)
+
+    if remove_keys:
+        new_donor.data = {
+            k: v for k, v in new_donor.data.items() if k not in remove_keys
+        }
+
+    if prune_labels:
+        donor_labels = {
+            v.label for v in new_donor.data.values() if isinstance(v, DbxrefGeneID)
+        }
+        new_donor.data = {
+            k: v for k, v in new_donor.data.items() if v.label in donor_labels
+        }
+
+    if not lazy_info:
+        new_recipient.update_info()
+        new_donor.update_info()
+
+    return new_recipient, new_donor

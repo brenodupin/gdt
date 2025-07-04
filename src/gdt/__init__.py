@@ -16,6 +16,7 @@ from .gdict import (
     create_empty_gdict,
     natural_sort,
     natural_sort_key,
+    parse_via_comments,
     read_gdict,
     time_now,
 )

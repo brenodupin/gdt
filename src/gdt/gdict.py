@@ -766,16 +766,18 @@ def parse_via_comments(
 ) -> tuple[GeneDict, GeneDict]:
     """Parse donor GeneDict entries via comments and update recipient GeneDict.
 
-    This function looks for comments in the donor GeneDict that match the specified
-    string (default is "ncbi_desc:"). If a comment matches, it checks if the
-    corresponding description exists in the recipient GeneDict. If it does, it
-    adds the donor entry to the recipient with the label from the recipient's
-    description. It also removes the donor entry from the donor GeneDict if
-    `remove_keys` is True.
+    This function creates a copy of the recipient GeneDict and conditionally
+    creates a copy of the donor GeneDict (only when remove_keys or prune_labels
+    is True) to avoid modifying the original objects.
+
+    It looks for comments in the donor GeneDict that match the specified string
+    (default is "ncbi_desc:"). If a comment matches, it checks if the corresponding
+    description exists in the recipient GeneDict. If it does, it adds the donor
+    entry to the recipient under the checked label.
 
     Args:
-        recipient (GeneDict): The recipient GeneDict to update.
-        donor (GeneDict): The donor GeneDict to parse.
+        recipient (GeneDict): The recipient GeneDict to copy and update.
+        donor (GeneDict): The donor GeneDict to copy (if needed) and parse.
         string (str): The string to search for in the comments of the donor GeneDict.
                        Default is "ncbi_desc:".
         lazy_info (bool): If False, `update_info` will be called on both recipient
@@ -787,45 +789,55 @@ def parse_via_comments(
         prune_labels (bool): If True, the donor GeneDict will be pruned to only
                              include entries with labels that are also present in the
                              donor GeneDict. Default is True.
+
     Returns:
-        tuple[GeneDict, GeneDict]: A tuple containing the updated recipient and donor
-                                   GeneDicts.
+        tuple[GeneDict, GeneDict]: A tuple containing the updated recipient copy and
+                                   either the original donor GeneDict (if no changes
+                                   were needed) or a modified copy of donor GeneDict.
+                                   The original recipient GeneDict is never modified.
 
     """
-    new_recipient = recipient.copy()
-    new_donor = donor.copy()
-    remove_keys = set()
+    recipient = recipient.copy()
+    delete_keys = set()
 
-    for key, value in new_donor.data.items():
-        if not isinstance(value, DbxrefGeneID):
+    for key, value in donor.data.items():
+        if not isinstance(value, DbxrefGeneID) or not value.c:
             continue
 
         if string in value.c:
             desc = value.c.split(string, 1)[1].strip()
 
-            if desc and desc in new_recipient.data:
-                new_recipient.data[key] = replace(
+            if desc in recipient.data:
+                recipient.data[key] = replace(
                     value,
-                    label=new_recipient.data[desc].label,
+                    label=recipient.data[desc].label,
                 )
 
-            remove_keys.add(key)
+            delete_keys.add(key)
 
     if remove_keys:
-        new_donor.data = {
-            k: v for k, v in new_donor.data.items() if k not in remove_keys
-        }
+        new_donor = {k: v for k, v in donor.data.items() if k not in delete_keys}
 
-    if prune_labels:
-        donor_labels = {
-            v.label for v in new_donor.data.values() if isinstance(v, DbxrefGeneID)
-        }
-        new_donor.data = {
-            k: v for k, v in new_donor.data.items() if v.label in donor_labels
-        }
+        if prune_labels:
+            keep_labels = {
+                v.label for v in new_donor.values() if isinstance(v, DbxrefGeneID)
+            }
+
+            new_donor = {k: v for k, v in new_donor.items() if v.label in keep_labels}
+
+        donor = GeneDict._from_data(
+            new_donor,
+            version=donor.version,
+            header=donor.header,
+            lazy_info=lazy_info,
+        )
+        donor.header.append(f"{time_now()} - Removed keys/labels via comments")
 
     if not lazy_info:
-        new_recipient.update_info()
-        new_donor.update_info()
+        recipient.update_info()
+        donor.update_info()
 
-    return new_recipient, new_donor
+    recipient.header.append(
+        f"{time_now()} - Entries added via comments from donor GDICT"
+    )
+    return recipient, donor

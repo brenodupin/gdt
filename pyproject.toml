@@ -63,7 +63,7 @@ dev = [
     "mypy>=1.16.0",
     "ruff>=0.11.12",
     "pandas-stubs>=2.2.3.250527",
-    "black>=25.1.0",
+    "black[jupyter]>=25.1.0",
 ]
 
 [tool.black]

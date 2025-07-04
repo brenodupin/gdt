@@ -19,10 +19,28 @@ jobs:
         run: uv sync --group dev
       
       - name: Lint with ruff
+        id: lint
         run: uv run ruff check src/
+        continue-on-error: true
       
       - name: Format with black
+        id: format
         run: uv run black --check src/
+        continue-on-error: true
       
       - name: Type check with mypy
+        id: typecheck
         run: uv run mypy --strict src/
+        continue-on-error: true
+      
+      - name: Check if any step failed
+        run: |
+          if [[ "${{ steps.lint.outcome }}" == "failure" ]] || \
+             [[ "${{ steps.format.outcome }}" == "failure" ]] || \
+             [[ "${{ steps.typecheck.outcome }}" == "failure" ]]; then
+            echo "One or more checks failed:"
+            echo "  - Lint: ${{ steps.lint.outcome }}"
+            echo "  - Format: ${{ steps.format.outcome }}"
+            echo "  - Type check: ${{ steps.typecheck.outcome }}"
+            exit 1
+          fi

@@ -26,12 +26,12 @@ jobs:
       
       - name: Lint with ruff
         id: lint
-        run: uv run ruff check src/
+        run: uv run ruff check src/ notebooks/
         continue-on-error: true
       
       - name: Format with black
         id: format
-        run: uv run black --check src/
+        run: uv run black --check src/ notebooks/
         continue-on-error: true
       
       - name: Type check with mypy

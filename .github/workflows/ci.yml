@@ -1,7 +1,13 @@
 name: CI
 on:
   push:
+    paths:
+      - 'src/**'
+      - 'notebooks/**'
   pull_request:
+    paths:
+      - 'src/**'
+      - 'notebooks/**'
 
 jobs:
   checks:

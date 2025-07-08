@@ -18,9 +18,9 @@ from pathlib import Path
 
 from . import __version__, gdict, gff3_utils, log_setup
 
-C_RESET = "\033[0m"
+C_RESET: str = "\033[0m"
 
-GDT_BANNER = f"""           ╔═════════════════════════════╗
+GDT_BANNER: str = f"""           ╔═════════════════════════════╗
            ║   ██████╗ ██████╗ ████████╗ ║
            ║  ██╔════╝ ██╔══██╗╚══██╔══╝ ║
            ║  ██║  ███╗██║  ██║   ██║    ║

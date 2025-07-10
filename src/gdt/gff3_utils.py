@@ -34,7 +34,7 @@ QS_GENE = "type == 'gene'"
 QS_GENE_TRNA_RRNA = "type in ('gene', 'tRNA', 'rRNA')"
 
 _RE_ID = re.compile(r"ID=([^;]+)")
-_RE_dbxref_GeneID = re.compile(r"Dbxref=.*GeneID:")
+_RE_contains_GeneID = re.compile(r"Dbxref=.*GeneID:")
 
 
 class GFFPathBuilder:
@@ -271,7 +271,7 @@ def check_single_an(
         in_gene_dict_mask = [g in gene_dict for g in gene_ids]
 
         # Get dbxref info
-        dbxref_mask = df["attributes"].str.contains(_RE_dbxref_GeneID, na=False)
+        dbxref_mask = df["attributes"].str.contains(_RE_contains_GeneID, na=False)
 
         status = "good_to_go"
         if not all(in_gene_dict_mask):

@@ -8,7 +8,7 @@ the presence of gene IDs in a GeneDict.
 
 """
 
-import concurrent.futures
+import concurrent.futures as cf
 import os
 import re
 import shutil
@@ -434,8 +434,8 @@ def filter_whole_tsv(
 
     # start processing
     log.info(f"Processing {len(tsv)} ANs with {workers} workers")
-    with concurrent.futures.ProcessPoolExecutor(max_workers=workers) as executor:
-        futures = [
+    with cf.ProcessPoolExecutor(max_workers=workers) as executor:
+        tasks = [
             executor.submit(
                 check_single_an,
                 an,
@@ -446,41 +446,41 @@ def filter_whole_tsv(
             )
             for an in tsv[an_column]
         ]
-    concurrent.futures.wait(futures)
 
-    for future in futures:
-        result = future.result()
-        if result["status"] == "error":
-            log.error(f"Error processing {result['AN']}: {result['error']}")
-            continue
+        for future in cf.as_completed(tasks):
+            result = future.result()
+            if result["status"] == "error":
+                log.error(f"Error processing {result['AN']}: {result['error']}")
+                continue
 
-        an: str = cast(str, result["AN"])  # TODO, how can i remove this cast?
-        log.trace(f"-- [Processing: {an}] --")
-        log.trace(
-            f"\tgenes: {result['gene_count']} | have dbxref: {result['dbxref_count']} |"
-            f" genes in gene_dict: {result['gene_dict_count']}"
-        )
-        log.trace(f"\tgenes: {result['genes']}")
-        log.trace(f"\twith dbxref : {result['genes_with_dbxref']}")
-        log.trace(f"\tin gene_dict : {result['genes_in_dict']}")
-        log.trace(f"\twithout dbxref : {result['genes_without_dbxref']}")
-        log.trace(f"\tnot in gene_dict: {result['genes_not_in_dict']}")
-
-        if result["status"] == "M_in_gene_dict":
-            log.trace(f"\t{an} is missing genes in gene_dict but have dbxref")
-            an_missing_gene_dict.append(an)
-
-        elif result["status"] == "M_dbxref_GeneID":
+            an: str = cast(str, result["AN"])  # TODO, how can i remove this cast?
+            log.trace(f"-- [Processing: {an}] --")
             log.trace(
-                f"\t{an} is missing genes in gene_dict and is also missing dbxref"
+                f"\tgenes: {result['gene_count']} | "
+                f"have dbxref: {result['dbxref_count']} | "
+                f"genes in gene_dict: {result['gene_dict_count']}"
             )
-            an_missing_dbxref_geneid.append(an)
+            log.trace(f"\tgenes: {result['genes']}")
+            log.trace(f"\twith dbxref : {result['genes_with_dbxref']}")
+            log.trace(f"\tin gene_dict : {result['genes_in_dict']}")
+            log.trace(f"\twithout dbxref : {result['genes_without_dbxref']}")
+            log.trace(f"\tnot in gene_dict: {result['genes_not_in_dict']}")
 
-        else:
-            log.trace(f"\t{an} is good to go!")
-            an_good_to_go.append(an)
+            if result["status"] == "M_in_gene_dict":
+                log.trace(f"\t{an} is missing genes in gene_dict but have dbxref")
+                an_missing_gene_dict.append(an)
 
-        log.trace(f"-- [End Processing: {an}] --")
+            elif result["status"] == "M_dbxref_GeneID":
+                log.trace(
+                    f"\t{an} is missing genes in gene_dict and is also missing dbxref"
+                )
+                an_missing_dbxref_geneid.append(an)
+
+            else:
+                log.trace(f"\t{an} is good to go!")
+                an_good_to_go.append(an)
+
+            log.trace(f"-- [End Processing: {an}] --")
 
     log.info(f"ANs good to go: {len(an_good_to_go)}")
     log.trace(f"ANs good to go: {an_good_to_go}")

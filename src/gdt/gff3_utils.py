@@ -13,7 +13,7 @@ import os
 import re
 import shutil
 from pathlib import Path
-from typing import Callable, Optional, Union, cast
+from typing import Callable, cast
 
 import pandas as pd
 
@@ -46,7 +46,7 @@ class GFFPathBuilder:
 
     def __init__(self) -> None:
         """Initialize the builder with no build method set."""
-        self._build_method: Optional[Callable[[str], Path]] = None
+        self._build_method: Callable[[str], Path] | None = None
         self._str: str = "GFFPathBuilder(build=None)"
 
     def build(self, an: str) -> Path:
@@ -72,7 +72,7 @@ class GFFPathBuilder:
 
     def use_standard_builder(
         self,
-        base: Union[str, Path],
+        base: str | Path,
         ext: str = ".gff3",
         suffix: str = "",
     ) -> "GFFPathBuilder":
@@ -83,7 +83,7 @@ class GFFPathBuilder:
         "<accession_number><suffix><ext>".
 
         Args:
-            base (Union[str, Path]): Base directory where files are stored.
+            base (str | Path): Base directory where files are stored.
             ext (str): File extension for files. Defaults to ".gff3".
             suffix (str): Suffix to append to the filename. Defaults to "".
 
@@ -105,7 +105,7 @@ class GFFPathBuilder:
 
     def use_folder_builder(
         self,
-        base: Union[str, Path],
+        base: str | Path,
         ext: str = ".gff3",
         suffix: str = "",
     ) -> "GFFPathBuilder":
@@ -116,7 +116,7 @@ class GFFPathBuilder:
         "<accession_number><suffix><ext>".
 
         Args:
-            base (Union[str, Path]): Base directory where files are stored.
+            base (str | Path): Base directory where files are stored.
             ext (str): File extension for files. Defaults to ".gff3".
             suffix (str): Suffix to append to the filename. Defaults to "".
 
@@ -139,14 +139,14 @@ class GFFPathBuilder:
     def use_custom_builder(
         self,
         builder_func: Callable[[str], Path],
-        help_text: Optional[str] = None,
+        help_text: str | None = None,
     ) -> "GFFPathBuilder":
         """Set a custom build function as a drop-in replacement.
 
         Args:
             builder_func (Callable[[str], Path]): A function that takes an
                 accession number (str) and returns a Path object.
-            help_text (Optional[str]): Optional help text to describe the
+            help_text (str | None): Optional help text to describe the
                 custom builder function. Defaults to None, meaning it will print
                 the function name and its signature.
 
@@ -176,24 +176,24 @@ class GFFPathBuilder:
 
 
 def load_gff3(
-    filename: Union[str, Path],
+    filename: str | Path,
     sep: str = "\t",
     comment: str = "#",
-    header: Optional[int] = None,
+    header: int | None = None,
     names: tuple[str, ...] = GFF3_COLUMNS,
     usecols: tuple[str, ...] = ("type", "start", "end", "attributes"),
-    query_string: Optional[str] = None,
+    query_string: str | None = None,
 ) -> pd.DataFrame:
     """Load a GFF3 file into a pandas DataFrame, optionally filtering by a query string.
 
     Args:
-        filename (Union[str, Path]): Path to the GFF3 file.
+        filename (str | Path): Path to the GFF3 file.
         sep (str): Separator used in the file.
         comment (str): Comment character in the file.
-        header (int or None): Row number to use as the column names, None if no header.
+        header (str | None): Row number to use as the column names, None if no header.
         names (tuple[str, ...]): Tuple of column names to use.
         usecols (list[str]): List of columns to read from the file.
-        query_string (str or None): Query string to filter the DataFrame.
+        query_string (str | None): Query string to filter the DataFrame.
 
     Returns:
         pd.DataFrame: DataFrame containing the filtered GFF3 data.
@@ -245,7 +245,7 @@ def check_single_an(
     gene_dict: gdict.GeneDict,
     keep_orfs: bool = False,
     query_string: str = QS_GENE_TRNA_RRNA,
-) -> dict[str, Union[str, int, list[str]]]:
+) -> dict[str, str | int | list[str]]:
     """Check a single GFF3 file for gene information and dbxref.
 
     Args:
@@ -349,7 +349,7 @@ def check_gff_in_tsv(
 def filter_whole_tsv(
     log: log_setup.GDTLogger,
     tsv_path: Path,
-    gdict_path: Optional[Path] = None,
+    gdict_path: Path | None = None,
     keep_orfs: bool = False,
     workers: int = 0,
     an_column: str = "AN",
@@ -364,7 +364,7 @@ def filter_whole_tsv(
     Args:
         log (GDTLogger): Logger instance for logging messages.
         tsv_path (Path): Path to the TSV file containing accession numbers.
-        gdict_path (Optional[Path]): Path to the GDICT file.
+        gdict_path (Path | None): Path to the GDICT file.
                                    If None, an empty GeneDict is used.
         keep_orfs (bool): Whether to keep ORFs in the GFF3 files. Default is False.
         workers (int): Number of worker processes to use for parallel processing.

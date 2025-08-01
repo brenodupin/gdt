@@ -384,8 +384,6 @@ def filter_whole_tsv(
                            Default is False.
 
     """
-    max_workers = os.cpu_count() or 1
-    workers = workers if (workers > 0 and workers <= max_workers) else max_workers
 
     an_missing_dbxref_geneid: list[str] = []
     an_missing_gene_dict: list[str] = []
@@ -434,7 +432,7 @@ def filter_whole_tsv(
 
     # start processing
     log.info(f"Processing {len(tsv)} ANs with {workers} workers")
-    with cf.ProcessPoolExecutor(max_workers=workers) as executor:
+    with cf.ThreadPoolExecutor(max_workers=workers) as executor:
         tasks = [
             executor.submit(
                 check_single_an,

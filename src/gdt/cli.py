@@ -32,6 +32,12 @@ GDT_BANNER: str = f"""           ╔══════════════�
 🧬 \033[33mStandardizing gene names across organelle genomes{C_RESET} 🧬
                    Version: \033[32m{__version__}{C_RESET}"""
 
+MAX_CPU: int = os.cpu_count() or 1
+
+def _workers_count(workers: int, threading: bool = False) -> int:
+    """Return the number of workers to use."""
+    cpus = MAX_CPU * 3 if threading else MAX_CPU
+    return min(workers, cpus) if workers > 0 else cpus
 
 def filter_command(
     args: argparse.Namespace,
@@ -54,7 +60,7 @@ def filter_command(
         args.tsv,
         args.gdict,
         args.keep_orfs,
-        args.workers,
+        _workers_count(args.workers),
         args.AN_column,
         args.gff_ext,
         args.gff_suffix,

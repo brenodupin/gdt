@@ -9,7 +9,6 @@ the presence of gene IDs in a GeneDict.
 """
 
 import concurrent.futures as cf
-import os
 import re
 import shutil
 from pathlib import Path
@@ -384,7 +383,6 @@ def filter_whole_tsv(
                            Default is False.
 
     """
-
     an_missing_dbxref_geneid: list[str] = []
     an_missing_gene_dict: list[str] = []
     an_good_to_go: list[str] = []

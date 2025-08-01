@@ -34,10 +34,12 @@ GDT_BANNER: str = f"""           ╔══════════════�
 
 MAX_CPU: int = os.cpu_count() or 1
 
+
 def _workers_count(workers: int, threading: bool = False) -> int:
     """Return the number of workers to use."""
     cpus = MAX_CPU * 3 if threading else MAX_CPU
     return min(workers, cpus) if workers > 0 else cpus
+
 
 def filter_command(
     args: argparse.Namespace,

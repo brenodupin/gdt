@@ -826,6 +826,11 @@ def parse_via_comments(
             desc = value.c.split(string, 1)[1].strip()
 
             if desc in new_recipient.data:
+                if key in new_recipient.data:
+                    print(
+                        f"[WARNING] Key '{key}' already exists in recipient GDICT. "
+                    )
+                    continue
                 new_recipient.data[key] = replace(
                     value,
                     label=new_recipient.data[desc].label,

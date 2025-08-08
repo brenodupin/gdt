@@ -472,19 +472,19 @@ class GeneDict(UserDict[str, GeneUnion]):
         return (
             f"GeneDict(version={self.version}, header={self.header}, info={self.info})"
         )
-    
+
     def deepcopy(self) -> "GeneDict":
         """Create a deep copy of the GeneDict.
-        
+
         This method calls the standard library's `copy.deepcopy` to ensure that
         all nested objects are also copied, providing complete isolation between
         the original and the copied GeneDict.
         """
         return copy.deepcopy(self)
-    
+
     def copy(self) -> "GeneDict":
         """Create a shallow copy of the GeneDict.
-        
+
         Warning: Modifications to gene objects will affect both copies.
         Use deepcopy() for complete isolation.
         """
@@ -826,13 +826,6 @@ def parse_via_comments(
             desc = value.c.split(string, 1)[1].strip()
 
             if desc in new_recipient.data:
-                new_recipient.data[desc] = DbxrefGeneID(
-                    label=new_recipient.data[desc].label,
-                    an_source=value.an_source,
-                    GeneID=value.GeneID,
-                    c=value.c,
-                )
-
                 new_recipient.data[key] = replace(
                     value,
                     label=new_recipient.data[desc].label,

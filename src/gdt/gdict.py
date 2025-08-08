@@ -797,7 +797,7 @@ def parse_via_comments(
                                    The original recipient GeneDict is never modified.
 
     """
-    recipient = recipient.copy()
+    new_recipient = recipient.copy()
     delete_keys = set()
 
     for key, value in donor.data.items():
@@ -807,13 +807,13 @@ def parse_via_comments(
         if string in value.c:
             desc = value.c.split(string, 1)[1].strip()
 
-            if desc in recipient.data:
-                recipient.data[key] = replace(
+            if desc in new_recipient.data:
+                new_recipient.data[key] = replace(
                     value,
-                    label=recipient.data[desc].label,
+                    label=new_recipient.data[desc].label,
                 )
 
-            delete_keys.add(key)
+                delete_keys.add(key)
 
     if remove_keys:
         new_donor = {k: v for k, v in donor.data.items() if k not in delete_keys}
@@ -834,10 +834,10 @@ def parse_via_comments(
         donor.header.append(f"{time_now()} - Removed keys/labels via comments")
 
     if not lazy_info:
-        recipient.update_info()
+        new_recipient.update_info()
         donor.update_info()
 
-    recipient.header.append(
+    new_recipient.header.append(
         f"{time_now()} - Entries added via comments from donor GDICT"
     )
-    return recipient, donor
+    return new_recipient, donor

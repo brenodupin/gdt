@@ -179,27 +179,36 @@ def cli_run() -> None:
     # Global parser to add debug, log, and quiet flags to all subcommands
     global_flags = argparse.ArgumentParser(add_help=False)
     global_flags.add_argument(
-        "--debug",
-        required=False,
-        default=False,
-        action="store_true",
-        help="Enable TRACE level in file, and DEBUG on console. "
-        "Default: DEBUG level on file and INFO on console.",
+        "-v",
+        "--verbose",
+        action="count",
+        default=0,
+        help="Increase verbosity level. Use multiple times for more verbose output: "
+        "-v (INFO console, TRACE file), -vv (DEBUG console, TRACE file), "
+        "-vvv (TRACE console, TRACE file). Default: INFO console + DEBUG file.",
     )
     global_flags.add_argument(
         "--log",
         required=False,
-        default=None,
         type=str,
-        help="Path to the log file. "
-        "If not provided, a default log file will be created.",
+        default=None,
+        help="Path to the log file. If not provided, a default log file will be "
+        "created.",
     )
+    global_flags.add_argument(
+        "--no-log-file",
+        required=False,
+        action="store_true",
+        default=False,
+        help="Disable file logging.",
+    )
+
     global_flags.add_argument(
         "--quiet",
         required=False,
-        default=False,
         action="store_true",
-        help="Suppress console output. Default: console output enabled.",
+        default=False,
+        help="Suppress console output.",
     )
 
     main_parser = argparse.ArgumentParser(
@@ -455,7 +464,18 @@ def cli_run() -> None:
     if not args.quiet:
         print(GDT_BANNER)
 
-    log = log_setup.setup_logger(args.debug, args.log, args.quiet)
+    log = log_setup.setup_logger(
+        args.verbose,
+        args.log,
+        args.quiet,
+        args.no_log_file,
+        args.command,
+    )
+    log.info(f"GDT v{__version__} - Gene Dictionary Tool")
+    log.trace(f"Full args: {args}")
+    log.debug(f"Working directory: {Path().resolve()}")
+    log.trace(f"CLI script location: {Path(__file__).resolve()}")
+
     log.trace("CLI execution started")
     log.trace(f"call path: {Path().resolve()}")
     log.trace(f"cli  path: {Path(__file__)}")

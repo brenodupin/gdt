@@ -13,7 +13,7 @@ import re
 import shutil
 from functools import partial
 from pathlib import Path
-from typing import Callable, cast
+from typing import Any, Callable, cast
 
 import pandas as pd
 
@@ -213,6 +213,7 @@ def load_gff3(
     names: tuple[str, ...] = GFF3_COLUMNS,
     usecols: tuple[str, ...] = ("type", "start", "end", "attributes"),
     query_string: str | None = None,
+    **kwargs: Any,
 ) -> pd.DataFrame:
     """Load a GFF3 file into a pandas DataFrame, optionally filtering by a query string.
 
@@ -220,17 +221,19 @@ def load_gff3(
         filename (str | Path): Path to the GFF3 file.
         sep (str): Separator used in the file.
         comment (str): Comment character in the file.
-        header (str | None): Row number to use as the column names, None if no header.
+        header (int | None): Row number to use as the column names, None if no header.
         names (tuple[str, ...]): Tuple of column names to use.
         usecols (list[str]): List of columns to read from the file.
         query_string (str | None): Query string to filter the DataFrame.
+                                   Defaults to None, which means no filtering.
+        **kwargs: Additional keyword arguments passed to `pd.read_csv`.
 
     Returns:
         pd.DataFrame: DataFrame containing the filtered GFF3 data.
 
     """
     if query_string:
-        return (
+        df: pd.DataFrame = (
             pd.read_csv(
                 filename,
                 sep=sep,
@@ -238,16 +241,25 @@ def load_gff3(
                 header=header,
                 names=names,
                 usecols=usecols,
+                **kwargs,
             )
             .query(query_string)
             .sort_values(
                 by=["start", "end"], ascending=[True, False], ignore_index=True
             )
         )
+        return df
 
-    return pd.read_csv(
-        filename, sep=sep, comment=comment, header=header, names=names, usecols=usecols
+    df = pd.read_csv(
+        filename,
+        sep=sep,
+        comment=comment,
+        header=header,
+        names=names,
+        usecols=usecols,
+        **kwargs,
     ).sort_values(by=["start", "end"], ascending=[True, False], ignore_index=True)
+    return df
 
 
 def filter_orfs(

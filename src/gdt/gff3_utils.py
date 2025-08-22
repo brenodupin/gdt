@@ -284,7 +284,7 @@ def filter_orfs(
 def check_single_an(
     an: str,
     an_path: Path,
-    gene_dict: gdict.GeneDict,
+    gene_set: set[str],
     keep_orfs: bool = False,
     query_string: str = QS_GENE_TRNA_RRNA,
 ) -> dict[str, str | int | list[str]]:
@@ -293,7 +293,7 @@ def check_single_an(
     Args:
         an (str): Accession number to check.
         an_path (Path): Path to the GFF3 file.
-        gene_dict (GeneDict): Gene dictionary to check against.
+        gene_set (set[str]): Set of keys from a GeneDict to check against.
         keep_orfs (bool): Whether to keep ORFs in the DataFrame.
         query_string (str): Query string to filter the DataFrame.
 
@@ -310,7 +310,7 @@ def check_single_an(
         df["gene_id"] = df["attributes"].str.extract(_RE_ID, expand=False)  # type: ignore[call-overload]
         gene_ids = df["gene_id"].values
 
-        in_gene_dict_mask = [g in gene_dict for g in gene_ids]
+        in_gene_dict_mask = [g in gene_set for g in gene_ids]
 
         # Get dbxref info
         dbxref_mask = df["attributes"].str.contains(_RE_contains_GeneID, na=False)
@@ -462,13 +462,12 @@ def filter_whole_tsv(
             gdict_path = shutil.move(gdict_path, GDT_DIR / gdict_path.name)
             log.info(f"Moving gdict file to {gdict_path}")
 
-        gene_dict = gdict.read_gdict(gdict_path)
-        log.debug(f"GeneDict loaded from {gdict_path}")
-        log.trace(f"Header : {gene_dict.header}")
-        log.trace(f"Info   : {gene_dict.info}")
+        gene_set = gdict.read_gdict_as_set(gdict_path)
+        log.debug(f"GeneDict loaded as set from {gdict_path}")
+        log.trace(f"Entries in GeneDict set: {len(gene_set)}")
 
     else:
-        gene_dict = gdict.GeneDict()
+        gene_set = set()
         log.debug("No gdict file provided. Using empty GeneDict.")
 
     # start processing
@@ -479,7 +478,7 @@ def filter_whole_tsv(
                 check_single_an,
                 an,
                 gff_builder.build(an),
-                gene_dict,
+                gene_set,
                 keep_orfs,
                 query_string,
             )

@@ -496,6 +496,45 @@ def time_now() -> str:
     return datetime.now().strftime("%Y-%m-%d %H:%M")
 
 
+def read_gdict_as_set(gdict_file: str | Path) -> set[str]:
+    """Read a GDICT file and return a set of keys.
+
+    This is a higly optimized function to read a GDICT file and extract
+    only keys, ignoring everything else. It is useful for quickly checking
+    which keys are present in a GDICT file.
+
+    Args:
+        gdict_file (str | Path): Path to the GDICT file.
+
+    Returns:
+        set[str]: A set of keys present in the GDICT file.
+
+    """
+    gdict_file = Path(gdict_file).resolve()
+
+    if not gdict_file.exists():
+        raise FileNotFoundError(f"GDICT file not found: {gdict_file}")
+
+    keys = set()
+    with open(gdict_file, "r", encoding="utf-8") as f:
+        # skip header
+        while f.readline()[0] == "#":
+            pass
+
+        for line in f:
+            # Skip empty lines and lines starting with [
+            if line[0] in "\n[":
+                continue
+
+            # Find the first occurrence of any terminator
+            for terminator in ("#dx", "#gn", "#gd"):
+                pos = line.find(terminator)
+                if pos != -1:
+                    keys.add(line[:pos].rstrip())
+                    break
+    return keys
+
+
 def read_gdict(
     gdict_file: str | Path,
     max_an_sources: int = 0,

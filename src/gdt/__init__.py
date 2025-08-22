@@ -18,6 +18,7 @@ from .gdict import (
     natural_sort_key,
     parse_via_comments,
     read_gdict,
+    read_gdict_as_set,
     time_now,
 )
 from .gff3_utils import (

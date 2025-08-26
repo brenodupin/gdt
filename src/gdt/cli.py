@@ -72,6 +72,86 @@ def filter_command(
     )
 
 
+def _parse_data(
+    log: log_setup.GDTLogger,
+    label: str,
+    label_data: list[str],
+    ncbi_descs: set[str],
+) -> tuple[str, list[str]]:
+    """Parse label data and return a tuple of label and its data."""
+    log.trace(
+        f"Parsing label: {label} with data: {label_data} and ncbi_descs: {ncbi_descs}"
+    )
+    if label:
+        if "#gd gff_gene" in label_data[0]:
+            return (
+                label,
+                label_data + [f"{desc} #gd NCBI" for desc in sorted(ncbi_descs)],
+            )
+
+    return (label, label_data)
+
+
+def _stripped_large_temp(
+    log: log_setup.GDTLogger,
+    gdict_in: Path,
+    gdict_out: Path,
+) -> None:
+    """Create a stripped version of a large TEMP GDICT file."""
+    log.debug(f"Stripping large TEMP GDICT: {gdict_in.name} to {gdict_out.name}")
+    headers = []
+    with open(gdict_in, "r", encoding="utf-8") as f:
+        for line in f:
+            if line.startswith("#"):
+                headers.append(line.strip())
+            else:
+                break
+
+        label: str
+        data: list[tuple[str, list[str]]] = []
+        label_data: list[str] = []
+        ncbi_descs: set[str] = set()
+
+        # parse possible first label
+        if line.strip() and line.startswith("[") and line.endswith("]\n"):
+            label = line[1:-1].strip()
+
+        # parse rest of the file
+        for line in f:
+            if not (line := line.strip()):
+                continue
+
+            if line.startswith("[") and line.endswith("]"):
+                data.append(_parse_data(log, label, label_data, ncbi_descs))
+
+                label = line[1:-1].strip()
+                label_data = []
+                ncbi_descs = set()
+                continue
+
+            if "#gd" in line and label:
+                label_data.append(line)
+                continue
+
+            if "#dx" in line and label:
+                ncbi_desc = line.split("ncbi_desc:")[1].strip()
+                ncbi_descs.add(ncbi_desc)
+                continue
+
+        # append last entry
+        data.append(_parse_data(log, label, label_data, ncbi_descs))
+
+        with open(gdict_out, "w", encoding="utf-8") as out:
+            for header in headers:
+                out.write(f"{header}\n")
+
+            for entry in data:
+                if entry:
+                    out.write(f"\n[{entry[0]}]\n")
+                    for ld in entry[1]:
+                        out.write(f"{ld}\n")
+
+
 def stripped_command(
     args: argparse.Namespace,
     log: log_setup.GDTLogger,
@@ -98,6 +178,11 @@ def stripped_command(
             f"GDICT file already exists: {args.gdict_out}. "
             f"Use overwrite=True to overwrite."
         )
+
+    if args.large_temp:
+        _stripped_large_temp(log, args.gdict_in, args.gdict_out)
+        log.info(f"Stripped large TEMP GDICT created: {args.gdict_out}")
+        return
 
     gene_dict = gdict.read_gdict(args.gdict_in)
     log.info("Info before stripping:")
@@ -351,6 +436,18 @@ def cli_run() -> None:
         action="store_true",
         help="Overwrite output file, if it already exists. Default: False",
     )
+    stripped_parser.add_argument(
+        "--large-temp",
+        required=False,
+        default=False,
+        action="store_true",
+        help="This flag is a different way to parse large TEMP Description gdicts. "
+        "Useful if you started a new .gdict project without (or with a small) "
+        "stripped gdict. This will strip all #dx entries, but in labels that start with"
+        " #gd gff_gene, it will keep all #dx's unique ncbi_desc to better help the "
+        "manual curation. After parsing this stripped version, the user should re-start"
+        " the process using this parsed stripped as the first `newest_gdict_file`.",
+    )
 
     standardize_parser = subparsers.add_parser(
         "standardize",
@@ -490,3 +587,9 @@ def cli_run() -> None:
 
         case "standardize":
             standardize_command(args, log)
+        case _:
+            log.error(f"Unknown command: {args.command}")
+            exit(1)
+
+    log.trace("CLI execution finished")
+    exit(0)

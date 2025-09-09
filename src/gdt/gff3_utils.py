@@ -265,17 +265,26 @@ def load_gff3(
 def filter_orfs(
     gff3_df: pd.DataFrame,
     orfs_strings: list[str] = ["Name=ORF", "Name=orf"],
+    *,
+    extended: bool = False,
 ) -> pd.DataFrame:
     """Filter out ORFs from a GFF3 DataFrame.
 
     Args:
         gff3_df (pd.DataFrame): DataFrame containing GFF3 data.
         orfs_strings (list): List of strings to identify ORFs.
+            Defaults to ['Name=ORF', 'Name=orf'].
+        extended (bool): If True, adds more strings to filter out ORFs.
+            Defaults to False. If True, adds ['gene=ORF', 'gene=orf', 'gene=Orf',
+            'Name=Orf'] to the filter list.
 
     Returns:
         pd.DataFrame: DataFrame with ORFs removed.
 
     """
+    if extended:
+        orfs_strings.extend(["gene=ORF", "gene=orf", "gene=Orf", "Name=Orf"])
+
     return gff3_df[
         ~gff3_df["attributes"].str.contains("|".join(orfs_strings))
     ].reset_index(drop=True)

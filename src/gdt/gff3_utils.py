@@ -37,6 +37,91 @@ _RE_ID = re.compile(r"ID=([^;]+)")
 _RE_contains_GeneID = re.compile(r"Dbxref=.*GeneID:")
 
 
+def load_gff3(
+    filename: str | Path,
+    sep: str = "\t",
+    comment: str = "#",
+    header: int | None = None,
+    names: tuple[str, ...] = GFF3_COLUMNS,
+    usecols: tuple[str, ...] = ("type", "start", "end", "attributes"),
+    query_string: str | None = None,
+    **kwargs: Any,
+) -> pd.DataFrame:
+    """Load a GFF3 file into a pandas DataFrame, optionally filtering by a query string.
+
+    Args:
+        filename (str | Path): Path to the GFF3 file.
+        sep (str): Separator used in the file.
+        comment (str): Comment character in the file.
+        header (int | None): Row number to use as the column names, None if no header.
+        names (tuple[str, ...]): Tuple of column names to use.
+        usecols (list[str]): List of columns to read from the file.
+        query_string (str | None): Query string to filter the DataFrame.
+                                   Defaults to None, which means no filtering.
+        **kwargs: Additional keyword arguments passed to `pd.read_csv`.
+
+    Returns:
+        pd.DataFrame: DataFrame containing the filtered GFF3 data.
+
+    """
+    if query_string:
+        df: pd.DataFrame = (
+            pd.read_csv(
+                filename,
+                sep=sep,
+                comment=comment,
+                header=header,
+                names=names,
+                usecols=usecols,
+                **kwargs,
+            )
+            .query(query_string)
+            .sort_values(
+                by=["start", "end"], ascending=[True, False], ignore_index=True
+            )
+        )
+        return df
+
+    df = pd.read_csv(
+        filename,
+        sep=sep,
+        comment=comment,
+        header=header,
+        names=names,
+        usecols=usecols,
+        **kwargs,
+    ).sort_values(by=["start", "end"], ascending=[True, False], ignore_index=True)
+    return df
+
+
+def filter_orfs(
+    gff3_df: pd.DataFrame,
+    orfs_strings: list[str] = ["Name=ORF", "Name=orf"],
+    *,
+    extended: bool = False,
+) -> pd.DataFrame:
+    """Filter out ORFs from a GFF3 DataFrame.
+
+    Args:
+        gff3_df (pd.DataFrame): DataFrame containing GFF3 data.
+        orfs_strings (list): List of strings to identify ORFs.
+            Defaults to ['Name=ORF', 'Name=orf'].
+        extended (bool): If True, adds more strings to filter out ORFs.
+            Defaults to False. If True, adds ['gene=ORF', 'gene=orf', 'gene=Orf',
+            'Name=Orf'] to the filter list.
+
+    Returns:
+        pd.DataFrame: DataFrame with ORFs removed.
+
+    """
+    if extended:
+        orfs_strings.extend(["gene=ORF", "gene=orf", "gene=Orf", "Name=Orf"])
+
+    return gff3_df[
+        ~gff3_df["attributes"].str.contains("|".join(orfs_strings))
+    ].reset_index(drop=True)
+
+
 # will be pre-compiled by the PathBuilder class
 def _std_builder(
     base_path: Path,
@@ -203,91 +288,6 @@ class PathBuilder:
     def __repr__(self) -> str:
         """Return a string representation of the PathBuilder."""
         return self._str
-
-
-def load_gff3(
-    filename: str | Path,
-    sep: str = "\t",
-    comment: str = "#",
-    header: int | None = None,
-    names: tuple[str, ...] = GFF3_COLUMNS,
-    usecols: tuple[str, ...] = ("type", "start", "end", "attributes"),
-    query_string: str | None = None,
-    **kwargs: Any,
-) -> pd.DataFrame:
-    """Load a GFF3 file into a pandas DataFrame, optionally filtering by a query string.
-
-    Args:
-        filename (str | Path): Path to the GFF3 file.
-        sep (str): Separator used in the file.
-        comment (str): Comment character in the file.
-        header (int | None): Row number to use as the column names, None if no header.
-        names (tuple[str, ...]): Tuple of column names to use.
-        usecols (list[str]): List of columns to read from the file.
-        query_string (str | None): Query string to filter the DataFrame.
-                                   Defaults to None, which means no filtering.
-        **kwargs: Additional keyword arguments passed to `pd.read_csv`.
-
-    Returns:
-        pd.DataFrame: DataFrame containing the filtered GFF3 data.
-
-    """
-    if query_string:
-        df: pd.DataFrame = (
-            pd.read_csv(
-                filename,
-                sep=sep,
-                comment=comment,
-                header=header,
-                names=names,
-                usecols=usecols,
-                **kwargs,
-            )
-            .query(query_string)
-            .sort_values(
-                by=["start", "end"], ascending=[True, False], ignore_index=True
-            )
-        )
-        return df
-
-    df = pd.read_csv(
-        filename,
-        sep=sep,
-        comment=comment,
-        header=header,
-        names=names,
-        usecols=usecols,
-        **kwargs,
-    ).sort_values(by=["start", "end"], ascending=[True, False], ignore_index=True)
-    return df
-
-
-def filter_orfs(
-    gff3_df: pd.DataFrame,
-    orfs_strings: list[str] = ["Name=ORF", "Name=orf"],
-    *,
-    extended: bool = False,
-) -> pd.DataFrame:
-    """Filter out ORFs from a GFF3 DataFrame.
-
-    Args:
-        gff3_df (pd.DataFrame): DataFrame containing GFF3 data.
-        orfs_strings (list): List of strings to identify ORFs.
-            Defaults to ['Name=ORF', 'Name=orf'].
-        extended (bool): If True, adds more strings to filter out ORFs.
-            Defaults to False. If True, adds ['gene=ORF', 'gene=orf', 'gene=Orf',
-            'Name=Orf'] to the filter list.
-
-    Returns:
-        pd.DataFrame: DataFrame with ORFs removed.
-
-    """
-    if extended:
-        orfs_strings.extend(["gene=ORF", "gene=orf", "gene=Orf", "Name=Orf"])
-
-    return gff3_df[
-        ~gff3_df["attributes"].str.contains("|".join(orfs_strings))
-    ].reset_index(drop=True)
 
 
 def check_single_an(

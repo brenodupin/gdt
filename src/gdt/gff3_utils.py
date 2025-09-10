@@ -468,7 +468,9 @@ def filter_whole_tsv(
 
         # check if gdict file is in GDT_DIR
         if gdict_path.parent != GDT_DIR:
-            gdict_path = shutil.move(gdict_path, GDT_DIR / gdict_path.name)
+            gdict_path = Path(
+                shutil.move(gdict_path, GDT_DIR / gdict_path.name)
+            ).resolve()
             log.info(f"Moving gdict file to {gdict_path}")
 
         gene_set = gdict.read_gdict_as_set(gdict_path)

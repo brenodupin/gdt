@@ -8,45 +8,57 @@ on:
     paths:
       - 'src/**'
       - 'notebooks/**'
+  workflow_dispatch:
 
 jobs:
   checks:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-      
-      - name: Install uv
-        uses: astral-sh/setup-uv@v6
-        with:
-          version: "latest"
-          enable-cache: true
-      
-      - name: Install dependencies (with dev)
-        run: uv sync --group dev
-      
-      - name: Lint with ruff
-        id: lint
-        run: uv run ruff check src/ notebooks/
-        continue-on-error: true
-      
-      - name: Format with black
-        id: format
-        run: uv run black --check src/ notebooks/
-        continue-on-error: true
-      
-      - name: Type check with mypy
-        id: typecheck
-        run: uv run mypy --strict src/
-        continue-on-error: true
-      
-      - name: Check if any step failed
-        run: |
-          if [[ "${{ steps.lint.outcome }}" == "failure" ]] || \
-             [[ "${{ steps.format.outcome }}" == "failure" ]] || \
-             [[ "${{ steps.typecheck.outcome }}" == "failure" ]]; then
-            echo "One or more checks failed:"
-            echo "  - Lint: ${{ steps.lint.outcome }}"
-            echo "  - Format: ${{ steps.format.outcome }}"
-            echo "  - Type check: ${{ steps.typecheck.outcome }}"
-            exit 1
-          fi
+      runs-on: ubuntu-latest
+      steps:
+        - uses: actions/checkout@v4
+
+        - name: Set up Python
+          uses: actions/setup-python@v5
+          with:
+            python-version: '3.12'
+        
+        - name: Install uv
+          uses: astral-sh/setup-uv@v6
+          with:
+            version: "latest"
+            enable-cache: true
+        
+        - name: Install project dependencies
+          run: uv sync
+        
+        - name: Install tools
+          run: |
+            uv tool install ruff==0.12.12
+            uv tool install "black[jupyter]"==25.1.0
+            uv tool install mypy==1.17.1 --with pandas-stubs==2.3.0.250703 --with biopython==1.85
+        
+        - name: Lint with ruff
+          id: lint
+          run: ruff check src/ notebooks/
+          continue-on-error: true
+        
+        - name: Format with black
+          id: format
+          run: black --check src/ notebooks/
+          continue-on-error: true
+        
+        - name: Type check with mypy
+          id: typecheck
+          run: mypy --strict src/
+          continue-on-error: true
+        
+        - name: Check if any step failed
+          run: |
+            if [[ "${{ steps.lint.outcome }}" == "failure" ]] || \
+              [[ "${{ steps.format.outcome }}" == "failure" ]] || \
+              [[ "${{ steps.typecheck.outcome }}" == "failure" ]]; then
+              echo "One or more checks failed:"
+              echo "  - Lint: ${{ steps.lint.outcome }}"
+              echo "  - Format: ${{ steps.format.outcome }}"
+              echo "  - Type check: ${{ steps.typecheck.outcome }}"
+              exit 1
+            fi

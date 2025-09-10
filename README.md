@@ -47,11 +47,11 @@ GDT (Gene Dictonary Tool) is a protocol for the creation and implementation of a
 ## Requirements
 
 ### `gdt` Library
-- [Python](https://www.python.org/) `(>=3.10)`
+- [Python](https://www.python.org/) `(>=3.12)`
 - [pandas](https://pandas.pydata.org/) `(>=1.5.3,<3.0.0)`
 
 ### Notebooks
-- [Python](https://www.python.org/) `(>=3.10)`
+- [Python](https://www.python.org/) `(>=3.12)`
 - [gdt](https://github.com/brenodupin/gdt) `(>=1.0.0)`
 - [pandas](https://pandas.pydata.org/) `(>=1.5.3,<3.0.0)`
 - [biopython](https://biopython.org) `(>=1.80)`

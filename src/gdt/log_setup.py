@@ -151,9 +151,7 @@ def create_logger(
         console_level_int = _logging_levels.get(console_level, logging.INFO)
         console_handler = logging.StreamHandler()
         console_handler.setLevel(console_level_int)
-        console_formatter = logging.Formatter(
-            "%(asctime)s - %(levelname)s - %(message)s"
-        )
+        console_formatter = logging.Formatter("%(asctime)s - %(levelname)s - %(message)s")
         console_handler.setFormatter(console_formatter)
         log.addHandler(console_handler)
         levels.append(console_level_int)

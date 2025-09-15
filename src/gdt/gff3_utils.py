@@ -77,9 +77,7 @@ def load_gff3(
                 **kwargs,
             )
             .query(query_string)
-            .sort_values(
-                by=["start", "end"], ascending=[True, False], ignore_index=True
-            )
+            .sort_values(by=["start", "end"], ascending=[True, False], ignore_index=True)
         )
         return df
 
@@ -118,9 +116,9 @@ def filter_orfs(
     if extended:
         orfs_strings.extend(["gene=ORF", "gene=orf", "gene=Orf", "Name=Orf"])
 
-    return gff3_df[
-        ~gff3_df["attributes"].str.contains("|".join(orfs_strings))
-    ].reset_index(drop=True)
+    return gff3_df[~gff3_df["attributes"].str.contains("|".join(orfs_strings))].reset_index(
+        drop=True
+    )
 
 
 # will be pre-compiled by the PathBuilder class
@@ -284,9 +282,7 @@ class PathBuilder:
         if help_text is None:
             help_text = getattr(builder_func, "__name__", "anonymous_function")
 
-        self._str = (
-            f"PathBuilder('{self.ext}', build='custom', help_text='{help_text}')"
-        )
+        self._str = f"PathBuilder('{self.ext}', build='custom', help_text='{help_text}')"
         return self
 
     def __repr__(self) -> str:
@@ -363,9 +359,7 @@ def _check_column(
     if col not in df.columns:
         log.error(f"Column '{col}' not found in DataFrame")
         log.error(f"Available columns: {df.columns}")
-        raise ValueError(
-            f"Column '{col}' not found in {df_txt}. Please check the file."
-        )
+        raise ValueError(f"Column '{col}' not found in {df_txt}. Please check the file.")
 
 
 def check_gff_in_tsv(
@@ -472,9 +466,7 @@ def filter_whole_tsv(
 
         # check if gdict file is in GDT_DIR
         if gdict_path.parent != GDT_DIR:
-            gdict_path = Path(
-                shutil.move(gdict_path, GDT_DIR / gdict_path.name)
-            ).resolve()
+            gdict_path = Path(shutil.move(gdict_path, GDT_DIR / gdict_path.name)).resolve()
             log.info(f"Moving gdict file to {gdict_path}")
 
         gene_set = gdict.read_gdict_as_set(gdict_path)
@@ -718,9 +710,7 @@ def standardize_gff3(
                 gdt_str = f"{gdt_tag}={gdt_label.label}"
 
                 if gdt_str in line[8]:
-                    log.trace(
-                        f"Skipping {gdt_str} in {gff_path.name}. Already present."
-                    )
+                    log.trace(f"Skipping {gdt_str} in {gff_path.name}. Already present.")
                     contents.append("\t".join(line))
                     continue
 
@@ -731,9 +721,7 @@ def standardize_gff3(
 
                 if second_place:
                     left, right = line[8].split(";", 1)
-                    line[8] = (
-                        f"{left};{gdt_str};{right}" if right else f"{left};{gdt_str}"
-                    )
+                    line[8] = f"{left};{gdt_str};{right}" if right else f"{left};{gdt_str}"
 
                 else:
                     line[8] = (

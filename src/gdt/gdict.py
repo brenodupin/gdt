@@ -178,9 +178,7 @@ class GeneDict(UserDict[str, GeneUnion]):
                 f"{self.version}"
             )
 
-        all_labels: list[str] = natural_sort(
-            {gene.label for gene in self.data.values()}
-        )
+        all_labels: list[str] = natural_sort({gene.label for gene in self.data.values()})
 
         label_as_key = defaultdict(list)
         for key, value in self.data.items():
@@ -469,9 +467,7 @@ class GeneDict(UserDict[str, GeneUnion]):
         if self.info.labels == 0:
             self.update_info()
 
-        return (
-            f"GeneDict(version={self.version}, header={self.header}, info={self.info})"
-        )
+        return f"GeneDict(version={self.version}, header={self.header}, info={self.info})"
 
     def deepcopy(self) -> "GeneDict":
         """Create a deep copy of the GeneDict.
@@ -784,9 +780,7 @@ def _solve_gd(
         return replace(
             old,
             source=(
-                old.source
-                if old.source == new.source
-                else f"{old.source} + {new.source}"
+                old.source if old.source == new.source else f"{old.source} + {new.source}"
             ),
             c=_solve_comment(old.c, new.c),
         )

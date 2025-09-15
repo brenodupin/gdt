@@ -1,4 +1,4 @@
-line-length = 88
+line-length = 92
 target-version = "py312"
 
 include = ["src/**.py", "notebooks/**.ipynb"]

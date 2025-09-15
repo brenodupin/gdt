@@ -11,6 +11,7 @@ the presence of gene IDs in a GeneDict.
 import concurrent.futures as cf
 import re
 import shutil
+import types
 from functools import partial
 from pathlib import Path
 from typing import Any, Callable, cast
@@ -245,18 +246,18 @@ class PathBuilder:
 
     def use_custom_builder(
         self,
-        builder_func: Callable[[str], Path],
+        builder_func: Callable[["PathBuilder", str], Path],
         help_text: str | None = None,
     ) -> "PathBuilder":
         """Set a custom build function as a drop-in replacement.
 
-        It should return a Path object based on the given accession number.
-        The extension is a attribute of the class (defined at __init__), so it
-        can be used by the custom builder function, just access it with `self.ext`.
+        The custom function should have the signature: (self, an: str) -> Path
+        where 'self' refers to the PathBuilder instance.
 
         Args:
-            builder_func (Callable[[str], Path]): A function that takes an
-                accession number (str) and returns a Path object.
+            builder_func (Callable[["PathBuilder", str], Path]): A function that takes
+                the PathBuilder instance (self) and an accession number (str) and
+                returns a Path object.
             help_text (str | None): Optional help text to describe the
                 custom builder function. This is used by the __repr__ method
                 to provide more context about the builder. If not provided,
@@ -266,16 +267,19 @@ class PathBuilder:
             PathBuilder: Returns self.
 
         Example:
-            def my_custom_builder(an: str) -> Path:
+            import tigre
+            from pathlib import Path
+
+            def my_custom_builder(self, an: str) -> Path:
                 return Path(f"/custom/path/{an}_special{self.ext}")
 
-            gff_path = PathBuilder(".gff")
+            gff_path = tigre.PathBuilder(".gff")
             gff_path.use_custom_builder(my_custom_builder)
             path = gff_path.build("NC_123456.1")
             print(path)  # Outputs: /custom/path/NC_123456.1_special.gff
 
         """
-        self._build_method = builder_func
+        self._build_method = types.MethodType(builder_func, self)
 
         if help_text is None:
             help_text = getattr(builder_func, "__name__", "anonymous_function")

@@ -403,20 +403,45 @@ class GeneDict(UserDict[str, GeneUnion]):
         other: "GeneDict",
         lazy_info: bool = True,
     ) -> "GeneDict":
-        """Merge another GeneDict into this one.
+        """Merge another GeneDict into this one with intelligent conflict resolution.
 
-        This method combines the entries from another GeneDict into this one,
-        preserving the existing entries and adding new ones. If there are
-        conflicting keys, they will be handle on a each case basis, with the
+        Note:
+            The original GeneDict instances (both self and other) are never modified.
+            All operations work on copies of the data.
+
+        This method combines entries from another GeneDict into this one, preserving
+        existing entries and adding new ones. When conflicting keys are encountered,
+        the method attempts to resolve them based on entry types and content similarity.
+
+        Conflict Resolution Rules:
+
+        For each key in `other`:
+        - No conflict: If the key doesn't exist in self, it's added directly
+
+        - Resolvable conflict: If the key exists and both entries are compatible,
+        they're merged according to type-specific rules, with all comments combined:
+
+            - DbxrefGeneID: Merged if same label.
+                - If an_source/GeneID differ, conflict noted in comments.
+
+            - GeneGeneric: Merged if same label.
+                - an_sources lists are combined (duplicates removed).
+
+            - GeneDescription: Merged if same label.
+                - Sources concatenated if different (e.g., "source1 + source2").
+
+        - Unresolvable conflict: Raises ValueError if:
+            - Same key has different entry types (e.g., GeneDescription vs DbxrefGeneID).
+            - Same entry type but different labels.
 
         Args:
-            other (GeneDict): The other GeneDict to merge into this one.
-            lazy_info (bool): If False, `update_info` will be called on the merged
-                              GeneDict. Default is True, meaning the info will not
-                              be updated until `update_info` is called.
+            other (GeneDict): The GeneDict to merge into this one.
+            lazy_info (bool): If False, update_info() is called on the result.
+                Default True means info is updated only when explicitly requested.
 
         Returns:
-            GeneDict: A new GeneDict instance with merged data and an updated header.
+            GeneDict: New GeneDict with merged data and updated header indicating
+            the merge operation and final entry count.
 
         """
         merged_data = self.data.copy()

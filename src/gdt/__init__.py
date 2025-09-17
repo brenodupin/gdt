@@ -37,6 +37,7 @@ from .gff3_utils import (
 from .log_setup import (
     TRACE,
     GDTLogger,
+    TempLogger,
     create_logger,
     log_info,
     setup_logger,

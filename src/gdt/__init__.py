@@ -34,4 +34,10 @@ from .gff3_utils import (
     standardize_gff3,
     standardize_tsv,
 )
-from .log_setup import TRACE, GDTLogger, create_logger, log_info, setup_logger
+from .log_setup import (
+    TRACE,
+    GDTLogger,
+    create_logger,
+    log_info,
+    setup_logger,
+)

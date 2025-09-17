@@ -509,7 +509,13 @@ class GeneDict(UserDict[str, GeneUnion]):
         Warning: Modifications to gene objects will affect both copies.
         Use deepcopy() for complete isolation.
         """
-        return super().copy()
+        return self._from_data(
+            self.data.copy(),
+            version=self.version,
+            header=self.header.copy(),
+            info=replace(self.info),
+            lazy_info=True,
+        )
 
 
 def time_now() -> str:

@@ -55,7 +55,7 @@ def filter_command(
         f"filter command: tsv: {args.tsv} | gdict: {args.gdict} | "
         f"keep_orfs: {args.keep_orfs} | workers: {args.workers} | "
         f"AN_column: {args.AN_column} | gff_ext: {args.gff_ext} | "
-        f"query_string: {args.query_string}"
+        f"gff_suffix: {args.gff_suffix} | query_string: {args.query_string}"
     )
     gff3_utils.filter_whole_tsv(
         log,
@@ -208,10 +208,10 @@ def standardize_command(
     log.info(
         f"standardize command: gff: {args.gff} | tsv: {args.tsv} | "
         f"gdict: {args.gdict} | AN_column: {args.AN_column} | "
-        f"gff_ext: {args.gff_ext} | query_string: {args.query_string} | "
-        f"check: {args.check} | second_place: {args.second_place} | "
-        f"gdt_tag: {args.gdt_tag} | error_on_missing: {args.error_on_missing} | "
-        f"save_copy: {args.save_copy}"
+        f"gff_ext: {args.gff_ext} | gff_suffix: {args.suffix} | "
+        f"query_string: {args.query_string} | check: {args.check} | "
+        f"second_place: {args.second_place} | gdt_tag: {args.gdt_tag} | "
+        f"error_on_missing: {args.error_on_missing} | save_copy: {args.save_copy}"
     )
     args.gdict = Path(args.gdict).resolve()
     if args.gff:
@@ -276,6 +276,7 @@ def cli_run() -> None:
         "--log",
         required=False,
         type=str,
+        metavar="PATH",
         default=None,
         help="Path to the log file. If not provided, a default log file will be "
         "created.",
@@ -326,6 +327,7 @@ def cli_run() -> None:
         "--tsv",
         required=True,
         type=str,
+        metavar="PATH",
         help="TSV file with indexed GFF3 files to filter.",
     )
     filter_parser.add_argument(
@@ -333,6 +335,7 @@ def cli_run() -> None:
         required=False,
         default="AN",
         type=str,
+        metavar="STR",
         help="Column name for NCBI Accession Number inside the TSV. Default: AN",
     )
     filter_parser.add_argument(
@@ -340,6 +343,7 @@ def cli_run() -> None:
         required=False,
         default=False,
         type=str,
+        metavar="PATH",
         help="GDICT file to use for filtering. "
         "If not provided, an empty GeneDict (i.e GDICT file) will be used.",
     )
@@ -355,6 +359,7 @@ def cli_run() -> None:
         required=False,
         default=0,
         type=int,
+        metavar="INT",
         help="Number of workers to use. "
         f"Default: 0 (use all available cores: {os.cpu_count()})",
     )
@@ -363,6 +368,7 @@ def cli_run() -> None:
         required=False,
         default=".gff3",
         type=str,
+        metavar="STR",
         help="File Extension for GFF files. Default: '.gff3'",
     )
     filter_parser.add_argument(
@@ -370,6 +376,7 @@ def cli_run() -> None:
         required=False,
         default="",
         type=str,
+        metavar="STR",
         help="Suffix to be added when building GFF Paths from the TSV file. "
         "Example: '_clean' will create GFF paths like '<AN>_clean.gff3' if "
         "--gff-ext is '.gff3'. ",
@@ -388,6 +395,7 @@ def cli_run() -> None:
         required=False,
         default=gff3_utils.QS_GENE_TRNA_RRNA,
         type=str,
+        metavar="STR",
         help="Query string that pandas filter features in GFF. "
         f"Default: '{gff3_utils.QS_GENE_TRNA_RRNA}'",
     )
@@ -412,6 +420,7 @@ def cli_run() -> None:
         "-gin",
         required=True,
         type=str,
+        metavar="PATH",
         help="Input GDICT file to strip.",
     )
     stripped_parser.add_argument(
@@ -419,6 +428,7 @@ def cli_run() -> None:
         "-gout",
         required=True,
         type=str,
+        metavar="PATH",
         help="New GDICT file to create.",
     )
     stripped_parser.add_argument(
@@ -461,11 +471,13 @@ def cli_run() -> None:
     flag_group.add_argument(
         "--gff",
         type=str,
+        metavar="PATH",
         help="GFF3 file to standardize.",
     )
     flag_group.add_argument(
         "--tsv",
         type=str,
+        metavar="PATH",
         help="TSV file with indexed GFF3 files to standardize.",
     )
 
@@ -473,6 +485,7 @@ def cli_run() -> None:
         "--gdict",
         required=True,
         type=str,
+        metavar="PATH",
         help="GDICT file to use for standardization. ",
     )
     standardize_parser.add_argument(
@@ -480,6 +493,7 @@ def cli_run() -> None:
         required=False,
         default="AN",
         type=str,
+        metavar="STR",
         help="Column name for NCBI Accession Number inside the TSV. Default: AN",
     )
     standardize_parser.add_argument(
@@ -487,6 +501,7 @@ def cli_run() -> None:
         required=False,
         default=".gff3",
         type=str,
+        metavar="STR",
         help="File Extension for GFF files. Default: '.gff3'",
     )
     standardize_parser.add_argument(
@@ -494,6 +509,7 @@ def cli_run() -> None:
         required=False,
         default="",
         type=str,
+        metavar="STR",
         help="Suffix to be added when building GFF Paths from the TSV file. "
         "Example: '_clean' will create GFF paths like '<AN>_clean.gff3' if "
         "--gff-ext is '.gff3'. ",
@@ -512,6 +528,7 @@ def cli_run() -> None:
         required=False,
         default=gff3_utils.QS_GENE_TRNA_RRNA,
         type=str,
+        metavar="STR",
         help="Query string that pandas filter features in GFF. "
         f"Default: '{gff3_utils.QS_GENE_TRNA_RRNA}'",
     )
@@ -536,6 +553,7 @@ def cli_run() -> None:
         required=False,
         default="gdt_label",
         type=str,
+        metavar="STR",
         help="Tag to use for the GDT key/value pair in the GFF3 file. "
         "Default: 'gdt_label='.",
     )

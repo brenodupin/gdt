@@ -173,7 +173,8 @@ def create_logger(
     log.propagate = False
     log.debug("Logger initialized.")
     log.debug(f"Console logging level {console_level if print_to_console else 'None'}")
-    log.debug(f"File logging level {file_level} at {log_file}")
+    if save_to_file:
+        log.debug(f"File logging level {file_level} at {log_file}")
 
     return log
 

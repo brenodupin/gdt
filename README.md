@@ -30,6 +30,7 @@ $${\color{#E0AF68}{\LARGE\textsf{🧬 Standardizing gene names across organelle 
     - [Label Convention](#label-convention)
     - [Complete Specification](#complete-specification)
   - [Creation Process](#creation-process)
+  - [Update of GFF Versions](#update-of-gff-versions)
 - [CLI commands](#cli-commands)
   - [`filter`](#filter)
   - [`stripped`](#stripped)
@@ -111,6 +112,9 @@ We provide our GDICT files (also in stripped form) for a most organelle genomes 
 
 A more detailed description of the process can be found in the preprint: [Protocol for GDT, Gene Dictionary Tool, to create and implement a gene dictionary across annotated genomes](https://doi.org/10.1101/2025.06.15.659783)
 
+### Update of GFF Versions
+
+We have written a guide to update an existing GDICT after a new version of a GFF (in your dataset) is released. The guide can be found in the [GFF Version Update Guide](GFF_Update_Guide.md).
 
 ## CLI commands
 

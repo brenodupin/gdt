@@ -13,6 +13,7 @@ $${\color{#E0AF68}{\LARGE\textsf{🧬 Standardizing gene names across organelle 
 [![Linting: Ruff](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/charliermarsh/ruff/main/assets/badge/v2.json)](https://github.com/astral-sh/ruff)
 [![License](https://img.shields.io/badge/license-MIT-purple)](https://github.com/brenodupin/gdt/blob/master/LICENSE)
 [![DOI:10.1101/2025.06.15.659783v1](https://img.shields.io/badge/biorxiv-10.1101/2025.06.15.659783-blue)](https://doi.org/10.1101/2025.06.15.659783)
+[![DOI](https://zenodo.org/badge/1000978876.svg)](https://zenodo.org/badge/latestdoi/1000978876)
 </div>
 
 

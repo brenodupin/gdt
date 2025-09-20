@@ -1,0 +1,151 @@
+##gff-version 3
+#!gff-spec-version 1.21
+#!processor NCBI annotwriter
+##sequence-region JQ346808.1 1 31765
+##species https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=746128
+JQ346808.1	Genbank	region	1	31765	.	+	.	ID=JQ346808.1:1..31765;Dbxref=taxon:746128;Is_circular=true;Name=MT;gbkey=Src;genome=mitochondrion;mol_type=genomic DNA;strain=AF293
+JQ346808.1	Genbank	gene	1	1158	.	+	.	ID=gene-AFUA_m0010;Name=AFUA_m0010;gbkey=Gene;gene_biotype=protein_coding;locus_tag=AFUA_m0010
+JQ346808.1	Genbank	CDS	1	1158	.	+	0	ID=cds-AFE02850.1;Parent=gene-AFUA_m0010;Dbxref=NCBI_GP:AFE02850.1;Name=AFE02850.1;gbkey=CDS;locus_tag=AFUA_m0010;product=cytochrome b;protein_id=AFE02850.1;transl_table=4
+JQ346808.1	Genbank	gene	1240	1310	.	+	.	ID=gene-AFUA_m0020;Name=AFUA_m0020;gbkey=Gene;gene_biotype=tRNA;locus_tag=AFUA_m0020
+JQ346808.1	Genbank	tRNA	1240	1310	.	+	.	ID=rna-AFUA_m0020;Parent=gene-AFUA_m0020;Note=anticodon GCA;gbkey=tRNA;locus_tag=AFUA_m0020;product=tRNA-Cys
+JQ346808.1	Genbank	exon	1240	1310	.	+	.	ID=exon-AFUA_m0020-1;Parent=rna-AFUA_m0020;Note=anticodon GCA;gbkey=tRNA;locus_tag=AFUA_m0020;product=tRNA-Cys
+JQ346808.1	Genbank	gene	1352	1555	.	-	.	ID=gene-AFUA_m0030;Name=AFUA_m0030;gbkey=Gene;gene_biotype=tRNA;locus_tag=AFUA_m0030
+JQ346808.1	Genbank	tRNA	1352	1555	.	-	.	ID=rna-AFUA_m0030;Parent=gene-AFUA_m0030;Note=anticodon ATT;gbkey=tRNA;locus_tag=AFUA_m0030;product=tRNA-Asn
+JQ346808.1	Genbank	exon	1517	1555	.	-	.	ID=exon-AFUA_m0030-1;Parent=rna-AFUA_m0030;Note=anticodon ATT;gbkey=tRNA;locus_tag=AFUA_m0030;product=tRNA-Asn
+JQ346808.1	Genbank	exon	1352	1388	.	-	.	ID=exon-AFUA_m0030-2;Parent=rna-AFUA_m0030;Note=anticodon ATT;gbkey=tRNA;locus_tag=AFUA_m0030;product=tRNA-Asn
+JQ346808.1	Genbank	gene	1652	2713	.	+	.	ID=gene-AFUA_m0040;Name=AFUA_m0040;gbkey=Gene;gene_biotype=protein_coding;locus_tag=AFUA_m0040
+JQ346808.1	Genbank	CDS	1652	2713	.	+	0	ID=cds-AFE02851.1;Parent=gene-AFUA_m0040;Dbxref=NCBI_GP:AFE02851.1;Name=AFE02851.1;gbkey=CDS;locus_tag=AFUA_m0040;product=NADH dehydrogenase subunit 1;protein_id=AFE02851.1;transl_table=4
+JQ346808.1	Genbank	gene	2723	2971	.	-	.	ID=gene-AFUA_m0050;Name=AFUA_m0050;gbkey=Gene;gene_biotype=tRNA;locus_tag=AFUA_m0050
+JQ346808.1	Genbank	tRNA	2723	2971	.	-	.	ID=rna-AFUA_m0050;Parent=gene-AFUA_m0050;Note=anticodon TAT;gbkey=tRNA;locus_tag=AFUA_m0050;product=tRNA-Ile
+JQ346808.1	Genbank	exon	2934	2971	.	-	.	ID=exon-AFUA_m0050-1;Parent=rna-AFUA_m0050;Note=anticodon TAT;gbkey=tRNA;locus_tag=AFUA_m0050;product=tRNA-Ile
+JQ346808.1	Genbank	exon	2723	2755	.	-	.	ID=exon-AFUA_m0050-2;Parent=rna-AFUA_m0050;Note=anticodon TAT;gbkey=tRNA;locus_tag=AFUA_m0050;product=tRNA-Ile
+JQ346808.1	Genbank	gene	3014	4480	.	+	.	ID=gene-AFUA_m0060;Name=AFUA_m0060;gbkey=Gene;gene_biotype=protein_coding;locus_tag=AFUA_m0060
+JQ346808.1	Genbank	CDS	3014	4480	.	+	0	ID=cds-AFE02852.1;Parent=gene-AFUA_m0060;Dbxref=NCBI_GP:AFE02852.1;Name=AFE02852.1;gbkey=CDS;locus_tag=AFUA_m0060;product=NADH dehydrogenase subunit 4;protein_id=AFE02852.1;transl_table=4
+JQ346808.1	Genbank	gene	4545	4615	.	+	.	ID=gene-AFUA_m0070;Name=AFUA_m0070;gbkey=Gene;gene_biotype=tRNA;locus_tag=AFUA_m0070
+JQ346808.1	Genbank	tRNA	4545	4615	.	+	.	ID=rna-AFUA_m0070;Parent=gene-AFUA_m0070;Note=anticodon TCT;gbkey=tRNA;locus_tag=AFUA_m0070;product=tRNA-Arg
+JQ346808.1	Genbank	exon	4545	4615	.	+	.	ID=exon-AFUA_m0070-1;Parent=rna-AFUA_m0070;Note=anticodon TCT;gbkey=tRNA;locus_tag=AFUA_m0070;product=tRNA-Arg
+JQ346808.1	Genbank	gene	4632	4702	.	+	.	ID=gene-AFUA_m0080;Name=AFUA_m0080;gbkey=Gene;gene_biotype=tRNA;locus_tag=AFUA_m0080
+JQ346808.1	Genbank	tRNA	4632	4702	.	+	.	ID=rna-AFUA_m0080;Parent=gene-AFUA_m0080;Note=anticodon GTT;gbkey=tRNA;locus_tag=AFUA_m0080;product=tRNA-Asn
+JQ346808.1	Genbank	exon	4632	4702	.	+	.	ID=exon-AFUA_m0080-1;Parent=rna-AFUA_m0080;Note=anticodon GTT;gbkey=tRNA;locus_tag=AFUA_m0080;product=tRNA-Asn
+JQ346808.1	Genbank	gene	4824	4970	.	+	.	ID=gene-AFUA_m0090;Name=AFUA_m0090;gbkey=Gene;gene_biotype=protein_coding;locus_tag=AFUA_m0090
+JQ346808.1	Genbank	CDS	4824	4970	.	+	0	ID=cds-AFE02853.1;Parent=gene-AFUA_m0090;Dbxref=NCBI_GP:AFE02853.1;Name=AFE02853.1;gbkey=CDS;locus_tag=AFUA_m0090;product=ATP synthase subunit 8;protein_id=AFE02853.1;transl_table=4
+JQ346808.1	Genbank	gene	5034	5265	.	+	.	ID=gene-AFUA_m0100;Name=AFUA_m0100;gbkey=Gene;gene_biotype=tRNA;locus_tag=AFUA_m0100
+JQ346808.1	Genbank	tRNA	5034	5265	.	+	.	ID=rna-AFUA_m0100;Parent=gene-AFUA_m0100;Note=anticodon TAT;gbkey=tRNA;locus_tag=AFUA_m0100;product=tRNA-Ile
+JQ346808.1	Genbank	exon	5034	5067	.	+	.	ID=exon-AFUA_m0100-1;Parent=rna-AFUA_m0100;Note=anticodon TAT;gbkey=tRNA;locus_tag=AFUA_m0100;product=tRNA-Ile
+JQ346808.1	Genbank	exon	5227	5265	.	+	.	ID=exon-AFUA_m0100-2;Parent=rna-AFUA_m0100;Note=anticodon TAT;gbkey=tRNA;locus_tag=AFUA_m0100;product=tRNA-Ile
+JQ346808.1	Genbank	gene	5237	6010	.	+	.	ID=gene-AFUA_m0110;Name=AFUA_m0110;gbkey=Gene;gene_biotype=protein_coding;locus_tag=AFUA_m0110
+JQ346808.1	Genbank	CDS	5237	6010	.	+	0	ID=cds-AFE02854.1;Parent=gene-AFUA_m0110;Dbxref=NCBI_GP:AFE02854.1;Name=AFE02854.1;gbkey=CDS;locus_tag=AFUA_m0110;product=ATP synthase subunit 6;protein_id=AFE02854.1;transl_table=4
+JQ346808.1	Genbank	gene	6392	6880	.	+	.	ID=gene-AFUA_m0120;Name=AFUA_m0120;gbkey=Gene;gene_biotype=rRNA;locus_tag=AFUA_m0120
+JQ346808.1	Genbank	rRNA	6392	6880	.	+	.	ID=rna-AFUA_m0120;Parent=gene-AFUA_m0120;gbkey=rRNA;locus_tag=AFUA_m0120;product=small subunit ribosomal RNA
+JQ346808.1	Genbank	exon	6392	6880	.	+	.	ID=exon-AFUA_m0120-1;Parent=rna-AFUA_m0120;gbkey=rRNA;locus_tag=AFUA_m0120;product=small subunit ribosomal RNA
+JQ346808.1	Genbank	gene	7921	8005	.	+	.	ID=gene-AFUA_m0130;Name=AFUA_m0130;gbkey=Gene;gene_biotype=tRNA;locus_tag=AFUA_m0130
+JQ346808.1	Genbank	tRNA	7921	8005	.	+	.	ID=rna-AFUA_m0130;Parent=gene-AFUA_m0130;Note=anticodon GTA;gbkey=tRNA;locus_tag=AFUA_m0130;product=tRNA-Tyr
+JQ346808.1	Genbank	exon	7921	8005	.	+	.	ID=exon-AFUA_m0130-1;Parent=rna-AFUA_m0130;Note=anticodon GTA;gbkey=tRNA;locus_tag=AFUA_m0130;product=tRNA-Tyr
+JQ346808.1	Genbank	gene	8079	8729	.	+	.	ID=gene-AFUA_m0140;Name=AFUA_m0140;gbkey=Gene;gene_biotype=protein_coding;locus_tag=AFUA_m0140
+JQ346808.1	Genbank	CDS	8079	8729	.	+	0	ID=cds-AFE02855.1;Parent=gene-AFUA_m0140;Dbxref=NCBI_GP:AFE02855.1;Name=AFE02855.1;gbkey=CDS;locus_tag=AFUA_m0140;product=NADH dehydrogenase subunit 6;protein_id=AFE02855.1;transl_table=4
+JQ346808.1	Genbank	gene	8797	9606	.	+	.	ID=gene-AFUA_m0150;Name=AFUA_m0150;gbkey=Gene;gene_biotype=protein_coding;locus_tag=AFUA_m0150
+JQ346808.1	Genbank	CDS	8797	9606	.	+	0	ID=cds-AFE02856.1;Parent=gene-AFUA_m0150;Dbxref=NCBI_GP:AFE02856.1;Name=AFE02856.1;gbkey=CDS;locus_tag=AFUA_m0150;product=cytochrome oxidase subunit 3;protein_id=AFE02856.1;transl_table=4
+JQ346808.1	Genbank	gene	10009	10081	.	+	.	ID=gene-AFUA_m0160;Name=AFUA_m0160;gbkey=Gene;gene_biotype=tRNA;locus_tag=AFUA_m0160
+JQ346808.1	Genbank	tRNA	10009	10081	.	+	.	ID=rna-AFUA_m0160;Parent=gene-AFUA_m0160;Note=anticodon TTT;gbkey=tRNA;locus_tag=AFUA_m0160;product=tRNA-Lys
+JQ346808.1	Genbank	exon	10009	10081	.	+	.	ID=exon-AFUA_m0160-1;Parent=rna-AFUA_m0160;Note=anticodon TTT;gbkey=tRNA;locus_tag=AFUA_m0160;product=tRNA-Lys
+JQ346808.1	Genbank	gene	10132	10202	.	+	.	ID=gene-AFUA_m0170;Name=AFUA_m0170;gbkey=Gene;gene_biotype=tRNA;locus_tag=AFUA_m0170
+JQ346808.1	Genbank	tRNA	10132	10202	.	+	.	ID=rna-AFUA_m0170;Parent=gene-AFUA_m0170;Note=anticodon ACC;gbkey=tRNA;locus_tag=AFUA_m0170;product=tRNA-Gly
+JQ346808.1	Genbank	exon	10132	10202	.	+	.	ID=exon-AFUA_m0170-1;Parent=rna-AFUA_m0170;Note=anticodon ACC;gbkey=tRNA;locus_tag=AFUA_m0170;product=tRNA-Gly
+JQ346808.1	Genbank	gene	10245	10315	.	+	.	ID=gene-AFUA_m0180;Name=AFUA_m0180;gbkey=Gene;gene_biotype=tRNA;locus_tag=AFUA_m0180
+JQ346808.1	Genbank	tRNA	10245	10315	.	+	.	ID=rna-AFUA_m0180;Parent=gene-AFUA_m0180;Note=anticodon TCC;gbkey=tRNA;locus_tag=AFUA_m0180;product=tRNA-Gly
+JQ346808.1	Genbank	exon	10245	10315	.	+	.	ID=exon-AFUA_m0180-1;Parent=rna-AFUA_m0180;Note=anticodon TCC;gbkey=tRNA;locus_tag=AFUA_m0180;product=tRNA-Gly
+JQ346808.1	Genbank	gene	10320	10392	.	+	.	ID=gene-AFUA_m0190;Name=AFUA_m0190;gbkey=Gene;gene_biotype=tRNA;locus_tag=AFUA_m0190
+JQ346808.1	Genbank	tRNA	10320	10392	.	+	.	ID=rna-AFUA_m0190;Parent=gene-AFUA_m0190;Note=anticodon GTC;gbkey=tRNA;locus_tag=AFUA_m0190;product=tRNA-Asp
+JQ346808.1	Genbank	exon	10320	10392	.	+	.	ID=exon-AFUA_m0190-1;Parent=rna-AFUA_m0190;Note=anticodon GTC;gbkey=tRNA;locus_tag=AFUA_m0190;product=tRNA-Asp
+JQ346808.1	Genbank	gene	10401	10481	.	+	.	ID=gene-AFUA_m0200;Name=AFUA_m0200;gbkey=Gene;gene_biotype=tRNA;locus_tag=AFUA_m0200
+JQ346808.1	Genbank	tRNA	10401	10481	.	+	.	ID=rna-AFUA_m0200;Parent=gene-AFUA_m0200;Note=anticodon GCT;gbkey=tRNA;locus_tag=AFUA_m0200;product=tRNA-Ser
+JQ346808.1	Genbank	exon	10401	10481	.	+	.	ID=exon-AFUA_m0200-1;Parent=rna-AFUA_m0200;Note=anticodon GCT;gbkey=tRNA;locus_tag=AFUA_m0200;product=tRNA-Ser
+JQ346808.1	Genbank	gene	10482	10553	.	+	.	ID=gene-AFUA_m0210;Name=AFUA_m0210;gbkey=Gene;gene_biotype=tRNA;locus_tag=AFUA_m0210
+JQ346808.1	Genbank	tRNA	10482	10553	.	+	.	ID=rna-AFUA_m0210;Parent=gene-AFUA_m0210;Note=anticodon TCA;gbkey=tRNA;locus_tag=AFUA_m0210;product=tRNA-Sec
+JQ346808.1	Genbank	exon	10482	10553	.	+	.	ID=exon-AFUA_m0210-1;Parent=rna-AFUA_m0210;Note=anticodon TCA;gbkey=tRNA;locus_tag=AFUA_m0210;product=tRNA-Sec
+JQ346808.1	Genbank	gene	10572	10643	.	+	.	ID=gene-AFUA_m0220;Name=AFUA_m0220;gbkey=Gene;gene_biotype=tRNA;locus_tag=AFUA_m0220
+JQ346808.1	Genbank	tRNA	10572	10643	.	+	.	ID=rna-AFUA_m0220;Parent=gene-AFUA_m0220;Note=anticodon GAT;gbkey=tRNA;locus_tag=AFUA_m0220;product=tRNA-Ile
+JQ346808.1	Genbank	exon	10572	10643	.	+	.	ID=exon-AFUA_m0220-1;Parent=rna-AFUA_m0220;Note=anticodon GAT;gbkey=tRNA;locus_tag=AFUA_m0220;product=tRNA-Ile
+JQ346808.1	Genbank	gene	10731	10816	.	+	.	ID=gene-AFUA_m0230;Name=AFUA_m0230;gbkey=Gene;gene_biotype=tRNA;locus_tag=AFUA_m0230
+JQ346808.1	Genbank	tRNA	10731	10816	.	+	.	ID=rna-AFUA_m0230;Parent=gene-AFUA_m0230;Note=anticodon TGA;gbkey=tRNA;locus_tag=AFUA_m0230;product=tRNA-Ser
+JQ346808.1	Genbank	exon	10731	10816	.	+	.	ID=exon-AFUA_m0230-1;Parent=rna-AFUA_m0230;Note=anticodon TGA;gbkey=tRNA;locus_tag=AFUA_m0230;product=tRNA-Ser
+JQ346808.1	Genbank	gene	10879	10951	.	+	.	ID=gene-AFUA_m0240;Name=AFUA_m0240;gbkey=Gene;gene_biotype=tRNA;locus_tag=AFUA_m0240
+JQ346808.1	Genbank	tRNA	10879	10951	.	+	.	ID=rna-AFUA_m0240;Parent=gene-AFUA_m0240;Note=anticodon TGG;gbkey=tRNA;locus_tag=AFUA_m0240;product=tRNA-Pro
+JQ346808.1	Genbank	exon	10879	10951	.	+	.	ID=exon-AFUA_m0240-1;Parent=rna-AFUA_m0240;Note=anticodon TGG;gbkey=tRNA;locus_tag=AFUA_m0240;product=tRNA-Pro
+JQ346808.1	Genbank	gene	11112	15725	.	+	.	ID=gene-AFUA_m0250;Name=AFUA_m0250;gbkey=Gene;gene_biotype=rRNA;locus_tag=AFUA_m0250
+JQ346808.1	Genbank	rRNA	11112	15725	.	+	.	ID=rna-AFUA_m0250;Parent=gene-AFUA_m0250;gbkey=rRNA;locus_tag=AFUA_m0250;product=large subunit ribosomal RNA
+JQ346808.1	Genbank	exon	11112	15725	.	+	.	ID=exon-AFUA_m0250-1;Parent=rna-AFUA_m0250;gbkey=rRNA;locus_tag=AFUA_m0250;product=large subunit ribosomal RNA
+JQ346808.1	Genbank	gene	13960	15192	.	+	.	ID=gene-AFUA_m0260;Name=AFUA_m0260;gbkey=Gene;gene_biotype=protein_coding;locus_tag=AFUA_m0260
+JQ346808.1	Genbank	CDS	13960	15192	.	+	0	ID=cds-AFE02857.1;Parent=gene-AFUA_m0260;Dbxref=NCBI_GP:AFE02857.1;Name=AFE02857.1;gbkey=CDS;locus_tag=AFUA_m0260;product=ribosomal protein S5;protein_id=AFE02857.1;transl_table=4
+JQ346808.1	Genbank	gene	15855	15925	.	+	.	ID=gene-AFUA_m0270;Name=AFUA_m0270;gbkey=Gene;gene_biotype=tRNA;locus_tag=AFUA_m0270
+JQ346808.1	Genbank	tRNA	15855	15925	.	+	.	ID=rna-AFUA_m0270;Parent=gene-AFUA_m0270;Note=anticodon TGT;gbkey=tRNA;locus_tag=AFUA_m0270;product=tRNA-Thr
+JQ346808.1	Genbank	exon	15855	15925	.	+	.	ID=exon-AFUA_m0270-1;Parent=rna-AFUA_m0270;Note=anticodon TGT;gbkey=tRNA;locus_tag=AFUA_m0270;product=tRNA-Thr
+JQ346808.1	Genbank	gene	15936	16009	.	+	.	ID=gene-AFUA_m0280;Name=AFUA_m0280;gbkey=Gene;gene_biotype=tRNA;locus_tag=AFUA_m0280
+JQ346808.1	Genbank	tRNA	15936	16009	.	+	.	ID=rna-AFUA_m0280;Parent=gene-AFUA_m0280;Note=anticodon TTC;gbkey=tRNA;locus_tag=AFUA_m0280;product=tRNA-Glu
+JQ346808.1	Genbank	exon	15936	16009	.	+	.	ID=exon-AFUA_m0280-1;Parent=rna-AFUA_m0280;Note=anticodon TTC;gbkey=tRNA;locus_tag=AFUA_m0280;product=tRNA-Glu
+JQ346808.1	Genbank	gene	16011	16083	.	+	.	ID=gene-AFUA_m0290;Name=AFUA_m0290;gbkey=Gene;gene_biotype=tRNA;locus_tag=AFUA_m0290
+JQ346808.1	Genbank	tRNA	16011	16083	.	+	.	ID=rna-AFUA_m0290;Parent=gene-AFUA_m0290;Note=anticodon TAC;gbkey=tRNA;locus_tag=AFUA_m0290;product=tRNA-Val
+JQ346808.1	Genbank	exon	16011	16083	.	+	.	ID=exon-AFUA_m0290-1;Parent=rna-AFUA_m0290;Note=anticodon TAC;gbkey=tRNA;locus_tag=AFUA_m0290;product=tRNA-Val
+JQ346808.1	Genbank	gene	16109	16179	.	+	.	ID=gene-AFUA_m0300;Name=AFUA_m0300;gbkey=Gene;gene_biotype=tRNA;locus_tag=AFUA_m0300
+JQ346808.1	Genbank	tRNA	16109	16179	.	+	.	ID=rna-AFUA_m0300;Parent=gene-AFUA_m0300;Note=anticodon CAT;gbkey=tRNA;locus_tag=AFUA_m0300;product=tRNA-Met
+JQ346808.1	Genbank	exon	16109	16179	.	+	.	ID=exon-AFUA_m0300-1;Parent=rna-AFUA_m0300;Note=anticodon CAT;gbkey=tRNA;locus_tag=AFUA_m0300;product=tRNA-Met
+JQ346808.1	Genbank	gene	16183	16255	.	+	.	ID=gene-AFUA_m0310;Name=AFUA_m0310;gbkey=Gene;gene_biotype=tRNA;locus_tag=AFUA_m0310
+JQ346808.1	Genbank	tRNA	16183	16255	.	+	.	ID=rna-AFUA_m0310;Parent=gene-AFUA_m0310;Note=anticodon CAT;gbkey=tRNA;locus_tag=AFUA_m0310;product=tRNA-Met
+JQ346808.1	Genbank	exon	16183	16255	.	+	.	ID=exon-AFUA_m0310-1;Parent=rna-AFUA_m0310;Note=anticodon CAT;gbkey=tRNA;locus_tag=AFUA_m0310;product=tRNA-Met
+JQ346808.1	Genbank	gene	16260	16341	.	+	.	ID=gene-AFUA_m0320;Name=AFUA_m0320;gbkey=Gene;gene_biotype=tRNA;locus_tag=AFUA_m0320
+JQ346808.1	Genbank	tRNA	16260	16341	.	+	.	ID=rna-AFUA_m0320;Parent=gene-AFUA_m0320;Note=anticodon TAA;gbkey=tRNA;locus_tag=AFUA_m0320;product=tRNA-Leu
+JQ346808.1	Genbank	exon	16260	16341	.	+	.	ID=exon-AFUA_m0320-1;Parent=rna-AFUA_m0320;Note=anticodon TAA;gbkey=tRNA;locus_tag=AFUA_m0320;product=tRNA-Leu
+JQ346808.1	Genbank	gene	16342	16413	.	+	.	ID=gene-AFUA_m0330;Name=AFUA_m0330;gbkey=Gene;gene_biotype=tRNA;locus_tag=AFUA_m0330
+JQ346808.1	Genbank	tRNA	16342	16413	.	+	.	ID=rna-AFUA_m0330;Parent=gene-AFUA_m0330;Note=anticodon TGC;gbkey=tRNA;locus_tag=AFUA_m0330;product=tRNA-Ala
+JQ346808.1	Genbank	exon	16342	16413	.	+	.	ID=exon-AFUA_m0330-1;Parent=rna-AFUA_m0330;Note=anticodon TGC;gbkey=tRNA;locus_tag=AFUA_m0330;product=tRNA-Ala
+JQ346808.1	Genbank	gene	16446	16518	.	+	.	ID=gene-AFUA_m0340;Name=AFUA_m0340;gbkey=Gene;gene_biotype=tRNA;locus_tag=AFUA_m0340
+JQ346808.1	Genbank	tRNA	16446	16518	.	+	.	ID=rna-AFUA_m0340;Parent=gene-AFUA_m0340;Note=anticodon GAA;gbkey=tRNA;locus_tag=AFUA_m0340;product=tRNA-Phe
+JQ346808.1	Genbank	exon	16446	16518	.	+	.	ID=exon-AFUA_m0340-1;Parent=rna-AFUA_m0340;Note=anticodon GAA;gbkey=tRNA;locus_tag=AFUA_m0340;product=tRNA-Phe
+JQ346808.1	Genbank	gene	16523	16605	.	+	.	ID=gene-AFUA_m0350;Name=AFUA_m0350;gbkey=Gene;gene_biotype=tRNA;locus_tag=AFUA_m0350
+JQ346808.1	Genbank	tRNA	16523	16605	.	+	.	ID=rna-AFUA_m0350;Parent=gene-AFUA_m0350;Note=anticodon TAG;gbkey=tRNA;locus_tag=AFUA_m0350;product=tRNA-Leu
+JQ346808.1	Genbank	exon	16523	16605	.	+	.	ID=exon-AFUA_m0350-1;Parent=rna-AFUA_m0350;Note=anticodon TAG;gbkey=tRNA;locus_tag=AFUA_m0350;product=tRNA-Leu
+JQ346808.1	Genbank	gene	16609	16681	.	+	.	ID=gene-AFUA_m0360;Name=AFUA_m0360;gbkey=Gene;gene_biotype=tRNA;locus_tag=AFUA_m0360
+JQ346808.1	Genbank	tRNA	16609	16681	.	+	.	ID=rna-AFUA_m0360;Parent=gene-AFUA_m0360;Note=anticodon TTG;gbkey=tRNA;locus_tag=AFUA_m0360;product=tRNA-Gln
+JQ346808.1	Genbank	exon	16609	16681	.	+	.	ID=exon-AFUA_m0360-1;Parent=rna-AFUA_m0360;Note=anticodon TTG;gbkey=tRNA;locus_tag=AFUA_m0360;product=tRNA-Gln
+JQ346808.1	Genbank	gene	16738	16808	.	+	.	ID=gene-AFUA_m0370;Name=AFUA_m0370;gbkey=Gene;gene_biotype=tRNA;locus_tag=AFUA_m0370
+JQ346808.1	Genbank	tRNA	16738	16808	.	+	.	ID=rna-AFUA_m0370;Parent=gene-AFUA_m0370;Note=anticodon CAT;gbkey=tRNA;locus_tag=AFUA_m0370;product=tRNA-Met
+JQ346808.1	Genbank	exon	16738	16808	.	+	.	ID=exon-AFUA_m0370-1;Parent=rna-AFUA_m0370;Note=anticodon CAT;gbkey=tRNA;locus_tag=AFUA_m0370;product=tRNA-Met
+JQ346808.1	Genbank	gene	16923	16994	.	+	.	ID=gene-AFUA_m0380;Name=AFUA_m0380;gbkey=Gene;gene_biotype=tRNA;locus_tag=AFUA_m0380
+JQ346808.1	Genbank	tRNA	16923	16994	.	+	.	ID=rna-AFUA_m0380;Parent=gene-AFUA_m0380;Note=anticodon TAT;gbkey=tRNA;locus_tag=AFUA_m0380;product=tRNA-Ile
+JQ346808.1	Genbank	exon	16923	16994	.	+	.	ID=exon-AFUA_m0380-1;Parent=rna-AFUA_m0380;Note=anticodon TAT;gbkey=tRNA;locus_tag=AFUA_m0380;product=tRNA-Ile
+JQ346808.1	Genbank	discard-gene	17349	18191	.	+	.	ID=gene-AFUA_m0390;Name=AFUA_m0390;gbkey=Gene;gene_biotype=protein_coding;locus_tag=AFUA_m0390
+JQ346808.1	Genbank	CDS	17349	18191	.	+	0	ID=cds-AFE02858.1;Parent=gene-AFUA_m0390;Dbxref=NCBI_GP:AFE02858.1;Name=AFE02858.1;gbkey=CDS;locus_tag=AFUA_m0390;product=hypothetical protein;protein_id=AFE02858.1;transl_table=4
+JQ346808.1	Genbank	gene	18420	19196	.	+	.	ID=gene-AFUA_m0400;Name=AFUA_m0400;gbkey=Gene;gene_biotype=protein_coding;locus_tag=AFUA_m0400
+JQ346808.1	Genbank	CDS	18420	19196	.	+	0	ID=cds-AFE02859.1;Parent=gene-AFUA_m0400;Dbxref=NCBI_GP:AFE02859.1;Name=AFE02859.1;gbkey=CDS;locus_tag=AFUA_m0400;product=hypothetical protein;protein_id=AFE02859.1;transl_table=4
+JQ346808.1	Genbank	gene	19240	19310	.	+	.	ID=gene-AFUA_m0410;Name=AFUA_m0410;gbkey=Gene;gene_biotype=tRNA;locus_tag=AFUA_m0410
+JQ346808.1	Genbank	tRNA	19240	19310	.	+	.	ID=rna-AFUA_m0410;Parent=gene-AFUA_m0410;Note=anticodon GTG;gbkey=tRNA;locus_tag=AFUA_m0410;product=tRNA-His
+JQ346808.1	Genbank	exon	19240	19310	.	+	.	ID=exon-AFUA_m0410-1;Parent=rna-AFUA_m0410;Note=anticodon GTG;gbkey=tRNA;locus_tag=AFUA_m0410;product=tRNA-His
+JQ346808.1	Genbank	gene	19390	23125	.	+	.	ID=gene-AFUA_m0420;Name=AFUA_m0420;gbkey=Gene;gene_biotype=protein_coding;locus_tag=AFUA_m0420
+JQ346808.1	Genbank	CDS	19390	19799	.	+	0	ID=cds-AFE02860.1;Parent=gene-AFUA_m0420;Dbxref=NCBI_GP:AFE02860.1;Name=AFE02860.1;gbkey=CDS;locus_tag=AFUA_m0420;product=cytochrome oxidase subunit 1;protein_id=AFE02860.1;transl_table=4
+JQ346808.1	Genbank	CDS	21820	23125	.	+	1	ID=cds-AFE02860.1;Parent=gene-AFUA_m0420;Dbxref=NCBI_GP:AFE02860.1;Name=AFE02860.1;gbkey=CDS;locus_tag=AFUA_m0420;product=cytochrome oxidase subunit 1;protein_id=AFE02860.1;transl_table=4
+JQ346808.1	Genbank	discard-gene	19816	20691	.	+	.	ID=gene-AFUA_m0430;Name=AFUA_m0430;gbkey=Gene;gene_biotype=protein_coding;locus_tag=AFUA_m0430
+JQ346808.1	Genbank	CDS	19816	20691	.	+	0	ID=cds-AFE02861.1;Parent=gene-AFUA_m0430;Dbxref=NCBI_GP:AFE02861.1;Name=AFE02861.1;gbkey=CDS;locus_tag=AFUA_m0430;product=intron-encoded LAGLIDADG endonuclease family protein;protein_id=AFE02861.1;transl_table=4
+JQ346808.1	Genbank	gene	21066	21803	.	+	.	ID=gene-AFUA_m0440;Name=AFUA_m0440;gbkey=Gene;gene_biotype=protein_coding;locus_tag=AFUA_m0440
+JQ346808.1	Genbank	CDS	21066	21803	.	+	0	ID=cds-AFE02862.1;Parent=gene-AFUA_m0440;Dbxref=NCBI_GP:AFE02862.1;Name=AFE02862.1;gbkey=CDS;locus_tag=AFUA_m0440;product=hypothetical protein;protein_id=AFE02862.1;transl_table=4
+JQ346808.1	Genbank	gene	23780	24412	.	+	.	ID=gene-AFUA_m0450;Name=AFUA_m0450;gbkey=Gene;gene_biotype=protein_coding;locus_tag=AFUA_m0450
+JQ346808.1	Genbank	CDS	23780	24412	.	+	0	ID=cds-AFE02863.1;Parent=gene-AFUA_m0450;Dbxref=NCBI_GP:AFE02863.1;Name=AFE02863.1;gbkey=CDS;locus_tag=AFUA_m0450;product=hypothetical protein;protein_id=AFE02863.1;transl_table=4
+JQ346808.1	Genbank	gene	24489	24713	.	+	.	ID=gene-AFUA_m0460;Name=AFUA_m0460;gbkey=Gene;gene_biotype=protein_coding;locus_tag=AFUA_m0460
+JQ346808.1	Genbank	CDS	24489	24713	.	+	0	ID=cds-AFE02864.1;Parent=gene-AFUA_m0460;Dbxref=NCBI_GP:AFE02864.1;Name=AFE02864.1;gbkey=CDS;locus_tag=AFUA_m0460;product=ATP synthase subunit 9;protein_id=AFE02864.1;transl_table=4
+JQ346808.1	Genbank	gene	25042	25257	.	-	.	ID=gene-AFUA_m0470;Name=AFUA_m0470;gbkey=Gene;gene_biotype=tRNA;locus_tag=AFUA_m0470
+JQ346808.1	Genbank	tRNA	25042	25257	.	-	.	ID=rna-AFUA_m0470;Parent=gene-AFUA_m0470;Note=anticodon TGC;gbkey=tRNA;locus_tag=AFUA_m0470;product=tRNA-Ala
+JQ346808.1	Genbank	exon	25220	25257	.	-	.	ID=exon-AFUA_m0470-1;Parent=rna-AFUA_m0470;Note=anticodon TGC;gbkey=tRNA;locus_tag=AFUA_m0470;product=tRNA-Ala
+JQ346808.1	Genbank	exon	25042	25078	.	-	.	ID=exon-AFUA_m0470-2;Parent=rna-AFUA_m0470;Note=anticodon TGC;gbkey=tRNA;locus_tag=AFUA_m0470;product=tRNA-Ala
+JQ346808.1	Genbank	gene	25349	25756	.	+	.	ID=gene-AFUA_m0480;Name=AFUA_m0480;gbkey=Gene;gene_biotype=protein_coding;locus_tag=AFUA_m0480
+JQ346808.1	Genbank	CDS	25349	25756	.	+	0	ID=cds-AFE02865.1;Parent=gene-AFUA_m0480;Dbxref=NCBI_GP:AFE02865.1;Name=AFE02865.1;gbkey=CDS;locus_tag=AFUA_m0480;product=NADH dehydrogenase subunit 3;protein_id=AFE02865.1;transl_table=4
+JQ346808.1	Genbank	gene	25862	26623	.	+	.	ID=gene-AFUA_m0490;Name=AFUA_m0490;gbkey=Gene;gene_biotype=protein_coding;locus_tag=AFUA_m0490
+JQ346808.1	Genbank	CDS	25862	26623	.	+	0	ID=cds-AFE02866.1;Parent=gene-AFUA_m0490;Dbxref=NCBI_GP:AFE02866.1;Name=AFE02866.1;gbkey=CDS;locus_tag=AFUA_m0490;product=cytochrome oxidase subunit 2;protein_id=AFE02866.1;transl_table=4
+JQ346808.1	Genbank	gene	27379	27449	.	+	.	ID=gene-AFUA_m0500;Name=AFUA_m0500;gbkey=Gene;gene_biotype=tRNA;locus_tag=AFUA_m0500
+JQ346808.1	Genbank	tRNA	27379	27449	.	+	.	ID=rna-AFUA_m0500;Parent=gene-AFUA_m0500;Note=anticodon ACG;gbkey=tRNA;locus_tag=AFUA_m0500;product=tRNA-Arg
+JQ346808.1	Genbank	exon	27379	27449	.	+	.	ID=exon-AFUA_m0500-1;Parent=rna-AFUA_m0500;Note=anticodon ACG;gbkey=tRNA;locus_tag=AFUA_m0500;product=tRNA-Arg
+JQ346808.1	Genbank	gene	27609	27878	.	+	.	ID=gene-AFUA_m0510;Name=AFUA_m0510;gbkey=Gene;gene_biotype=protein_coding;locus_tag=AFUA_m0510
+JQ346808.1	Genbank	CDS	27609	27878	.	+	0	ID=cds-AFE02867.1;Parent=gene-AFUA_m0510;Dbxref=NCBI_GP:AFE02867.1;Name=AFE02867.1;gbkey=CDS;locus_tag=AFUA_m0510;product=NADH dehydrogenase subunit 4L;protein_id=AFE02867.1;transl_table=4
+JQ346808.1	Genbank	gene	27878	29860	.	+	.	ID=gene-AFUA_m0520;Name=AFUA_m0520;gbkey=Gene;gene_biotype=protein_coding;locus_tag=AFUA_m0520
+JQ346808.1	Genbank	CDS	27878	29860	.	+	0	ID=cds-AFE02868.1;Parent=gene-AFUA_m0520;Dbxref=NCBI_GP:AFE02868.1;Name=AFE02868.1;gbkey=CDS;locus_tag=AFUA_m0520;product=NADH dehydrogenase subunit 5;protein_id=AFE02868.1;transl_table=4
+JQ346808.1	Genbank	gene	29913	31601	.	+	.	ID=gene-AFUA_m0530;Name=AFUA_m0530;gbkey=Gene;gene_biotype=protein_coding;locus_tag=AFUA_m0530
+JQ346808.1	Genbank	CDS	29913	31601	.	+	0	ID=cds-AFE02869.1;Parent=gene-AFUA_m0530;Dbxref=NCBI_GP:AFE02869.1;Name=AFE02869.1;gbkey=CDS;locus_tag=AFUA_m0530;product=NADH dehydrogenase subunit 2;protein_id=AFE02869.1;transl_table=4
+

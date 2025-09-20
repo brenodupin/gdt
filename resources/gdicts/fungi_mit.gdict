@@ -10,6 +10,11 @@
 #! 2025-07-02 12:43 - Data added from 'AN_missing_gene_dict parsing gene= + NCBI Description'
 #! 2025-07-02 15:11 - Data added from 'Automated insertion of gene_ids with known features from features_info.tsv'
 #! 2025-07-02 15:18 - Data added from 'AN_missing_dbxref_GeneID matching 'child + parent' best feature pair'
+#! 2025-08-20 17:21 - Entries added via comments from donor GDICT
+#! 2025-08-20 17:22 - Data added from 'AN_missing_gene_dict parsing gene= + NCBI Description'
+#! 2025-08-20 17:36 - Data added from 'Automated insertion of gene_ids with known features from features_info.tsv'
+#! 2025-08-20 17:46 - Data added from 'AN_missing_dbxref_GeneID matching 'child + parent' best feature pair'
+#! 2025-08-20 18:13 - Data added from 'AN_missing_dbxref_GeneID matching 'child + parent' best feature pair'
 
 [MIT-ATP6]
 ATP6 #gd MANUAL
@@ -3437,7 +3442,10 @@ gene-BC1G_20029 #gn KC832409.1 #c insertion from missing_dbxref_GeneID feature m
 gene-C0995_000012 #gn MH725795.1 #c insertion from missing_dbxref_GeneID feature mapping, source: GIY-YIG homing endonuclease | type: CDS
 gene-GIY-YIG endonuclease #gn MN125601.1 #c automated insertion from missing_dbxref_GeneID best feature
 gene-PIIN_mit_GIY1 #gn FQ859090.1 #c insertion from missing_dbxref_GeneID feature mapping, source: related to GIY-YIG endonuclease | type: CDS
+gene-PIIN_mit_GIY2 #gn FQ859090.1 FQ859090.1 #c insertion from missing_dbxref_GeneID feature mapping, source: related to GIY-YIG endonuclease | type: CDS
 gene-RCL2_1000003100 #gn LC506577.1 #c insertion from missing_dbxref_GeneID feature mapping, source: putative GIY-YIG endonuclease | type: CDS
+gene-RCL2_1000003500 #gn LC506577.1 LC506577.1 #c insertion from missing_dbxref_GeneID feature mapping, source: putative GIY-YIG endonuclease | type: CDS
+gene-RCL2_1000005000 #gn LC506577.1 LC506577.1 #c insertion from missing_dbxref_GeneID feature mapping, source: putative GIY-YIG endonuclease | type: CDS
 gene-RHTARS1M_02 #gn HF558455.1 #c insertion from missing_dbxref_GeneID feature mapping, source: GIY-YIG endonuclease | type: CDS
 gene-RHTARS1M_12 #gn HF558455.1 #c insertion from missing_dbxref_GeneID feature mapping, source: GIY-YIG endonuclease | type: CDS
 gene-RHTARS1M_29 #gn HF558455.1 #c insertion from missing_dbxref_GeneID feature mapping, source: GIY-YIG endonuclease | type: CDS
@@ -3717,12 +3725,15 @@ gene-YalifMp22 #dx NC_002659.1:802612 #c gff_gene: nd5-i1
 gene-YalifMp27 #dx NC_002659.1:802618 #c gff_gene: cob-i1
 
 [MIT-I-END]
+homing endonuclease #gd MANUAL
 intron-encoded DNA endonuclease aI3 #gd NCBI
 intron-encoded DNA endonuclease aI4 #gd NCBI
 intron-encoded DNA endonuclease aI5 alpha #gd NCBI
 intron-encoded DNA endonuclease aI5 beta #gd NCBI
 intron-encoded endonuclease I-SceI #gd NCBI
 gene-RCL2_1000000100 #gn LC506577.1 #c insertion from missing_dbxref_GeneID feature mapping, source: homing endonuclease | type: CDS
+gene-RCL2_1000000200 #gn LC506577.1 LC506577.1 #c insertion from missing_dbxref_GeneID feature mapping, source: homing endonuclease | type: CDS
+gene-RCL2_1000000300 #gn LC506577.1 LC506577.1 #c insertion from missing_dbxref_GeneID feature mapping, source: homing endonuclease | type: CDS
 gene-Epflfp18 #dx NC_007394.1:3666184 #c ncbi_symbol: COB-i1 | ncbi_desc: endonuclease
 gene-F9809_mgp32 #dx NC_044963.1:41954362 #c ncbi_symbol: oi4nad5 | ncbi_desc: endonuclease
 gene-F9809_mgp38 #dx NC_044963.1:41954356 #c ncbi_symbol: oi1nad4L | ncbi_desc: endonuclease-like protein
@@ -3825,6 +3836,7 @@ LAGLIDADG-like domain-containing protein #gd MANUAL
 probable intron-encoded LAGLIDADG endonuclease #gd MANUAL
 related to LAGLIDADG endonuclease #gd MANUAL
 truncated LAGLIDADG endonuclease #gd NCBI
+gene-AFUA_m0430 #gn JQ346808.1 JQ346808.1 #c insertion from missing_dbxref_GeneID feature mapping, source: intron-encoded LAGLIDADG endonuclease family protein | type: CDS
 gene-ALT_mt0040 #gn LC612919.1 #c automated insertion from missing_dbxref_GeneID best feature
 gene-Asppvi_mt00040 #gn AP024468.1 #c automated insertion from missing_dbxref_GeneID best feature
 gene-Aspvir_mt0039 #gn LC604067.1 #c automated insertion from missing_dbxref_GeneID best feature
@@ -3905,10 +3917,14 @@ gene-hegL #gn MK026449.1 #c automated insertion from missing_dbxref_GeneID best 
 gene-hegL-2 #gn MK026449.1 #c automated insertion from missing_dbxref_GeneID best feature
 gene-LAGLIDADG endonuclease #gn MN125601.1 #c automated insertion from missing_dbxref_GeneID best feature
 gene-PIIN_mit_LAG2 #gn FQ859090.1 #c insertion from missing_dbxref_GeneID feature mapping, source: no_identifiable_attribute | type: exon
+gene-PIIN_mit_LAG4 #gn FQ859090.1 FQ859090.1 #c insertion from missing_dbxref_GeneID feature mapping, source: probable intron-encoded LAGLIDADG endonuclease | type: CDS
 gene-PIIN_mit_LAG5 #gn FQ859090.1 #c insertion from missing_dbxref_GeneID feature mapping, source: related to LAGLIDADG endonuclease | type: CDS
+gene-PIIN_mit_LAG6 #gn FQ859090.1 FQ859090.1 #c insertion from missing_dbxref_GeneID feature mapping, source: related to LAGLIDADG endonuclease | type: CDS
+gene-PIIN_mit_LAG7 #gn FQ859090.1 FQ859090.1 #c insertion from missing_dbxref_GeneID feature mapping, source: related to LAGLIDADG endonuclease | type: CDS
 gene-PIIN_mit_LAG8 #gn FQ859090.1 #c insertion from missing_dbxref_GeneID feature mapping, source: probable intron-encoded LAGLIDADG endonuclease | type: CDS
 gene-RCL2_1000001500 #gn LC506577.1 #c insertion from missing_dbxref_GeneID feature mapping, source: LAGLIDADG-like domain-containing protein | type: CDS
 gene-RCL2_1000002600 #gn LC506577.1 #c insertion from missing_dbxref_GeneID feature mapping, source: LAGLIDADG endonuclease | type: CDS
+gene-RCL2_1000002800 #gn LC506577.1 LC506577.1 #c insertion from missing_dbxref_GeneID feature mapping, source: LAGLIDADG-like domain-containing protein | type: CDS
 gene-RHTARS1M_16 #gn HF558455.1 #c insertion from missing_dbxref_GeneID feature mapping, source: LAGLIDADG endonuclease | type: CDS
 gene-RHTARS1M_24 #gn HF558455.1 #c insertion from missing_dbxref_GeneID feature mapping, source: LAGLIDADG endonuclease | type: CDS
 gene-ANID_20006 #dx NC_017896.1:12799274 #c ncbi_desc: LAGLIDADG endonuclease
@@ -4626,8 +4642,13 @@ gene-SBORM_0138 #dx NC_025200.1:20498019 #c ncbi_desc: truncated LAGLIDADG endon
 
 [MIT-MAT]
 maturase-like protein #gd NCBI
+maturase/DNA endonuclease #gd MANUAL
 putative maturase #gd NCBI
+gene-KX657746.1:33769..34810 #gn KX657746.1 KX657746.1 #c insertion from missing_dbxref_GeneID feature mapping, source: maturase/DNA endonuclease | type: CDS
+gene-KX657746.1:39156..40082 #gn KX657746.1 KX657746.1 #c insertion from missing_dbxref_GeneID feature mapping, source: maturase/DNA endonuclease | type: CDS
 gene-KX657746.1:52846..53595 #gn KX657746.1 #c insertion from missing_dbxref_GeneID feature mapping, source: maturase/DNA endonuclease | type: CDS
+gene-KX657747.1:48781..49707 #gn KX657747.1 KX657747.1 #c insertion from missing_dbxref_GeneID feature mapping, source: maturase/DNA endonuclease | type: CDS
+gene-KX657747.1:64706..65455 #gn KX657747.1 KX657747.1 #c insertion from missing_dbxref_GeneID feature mapping, source: maturase/DNA endonuclease | type: CDS
 gene-I510_mgp46 #dx NC_020430.1:14675704 #c ncbi_symbol: oi1cox2 | ncbi_desc: putative maturase
 gene-Q0110 #dx NC_001224.1:854604 #c ncbi_symbol: BI2 | ncbi_desc: cytochrome b mRNA maturase bI2
 gene-Q0115 #dx NC_001224.1:854605 #c ncbi_symbol: BI3 | ncbi_desc: cytochrome b mRNA maturase bI3
@@ -7627,6 +7648,7 @@ RnpB #gd gff_gene
 rnpB #gd gff_gene
 gene-ACHE_n90001S #gn AP024424.1 #c insertion from missing_dbxref_GeneID feature mapping, source: ribonuclease P RNA | type: RNase_P_RNA
 gene-APUU_n90001S #gn AP024451.1 #c insertion from missing_dbxref_GeneID feature mapping, source: ribonuclease P RNA | type: RNase_P_RNA
+gene-AtWU_mn1 #gn LC545447.1 #c unknown gene_id from LC545447.1 | a: ID=gene-AtWU_mn1;Name=AtWU_mn1;gbkey=Gene;gene_biotype=RNase_P_RNA;locus_tag=AtWU_mn1
 gene-EMPS_mn01 #gn LC659289.1 #c automated insertion from missing_dbxref_GeneID best feature
 gene-GeneID:22161859 #gn NC_025570.1 #c automated insertion from missing_dbxref_GeneID best feature
 gene-KX657746.1:31383..31807 #gn KX657746.1 #c automated insertion from missing_dbxref_GeneID best feature
@@ -13599,420 +13621,6 @@ rna-VFPPMT_00017 #dx NC_030172.1:27907883 #c ncbi_desc: tRNA-Glu
 rna-W831_t02 #dx NC_022834.1:17674646 #c gff_gene: trnE
 rna-YalifMt33 #dx NC_002659.1:1500504 #c ncbi_desc: tRNA-Glu
 rna-YB61_gt14 #dx NC_026869.1:24121722 #c ncbi_desc: tRNA-Glu
-
-[MIT-TEMP-1]
-gene-AFUA_m0430 #gn JQ346808.1 #c insertion from missing_dbxref_GeneID feature mapping, source: intron-encoded LAGLIDADG endonuclease family protein | type: CDS
-
-[MIT-TEMP-2]
-gene-AFUA_m0390 #gn JQ346808.1 #c insertion from missing_dbxref_GeneID feature mapping, source: hypothetical protein | type: CDS
-gene-AFUA_m0400 #gn JQ346808.1 #c insertion from missing_dbxref_GeneID feature mapping, source: hypothetical protein | type: CDS
-gene-AFUA_m0440 #gn JQ346808.1 #c insertion from missing_dbxref_GeneID feature mapping, source: hypothetical protein | type: CDS
-gene-AFUA_m0450 #gn JQ346808.1 #c insertion from missing_dbxref_GeneID feature mapping, source: hypothetical protein | type: CDS
-gene-ALT_mt0037 #gn LC612919.1 #c insertion from missing_dbxref_GeneID feature mapping, source: hypothetical protein | type: CDS
-gene-ALT_mt0039 #gn LC612919.1 #c insertion from missing_dbxref_GeneID feature mapping, source: hypothetical protein | type: CDS
-gene-ALT_mt0042 #gn LC612919.1 #c insertion from missing_dbxref_GeneID feature mapping, source: hypothetical protein | type: CDS
-gene-Asppvi_mt00037 #gn AP024468.1 #c insertion from missing_dbxref_GeneID feature mapping, source: hypothetical protein | type: CDS
-gene-Asppvi_mt00039 #gn AP024468.1 #c insertion from missing_dbxref_GeneID feature mapping, source: hypothetical protein | type: CDS
-gene-Aspvir_mt0036 #gn LC604067.1 #c insertion from missing_dbxref_GeneID feature mapping, source: hypothetical protein | type: CDS
-gene-Aspvir_mt0038 #gn LC604067.1 #c insertion from missing_dbxref_GeneID feature mapping, source: hypothetical protein | type: CDS
-gene-Aspvir_mt0042 #gn LC604067.1 #c insertion from missing_dbxref_GeneID feature mapping, source: hypothetical protein | type: CDS
-gene-Aud_mt0037 #gn LC602355.1 #c insertion from missing_dbxref_GeneID feature mapping, source: hypothetical protein | type: CDS
-gene-Aud_mt0039 #gn LC602355.1 #c insertion from missing_dbxref_GeneID feature mapping, source: hypothetical protein | type: CDS
-gene-BBW04_gp16 #gn NC_030600.1 #c insertion from missing_dbxref_GeneID feature mapping, source: hypothetical protein | type: CDS
-gene-C0995_000003 #gn MH725795.1 #c insertion from missing_dbxref_GeneID feature mapping, source: hypothetical protein | type: CDS
-gene-C0995_000009 #gn MH725795.1 #c insertion from missing_dbxref_GeneID feature mapping, source: hypothetical protein | type: CDS
-gene-C0995_000021 #gn MH725795.1 #c insertion from missing_dbxref_GeneID feature mapping, source: hypothetical protein | type: CDS
-gene-C0995_000022 #gn MH725795.1 #c insertion from missing_dbxref_GeneID feature mapping, source: hypothetical protein | type: CDS
-gene-C0995_000026 #gn MH725795.1 #c insertion from missing_dbxref_GeneID feature mapping, source: hypothetical protein | type: CDS
-gene-C0995_000027 #gn MH725795.1 #c insertion from missing_dbxref_GeneID feature mapping, source: hypothetical protein | type: CDS
-gene-C0995_000035 #gn MH725795.1 #c insertion from missing_dbxref_GeneID feature mapping, source: hypothetical protein | type: CDS
-gene-C0995_000040 #gn MH725795.1 #c insertion from missing_dbxref_GeneID feature mapping, source: hypothetical protein | type: CDS
-gene-C0995_000043 #gn MH725795.1 #c insertion from missing_dbxref_GeneID feature mapping, source: hypothetical protein | type: CDS
-gene-C0995_000044 #gn MH725795.1 #c insertion from missing_dbxref_GeneID feature mapping, source: hypothetical protein | type: CDS
-gene-C0995_000063 #gn MH725795.1 #c insertion from missing_dbxref_GeneID feature mapping, source: hypothetical protein | type: CDS
-gene-C0995_000066 #gn MH725795.1 #c insertion from missing_dbxref_GeneID feature mapping, source: hypothetical protein | type: CDS
-gene-C0995_000067 #gn MH725795.1 #c insertion from missing_dbxref_GeneID feature mapping, source: hypothetical protein | type: CDS
-gene-C0995_000069 #gn MH725795.1 #c insertion from missing_dbxref_GeneID feature mapping, source: hypothetical protein | type: CDS
-gene-C0995_000087 #gn MH725795.1 #c insertion from missing_dbxref_GeneID feature mapping, source: hypothetical protein | type: CDS
-gene-C0995_000092 #gn MH725795.1 #c insertion from missing_dbxref_GeneID feature mapping, source: hypothetical protein | type: CDS
-gene-C0995_000093 #gn MH725795.1 #c insertion from missing_dbxref_GeneID feature mapping, source: hypothetical protein | type: CDS
-gene-C0995_000097 #gn MH725795.1 #c insertion from missing_dbxref_GeneID feature mapping, source: hypothetical protein | type: CDS
-gene-C0995_000101 #gn MH725795.1 #c insertion from missing_dbxref_GeneID feature mapping, source: hypothetical protein | type: CDS
-gene-C0995_000106 #gn MH725795.1 #c insertion from missing_dbxref_GeneID feature mapping, source: hypothetical protein | type: CDS
-gene-C0995_000107 #gn MH725795.1 #c insertion from missing_dbxref_GeneID feature mapping, source: hypothetical protein | type: CDS
-gene-C0995_000119 #gn MH725795.1 #c insertion from missing_dbxref_GeneID feature mapping, source: hypothetical protein | type: CDS
-gene-GeneID:22161851 #gn NC_025570.1 #c insertion from missing_dbxref_GeneID feature mapping, source: hypothetical protein | type: CDS
-gene-GeneID:22161864 #gn NC_025570.1 #c insertion from missing_dbxref_GeneID feature mapping, source: hypothetical protein | type: CDS
-gene-GeneID:22161866 #gn NC_025570.1 #c insertion from missing_dbxref_GeneID feature mapping, source: hypothetical protein | type: CDS
-gene-KX657746.1:36814..38126 #gn KX657746.1 #c insertion from missing_dbxref_GeneID feature mapping, source: hypothetical protein | type: CDS
-gene-KX657746.1:54192..55251 #gn KX657746.1 #c insertion from missing_dbxref_GeneID feature mapping, source: hypothetical protein | type: CDS
-gene-KX657747.1:46496..47709 #gn KX657747.1 #c insertion from missing_dbxref_GeneID feature mapping, source: hypothetical protein | type: CDS
-gene-KX657747.1:62997..63884 #gn KX657747.1 #c insertion from missing_dbxref_GeneID feature mapping, source: hypothetical protein | type: CDS
-gene-KX657747.1:66052..67111 #gn KX657747.1 #c insertion from missing_dbxref_GeneID feature mapping, source: hypothetical protein | type: CDS
-gene-KX657747.1:67864..69093 #gn KX657747.1 #c insertion from missing_dbxref_GeneID feature mapping, source: hypothetical protein | type: CDS
-gene-RHTARS1M_11 #gn HF558455.1 #c insertion from missing_dbxref_GeneID feature mapping, source: hypothetical protein | type: CDS
-gene-RHTARS1M_27 #gn HF558455.1 #c insertion from missing_dbxref_GeneID feature mapping, source: hypothetical protein | type: CDS
-gene-RHTARS1M_28 #gn HF558455.1 #c insertion from missing_dbxref_GeneID feature mapping, source: hypothetical protein | type: CDS
-
-[MIT-TEMP-67]
-gene-oi1cob #gn NC_023117.1 #c insertion from missing_dbxref_GeneID feature mapping, source: oi1cob | type: CDS
-gene-oi1cob-2 #gn NC_023117.1 #c insertion from missing_dbxref_GeneID feature mapping, source: oi1cob | type: CDS
-
-[MIT-TEMP-68]
-gene-oi1cox1 #gn NC_023117.1 #c insertion from missing_dbxref_GeneID feature mapping, source: oi1cox1 | type: CDS
-gene-oi1cox1-2 #gn NC_023117.1 #c insertion from missing_dbxref_GeneID feature mapping, source: oi1cox1 | type: CDS
-
-[MIT-TEMP-70]
-gene-oi1nad5 #gn NC_023117.1 #c insertion from missing_dbxref_GeneID feature mapping, source: oi1nad5 | type: CDS
-
-[MIT-TEMP-71]
-gene-oi2cox1 #gn NC_023117.1 #c insertion from missing_dbxref_GeneID feature mapping, source: oi2cox1 | type: CDS
-
-[MIT-TEMP-72]
-gene-oi4cox1 #gn NC_023117.1 #c insertion from missing_dbxref_GeneID feature mapping, source: oi4cox1 | type: CDS
-
-[MIT-TEMP-73]
-gene-oi5cox1 #gn NC_023117.1 #c insertion from missing_dbxref_GeneID feature mapping, source: oi5cox1 | type: CDS
-
-[MIT-TEMP-74]
-gene-oi6cox1 #gn NC_023117.1 #c insertion from missing_dbxref_GeneID feature mapping, source: oi6cox1 | type: CDS
-
-[MIT-TEMP-75]
-gene-iorf227 #gn MW186777.1 #c insertion from missing_dbxref_GeneID feature mapping, source: iorf227 | type: CDS
-
-[MIT-TEMP-76]
-gene-iorf252 #gn MW186777.1 #c insertion from missing_dbxref_GeneID feature mapping, source: iorf252 | type: CDS
-
-[MIT-TEMP-77]
-gene-iorf264 #gn MW186777.1 #c insertion from missing_dbxref_GeneID feature mapping, source: iorf264 | type: CDS
-
-[MIT-TEMP-78]
-gene-iorf269 #gn MW186777.1 #c insertion from missing_dbxref_GeneID feature mapping, source: iorf269 | type: CDS
-
-[MIT-TEMP-79]
-gene-iorf282 #gn MW186777.1 #c insertion from missing_dbxref_GeneID feature mapping, source: iorf282 | type: CDS
-
-[MIT-TEMP-80]
-gene-iorf289 #gn MW186777.1 #c insertion from missing_dbxref_GeneID feature mapping, source: iorf289 | type: CDS
-
-[MIT-TEMP-82]
-gene-iorf291 #gn MW186777.1 #c insertion from missing_dbxref_GeneID feature mapping, source: iorf291 | type: CDS
-
-[MIT-TEMP-83]
-gene-iorf294 #gn MT010918.1 #c insertion from missing_dbxref_GeneID feature mapping, source: iorf294 | type: CDS
-
-[MIT-TEMP-84]
-gene-iorf302 #gn MW186777.1 #c insertion from missing_dbxref_GeneID feature mapping, source: iorf302 | type: CDS
-
-[MIT-TEMP-85]
-gene-iorf305 #gn MW525445.1 #c insertion from missing_dbxref_GeneID feature mapping, source: iorf305 | type: CDS
-gene-iorf305-2 #gn MW186777.1 #c insertion from missing_dbxref_GeneID feature mapping, source: iorf305 | type: CDS
-
-[MIT-TEMP-86]
-gene-iorf309 #gn MW186777.1 #c insertion from missing_dbxref_GeneID feature mapping, source: iorf309 | type: CDS
-gene-iorf309-2 #gn MW182664.1 #c insertion from missing_dbxref_GeneID feature mapping, source: iorf309 | type: CDS
-
-[MIT-TEMP-87]
-gene-iorf318 #gn MW186777.1 #c insertion from missing_dbxref_GeneID feature mapping, source: iorf318 | type: CDS
-
-[MIT-TEMP-88]
-gene-iorf319 #gn MW186777.1 #c insertion from missing_dbxref_GeneID feature mapping, source: iorf319 | type: CDS
-
-[MIT-TEMP-89]
-gene-iorf323 #gn MW525445.1 #c insertion from missing_dbxref_GeneID feature mapping, source: iorf323 | type: CDS
-
-[MIT-TEMP-90]
-gene-iorf330 #gn MW186777.1 #c insertion from missing_dbxref_GeneID feature mapping, source: iorf330 | type: CDS
-
-[MIT-TEMP-91]
-gene-iorf337 #gn MW186777.1 #c insertion from missing_dbxref_GeneID feature mapping, source: iorf337 | type: CDS
-
-[MIT-TEMP-92]
-gene-iorf343 #gn MW186777.1 #c insertion from missing_dbxref_GeneID feature mapping, source: iorf343 | type: CDS
-
-[MIT-TEMP-93]
-gene-iorf350 #gn MW186777.1 #c insertion from missing_dbxref_GeneID feature mapping, source: iorf350 | type: CDS
-gene-iorf350-2 #gn MW182664.1 #c insertion from missing_dbxref_GeneID feature mapping, source: iorf350 | type: CDS
-
-[MIT-TEMP-94]
-gene-iorf352 #gn MW186777.1 #c insertion from missing_dbxref_GeneID feature mapping, source: iorf352 | type: CDS
-
-[MIT-TEMP-95]
-gene-iorf358 #gn MW186777.1 #c insertion from missing_dbxref_GeneID feature mapping, source: iorf358 | type: CDS
-
-[MIT-TEMP-96]
-gene-iorf378 #gn MW525445.1 #c insertion from missing_dbxref_GeneID feature mapping, source: iorf378 | type: CDS
-
-[MIT-TEMP-97]
-gene-iorf379 #gn MW186777.1 #c insertion from missing_dbxref_GeneID feature mapping, source: iorf379 | type: CDS
-
-[MIT-TEMP-98]
-gene-iorf406 #gn MW186777.1 #c insertion from missing_dbxref_GeneID feature mapping, source: iorf406 | type: CDS
-
-[MIT-TEMP-99]
-gene-iorf412 #gn MW182664.1 #c insertion from missing_dbxref_GeneID feature mapping, source: iorf412 | type: CDS
-
-[MIT-TEMP-100]
-gene-iorf416 #gn MW525445.1 #c insertion from missing_dbxref_GeneID feature mapping, source: iorf416 | type: CDS
-
-[MIT-TEMP-101]
-gene-iorf420 #gn MW186777.1 #c insertion from missing_dbxref_GeneID feature mapping, source: iorf420 | type: CDS
-
-[MIT-TEMP-102]
-gene-iorf425 #gn MW525445.1 #c insertion from missing_dbxref_GeneID feature mapping, source: iorf425 | type: CDS
-
-[MIT-TEMP-103]
-gene-iorf440 #gn MW186777.1 #c insertion from missing_dbxref_GeneID feature mapping, source: iorf440 | type: CDS
-
-[MIT-TEMP-104]
-gene-iorf450 #gn MW186777.1 #c insertion from missing_dbxref_GeneID feature mapping, source: iorf450 | type: CDS
-
-[MIT-TEMP-105]
-gene-iorf455 #gn MW525445.1 #c insertion from missing_dbxref_GeneID feature mapping, source: iorf455 | type: CDS
-
-[MIT-TEMP-106]
-gene-iorf471 #gn MW182664.1 #c insertion from missing_dbxref_GeneID feature mapping, source: iorf471 | type: CDS
-
-[MIT-TEMP-107]
-gene-iorf472 #gn MW186777.1 #c insertion from missing_dbxref_GeneID feature mapping, source: iorf472 | type: CDS
-
-[MIT-TEMP-108]
-gene-iorf488 #gn MW186777.1 #c insertion from missing_dbxref_GeneID feature mapping, source: iorf488 | type: CDS
-
-[MIT-TEMP-112]
-gene-ai2 #gn FN356025.1 #c insertion from missing_dbxref_GeneID feature mapping, source: ai2 | type: CDS
-
-[MIT-TEMP-113]
-gene-ai3 #gn FN356025.1 #c insertion from missing_dbxref_GeneID feature mapping, source: ai3 | type: CDS
-
-[MIT-TEMP-114]
-gene-ai4 #gn FN356025.1 #c insertion from missing_dbxref_GeneID feature mapping, source: ai4 | type: CDS
-
-[MIT-TEMP-115]
-gene-ai5 #gn FN356025.1 #c insertion from missing_dbxref_GeneID feature mapping, source: ai5 | type: CDS
-
-[MIT-TEMP-117]
-gene-bi2 #gn FN356025.1 #c insertion from missing_dbxref_GeneID feature mapping, source: bi2 | type: CDS
-
-[MIT-TEMP-118]
-gene-bi3 #gn FN356025.1 #c insertion from missing_dbxref_GeneID feature mapping, source: bi3 | type: CDS
-
-[MIT-TEMP-119]
-gene-bi4 #gn FN356025.1 #c insertion from missing_dbxref_GeneID feature mapping, source: bi4 | type: CDS
-
-[MIT-TEMP-121]
-gene-nad5-i2 #gn FN356025.1 #c insertion from missing_dbxref_GeneID feature mapping, source: nad5-i2 | type: CDS
-
-[MIT-TEMP-122]
-gene-PIIN_mit_GIY2 #gn FQ859090.1 #c insertion from missing_dbxref_GeneID feature mapping, source: related to GIY-YIG endonuclease | type: CDS
-
-[MIT-TEMP-123]
-gene-AtWU_mn1 #gn LC545447.1 #c insertion from missing_dbxref_GeneID feature mapping, source: no_identifiable_attribute | type: RNase_P_RNA
-gene-PIIN_mit_LAG4 #gn FQ859090.1 #c insertion from missing_dbxref_GeneID feature mapping, source: no_identifiable_attribute | type: exon
-
-[MIT-TEMP-124]
-gene-PIIN_mit_LAG6 #gn FQ859090.1 #c insertion from missing_dbxref_GeneID feature mapping, source: related to LAGLIDADG endonuclease | type: CDS
-gene-PIIN_mit_LAG7 #gn FQ859090.1 #c insertion from missing_dbxref_GeneID feature mapping, source: related to LAGLIDADG endonuclease | type: CDS
-
-[MIT-TEMP-132]
-gene-KX657747.1:15162..16577 #gn KX657747.1 #c insertion from missing_dbxref_GeneID feature mapping, source: Orf1p | type: CDS
-
-[MIT-TEMP-133]
-gene-KX657746.1:33769..34810 #gn KX657746.1 #c insertion from missing_dbxref_GeneID feature mapping, source: maturase/DNA endonuclease | type: CDS
-gene-KX657746.1:39156..40082 #gn KX657746.1 #c insertion from missing_dbxref_GeneID feature mapping, source: maturase/DNA endonuclease | type: CDS
-gene-KX657747.1:48781..49707 #gn KX657747.1 #c insertion from missing_dbxref_GeneID feature mapping, source: maturase/DNA endonuclease | type: CDS
-gene-KX657747.1:64706..65455 #gn KX657747.1 #c insertion from missing_dbxref_GeneID feature mapping, source: maturase/DNA endonuclease | type: CDS
-
-[MIT-TEMP-135]
-gene-RCL2_1000000200 #gn LC506577.1 #c insertion from missing_dbxref_GeneID feature mapping, source: homing endonuclease | type: CDS
-gene-RCL2_1000000300 #gn LC506577.1 #c insertion from missing_dbxref_GeneID feature mapping, source: homing endonuclease | type: CDS
-
-[MIT-TEMP-136]
-gene-RCL2_1000002800 #gn LC506577.1 #c insertion from missing_dbxref_GeneID feature mapping, source: LAGLIDADG-like domain-containing protein | type: CDS
-
-[MIT-TEMP-137]
-gene-RCL2_1000003500 #gn LC506577.1 #c insertion from missing_dbxref_GeneID feature mapping, source: putative GIY-YIG endonuclease | type: CDS
-gene-RCL2_1000005000 #gn LC506577.1 #c insertion from missing_dbxref_GeneID feature mapping, source: putative GIY-YIG endonuclease | type: CDS
-
-[MIT-TEMP-138]
-gene-C0995_000052 #gn MH725795.1 #c insertion from missing_dbxref_GeneID feature mapping, source: oi1rrnL | type: CDS
-
-[MIT-TEMP-139]
-gene-oi3cob #gn NC_023117.1 #c insertion from missing_dbxref_GeneID feature mapping, source: oi3cob | type: CDS
-
-[MIT-TEMP-140]
-gene-oi3cox1 #gn NC_023117.1 #c insertion from missing_dbxref_GeneID feature mapping, source: oi3cox1 | type: CDS
-
-[MIT-TEMP-144]
-gene-iorf156 #gn MK292699.1 #c insertion from missing_dbxref_GeneID feature mapping, source: iorf156 | type: CDS
-
-[MIT-TEMP-146]
-gene-iorf170 #gn MT010924.1 #c insertion from missing_dbxref_GeneID feature mapping, source: iorf170 | type: CDS
-
-[MIT-TEMP-153]
-gene-iorf316 #gn MT010924.1 #c insertion from missing_dbxref_GeneID feature mapping, source: iorf316 | type: CDS
-
-[MIT-TEMP-156]
-gene-iorf300 #gn MT010931.1 #c insertion from missing_dbxref_GeneID feature mapping, source: iorf300 | type: CDS
-
-[MIT-TEMP-157]
-gene-iorf308 #gn MT010924.1 #c insertion from missing_dbxref_GeneID feature mapping, source: iorf308 | type: CDS
-
-[MIT-TEMP-158]
-gene-iorf321 #gn MT010927.1 #c insertion from missing_dbxref_GeneID feature mapping, source: iorf321 | type: CDS
-
-[MIT-TEMP-161]
-gene-iorf262 #gn MT010931.1 #c insertion from missing_dbxref_GeneID feature mapping, source: iorf262 | type: CDS
-
-[MIT-TEMP-162]
-gene-iorf304 #gn MT010932.1 #c insertion from missing_dbxref_GeneID feature mapping, source: iorf304 | type: CDS
-
-[MIT-TEMP-163]
-gene-iorf347 #gn MT010926.1 #c insertion from missing_dbxref_GeneID feature mapping, source: iorf347 | type: CDS
-
-[MIT-TEMP-165]
-gene-iorf429 #gn MT010934.1 #c insertion from missing_dbxref_GeneID feature mapping, source: iorf429 | type: CDS
-
-[MIT-TEMP-167]
-gene-iorf365 #gn MT010925.1 #c insertion from missing_dbxref_GeneID feature mapping, source: iorf365 | type: CDS
-
-[MIT-TEMP-170]
-gene-iorf303 #gn MT010924.1 #c insertion from missing_dbxref_GeneID feature mapping, source: iorf303 | type: CDS
-
-[MIT-TEMP-171]
-gene-iorf360 #gn MT010934.1 #c insertion from missing_dbxref_GeneID feature mapping, source: iorf360 | type: CDS
-
-[MIT-TEMP-172]
-gene-iorf380 #gn MT010919.1 #c insertion from missing_dbxref_GeneID feature mapping, source: iorf380 | type: CDS
-
-[MIT-TEMP-173]
-gene-iorf386 #gn MT010924.1 #c insertion from missing_dbxref_GeneID feature mapping, source: iorf386 | type: CDS
-
-[MIT-TEMP-174]
-gene-iorf434 #gn MT010924.1 #c insertion from missing_dbxref_GeneID feature mapping, source: iorf434 | type: CDS
-
-[MIT-TEMP-175]
-gene-iorf456 #gn MW186777.1 #c insertion from missing_dbxref_GeneID feature mapping, source: iorf456 | type: CDS
-
-[MIT-TEMP-178]
-gene-iorf311 #gn MT010927.1 #c insertion from missing_dbxref_GeneID feature mapping, source: iorf311 | type: CDS
-
-[MIT-TEMP-180]
-gene-iorf270 #gn MT010925.1 #c insertion from missing_dbxref_GeneID feature mapping, source: iorf270 | type: CDS
-
-[MIT-TEMP-181]
-gene-iorf310 #gn MT010925.1 #c insertion from missing_dbxref_GeneID feature mapping, source: iorf310 | type: CDS
-
-[MIT-TEMP-191]
-gene-iorf312 #gn MW182664.1 #c insertion from missing_dbxref_GeneID feature mapping, source: iorf312 | type: CDS
-
-[MIT-TEMP-192]
-gene-iorf335 #gn MT010930.1 #c insertion from missing_dbxref_GeneID feature mapping, source: iorf335 | type: CDS
-
-[MIT-TEMP-193]
-gene-iorf353 #gn MT010928.1 #c insertion from missing_dbxref_GeneID feature mapping, source: iorf353 | type: CDS
-gene-iorf353-2 #gn MT010928.1 #c insertion from missing_dbxref_GeneID feature mapping, source: iorf353 | type: CDS
-
-[MIT-TEMP-194]
-gene-iorf357 #gn MT010934.1 #c insertion from missing_dbxref_GeneID feature mapping, source: iorf357 | type: CDS
-
-[MIT-TEMP-196]
-gene-iorf375 #gn MT010931.1 #c insertion from missing_dbxref_GeneID feature mapping, source: iorf375 | type: CDS
-
-[MIT-TEMP-197]
-gene-iorf452 #gn MW182664.1 #c insertion from missing_dbxref_GeneID feature mapping, source: iorf452 | type: CDS
-
-[MIT-TEMP-198]
-gene-iorf163 #gn MT010930.1 #c insertion from missing_dbxref_GeneID feature mapping, source: iorf163 | type: CDS
-
-[MIT-TEMP-199]
-gene-iorf273 #gn MT010930.1 #c insertion from missing_dbxref_GeneID feature mapping, source: iorf273 | type: CDS
-
-[MIT-TEMP-200]
-gene-iorf314 #gn MW182664.1 #c insertion from missing_dbxref_GeneID feature mapping, source: iorf314 | type: CDS
-
-[MIT-TEMP-201]
-gene-iorf355 #gn MW186777.1 #c insertion from missing_dbxref_GeneID feature mapping, source: iorf355 | type: CDS
-
-[MIT-TEMP-202]
-gene-iorf413 #gn MT010931.1 #c insertion from missing_dbxref_GeneID feature mapping, source: iorf413 | type: CDS
-
-[MIT-TEMP-209]
-gene-PabrfMp04 #gn NC_007935.1 #c insertion from missing_dbxref_GeneID feature mapping, source: cob-i1 | type: CDS
-
-[MIT-TEMP-210]
-gene-PabrfMp14 #gn NC_007935.1 #c insertion from missing_dbxref_GeneID feature mapping, source: cox1-i1 | type: CDS
-
-[MIT-TEMP-214]
-gene-iorf146 #gn MW186777.1 #c insertion from missing_dbxref_GeneID feature mapping, source: iorf146 | type: CDS
-
-[MIT-TEMP-222]
-gene-oi11cox1 #gn NC_023117.1 #c insertion from missing_dbxref_GeneID feature mapping, source: oi11cox1 | type: CDS
-
-[MIT-TEMP-234]
-gene-oi2nad5-2 #gn NC_023117.1 #c insertion from missing_dbxref_GeneID feature mapping, source: oi2nad5 | type: CDS
-
-[MIT-TEMP-246]
-gene-cox1i1 #gn NC_023128.1 #c insertion from missing_dbxref_GeneID feature mapping, source: cox1i1 | type: CDS
-gene-cox1i1-2 #gn NC_023128.1 #c insertion from missing_dbxref_GeneID feature mapping, source: cox1i1 | type: CDS
-
-[MIT-TEMP-247]
-gene-cox1i10 #gn NC_023128.1 #c insertion from missing_dbxref_GeneID feature mapping, source: cox1i10 | type: CDS
-
-[MIT-TEMP-248]
-gene-cox1i11 #gn NC_023128.1 #c insertion from missing_dbxref_GeneID feature mapping, source: cox1i11 | type: CDS
-
-[MIT-TEMP-249]
-gene-cox1i2 #gn NC_023128.1 #c insertion from missing_dbxref_GeneID feature mapping, source: cox1i2 | type: CDS
-
-[MIT-TEMP-250]
-gene-cox1i3 #gn NC_023128.1 #c insertion from missing_dbxref_GeneID feature mapping, source: cox1i3 | type: CDS
-
-[MIT-TEMP-251]
-gene-cox1i4 #gn NC_023128.1 #c insertion from missing_dbxref_GeneID feature mapping, source: cox1i4 | type: CDS
-gene-cox1i4-2 #gn NC_023128.1 #c insertion from missing_dbxref_GeneID feature mapping, source: cox1i4 | type: CDS
-
-[MIT-TEMP-252]
-gene-cox1i5 #gn NC_023128.1 #c insertion from missing_dbxref_GeneID feature mapping, source: cox1i5 | type: CDS
-
-[MIT-TEMP-253]
-gene-cox1i6 #gn NC_023128.1 #c insertion from missing_dbxref_GeneID feature mapping, source: cox1i6 | type: CDS
-
-[MIT-TEMP-254]
-gene-cox1i7 #gn NC_023128.1 #c insertion from missing_dbxref_GeneID feature mapping, source: cox1i7 | type: CDS
-
-[MIT-TEMP-255]
-gene-cox1i8 #gn NC_023128.1 #c insertion from missing_dbxref_GeneID feature mapping, source: cox1i8 | type: CDS
-
-[MIT-TEMP-256]
-gene-cox1i8 1 #gn NC_023128.1 #c insertion from missing_dbxref_GeneID feature mapping, source: cox1i8 1 | type: CDS
-
-[MIT-TEMP-257]
-gene-cox1i8 2 #gn NC_023128.1 #c insertion from missing_dbxref_GeneID feature mapping, source: cox1i8 2 | type: CDS
-
-[MIT-TEMP-258]
-gene-cox1i8 3 #gn NC_023128.1 #c insertion from missing_dbxref_GeneID feature mapping, source: cox1i8 3 | type: CDS
-
-[MIT-TEMP-259]
-gene-cox1i9 #gn NC_023128.1 #c insertion from missing_dbxref_GeneID feature mapping, source: cox1i9 | type: CDS
-gene-cox1i9-2 #gn NC_023128.1 #c insertion from missing_dbxref_GeneID feature mapping, source: cox1i9 | type: CDS
-
-[MIT-TEMP-260]
-gene-cox2i1 #gn NC_023128.1 #c insertion from missing_dbxref_GeneID feature mapping, source: cox2i1 | type: CDS
-
-[MIT-TEMP-261]
-gene-cox2i2 #gn NC_023128.1 #c insertion from missing_dbxref_GeneID feature mapping, source: cox2i2 | type: CDS
-gene-cox2i2-2 #gn NC_023128.1 #c insertion from missing_dbxref_GeneID feature mapping, source: cox2i2 | type: CDS
-
-[MIT-TEMP-262]
-gene-cox2i3 #gn NC_023128.1 #c insertion from missing_dbxref_GeneID feature mapping, source: cox2i3 | type: CDS
-
-[MIT-TEMP-263]
-gene-nad5i1 #gn NC_023128.1 #c insertion from missing_dbxref_GeneID feature mapping, source: nad5i1 | type: CDS
-
-[MIT-TEMP-264]
-gene-nad5i2 #gn NC_023128.1 #c insertion from missing_dbxref_GeneID feature mapping, source: nad5i2 | type: CDS
-gene-nad5i2-2 #gn NC_023128.1 #c insertion from missing_dbxref_GeneID feature mapping, source: nad5i2 | type: CDS
 
 [MIT-TF]
 tRNA-F #gd gff_gene

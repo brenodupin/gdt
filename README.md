@@ -1,5 +1,9 @@
 <div align="center">
-  <img src="https://raw.githubusercontent.com/brenodupin/gdt/master/img/GDT_logo.png" width="50%">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="https://github.com/brenodupin/gdt/releases/download/v1.0.0/GDT_logo_dark_mode.png">
+    <source media="(prefers-color-scheme: light)" srcset="https://github.com/brenodupin/gdt/releases/download/v1.0.0/GDT_logo_light_mode.png">
+    <img src="https://github.com/brenodupin/gdt/releases/download/v1.0.0/GDT_logo_light_mode.png" width="50%" alt="GDT Logo">
+  </picture>
 
 $${\color{#E0AF68}{\LARGE\textsf{🧬 Standardizing gene names across organelle genomes 🧬}}}$$  
 <br>
@@ -26,6 +30,7 @@ $${\color{#E0AF68}{\LARGE\textsf{🧬 Standardizing gene names across organelle 
     - [Label Convention](#label-convention)
     - [Complete Specification](#complete-specification)
   - [Creation Process](#creation-process)
+  - [Update of GFF Versions](#update-of-gff-versions)
 - [CLI commands](#cli-commands)
   - [`filter`](#filter)
   - [`stripped`](#stripped)
@@ -43,11 +48,11 @@ GDT (Gene Dictonary Tool) is a protocol for the creation and implementation of a
 ## Requirements
 
 ### `gdt` Library
-- [Python](https://www.python.org/) `(>=3.10)`
+- [Python](https://www.python.org/) `(>=3.12)`
 - [pandas](https://pandas.pydata.org/) `(>=1.5.3,<3.0.0)`
 
 ### Notebooks
-- [Python](https://www.python.org/) `(>=3.10)`
+- [Python](https://www.python.org/) `(>=3.12)`
 - [gdt](https://github.com/brenodupin/gdt) `(>=1.0.0)`
 - [pandas](https://pandas.pydata.org/) `(>=1.5.3,<3.0.0)`
 - [biopython](https://biopython.org) `(>=1.80)`
@@ -107,6 +112,9 @@ We provide our GDICT files (also in stripped form) for a most organelle genomes 
 
 A more detailed description of the process can be found in the preprint: [Protocol for GDT, Gene Dictionary Tool, to create and implement a gene dictionary across annotated genomes](https://doi.org/10.1101/2025.06.15.659783)
 
+### Update of GFF Versions
+
+We have written a guide to update an existing GDICT after a new version of a GFF (in your dataset) is released. The guide can be found in the [GFF Version Update Guide](GFF_Update_Guide.md).
 
 ## CLI commands
 

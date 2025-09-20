@@ -18,9 +18,9 @@ from pathlib import Path
 
 from . import __version__, gdict, gff3_utils, log_setup
 
-C_RESET = "\033[0m"
+C_RESET: str = "\033[0m"
 
-GDT_BANNER = f"""           ╔═════════════════════════════╗
+GDT_BANNER: str = f"""           ╔═════════════════════════════╗
            ║   ██████╗ ██████╗ ████████╗ ║
            ║  ██╔════╝ ██╔══██╗╚══██╔══╝ ║
            ║  ██║  ███╗██║  ██║   ██║    ║
@@ -31,6 +31,14 @@ GDT_BANNER = f"""           ╔════════════════�
            ╚═════════════════════════════╝
 🧬 \033[33mStandardizing gene names across organelle genomes{C_RESET} 🧬
                    Version: \033[32m{__version__}{C_RESET}"""
+
+MAX_CPU: int = os.cpu_count() or 1
+
+
+def _workers_count(workers: int, threading: bool = False) -> int:
+    """Return the number of workers to use."""
+    cpus = MAX_CPU * 3 if threading else MAX_CPU
+    return min(workers, cpus) if workers > 0 else cpus
 
 
 def filter_command(
@@ -46,20 +54,102 @@ def filter_command(
     log.debug(
         f"filter command: tsv: {args.tsv} | gdict: {args.gdict} | "
         f"keep_orfs: {args.keep_orfs} | workers: {args.workers} | "
-        f"AN_column: {args.AN_column} | gff_suffix: {args.gff_suffix} | "
-        f"query_string: {args.query_string}"
+        f"AN_column: {args.AN_column} | gff_ext: {args.gff_ext} | "
+        f"gff_suffix: {args.gff_suffix} | query_string: {args.query_string}"
     )
     gff3_utils.filter_whole_tsv(
         log,
         args.tsv,
         args.gdict,
         args.keep_orfs,
-        args.workers,
+        _workers_count(args.workers),
         args.AN_column,
+        args.gff_ext,
         args.gff_suffix,
+        args.in_folder,
         args.query_string,
         args.check,
     )
+
+
+def _parse_data(
+    log: log_setup.GDTLogger,
+    label: str,
+    label_data: list[str],
+    ncbi_descs: set[str],
+) -> tuple[str, list[str]]:
+    """Parse label data and return a tuple of label and its data."""
+    log.trace(
+        f"Parsing label: {label} with data: {label_data} and ncbi_descs: {ncbi_descs}"
+    )
+    if label:
+        if "#gd gff_gene" in label_data[0]:
+            return (
+                label,
+                label_data + [f"{desc} #gd NCBI" for desc in sorted(ncbi_descs)],
+            )
+
+    return (label, label_data)
+
+
+def _stripped_large_temp(
+    log: log_setup.GDTLogger,
+    gdict_in: Path,
+    gdict_out: Path,
+) -> None:
+    """Create a stripped version of a large TEMP GDICT file."""
+    log.debug(f"Stripping large TEMP GDICT: {gdict_in.name} to {gdict_out.name}")
+    headers = []
+    with open(gdict_in, "r", encoding="utf-8") as f:
+        for line in f:
+            if line.startswith("#"):
+                headers.append(line.strip())
+            else:
+                break
+
+        label: str
+        data: list[tuple[str, list[str]]] = []
+        label_data: list[str] = []
+        ncbi_descs: set[str] = set()
+
+        # parse possible first label
+        if line.strip() and line.startswith("[") and line.endswith("]\n"):
+            label = line[1:-1].strip()
+
+        # parse rest of the file
+        for line in f:
+            if not (line := line.strip()):
+                continue
+
+            if line.startswith("[") and line.endswith("]"):
+                data.append(_parse_data(log, label, label_data, ncbi_descs))
+
+                label = line[1:-1].strip()
+                label_data = []
+                ncbi_descs = set()
+                continue
+
+            if "#gd" in line and label:
+                label_data.append(line)
+                continue
+
+            if "#dx" in line and label:
+                ncbi_desc = line.split("ncbi_desc:")[1].strip()
+                ncbi_descs.add(ncbi_desc)
+                continue
+
+        # append last entry
+        data.append(_parse_data(log, label, label_data, ncbi_descs))
+
+        with open(gdict_out, "w", encoding="utf-8") as out:
+            for header in headers:
+                out.write(f"{header}\n")
+
+            for entry in data:
+                if entry:
+                    out.write(f"\n[{entry[0]}]\n")
+                    for ld in entry[1]:
+                        out.write(f"{ld}\n")
 
 
 def stripped_command(
@@ -89,6 +179,11 @@ def stripped_command(
             f"Use overwrite=True to overwrite."
         )
 
+    if args.large_temp:
+        _stripped_large_temp(log, args.gdict_in, args.gdict_out)
+        log.info(f"Stripped large TEMP GDICT created: {args.gdict_out}")
+        return
+
     gene_dict = gdict.read_gdict(args.gdict_in)
     log.info("Info before stripping:")
     log_setup.log_info(log, gene_dict)
@@ -113,10 +208,10 @@ def standardize_command(
     log.info(
         f"standardize command: gff: {args.gff} | tsv: {args.tsv} | "
         f"gdict: {args.gdict} | AN_column: {args.AN_column} | "
-        f"gff_suffix: {args.gff_suffix} | query_string: {args.query_string} | "
-        f"check: {args.check} | second_place: {args.second_place} | "
-        f"gdt_tag: {args.gdt_tag} | error_on_missing: {args.error_on_missing} | "
-        f"save_copy: {args.save_copy}"
+        f"gff_ext: {args.gff_ext} | gff_suffix: {args.suffix} | "
+        f"query_string: {args.query_string} | check: {args.check} | "
+        f"second_place: {args.second_place} | gdt_tag: {args.gdt_tag} | "
+        f"error_on_missing: {args.error_on_missing} | save_copy: {args.save_copy}"
     )
     args.gdict = Path(args.gdict).resolve()
     if args.gff:
@@ -152,7 +247,9 @@ def standardize_command(
             args.tsv,
             args.gdict,
             args.AN_column,
+            args.gff_ext,
             args.gff_suffix,
+            args.in_folder,
             args.query_string,
             args.check,
             args.second_place,
@@ -167,27 +264,37 @@ def cli_run() -> None:
     # Global parser to add debug, log, and quiet flags to all subcommands
     global_flags = argparse.ArgumentParser(add_help=False)
     global_flags.add_argument(
-        "--debug",
-        required=False,
-        default=False,
-        action="store_true",
-        help="Enable TRACE level in file, and DEBUG on console. "
-        "Default: DEBUG level on file and INFO on console.",
+        "-v",
+        "--verbose",
+        action="count",
+        default=0,
+        help="Increase verbosity level. Use multiple times for more verbose output: "
+        "-v (INFO console, TRACE file), -vv (DEBUG console, TRACE file), "
+        "-vvv (TRACE console, TRACE file). Default: INFO console + DEBUG file.",
     )
     global_flags.add_argument(
         "--log",
         required=False,
-        default=None,
         type=str,
-        help="Path to the log file. "
-        "If not provided, a default log file will be created.",
+        metavar="PATH",
+        default=None,
+        help="Path to the log file. If not provided, a default log file will be "
+        "created.",
     )
+    global_flags.add_argument(
+        "--no-log-file",
+        required=False,
+        action="store_true",
+        default=False,
+        help="Disable file logging.",
+    )
+
     global_flags.add_argument(
         "--quiet",
         required=False,
-        default=False,
         action="store_true",
-        help="Suppress console output. Default: console output enabled.",
+        default=False,
+        help="Suppress console output.",
     )
 
     main_parser = argparse.ArgumentParser(
@@ -220,6 +327,7 @@ def cli_run() -> None:
         "--tsv",
         required=True,
         type=str,
+        metavar="PATH",
         help="TSV file with indexed GFF3 files to filter.",
     )
     filter_parser.add_argument(
@@ -227,6 +335,7 @@ def cli_run() -> None:
         required=False,
         default="AN",
         type=str,
+        metavar="STR",
         help="Column name for NCBI Accession Number inside the TSV. Default: AN",
     )
     filter_parser.add_argument(
@@ -234,6 +343,7 @@ def cli_run() -> None:
         required=False,
         default=False,
         type=str,
+        metavar="PATH",
         help="GDICT file to use for filtering. "
         "If not provided, an empty GeneDict (i.e GDICT file) will be used.",
     )
@@ -249,21 +359,43 @@ def cli_run() -> None:
         required=False,
         default=0,
         type=int,
+        metavar="INT",
         help="Number of workers to use. "
         f"Default: 0 (use all available cores: {os.cpu_count()})",
     )
     filter_parser.add_argument(
-        "--gff-suffix",
+        "--gff-ext",
         required=False,
         default=".gff3",
         type=str,
-        help="Suffix for GFF files. Default: '.gff3'",
+        metavar="STR",
+        help="File Extension for GFF files. Default: '.gff3'",
+    )
+    filter_parser.add_argument(
+        "--gff-suffix",
+        required=False,
+        default="",
+        type=str,
+        metavar="STR",
+        help="Suffix to be added when building GFF Paths from the TSV file. "
+        "Example: '_clean' will create GFF paths like '<AN>_clean.gff3' if "
+        "--gff-ext is '.gff3'. ",
+    )
+    filter_parser.add_argument(
+        "--in-folder",
+        required=False,
+        default=False,
+        action="store_true",
+        help="Expect GFF3 files to be stored in subfolders named after the accession"
+        "number, e.g., 'AN1234567/AN1234567.gff3'. Default: False"
+        "(expect GFF files to be in the same folder as the TSV file).",
     )
     filter_parser.add_argument(
         "--query-string",
         required=False,
         default=gff3_utils.QS_GENE_TRNA_RRNA,
         type=str,
+        metavar="STR",
         help="Query string that pandas filter features in GFF. "
         f"Default: '{gff3_utils.QS_GENE_TRNA_RRNA}'",
     )
@@ -288,6 +420,7 @@ def cli_run() -> None:
         "-gin",
         required=True,
         type=str,
+        metavar="PATH",
         help="Input GDICT file to strip.",
     )
     stripped_parser.add_argument(
@@ -295,6 +428,7 @@ def cli_run() -> None:
         "-gout",
         required=True,
         type=str,
+        metavar="PATH",
         help="New GDICT file to create.",
     )
     stripped_parser.add_argument(
@@ -312,6 +446,18 @@ def cli_run() -> None:
         action="store_true",
         help="Overwrite output file, if it already exists. Default: False",
     )
+    stripped_parser.add_argument(
+        "--large-temp",
+        required=False,
+        default=False,
+        action="store_true",
+        help="This flag is a different way to parse large TEMP Description gdicts. "
+        "Useful if you started a new .gdict project without (or with a small) "
+        "stripped gdict. This will strip all #dx entries, but in labels that start with"
+        " #gd gff_gene, it will keep all #dx's unique ncbi_desc to better help the "
+        "manual curation. After parsing this stripped version, the user should re-start"
+        " the process using this parsed stripped as the first `newest_gdict_file`.",
+    )
 
     standardize_parser = subparsers.add_parser(
         "standardize",
@@ -325,11 +471,13 @@ def cli_run() -> None:
     flag_group.add_argument(
         "--gff",
         type=str,
+        metavar="PATH",
         help="GFF3 file to standardize.",
     )
     flag_group.add_argument(
         "--tsv",
         type=str,
+        metavar="PATH",
         help="TSV file with indexed GFF3 files to standardize.",
     )
 
@@ -337,6 +485,7 @@ def cli_run() -> None:
         "--gdict",
         required=True,
         type=str,
+        metavar="PATH",
         help="GDICT file to use for standardization. ",
     )
     standardize_parser.add_argument(
@@ -344,20 +493,42 @@ def cli_run() -> None:
         required=False,
         default="AN",
         type=str,
+        metavar="STR",
         help="Column name for NCBI Accession Number inside the TSV. Default: AN",
+    )
+    standardize_parser.add_argument(
+        "--gff-ext",
+        required=False,
+        default=".gff3",
+        type=str,
+        metavar="STR",
+        help="File Extension for GFF files. Default: '.gff3'",
     )
     standardize_parser.add_argument(
         "--gff-suffix",
         required=False,
-        default=".gff3",
+        default="",
         type=str,
-        help="Suffix for GFF files. Default: '.gff3'",
+        metavar="STR",
+        help="Suffix to be added when building GFF Paths from the TSV file. "
+        "Example: '_clean' will create GFF paths like '<AN>_clean.gff3' if "
+        "--gff-ext is '.gff3'. ",
+    )
+    standardize_parser.add_argument(
+        "--in-folder",
+        required=False,
+        default=False,
+        action="store_true",
+        help="Expect GFF3 files to be stored in subfolders named after the accession"
+        "number, e.g., 'AN1234567/AN1234567.gff3'. Default: False"
+        "(expect GFF files to be in the same folder as the TSV file).",
     )
     standardize_parser.add_argument(
         "--query-string",
         required=False,
         default=gff3_utils.QS_GENE_TRNA_RRNA,
         type=str,
+        metavar="STR",
         help="Query string that pandas filter features in GFF. "
         f"Default: '{gff3_utils.QS_GENE_TRNA_RRNA}'",
     )
@@ -382,6 +553,7 @@ def cli_run() -> None:
         required=False,
         default="gdt_label",
         type=str,
+        metavar="STR",
         help="Tag to use for the GDT key/value pair in the GFF3 file. "
         "Default: 'gdt_label='.",
     )
@@ -407,7 +579,18 @@ def cli_run() -> None:
     if not args.quiet:
         print(GDT_BANNER)
 
-    log = log_setup.setup_logger(args.debug, args.log, args.quiet)
+    log = log_setup.setup_logger(
+        args.verbose,
+        args.log,
+        args.quiet,
+        args.no_log_file,
+        args.command,
+    )
+    log.info(f"GDT v{__version__} - Gene Dictionary Tool")
+    log.trace(f"Full args: {args}")
+    log.debug(f"Working directory: {Path().resolve()}")
+    log.trace(f"CLI script location: {Path(__file__).resolve()}")
+
     log.trace("CLI execution started")
     log.trace(f"call path: {Path().resolve()}")
     log.trace(f"cli  path: {Path(__file__)}")
@@ -422,3 +605,9 @@ def cli_run() -> None:
 
         case "standardize":
             standardize_command(args, log)
+        case _:
+            log.error(f"Unknown command: {args.command}")
+            exit(1)
+
+    log.trace("CLI execution finished")
+    exit(0)

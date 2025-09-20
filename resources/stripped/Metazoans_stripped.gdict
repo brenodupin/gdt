@@ -916,6 +916,7 @@ trnE-UUC #gn #c generic ID found in GFF
 
 [MIT-TF]
 gene-trnF (GAA) #gd MANUAL #c maybe encoding problem
+gene-trnF(uuc) #gn #c generic ID found in GFF
 tRNA-Phe #gd MANUAL
 tRNA-Phe (GAA) #gd NCBI
 TRNF #gd NCBI
@@ -1347,7 +1348,6 @@ gene-tRNA-Met(UAU) #gn #c generic ID found in GFF
 gene-tRNA-Met-2 #gn #c generic ID found in GFF
 gene-tRNA-Met-3 #gn #c generic ID found in GFF
 gene-tRNA-Met-4 #gn #c generic ID found in GFF
-gene-trnF(uuc) #gn #c generic ID found in GFF
 gene-trnfM #gn #c generic ID found in GFF
 gene-trnfM(CAU) #gn #c generic ID found in GFF
 gene-trnfM(cau) #gn #c generic ID found in GFF

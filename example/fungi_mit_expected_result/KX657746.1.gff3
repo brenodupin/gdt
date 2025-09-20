@@ -1,0 +1,153 @@
+##gff-version 3
+#!gff-spec-version 1.21
+#!processor NCBI annotwriter
+##sequence-region KX657746.1 1 80588
+##species https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=114524
+KX657746.1	Genbank	region	1	80588	.	+	.	ID=KX657746.1:1..80588;Dbxref=taxon:114524;Is_circular=true;Name=MT;culture-collection=CBS:8840;gbkey=Src;genome=mitochondrion;mol_type=genomic DNA;strain=CBS 8840;type-material=culture from type material of Saccharomyces kudriavzevii
+KX657746.1	Genbank	gene	1	3338	.	+	.	ID=gene-KX657746.1:1..3338;description=rnl;gbkey=Gene;gene_biotype=rRNA
+KX657746.1	Genbank	rRNA	1	3338	.	+	.	ID=rna-KX657746.1:1..3338;Parent=gene-KX657746.1:1..3338;Note=large subunit ribosomal RNA;gbkey=rRNA;product=large subunit ribosomal RNA
+KX657746.1	Genbank	exon	1	3338	.	+	.	ID=exon-KX657746.1:1..3338-1;Parent=rna-KX657746.1:1..3338;Note=large subunit ribosomal RNA;gbkey=rRNA;product=large subunit ribosomal RNA
+KX657746.1	Genbank	gene	4702	4774	.	+	.	ID=gene-KX657746.1:4702..4774;description=trnT2;gbkey=Gene;gene_biotype=tRNA
+KX657746.1	Genbank	tRNA	4702	4774	.	+	.	ID=rna-KX657746.1:4702..4774;Parent=gene-KX657746.1:4702..4774;Note=transfer RNA Threonine%3B anticodon: UGU;codons=ACA;gbkey=tRNA;product=tRNA-Thr
+KX657746.1	Genbank	exon	4702	4774	.	+	.	ID=exon-KX657746.1:4702..4774-1;Parent=rna-KX657746.1:4702..4774;Note=transfer RNA Threonine%3B anticodon: UGU;codons=ACA;gbkey=tRNA;product=tRNA-Thr
+KX657746.1	Genbank	gene	5392	5464	.	+	.	ID=gene-KX657746.1:5392..5464;description=trnC;gbkey=Gene;gene_biotype=tRNA
+KX657746.1	Genbank	tRNA	5392	5464	.	+	.	ID=rna-KX657746.1:5392..5464;Parent=gene-KX657746.1:5392..5464;Note=transfer RNA Cysteine%3B anticodon: GCA;codons=UGC;gbkey=tRNA;product=tRNA-Cys
+KX657746.1	Genbank	exon	5392	5464	.	+	.	ID=exon-KX657746.1:5392..5464-1;Parent=rna-KX657746.1:5392..5464;Note=transfer RNA Cysteine%3B anticodon: GCA;codons=UGC;gbkey=tRNA;product=tRNA-Cys
+KX657746.1	Genbank	gene	5503	5573	.	+	.	ID=gene-KX657746.1:5503..5573;description=trnH;gbkey=Gene;gene_biotype=tRNA
+KX657746.1	Genbank	tRNA	5503	5573	.	+	.	ID=rna-KX657746.1:5503..5573;Parent=gene-KX657746.1:5503..5573;Note=transfer RNA Histidine%3B anticodon: GUG;codons=CAC;gbkey=tRNA;product=tRNA-His
+KX657746.1	Genbank	exon	5503	5573	.	+	.	ID=exon-KX657746.1:5503..5573-1;Parent=rna-KX657746.1:5503..5573;Note=transfer RNA Histidine%3B anticodon: GUG;codons=CAC;gbkey=tRNA;product=tRNA-His
+KX657746.1	Genbank	gene	6326	6407	.	+	.	ID=gene-KX657746.1:6326..6407;description=trnL;gbkey=Gene;gene_biotype=tRNA
+KX657746.1	Genbank	tRNA	6326	6407	.	+	.	ID=rna-KX657746.1:6326..6407;Parent=gene-KX657746.1:6326..6407;Note=transfer RNA Leucine%3B anticodon: UAA;codons=UUA;gbkey=tRNA;product=tRNA-Leu
+KX657746.1	Genbank	exon	6326	6407	.	+	.	ID=exon-KX657746.1:6326..6407-1;Parent=rna-KX657746.1:6326..6407;Note=transfer RNA Leucine%3B anticodon: UAA;codons=UUA;gbkey=tRNA;product=tRNA-Leu
+KX657746.1	Genbank	gene	6429	6501	.	+	.	ID=gene-KX657746.1:6429..6501;description=trnQ;gbkey=Gene;gene_biotype=tRNA
+KX657746.1	Genbank	tRNA	6429	6501	.	+	.	ID=rna-KX657746.1:6429..6501;Parent=gene-KX657746.1:6429..6501;Note=transfer RNA Glutamine%3B anticodon: UUG;codons=CAA;gbkey=tRNA;product=tRNA-Gln
+KX657746.1	Genbank	exon	6429	6501	.	+	.	ID=exon-KX657746.1:6429..6501-1;Parent=rna-KX657746.1:6429..6501;Note=transfer RNA Glutamine%3B anticodon: UUG;codons=CAA;gbkey=tRNA;product=tRNA-Gln
+KX657746.1	Genbank	gene	7294	7365	.	+	.	ID=gene-KX657746.1:7294..7365;description=trnK;gbkey=Gene;gene_biotype=tRNA
+KX657746.1	Genbank	tRNA	7294	7365	.	+	.	ID=rna-KX657746.1:7294..7365;Parent=gene-KX657746.1:7294..7365;Note=transfer RNA Lysine%3B anticodon: UUU;codons=AAA;gbkey=tRNA;product=tRNA-Lys
+KX657746.1	Genbank	exon	7294	7365	.	+	.	ID=exon-KX657746.1:7294..7365-1;Parent=rna-KX657746.1:7294..7365;Note=transfer RNA Lysine%3B anticodon: UUU;codons=AAA;gbkey=tRNA;product=tRNA-Lys
+KX657746.1	Genbank	gene	7667	7739	.	+	.	ID=gene-KX657746.1:7667..7739;description=trnR1;gbkey=Gene;gene_biotype=tRNA
+KX657746.1	Genbank	tRNA	7667	7739	.	+	.	ID=rna-KX657746.1:7667..7739;Parent=gene-KX657746.1:7667..7739;Note=transfer RNA Arginine%3B anticodon:UCU;codons=AGA;gbkey=tRNA;product=tRNA-Arg
+KX657746.1	Genbank	exon	7667	7739	.	+	.	ID=exon-KX657746.1:7667..7739-1;Parent=rna-KX657746.1:7667..7739;Note=transfer RNA Arginine%3B anticodon:UCU;codons=AGA;gbkey=tRNA;product=tRNA-Arg
+KX657746.1	Genbank	gene	7877	7948	.	+	.	ID=gene-KX657746.1:7877..7948;description=trnG;gbkey=Gene;gene_biotype=tRNA
+KX657746.1	Genbank	tRNA	7877	7948	.	+	.	ID=rna-KX657746.1:7877..7948;Parent=gene-KX657746.1:7877..7948;Note=transfer RNA Glycine%3B anticodon: UCC;codons=GGA;gbkey=tRNA;product=tRNA-Gly
+KX657746.1	Genbank	exon	7877	7948	.	+	.	ID=exon-KX657746.1:7877..7948-1;Parent=rna-KX657746.1:7877..7948;Note=transfer RNA Glycine%3B anticodon: UCC;codons=GGA;gbkey=tRNA;product=tRNA-Gly
+KX657746.1	Genbank	gene	9037	9108	.	+	.	ID=gene-KX657746.1:9037..9108;description=trnD;gbkey=Gene;gene_biotype=tRNA
+KX657746.1	Genbank	tRNA	9037	9108	.	+	.	ID=rna-KX657746.1:9037..9108;Parent=gene-KX657746.1:9037..9108;Note=transfer RNA Aspartic Acid%3B anticodon: GUC;codons=GAC;gbkey=tRNA;product=tRNA-Asp
+KX657746.1	Genbank	exon	9037	9108	.	+	.	ID=exon-KX657746.1:9037..9108-1;Parent=rna-KX657746.1:9037..9108;Note=transfer RNA Aspartic Acid%3B anticodon: GUC;codons=GAC;gbkey=tRNA;product=tRNA-Asp
+KX657746.1	Genbank	gene	10110	10192	.	+	.	ID=gene-KX657746.1:10110..10192;description=trnS2;gbkey=Gene;gene_biotype=tRNA
+KX657746.1	Genbank	tRNA	10110	10192	.	+	.	ID=rna-KX657746.1:10110..10192;Parent=gene-KX657746.1:10110..10192;Note=transfer RNA Serine%3B anticodon: GCU;codons=AGC;gbkey=tRNA;product=tRNA-Ser
+KX657746.1	Genbank	exon	10110	10192	.	+	.	ID=exon-KX657746.1:10110..10192-1;Parent=rna-KX657746.1:10110..10192;Note=transfer RNA Serine%3B anticodon: GCU;codons=AGC;gbkey=tRNA;product=tRNA-Ser
+KX657746.1	Genbank	gene	10202	10272	.	+	.	ID=gene-KX657746.1:10202..10272;description=trnR2;gbkey=Gene;gene_biotype=tRNA
+KX657746.1	Genbank	tRNA	10202	10272	.	+	.	ID=rna-KX657746.1:10202..10272;Parent=gene-KX657746.1:10202..10272;Note=transfer RNA Arginine%3B anticodon: ACG;codons=CGU;gbkey=tRNA;product=tRNA-Arg
+KX657746.1	Genbank	exon	10202	10272	.	+	.	ID=exon-KX657746.1:10202..10272-1;Parent=rna-KX657746.1:10202..10272;Note=transfer RNA Arginine%3B anticodon: ACG;codons=CGU;gbkey=tRNA;product=tRNA-Arg
+KX657746.1	Genbank	gene	11127	11199	.	+	.	ID=gene-KX657746.1:11127..11199;description=trnA;gbkey=Gene;gene_biotype=tRNA
+KX657746.1	Genbank	tRNA	11127	11199	.	+	.	ID=rna-KX657746.1:11127..11199;Parent=gene-KX657746.1:11127..11199;Note=transfer RNA Alanine%3B anticodon: UGC;codons=GCA;gbkey=tRNA;product=tRNA-Ala
+KX657746.1	Genbank	exon	11127	11199	.	+	.	ID=exon-KX657746.1:11127..11199-1;Parent=rna-KX657746.1:11127..11199;Note=transfer RNA Alanine%3B anticodon: UGC;codons=GCA;gbkey=tRNA;product=tRNA-Ala
+KX657746.1	Genbank	gene	11325	11397	.	+	.	ID=gene-KX657746.1:11325..11397;description=trnI;gbkey=Gene;gene_biotype=tRNA
+KX657746.1	Genbank	tRNA	11325	11397	.	+	.	ID=rna-KX657746.1:11325..11397;Parent=gene-KX657746.1:11325..11397;Note=transfer RNA Isoleucine%3B anticodon: GAU;codons=AUC;gbkey=tRNA;product=tRNA-Ile
+KX657746.1	Genbank	exon	11325	11397	.	+	.	ID=exon-KX657746.1:11325..11397-1;Parent=rna-KX657746.1:11325..11397;Note=transfer RNA Isoleucine%3B anticodon: GAU;codons=AUC;gbkey=tRNA;product=tRNA-Ile
+KX657746.1	Genbank	gene	11879	11963	.	+	.	ID=gene-KX657746.1:11879..11963;description=trnY;gbkey=Gene;gene_biotype=tRNA
+KX657746.1	Genbank	tRNA	11879	11963	.	+	.	ID=rna-KX657746.1:11879..11963;Parent=gene-KX657746.1:11879..11963;Note=transfer RNA Tyrosine%3B anticodon: GUA;codons=UAC;gbkey=tRNA;product=tRNA-Tyr
+KX657746.1	Genbank	exon	11879	11963	.	+	.	ID=exon-KX657746.1:11879..11963-1;Parent=rna-KX657746.1:11879..11963;Note=transfer RNA Tyrosine%3B anticodon: GUA;codons=UAC;gbkey=tRNA;product=tRNA-Tyr
+KX657746.1	Genbank	gene	12478	12549	.	+	.	ID=gene-KX657746.1:12478..12549;description=trnN;gbkey=Gene;gene_biotype=tRNA
+KX657746.1	Genbank	tRNA	12478	12549	.	+	.	ID=rna-KX657746.1:12478..12549;Parent=gene-KX657746.1:12478..12549;Note=transfer RNA Asparagine%3B anticodon: GUU;codons=AAC;gbkey=tRNA;product=tRNA-Asn
+KX657746.1	Genbank	exon	12478	12549	.	+	.	ID=exon-KX657746.1:12478..12549-1;Parent=rna-KX657746.1:12478..12549;Note=transfer RNA Asparagine%3B anticodon: GUU;codons=AAC;gbkey=tRNA;product=tRNA-Asn
+KX657746.1	Genbank	gene	13018	13091	.	+	.	ID=gene-KX657746.1:13018..13091;description=trnM;gbkey=Gene;gene_biotype=tRNA
+KX657746.1	Genbank	tRNA	13018	13091	.	+	.	ID=rna-KX657746.1:13018..13091;Parent=gene-KX657746.1:13018..13091;Note=transfer RNA Methionine%3B anticodon: CAU;codons=AUG;gbkey=tRNA;product=tRNA-Met
+KX657746.1	Genbank	exon	13018	13091	.	+	.	ID=exon-KX657746.1:13018..13091-1;Parent=rna-KX657746.1:13018..13091;Note=transfer RNA Methionine%3B anticodon: CAU;codons=AUG;gbkey=tRNA;product=tRNA-Met
+KX657746.1	Genbank	gene	13835	14590	.	+	.	ID=gene-KX657746.1:13835..14590;description=cox2;gbkey=Gene;gene_biotype=protein_coding
+KX657746.1	Genbank	CDS	13835	14590	.	+	0	ID=cds-AOT85193.1;Parent=gene-KX657746.1:13835..14590;Dbxref=NCBI_GP:AOT85193.1;Name=AOT85193.1;gbkey=CDS;product=Cox2p;protein_id=AOT85193.1;transl_table=3
+KX657746.1	Genbank	discard-gene	14572	15996	.	+	.	ID=gene-KX657746.1:14572..15996;description=Orf1;gbkey=Gene;gene_biotype=protein_coding
+KX657746.1	Genbank	CDS	14572	15996	.	+	0	ID=cds-AOT85194.1;Parent=gene-KX657746.1:14572..15996;Dbxref=NCBI_GP:AOT85194.1;Name=AOT85194.1;Note=homolog to ORF1 (de Zamaroczy and Bernardi%2C 1986a);gbkey=CDS;product=Orf1p;protein_id=AOT85194.1;transl_except=(pos:14572..14574%2Caa:Met);transl_table=3
+KX657746.1	Genbank	gene	17753	17824	.	+	.	ID=gene-KX657746.1:17753..17824;description=trnF;gbkey=Gene;gene_biotype=tRNA
+KX657746.1	Genbank	tRNA	17753	17824	.	+	.	ID=rna-KX657746.1:17753..17824;Parent=gene-KX657746.1:17753..17824;Note=transfer RNA Phenylalanine%3B anticodon: GAA;codons=UUC;gbkey=tRNA;product=tRNA-Phe
+KX657746.1	Genbank	exon	17753	17824	.	+	.	ID=exon-KX657746.1:17753..17824-1;Parent=rna-KX657746.1:17753..17824;Note=transfer RNA Phenylalanine%3B anticodon: GAA;codons=UUC;gbkey=tRNA;product=tRNA-Phe
+KX657746.1	Genbank	gene	18120	18191	.	-	.	ID=gene-KX657746.1:18120..18191;description=trnT1;gbkey=Gene;gene_biotype=tRNA
+KX657746.1	Genbank	tRNA	18120	18191	.	-	.	ID=rna-KX657746.1:18120..18191;Parent=gene-KX657746.1:18120..18191;Note=transfer RNA Threonine%3B anticodon: UUAG;codons=CUA;gbkey=tRNA;product=tRNA-Thr
+KX657746.1	Genbank	exon	18120	18191	.	-	.	ID=exon-KX657746.1:18120..18191-1;Parent=rna-KX657746.1:18120..18191;Note=transfer RNA Threonine%3B anticodon: UUAG;codons=CUA;gbkey=tRNA;product=tRNA-Thr
+KX657746.1	Genbank	gene	19056	19128	.	+	.	ID=gene-KX657746.1:19056..19128;description=trnV;gbkey=Gene;gene_biotype=tRNA
+KX657746.1	Genbank	tRNA	19056	19128	.	+	.	ID=rna-KX657746.1:19056..19128;Parent=gene-KX657746.1:19056..19128;Note=transfer RNA Valine%3B anticodon: UAC;codons=GUA;gbkey=tRNA;product=tRNA-Val
+KX657746.1	Genbank	exon	19056	19128	.	+	.	ID=exon-KX657746.1:19056..19128-1;Parent=rna-KX657746.1:19056..19128;Note=transfer RNA Valine%3B anticodon: UAC;codons=GUA;gbkey=tRNA;product=tRNA-Val
+KX657746.1	Genbank	gene	19927	20736	.	+	.	ID=gene-KX657746.1:19927..20736;description=cox3;gbkey=Gene;gene_biotype=protein_coding
+KX657746.1	Genbank	CDS	19927	20736	.	+	0	ID=cds-AOT85195.1;Parent=gene-KX657746.1:19927..20736;Dbxref=NCBI_GP:AOT85195.1;Name=AOT85195.1;gbkey=CDS;product=Cox3p;protein_id=AOT85195.1;transl_table=3
+KX657746.1	Genbank	origin_of_replication	23808	24069	.	+	.	ID=id-KX657746.1:23808..24069;Note=ori1%3B replication origin-like;gbkey=rep_origin
+KX657746.1	Genbank	origin_of_replication	27795	28055	.	-	.	ID=id-KX657746.1:27795..28055;Note=ori2%3B replication origin-like;gbkey=rep_origin
+KX657746.1	Genbank	gene	30593	30665	.	+	.	ID=gene-KX657746.1:30593..30665;description=trnfM;gbkey=Gene;gene_biotype=tRNA
+KX657746.1	Genbank	tRNA	30593	30665	.	+	.	ID=rna-KX657746.1:30593..30665;Parent=gene-KX657746.1:30593..30665;Note=transfer RNA Formyl-methionine%3B anticodon: CAU;codons=AUG;gbkey=tRNA;product=tRNA-Met
+KX657746.1	Genbank	exon	30593	30665	.	+	.	ID=exon-KX657746.1:30593..30665-1;Parent=rna-KX657746.1:30593..30665;Note=transfer RNA Formyl-methionine%3B anticodon: CAU;codons=AUG;gbkey=tRNA;product=tRNA-Met
+KX657746.1	Genbank	gene	31383	31807	.	+	.	ID=gene-KX657746.1:31383..31807;description=rnpB;gbkey=Gene;gene_biotype=RNase_P_RNA
+KX657746.1	Genbank	RNase_P_RNA	31383	31807	.	+	.	ID=rna-KX657746.1:31383..31807;Parent=gene-KX657746.1:31383..31807;Note=rnpB%3B ribonuclease P RNA subunit;gbkey=ncRNA;product=ribonuclease P RNA
+KX657746.1	Genbank	exon	31383	31807	.	+	.	ID=exon-KX657746.1:31383..31807-1;Parent=rna-KX657746.1:31383..31807;Note=rnpB%3B ribonuclease P RNA subunit;gbkey=ncRNA;product=ribonuclease P RNA
+KX657746.1	Genbank	gene	32002	32073	.	+	.	ID=gene-KX657746.1:32002..32073;description=trnP;gbkey=Gene;gene_biotype=tRNA
+KX657746.1	Genbank	tRNA	32002	32073	.	+	.	ID=rna-KX657746.1:32002..32073;Parent=gene-KX657746.1:32002..32073;Note=transfer RNA Proline%3B anticodon: UGG;codons=CCA;gbkey=tRNA;product=tRNA-Pro
+KX657746.1	Genbank	exon	32002	32073	.	+	.	ID=exon-KX657746.1:32002..32073-1;Parent=rna-KX657746.1:32002..32073;Note=transfer RNA Proline%3B anticodon: UGG;codons=CCA;gbkey=tRNA;product=tRNA-Pro
+KX657746.1	Genbank	gene	33527	42029	.	+	.	ID=gene-KX657746.1:33527..42029;description=cox1;gbkey=Gene;gene_biotype=protein_coding
+KX657746.1	Genbank	CDS	33527	33768	.	+	0	ID=cds-AOT85196.1;Parent=gene-KX657746.1:33527..42029;Dbxref=NCBI_GP:AOT85196.1;Name=AOT85196.1;gbkey=CDS;product=Cox1p;protein_id=AOT85196.1;transl_table=3
+KX657746.1	Genbank	CDS	35333	35476	.	+	1	ID=cds-AOT85196.1;Parent=gene-KX657746.1:33527..42029;Dbxref=NCBI_GP:AOT85196.1;Name=AOT85196.1;gbkey=CDS;product=Cox1p;protein_id=AOT85196.1;transl_table=3
+KX657746.1	Genbank	CDS	36491	36813	.	+	1	ID=cds-AOT85196.1;Parent=gene-KX657746.1:33527..42029;Dbxref=NCBI_GP:AOT85196.1;Name=AOT85196.1;gbkey=CDS;product=Cox1p;protein_id=AOT85196.1;transl_table=3
+KX657746.1	Genbank	CDS	38893	39155	.	+	2	ID=cds-AOT85196.1;Parent=gene-KX657746.1:33527..42029;Dbxref=NCBI_GP:AOT85196.1;Name=AOT85196.1;gbkey=CDS;product=Cox1p;protein_id=AOT85196.1;transl_table=3
+KX657746.1	Genbank	CDS	40524	40683	.	+	0	ID=cds-AOT85196.1;Parent=gene-KX657746.1:33527..42029;Dbxref=NCBI_GP:AOT85196.1;Name=AOT85196.1;gbkey=CDS;product=Cox1p;protein_id=AOT85196.1;transl_table=3
+KX657746.1	Genbank	CDS	41557	42029	.	+	2	ID=cds-AOT85196.1;Parent=gene-KX657746.1:33527..42029;Dbxref=NCBI_GP:AOT85196.1;Name=AOT85196.1;gbkey=CDS;product=Cox1p;protein_id=AOT85196.1;transl_table=3
+KX657746.1	Genbank	exon	33527	33768	.	+	.	ID=id-KX657746.1:33527..33768;Parent=gene-KX657746.1:33527..42029;Note=cox1-E1;gbkey=exon
+KX657746.1	Genbank	exon	35333	35476	.	+	.	ID=id-KX657746.1:35333..35476;Parent=gene-KX657746.1:33527..42029;Note=cox1-E2;gbkey=exon
+KX657746.1	Genbank	exon	36491	36813	.	+	.	ID=id-KX657746.1:36491..36813;Parent=gene-KX657746.1:33527..42029;Note=cox1-E3;gbkey=exon
+KX657746.1	Genbank	exon	38893	39155	.	+	.	ID=id-KX657746.1:38893..39155;Parent=gene-KX657746.1:33527..42029;Note=cox1-E4;gbkey=exon
+KX657746.1	Genbank	exon	40524	40683	.	+	.	ID=id-KX657746.1:40524..40683;Parent=gene-KX657746.1:33527..42029;Note=cox1-E5;gbkey=exon
+KX657746.1	Genbank	exon	41557	42029	.	+	.	ID=id-KX657746.1:41557..42029;Parent=gene-KX657746.1:33527..42029;Note=cox1-E6;gbkey=exon
+KX657746.1	Genbank	intron	33769	35332	.	+	.	ID=id-KX657746.1:33769..35332;Parent=gene-KX657746.1:33527..42029;Note=cox1-I1(group IB%3B aI3alpha);gbkey=intron
+KX657746.1	Genbank	intron	35477	36490	.	+	.	ID=id-KX657746.1:35477..36490;Parent=gene-KX657746.1:33527..42029;Note=cox1-I2(group IB%3B aI3beta);gbkey=intron
+KX657746.1	Genbank	intron	36814	38892	.	+	.	ID=id-KX657746.1:36814..38892;Parent=gene-KX657746.1:33527..42029;Note=cox1-I3(group ID%3B aI3gama);gbkey=intron
+KX657746.1	Genbank	intron	39156	40523	.	+	.	ID=id-KX657746.1:39156..40523;Parent=gene-KX657746.1:33527..42029;Note=cox1-I4(group IB%3B aI5alpha);gbkey=intron
+KX657746.1	Genbank	intron	40684	41556	.	+	.	ID=id-KX657746.1:40684..41556;Parent=gene-KX657746.1:33527..42029;Note=cox1-I5(group II%3B aI5gama);gbkey=intron
+KX657746.1	Genbank	gene	33769	34810	.	+	.	ID=gene-KX657746.1:33769..34810;description=cox1-I1 RF;gbkey=Gene;gene_biotype=protein_coding;partial=true;start_range=.,33769
+KX657746.1	Genbank	CDS	33769	34810	.	+	1	ID=cds-AOT85197.1;Parent=gene-KX657746.1:33769..34810;Dbxref=NCBI_GP:AOT85197.1;Name=AOT85197.1;Note=start codon not determined;gbkey=CDS;partial=true;product=maturase/DNA endonuclease;protein_id=AOT85197.1;start_range=.,33769;transl_table=3
+KX657746.1	Genbank	gene	36814	38126	.	+	.	ID=gene-KX657746.1:36814..38126;description=cox1-I3 RF;gbkey=Gene;gene_biotype=protein_coding;partial=true;start_range=.,36814
+KX657746.1	Genbank	CDS	36814	38126	.	+	2	ID=cds-AOT85198.1;Parent=gene-KX657746.1:36814..38126;Dbxref=NCBI_GP:AOT85198.1;Name=AOT85198.1;Note=start codon not determined;gbkey=CDS;partial=true;product=hypothetical protein;protein_id=AOT85198.1;start_range=.,36814;transl_table=3
+KX657746.1	Genbank	gene	39156	40082	.	+	.	ID=gene-KX657746.1:39156..40082;description=cox1-E4 RF;gbkey=Gene;gene_biotype=protein_coding;partial=true;start_range=.,39156
+KX657746.1	Genbank	CDS	39156	40082	.	+	0	ID=cds-AOT85199.1;Parent=gene-KX657746.1:39156..40082;Dbxref=NCBI_GP:AOT85199.1;Name=AOT85199.1;Note=start codon not determined;gbkey=CDS;partial=true;product=maturase/DNA endonuclease;protein_id=AOT85199.1;start_range=.,39156;transl_table=3
+KX657746.1	Genbank	gene	43243	43389	.	+	.	ID=gene-KX657746.1:43243..43389;description=atp8;gbkey=Gene;gene_biotype=protein_coding
+KX657746.1	Genbank	CDS	43243	43389	.	+	0	ID=cds-AOT85200.1;Parent=gene-KX657746.1:43243..43389;Dbxref=NCBI_GP:AOT85200.1;Name=AOT85200.1;gbkey=CDS;product=Atp8p;protein_id=AOT85200.1;transl_table=3
+KX657746.1	Genbank	gene	43686	44465	.	+	.	ID=gene-KX657746.1:43686..44465;description=atp6;gbkey=Gene;gene_biotype=protein_coding
+KX657746.1	Genbank	CDS	43686	44465	.	+	0	ID=cds-AOT85201.1;Parent=gene-KX657746.1:43686..44465;Dbxref=NCBI_GP:AOT85201.1;Name=AOT85201.1;gbkey=CDS;product=Atp6p;protein_id=AOT85201.1;transl_table=3
+KX657746.1	Genbank	origin_of_replication	46191	46451	.	+	.	ID=id-KX657746.1:46191..46451;Note=ori1%3B replication origin-like;gbkey=rep_origin
+KX657746.1	Genbank	origin_of_replication	49055	49317	.	-	.	ID=id-KX657746.1:49055..49317;Note=ori2%3B replication origin-like;gbkey=rep_origin
+KX657746.1	Genbank	gene	49884	49955	.	+	.	ID=gene-KX657746.1:49884..49955;description=trnE;gbkey=Gene;gene_biotype=tRNA
+KX657746.1	Genbank	tRNA	49884	49955	.	+	.	ID=rna-KX657746.1:49884..49955;Parent=gene-KX657746.1:49884..49955;Note=transfer RNA Glutamic Acid%3B anticodon: UUC;codons=GAA;gbkey=tRNA;product=tRNA-Glu
+KX657746.1	Genbank	exon	49884	49955	.	+	.	ID=exon-KX657746.1:49884..49955-1;Parent=rna-KX657746.1:49884..49955;Note=transfer RNA Glutamic Acid%3B anticodon: UUC;codons=GAA;gbkey=tRNA;product=tRNA-Glu
+KX657746.1	Genbank	gene	50911	56402	.	+	.	ID=gene-KX657746.1:50911..56402;description=cob;gbkey=Gene;gene_biotype=protein_coding
+KX657746.1	Genbank	CDS	50911	51303	.	+	0	ID=cds-AOT85202.1;Parent=gene-KX657746.1:50911..56402;Dbxref=NCBI_GP:AOT85202.1;Name=AOT85202.1;gbkey=CDS;product=Cobp;protein_id=AOT85202.1;transl_table=3
+KX657746.1	Genbank	CDS	51947	51968	.	+	0	ID=cds-AOT85202.1;Parent=gene-KX657746.1:50911..56402;Dbxref=NCBI_GP:AOT85202.1;Name=AOT85202.1;gbkey=CDS;product=Cobp;protein_id=AOT85202.1;transl_table=3
+KX657746.1	Genbank	CDS	52832	52845	.	+	2	ID=cds-AOT85202.1;Parent=gene-KX657746.1:50911..56402;Dbxref=NCBI_GP:AOT85202.1;Name=AOT85202.1;gbkey=CDS;product=Cobp;protein_id=AOT85202.1;transl_table=3
+KX657746.1	Genbank	CDS	54115	54191	.	+	0	ID=cds-AOT85202.1;Parent=gene-KX657746.1:50911..56402;Dbxref=NCBI_GP:AOT85202.1;Name=AOT85202.1;gbkey=CDS;product=Cobp;protein_id=AOT85202.1;transl_table=3
+KX657746.1	Genbank	CDS	55751	56402	.	+	1	ID=cds-AOT85202.1;Parent=gene-KX657746.1:50911..56402;Dbxref=NCBI_GP:AOT85202.1;Name=AOT85202.1;gbkey=CDS;product=Cobp;protein_id=AOT85202.1;transl_table=3
+KX657746.1	Genbank	exon	50911	51303	.	+	.	ID=id-KX657746.1:50911..51303;Parent=gene-KX657746.1:50911..56402;Note=cob-E1;gbkey=exon
+KX657746.1	Genbank	exon	51947	51968	.	+	.	ID=id-KX657746.1:51947..51968;Parent=gene-KX657746.1:50911..56402;Note=cob-E2;gbkey=exon
+KX657746.1	Genbank	exon	52832	52845	.	+	.	ID=id-KX657746.1:52832..52845;Parent=gene-KX657746.1:50911..56402;Note=cob-E3;gbkey=exon
+KX657746.1	Genbank	exon	54115	54191	.	+	.	ID=id-KX657746.1:54115..54191;Parent=gene-KX657746.1:50911..56402;Note=cob-E4;gbkey=exon
+KX657746.1	Genbank	exon	55751	56402	.	+	.	ID=id-KX657746.1:55751..56402;Parent=gene-KX657746.1:50911..56402;Note=cob-E5;gbkey=exon
+KX657746.1	Genbank	intron	51304	51946	.	+	.	ID=id-KX657746.1:51304..51946;Parent=gene-KX657746.1:50911..56402;Note=cob-I1(group ID%3B bI1alpha);gbkey=intron
+KX657746.1	Genbank	intron	51969	52831	.	+	.	ID=id-KX657746.1:51969..52831;Parent=gene-KX657746.1:50911..56402;Note=cob-I2(group II%3B bI1beta);gbkey=intron
+KX657746.1	Genbank	intron	52846	54114	.	+	.	ID=id-KX657746.1:52846..54114;Parent=gene-KX657746.1:50911..56402;Note=cob-I3(group ID%3B bI2);gbkey=intron
+KX657746.1	Genbank	intron	54192	55750	.	+	.	ID=id-KX657746.1:54192..55750;Parent=gene-KX657746.1:50911..56402;Note=cob-I4(group IB%3B bI3);gbkey=intron
+KX657746.1	Genbank	discard-gene	52846	53595	.	+	.	ID=gene-KX657746.1:52846..53595;description=cob-I3 RF;gbkey=Gene;gene_biotype=protein_coding;partial=true;start_range=.,52846
+KX657746.1	Genbank	CDS	52846	53595	.	+	0	ID=cds-AOT85203.1;Parent=gene-KX657746.1:52846..53595;Dbxref=NCBI_GP:AOT85203.1;Name=AOT85203.1;Note=start codon not determined;gbkey=CDS;partial=true;product=maturase/DNA endonuclease;protein_id=AOT85203.1;start_range=.,52846;transl_table=3
+KX657746.1	Genbank	gene	54192	55251	.	+	.	ID=gene-KX657746.1:54192..55251;description=cob-I4 RF;gbkey=Gene;gene_biotype=protein_coding;partial=true;start_range=.,54192
+KX657746.1	Genbank	CDS	54192	55251	.	+	1	ID=cds-AOT85204.1;Parent=gene-KX657746.1:54192..55251;Dbxref=NCBI_GP:AOT85204.1;Name=AOT85204.1;Note=start codon not determined;gbkey=CDS;partial=true;product=hypothetical protein;protein_id=AOT85204.1;start_range=.,54192;transl_table=3
+KX657746.1	Genbank	origin_of_replication	57444	57705	.	+	.	ID=id-KX657746.1:57444..57705;Note=ori5%3B replication origin-like;gbkey=rep_origin
+KX657746.1	Genbank	gene	60840	61070	.	+	.	ID=gene-KX657746.1:60840..61070;description=atp9;gbkey=Gene;gene_biotype=protein_coding
+KX657746.1	Genbank	CDS	60840	61070	.	+	0	ID=cds-AOT85205.1;Parent=gene-KX657746.1:60840..61070;Dbxref=NCBI_GP:AOT85205.1;Name=AOT85205.1;gbkey=CDS;product=Atp9p;protein_id=AOT85205.1;transl_table=3
+KX657746.1	Genbank	gene	62808	62894	.	+	.	ID=gene-KX657746.1:62808..62894;description=trnS1;gbkey=Gene;gene_biotype=tRNA
+KX657746.1	Genbank	tRNA	62808	62894	.	+	.	ID=rna-KX657746.1:62808..62894;Parent=gene-KX657746.1:62808..62894;Note=transfer RNA Serine%3B anticodon: UGA;codons=UCA;gbkey=tRNA;product=tRNA-Ser
+KX657746.1	Genbank	exon	62808	62894	.	+	.	ID=exon-KX657746.1:62808..62894-1;Parent=rna-KX657746.1:62808..62894;Note=transfer RNA Serine%3B anticodon: UGA;codons=UCA;gbkey=tRNA;product=tRNA-Ser
+KX657746.1	Genbank	gene	64298	65467	.	+	.	ID=gene-KX657746.1:64298..65467;description=rps3;gbkey=Gene;gene_biotype=protein_coding
+KX657746.1	Genbank	CDS	64298	65467	.	+	0	ID=cds-AOT85206.1;Parent=gene-KX657746.1:64298..65467;Dbxref=NCBI_GP:AOT85206.1;Name=AOT85206.1;gbkey=CDS;product=Rps3p;protein_id=AOT85206.1;transl_table=3
+KX657746.1	Genbank	gene	68113	68183	.	-	.	ID=gene-KX657746.1:68113..68183;description=trnW;gbkey=Gene;gene_biotype=tRNA
+KX657746.1	Genbank	tRNA	68113	68183	.	-	.	ID=rna-KX657746.1:68113..68183;Parent=gene-KX657746.1:68113..68183;Note=transfer RNA Tryptophan%3B anticodon: UCA;codons=UGA;gbkey=tRNA;product=tRNA-Trp
+KX657746.1	Genbank	exon	68113	68183	.	-	.	ID=exon-KX657746.1:68113..68183-1;Parent=rna-KX657746.1:68113..68183;Note=transfer RNA Tryptophan%3B anticodon: UCA;codons=UGA;gbkey=tRNA;product=tRNA-Trp
+KX657746.1	Genbank	gene	69794	71405	.	-	.	ID=gene-KX657746.1:69794..71405;description=rns;gbkey=Gene;gene_biotype=rRNA
+KX657746.1	Genbank	rRNA	69794	71405	.	-	.	ID=rna-KX657746.1:69794..71405;Parent=gene-KX657746.1:69794..71405;Note=small subunit ribosomal RNA;gbkey=rRNA;product=small subunit ribosomal RNA
+KX657746.1	Genbank	exon	69794	71405	.	-	.	ID=exon-KX657746.1:69794..71405-1;Parent=rna-KX657746.1:69794..71405;Note=small subunit ribosomal RNA;gbkey=rRNA;product=small subunit ribosomal RNA
+KX657746.1	Genbank	origin_of_replication	72126	72387	.	+	.	ID=id-KX657746.1:72126..72387;Note=ori6%3B replication origin-like;gbkey=rep_origin
+KX657746.1	Genbank	origin_of_replication	74487	74747	.	+	.	ID=id-KX657746.1:74487..74747;Note=ori7%3B replication origin-like;gbkey=rep_origin
+KX657746.1	Genbank	origin_of_replication	79987	80248	.	-	.	ID=id-KX657746.1:79987..80248;Note=ori8%3B replication origin-like;gbkey=rep_origin
+

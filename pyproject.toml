@@ -8,7 +8,7 @@ dynamic = ["version"]
 description = "Gene Dictionary Tool - Bioinformatics package"
 readme = "README.md"
 license = "MIT"
-requires-python = ">=3.10"
+requires-python = ">=3.12"
 
 authors = [
     {name = "Breno Dupin", email = "breno.dupin@gmail.com"},
@@ -58,16 +58,8 @@ include = ["*"]
 [tool.setuptools.package-dir]
 "" = "src"
 
-[dependency-groups]
-dev = [
-    "mypy>=1.16.0",
-    "ruff>=0.11.12",
-    "pandas-stubs>=2.2.3.250527",
-    "black>=25.1.0",
-]
-
 [tool.black]
-line-length = 88
+line-length = 92
 
 [[tool.uv.index]]
 name = "pypi"

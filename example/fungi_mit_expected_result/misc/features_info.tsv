@@ -1,0 +1,185 @@
+seqid	gene_id	gene	product	description	name	note	best_feature
+JQ346808.1	gene-AFUA_m0010				AFUA_m0010		AFUA_m0010
+JQ346808.1	gene-AFUA_m0020				AFUA_m0020		AFUA_m0020
+JQ346808.1	gene-AFUA_m0030				AFUA_m0030		AFUA_m0030
+JQ346808.1	gene-AFUA_m0040				AFUA_m0040		AFUA_m0040
+JQ346808.1	gene-AFUA_m0050				AFUA_m0050		AFUA_m0050
+JQ346808.1	gene-AFUA_m0060				AFUA_m0060		AFUA_m0060
+JQ346808.1	gene-AFUA_m0070				AFUA_m0070		AFUA_m0070
+JQ346808.1	gene-AFUA_m0080				AFUA_m0080		AFUA_m0080
+JQ346808.1	gene-AFUA_m0090				AFUA_m0090		AFUA_m0090
+JQ346808.1	gene-AFUA_m0100				AFUA_m0100		AFUA_m0100
+JQ346808.1	gene-AFUA_m0110				AFUA_m0110		AFUA_m0110
+JQ346808.1	gene-AFUA_m0120				AFUA_m0120		AFUA_m0120
+JQ346808.1	gene-AFUA_m0130				AFUA_m0130		AFUA_m0130
+JQ346808.1	gene-AFUA_m0140				AFUA_m0140		AFUA_m0140
+JQ346808.1	gene-AFUA_m0150				AFUA_m0150		AFUA_m0150
+JQ346808.1	gene-AFUA_m0160				AFUA_m0160		AFUA_m0160
+JQ346808.1	gene-AFUA_m0170				AFUA_m0170		AFUA_m0170
+JQ346808.1	gene-AFUA_m0180				AFUA_m0180		AFUA_m0180
+JQ346808.1	gene-AFUA_m0190				AFUA_m0190		AFUA_m0190
+JQ346808.1	gene-AFUA_m0200				AFUA_m0200		AFUA_m0200
+JQ346808.1	gene-AFUA_m0210				AFUA_m0210		AFUA_m0210
+JQ346808.1	gene-AFUA_m0220				AFUA_m0220		AFUA_m0220
+JQ346808.1	gene-AFUA_m0230				AFUA_m0230		AFUA_m0230
+JQ346808.1	gene-AFUA_m0240				AFUA_m0240		AFUA_m0240
+JQ346808.1	gene-AFUA_m0250				AFUA_m0250		AFUA_m0250
+JQ346808.1	gene-AFUA_m0260				AFUA_m0260		AFUA_m0260
+JQ346808.1	gene-AFUA_m0270				AFUA_m0270		AFUA_m0270
+JQ346808.1	gene-AFUA_m0280				AFUA_m0280		AFUA_m0280
+JQ346808.1	gene-AFUA_m0290				AFUA_m0290		AFUA_m0290
+JQ346808.1	gene-AFUA_m0300				AFUA_m0300		AFUA_m0300
+JQ346808.1	gene-AFUA_m0310				AFUA_m0310		AFUA_m0310
+JQ346808.1	gene-AFUA_m0320				AFUA_m0320		AFUA_m0320
+JQ346808.1	gene-AFUA_m0330				AFUA_m0330		AFUA_m0330
+JQ346808.1	gene-AFUA_m0340				AFUA_m0340		AFUA_m0340
+JQ346808.1	gene-AFUA_m0350				AFUA_m0350		AFUA_m0350
+JQ346808.1	gene-AFUA_m0360				AFUA_m0360		AFUA_m0360
+JQ346808.1	gene-AFUA_m0370				AFUA_m0370		AFUA_m0370
+JQ346808.1	gene-AFUA_m0380				AFUA_m0380		AFUA_m0380
+JQ346808.1	gene-AFUA_m0390				AFUA_m0390		AFUA_m0390
+JQ346808.1	gene-AFUA_m0400				AFUA_m0400		AFUA_m0400
+JQ346808.1	gene-AFUA_m0410				AFUA_m0410		AFUA_m0410
+JQ346808.1	gene-AFUA_m0420				AFUA_m0420		AFUA_m0420
+JQ346808.1	gene-AFUA_m0430				AFUA_m0430		AFUA_m0430
+JQ346808.1	gene-AFUA_m0440				AFUA_m0440		AFUA_m0440
+JQ346808.1	gene-AFUA_m0450				AFUA_m0450		AFUA_m0450
+JQ346808.1	gene-AFUA_m0460				AFUA_m0460		AFUA_m0460
+JQ346808.1	gene-AFUA_m0470				AFUA_m0470		AFUA_m0470
+JQ346808.1	gene-AFUA_m0480				AFUA_m0480		AFUA_m0480
+JQ346808.1	gene-AFUA_m0490				AFUA_m0490		AFUA_m0490
+JQ346808.1	gene-AFUA_m0500				AFUA_m0500		AFUA_m0500
+JQ346808.1	gene-AFUA_m0510				AFUA_m0510		AFUA_m0510
+JQ346808.1	gene-AFUA_m0520				AFUA_m0520		AFUA_m0520
+JQ346808.1	gene-AFUA_m0530				AFUA_m0530		AFUA_m0530
+KX657746.1	gene-KX657746.1:14572..15996			Orf1			Orf1
+KX657746.1	gene-KX657746.1:43686..44465			atp6			atp6
+KX657746.1	gene-KX657746.1:43243..43389			atp8			atp8
+KX657746.1	gene-KX657746.1:60840..61070			atp9			atp9
+HE983611.1	gene-atp9	atp9			atp9		atp9
+KX657746.1	gene-KX657746.1:50911..56402			cob			cob
+KX657746.1	gene-KX657746.1:52846..53595			cob-I3 RF			cob-I3 RF
+KX657746.1	gene-KX657746.1:54192..55251			cob-I4 RF			cob-I4 RF
+KX657746.1	gene-KX657746.1:33527..42029			cox1			cox1
+KX657746.1	gene-KX657746.1:39156..40082			cox1-E4 RF			cox1-E4 RF
+KX657746.1	gene-KX657746.1:33769..34810			cox1-I1 RF			cox1-I1 RF
+KX657746.1	gene-KX657746.1:36814..38126			cox1-I3 RF			cox1-I3 RF
+KX657746.1	gene-KX657746.1:13835..14590			cox2			cox2
+KX657746.1	gene-KX657746.1:19927..20736			cox3			cox3
+JQ346808.1	rna-AFUA_m0250		large subunit ribosomal RNA				large subunit ribosomal RNA
+KX657746.1	rna-KX657746.1:1..3338		large subunit ribosomal RNA			large subunit ribosomal RNA	large subunit ribosomal RNA
+HE983611.1	rna-lsu	lsu	23S ribosomal RNA				lsu
+HE983611.1	gene-lsu	lsu			lsu		lsu
+KX657746.1	gene-KX657746.1:1..3338			rnl			rnl
+KX657746.1	gene-KX657746.1:31383..31807			rnpB			rnpB
+KX657746.1	gene-KX657746.1:69794..71405			rns			rns
+HE983611.1	rna-rpm1	rpm1	RNA subunit of RNaseP				rpm1
+KX657746.1	gene-KX657746.1:64298..65467			rps3			rps3
+KX657746.1	rna-KX657746.1:69794..71405		small subunit ribosomal RNA			small subunit ribosomal RNA	small subunit ribosomal RNA
+JQ346808.1	rna-AFUA_m0120		small subunit ribosomal RNA				small subunit ribosomal RNA
+HE983611.1	rna-ssu	ssu	15S ribosomal RNA				ssu
+HE983611.1	gene-ssu	ssu			ssu		ssu
+JQ346808.1	rna-AFUA_m0330		tRNA-Ala			anticodon TGC	tRNA-Ala
+JQ346808.1	rna-AFUA_m0470		tRNA-Ala			anticodon TGC	tRNA-Ala
+KX657746.1	rna-KX657746.1:11127..11199		tRNA-Ala			transfer RNA Alanine%3B anticodon: UGC	tRNA-Ala
+HE983611.1	rna-tRNA-Ala	tRNA-Ala	tRNA-Ala				tRNA-Ala
+JQ346808.1	rna-AFUA_m0070		tRNA-Arg			anticodon TCT	tRNA-Arg
+KX657746.1	rna-KX657746.1:10202..10272		tRNA-Arg			transfer RNA Arginine%3B anticodon: ACG	tRNA-Arg
+HE983611.1	rna-tRNA-Arg-2	tRNA-Arg	tRNA-Arg				tRNA-Arg
+KX657746.1	rna-KX657746.1:7667..7739		tRNA-Arg			transfer RNA Arginine%3B anticodon:UCU	tRNA-Arg
+JQ346808.1	rna-AFUA_m0500		tRNA-Arg			anticodon ACG	tRNA-Arg
+HE983611.1	rna-tRNA-Arg	tRNA-Arg	tRNA-Arg				tRNA-Arg
+HE983611.1	rna-tRNA-Asn	tRNA-Asn	tRNA-Asn				tRNA-Asn
+JQ346808.1	rna-AFUA_m0080		tRNA-Asn			anticodon GTT	tRNA-Asn
+KX657746.1	rna-KX657746.1:12478..12549		tRNA-Asn			transfer RNA Asparagine%3B anticodon: GUU	tRNA-Asn
+JQ346808.1	rna-AFUA_m0030		tRNA-Asn			anticodon ATT	tRNA-Asn
+KX657746.1	rna-KX657746.1:9037..9108		tRNA-Asp			transfer RNA Aspartic Acid%3B anticodon: GUC	tRNA-Asp
+HE983611.1	rna-tRNA-Asp	tRNA-Asp	tRNA-Asp				tRNA-Asp
+JQ346808.1	rna-AFUA_m0190		tRNA-Asp			anticodon GTC	tRNA-Asp
+KX657746.1	rna-KX657746.1:5392..5464		tRNA-Cys			transfer RNA Cysteine%3B anticodon: GCA	tRNA-Cys
+HE983611.1	rna-tRNA-Cys	tRNA-Cys	tRNA-Cys				tRNA-Cys
+JQ346808.1	rna-AFUA_m0020		tRNA-Cys			anticodon GCA	tRNA-Cys
+HE983611.1	rna-tRNA-Gln	tRNA-Gln	tRNA-Gln				tRNA-Gln
+JQ346808.1	rna-AFUA_m0360		tRNA-Gln			anticodon TTG	tRNA-Gln
+KX657746.1	rna-KX657746.1:6429..6501		tRNA-Gln			transfer RNA Glutamine%3B anticodon: UUG	tRNA-Gln
+JQ346808.1	rna-AFUA_m0280		tRNA-Glu			anticodon TTC	tRNA-Glu
+KX657746.1	rna-KX657746.1:49884..49955		tRNA-Glu			transfer RNA Glutamic Acid%3B anticodon: UUC	tRNA-Glu
+HE983611.1	rna-tRNA-Glu	tRNA-Glu	tRNA-Glu				tRNA-Glu
+JQ346808.1	rna-AFUA_m0170		tRNA-Gly			anticodon ACC	tRNA-Gly
+JQ346808.1	rna-AFUA_m0180		tRNA-Gly			anticodon TCC	tRNA-Gly
+HE983611.1	rna-tRNA-Gly	tRNA-Gly	tRNA-Gly				tRNA-Gly
+KX657746.1	rna-KX657746.1:7877..7948		tRNA-Gly			transfer RNA Glycine%3B anticodon: UCC	tRNA-Gly
+JQ346808.1	rna-AFUA_m0410		tRNA-His			anticodon GTG	tRNA-His
+KX657746.1	rna-KX657746.1:5503..5573		tRNA-His			transfer RNA Histidine%3B anticodon: GUG	tRNA-His
+HE983611.1	rna-tRNA-His	tRNA-His	tRNA-His				tRNA-His
+KX657746.1	rna-KX657746.1:11325..11397		tRNA-Ile			transfer RNA Isoleucine%3B anticodon: GAU	tRNA-Ile
+JQ346808.1	rna-AFUA_m0220		tRNA-Ile			anticodon GAT	tRNA-Ile
+JQ346808.1	rna-AFUA_m0100		tRNA-Ile			anticodon TAT	tRNA-Ile
+HE983611.1	rna-tRNA-Ile	tRNA-Ile	tRNA-Ile				tRNA-Ile
+JQ346808.1	rna-AFUA_m0050		tRNA-Ile			anticodon TAT	tRNA-Ile
+JQ346808.1	rna-AFUA_m0380		tRNA-Ile			anticodon TAT	tRNA-Ile
+JQ346808.1	rna-AFUA_m0320		tRNA-Leu			anticodon TAA	tRNA-Leu
+JQ346808.1	rna-AFUA_m0350		tRNA-Leu			anticodon TAG	tRNA-Leu
+KX657746.1	rna-KX657746.1:6326..6407		tRNA-Leu			transfer RNA Leucine%3B anticodon: UAA	tRNA-Leu
+HE983611.1	rna-tRNA-Leu-2	tRNA-Leu	tRNA-Leu				tRNA-Leu
+HE983611.1	rna-tRNA-Leu	tRNA-Leu	tRNA-Leu				tRNA-Leu
+JQ346808.1	rna-AFUA_m0160		tRNA-Lys			anticodon TTT	tRNA-Lys
+KX657746.1	rna-KX657746.1:7294..7365		tRNA-Lys			transfer RNA Lysine%3B anticodon: UUU	tRNA-Lys
+HE983611.1	rna-tRNA-Lys	tRNA-Lys	tRNA-Lys				tRNA-Lys
+KX657746.1	rna-KX657746.1:30593..30665		tRNA-Met			transfer RNA Formyl-methionine%3B anticodon: CAU	tRNA-Met
+JQ346808.1	rna-AFUA_m0310		tRNA-Met			anticodon CAT	tRNA-Met
+JQ346808.1	rna-AFUA_m0300		tRNA-Met			anticodon CAT	tRNA-Met
+HE983611.1	rna-tRNA-Met-2	tRNA-Met	tRNA-Met				tRNA-Met
+KX657746.1	rna-KX657746.1:13018..13091		tRNA-Met			transfer RNA Methionine%3B anticodon: CAU	tRNA-Met
+JQ346808.1	rna-AFUA_m0370		tRNA-Met			anticodon CAT	tRNA-Met
+HE983611.1	rna-tRNA-Met	tRNA-Met	tRNA-Met				tRNA-Met
+JQ346808.1	rna-AFUA_m0340		tRNA-Phe			anticodon GAA	tRNA-Phe
+KX657746.1	rna-KX657746.1:17753..17824		tRNA-Phe			transfer RNA Phenylalanine%3B anticodon: GAA	tRNA-Phe
+HE983611.1	rna-tRNA-Phe	tRNA-Phe	tRNA-Phe				tRNA-Phe
+KX657746.1	rna-KX657746.1:32002..32073		tRNA-Pro			transfer RNA Proline%3B anticodon: UGG	tRNA-Pro
+HE983611.1	rna-tRNA-Pro	tRNA-Pro	tRNA-Pro				tRNA-Pro
+JQ346808.1	rna-AFUA_m0240		tRNA-Pro			anticodon TGG	tRNA-Pro
+JQ346808.1	rna-AFUA_m0210		tRNA-Sec			anticodon TCA	tRNA-Sec
+HE983611.1	rna-tRNA-Ser	tRNA-Ser	tRNA-Ser				tRNA-Ser
+HE983611.1	rna-tRNA-Ser-2	tRNA-Ser	tRNA-Ser				tRNA-Ser
+KX657746.1	rna-KX657746.1:62808..62894		tRNA-Ser			transfer RNA Serine%3B anticodon: UGA	tRNA-Ser
+KX657746.1	rna-KX657746.1:10110..10192		tRNA-Ser			transfer RNA Serine%3B anticodon: GCU	tRNA-Ser
+JQ346808.1	rna-AFUA_m0230		tRNA-Ser			anticodon TGA	tRNA-Ser
+JQ346808.1	rna-AFUA_m0200		tRNA-Ser			anticodon GCT	tRNA-Ser
+KX657746.1	rna-KX657746.1:4702..4774		tRNA-Thr			transfer RNA Threonine%3B anticodon: UGU	tRNA-Thr
+KX657746.1	rna-KX657746.1:18120..18191		tRNA-Thr			transfer RNA Threonine%3B anticodon: UUAG	tRNA-Thr
+HE983611.1	rna-tRNA-Thr	tRNA-Thr	tRNA-Thr				tRNA-Thr
+JQ346808.1	rna-AFUA_m0270		tRNA-Thr			anticodon TGT	tRNA-Thr
+HE983611.1	rna-tRNA-Trp	tRNA-Trp	tRNA-Trp				tRNA-Trp
+KX657746.1	rna-KX657746.1:68113..68183		tRNA-Trp			transfer RNA Tryptophan%3B anticodon: UCA	tRNA-Trp
+HE983611.1	rna-tRNA-Tyr	tRNA-Tyr	tRNA-Tyr				tRNA-Tyr
+KX657746.1	rna-KX657746.1:11879..11963		tRNA-Tyr			transfer RNA Tyrosine%3B anticodon: GUA	tRNA-Tyr
+JQ346808.1	rna-AFUA_m0130		tRNA-Tyr			anticodon GTA	tRNA-Tyr
+JQ346808.1	rna-AFUA_m0290		tRNA-Val			anticodon TAC	tRNA-Val
+KX657746.1	rna-KX657746.1:19056..19128		tRNA-Val			transfer RNA Valine%3B anticodon: UAC	tRNA-Val
+HE983611.1	rna-tRNA-Val	tRNA-Val	tRNA-Val				tRNA-Val
+KX657746.1	gene-KX657746.1:11127..11199			trnA			trnA
+KX657746.1	gene-KX657746.1:5392..5464			trnC			trnC
+KX657746.1	gene-KX657746.1:9037..9108			trnD			trnD
+KX657746.1	gene-KX657746.1:49884..49955			trnE			trnE
+KX657746.1	gene-KX657746.1:17753..17824			trnF			trnF
+KX657746.1	gene-KX657746.1:7877..7948			trnG			trnG
+KX657746.1	gene-KX657746.1:5503..5573			trnH			trnH
+KX657746.1	gene-KX657746.1:11325..11397			trnI			trnI
+KX657746.1	gene-KX657746.1:7294..7365			trnK			trnK
+KX657746.1	gene-KX657746.1:6326..6407			trnL			trnL
+KX657746.1	gene-KX657746.1:13018..13091			trnM			trnM
+KX657746.1	gene-KX657746.1:12478..12549			trnN			trnN
+KX657746.1	gene-KX657746.1:32002..32073			trnP			trnP
+KX657746.1	gene-KX657746.1:6429..6501			trnQ			trnQ
+KX657746.1	gene-KX657746.1:7667..7739			trnR1			trnR1
+KX657746.1	gene-KX657746.1:10202..10272			trnR2			trnR2
+KX657746.1	gene-KX657746.1:62808..62894			trnS1			trnS1
+KX657746.1	gene-KX657746.1:10110..10192			trnS2			trnS2
+KX657746.1	gene-KX657746.1:18120..18191			trnT1			trnT1
+KX657746.1	gene-KX657746.1:4702..4774			trnT2			trnT2
+KX657746.1	gene-KX657746.1:19056..19128			trnV			trnV
+KX657746.1	gene-KX657746.1:68113..68183			trnW			trnW
+KX657746.1	gene-KX657746.1:11879..11963			trnY			trnY
+KX657746.1	gene-KX657746.1:30593..30665			trnfM			trnfM
+HE983611.1	gene-var1	var1			var1		var1

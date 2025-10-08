@@ -14,6 +14,7 @@ each operation.
 
 import argparse
 import os
+import sys
 from pathlib import Path
 
 from . import __version__, gdict, gff3_utils, log_setup
@@ -33,6 +34,28 @@ GDT_BANNER: str = f"""           ╔══════════════�
                    Version: \033[32m{__version__}{C_RESET}"""
 
 MAX_CPU: int = os.cpu_count() or 1
+
+
+def _print_version() -> str:
+    """Print the version of the tigre package."""
+    result = f"gdt version {__version__}"
+    if any(arg.startswith("-v") or arg == "--verbose" for arg in sys.argv):
+        result += f"\npython version {sys.version.split()[0]} at {sys.executable}"
+
+        try:
+            import pandas as pd
+
+            result += f"\npandas version {pd.__version__} at {pd.__file__}"
+        except ImportError:
+            result += "\npandas version not available (it's a required dependency)"
+
+        try:
+            import Bio
+
+            result += f"\nbiopython version {Bio.__version__} at {Bio.__file__}"
+        except ImportError:
+            result += "\nbiopython version not available"
+    return result
 
 
 def _workers_count(workers: int, threading: bool = False) -> int:
@@ -306,7 +329,7 @@ def cli_run() -> None:
     main_parser.add_argument(
         "--version",
         action="version",
-        version=f"gdt {__version__}",
+        version=_print_version(),
         help="Show the version of the gdt package.",
     )
 

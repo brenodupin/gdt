@@ -50,7 +50,7 @@ jobs:
       - name: Generate custom changelog
         id: changelog
         run: |
-          git fetch --tags
+          git fetch --tags --force
           PREVIOUS_TAG=$(git tag --sort=-version:refname | grep -v "^${{ github.ref_name }}$" | head -1)
           CHANGELOG=$(git log --oneline --pretty=format:"- %h %s" ${PREVIOUS_TAG}..HEAD)
           echo "changelog<<EOF" >> $GITHUB_OUTPUT

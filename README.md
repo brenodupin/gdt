@@ -7,12 +7,12 @@
 
 $${\color{#E0AF68}{\LARGE\textsf{🧬 Standardizing gene names across organelle genomes 🧬}}}$$  
 <br>
+[![Published in STAR Protocols](https://img.shields.io/badge/published%20in-STAR%20Protocols-blue)](https://doi.org/10.1016/j.xpro.2025.104187)
+[![License](https://img.shields.io/badge/license-MIT-purple)](https://github.com/brenodupin/gdt/blob/master/LICENSE)
 ![Build Status](https://img.shields.io/badge/tests-in_development-yellow)
 [![Checked with mypy](https://www.mypy-lang.org/static/mypy_badge.svg)](https://mypy-lang.org/)
 [![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
 [![Linting: Ruff](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/charliermarsh/ruff/main/assets/badge/v2.json)](https://github.com/astral-sh/ruff)
-[![License](https://img.shields.io/badge/license-MIT-purple)](https://github.com/brenodupin/gdt/blob/master/LICENSE)
-[![DOI:10.1101/2025.06.15.659783v1](https://img.shields.io/badge/biorxiv-10.1101/2025.06.15.659783-blue)](https://doi.org/10.1101/2025.06.15.659783)
 [![DOI](https://zenodo.org/badge/1000978876.svg)](https://zenodo.org/badge/latestdoi/1000978876)
 </div>
 
